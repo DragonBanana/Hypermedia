@@ -23,15 +23,15 @@
         </button>
     <div class="collapse navbar-collapse" id="navbarResponsive">
       <ul class="navbar-nav ml-auto">
-        <li class="nav-item active">
-          <a class="nav-link" href="#">Home
+        <li class="nav-item">
+          <a class="nav-link" href="index.html">Home
                 <span class="sr-only">(current)</span>
               </a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="registration.html">Registration</a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item active">
           <a class="nav-link" href="login.html">Login</a>
         </li>
         <li class="nav-item">
@@ -48,55 +48,60 @@
   </div>
 </nav>
 
-<header>
-  <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-    <ol class="carousel-indicators">
-      <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-      <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-      <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-    </ol>
-    <div class="carousel-inner" role="listbox">
-      <!-- Slide One - Set the background image for this slide in the line below -->
-      <div class="carousel-item active" style="background-image: url('image/bookstore1.jpg')">
-        <div class="carousel-caption d-none d-md-block">
-          <h3 class="display-4">Welcome to Book Boutique!</h3>
-          <p class="lead">This is a hypster photograph.</p>
-        </div>
-      </div>
-      <!-- Slide Two - Set the background image for this slide in the line below -->
-      <div class="carousel-item" style="background-image: url('image/bookstore2.jpg')">
-        <div class="carousel-caption d-none d-md-block">
-          <h3 class="display-4">Welcome to Book Boutique!</h3>
-          <p class="lead">I know you are looking at the tits.</p>
-        </div>
-      </div>
-      <!-- Slide Three - Set the background image for this slide in the line below -->
-      <div class="carousel-item" style="background-image: url('image/bookstore3.jpg')">
-        <div class="carousel-caption d-none d-md-block">
-          <h3 class="display-4">Welcome to Book Boutique!</h3>
-          <p class="lead">No ai libri scritti dai neri!</p>
-        </div>
-      </div>
-    </div>
-    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="sr-only">Previous</span>
-        </a>
-    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="sr-only">Next</span>
-        </a>
-  </div>
-</header>
 
-<div class="container-fluid">
-  <div class="row jumbotron">
-    <div class="col-xs-12 col-sm-12 col-md-9 col-lg-9 col-xl-10">
-      <p class="lead">BookBoutique, a web store where you can find some of the most cherished books in the World!</p>
-    </div>
+<!-- Material form login -->
+<div class="card">
+
+  <h5 class="card-header info-color white-text text-center py-4">
+    <strong>Sign in</strong>
+  </h5>
+
+  <!--Card content-->
+  <div class="card-body px-lg-5 pt-0">
+
+    <!-- Form -->
+    <form class="text-center" style="color: #757575;">
+
+      <!-- Email -->
+      <div class="md-form">
+        <input type="email" id="materialLoginFormEmail" class="form-control">
+        <label for="materialLoginFormEmail">E-mail</label>
+      </div>
+
+      <!-- Password -->
+      <div class="md-form">
+        <input type="password" id="materialLoginFormPassword" class="form-control">
+        <label for="materialLoginFormPassword">Password</label>
+      </div>
+
+      <div class="d-flex justify-content-around">
+        <div>
+          <!-- Remember me -->
+          <div class="form-check">
+            <input type="checkbox" class="form-check-input" id="materialLoginFormRemember">
+            <label class="form-check-label" for="materialLoginFormRemember">Remember me</label>
+          </div>
+        </div>
+        <div>
+      </div>
+
+      <!-- Sign in button -->
+      <button class="btn btn-outline-info btn-rounded btn-block my-4 waves-effect z-depth-0" type="submit">Sign in</button>
+
+      <!-- Register -->
+      <p>Not registered yet?
+        <a href="registration.html">Register</a>
+      </p>
+
+     
+
+    </form>
+    <!-- Form -->
+
   </div>
+
 </div>
-
+<!-- Material form login -->
 
 <!-- Footer -->
 <footer class="page-footer font-small bg-dark pt-4">
@@ -198,6 +203,6 @@
 
   </footer>
   <!-- Footer -->
-        
+
 </body>
 </html>

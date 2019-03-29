@@ -7,3 +7,15 @@
   -o-background-size: cover;
   background-size: cover;
 }
+
+footer.bg-dark a{
+	color: white;
+}
+
+footer div.left-padding{
+	padding-left: 2rem;
+}
+
+footer div.font{
+	color: white;
+}
