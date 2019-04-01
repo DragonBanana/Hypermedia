@@ -19,3 +19,13 @@ footer div.left-padding{
 footer div.font{
 	color: white;
 }
+.prova{
+    padding-left: 200px;
+    padding-right: 200px;
+    align-content: center;
+}
+
+.col-centered{
+    float: none;
+    margin: auto;
+}
