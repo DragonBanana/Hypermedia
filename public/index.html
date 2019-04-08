@@ -1,214 +1,220 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Book Boutique</title>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-	<script src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
-	<link rel="stylesheet" href="assets/css/style.css">
-	<link rel="icon" href="assets/img/logo.png" type="image/png" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Book Boutique</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+  <script src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="icon" href="assets/img/logo.png" type="image/png" />
 </head>
+
 <body>
 
-	<!-- Navigation -->
-	<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-		<div class="container">
-			<a class="navbar-brand" href="#">Book Boutique</a>
-			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-				<span class="navbar-toggler-icon"></span>
-			</button>
-			<div class="collapse navbar-collapse" id="navbarResponsive">
-				<ul class="navbar-nav ml-auto">
-					<li class="nav-item active">
-						<a class="nav-link" href="#">Home
-							<span class="sr-only">(current)</span>
-						</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="pages/registration.html">Registration</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="pages/login.html">Login</a>
-					</li>
-					<li class="dropdown">
-						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button">Categories<span class="caret"></span></a>
-						<ul class="dropdown-menu multi-level" role="menu" aria-labelledby="dropdownMenu">
-							<li><a href="#">Books</a></li>
-							<li><a href="#">Authors</a></li>
-							<li><a href="#">Events/a></li>
-							</li>
-							<li class="nav-item">
-								<a class="nav-link" href="pages/info.html">Info</a>
-							</li>
-							<li class="nav-item">
-								<a class="nav-link" href="#">Contacts</a>
-							</li>
-							<li class="nav-item">
-								<a class="nav-link" href="pages/faq.html">FAQ</a>
-							</li>
-							<li class="nav-item" style="margin-left: 30px">
-								<a class="nav-link" href="#"><i class="fas fa-shopping-cart"></i></a>
-							</li>
-						</ul>
-					</div>
-				</div>
-			</nav>
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="#">Book Boutique</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+        aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="#">Home
+              <span class="sr-only">(current)</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="pages/registration.html">Registration</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="pages/login.html">Login</a>
+          </li>
+          <li class="dropdown nav-item">
+            <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown" role="button" aria-haspopup="true"
+              aria-expanded="true"> <span class="nav-label">Categories</span> <span class="caret"></span></a>
+            <ul class="dropdown-menu bg-dark">
+              <li><a href="#">Books</a></li>
+              <li><a href="#">Authors</a></li>
+              <li><a href="#">Events</a></li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="pages/info.html">Info</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Contacts</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="pages/faq.html">FAQ</a>
+          </li>
+          <li class="nav-item" style="margin-left: 30px">
+            <a class="nav-link" href="#"><i class="fas fa-shopping-cart"></i></a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
 
-			<header>
-				<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-					<ol class="carousel-indicators">
-						<li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-						<li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-						<li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-					</ol>
-					<div class="carousel-inner" role="listbox">
-						<!-- Slide One - Set the background image for this slide in the line below -->
-						<div class="carousel-item active" style="background-image: url('assets/img/bookstore1.jpg')">
-							<div class="carousel-caption d-none d-md-block">
-								<h3 class="display-4">Welcome to Book Boutique!</h3>
-								<p class="lead">This is a hypster photograph.</p>
-							</div>
-						</div>
-						<!-- Slide Two - Set the background image for this slide in the line below -->
-						<div class="carousel-item" style="background-image: url('assets/img/bookstore2.jpg')">
-							<div class="carousel-caption d-none d-md-block">
-								<h3 class="display-4">Welcome to Book Boutique!</h3>
-								<p class="lead">I know you are looking at the tits.</p>
-							</div>
-						</div>
-						<!-- Slide Three - Set the background image for this slide in the line below -->
-						<div class="carousel-item" style="background-image: url('assets/img/bookstore3.jpg')">
-							<div class="carousel-caption d-none d-md-block">
-								<h3 class="display-4">Welcome to Book Boutique!</h3>
-								<p class="lead">No ai libri scritti dai neri!</p>
-							</div>
-						</div>
-					</div>
-					<a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-						<span class="carousel-control-prev-icon" aria-hidden="true"></span>
-						<span class="sr-only">Previous</span>
-					</a>
-					<a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-						<span class="carousel-control-next-icon" aria-hidden="true"></span>
-						<span class="sr-only">Next</span>
-					</a>
-				</div>
-			</header>
+  <header>
+    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+      <ol class="carousel-indicators">
+        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+      </ol>
+      <div class="carousel-inner" role="listbox">
+        <!-- Slide One - Set the background image for this slide in the line below -->
+        <div class="carousel-item active" style="background-image: url('assets/img/bookstore1.jpg')">
+          <div class="carousel-caption d-none d-md-block">
+            <h3 class="display-4">Welcome to Book Boutique!</h3>
+            <p class="lead">This is a hypster photograph.</p>
+          </div>
+        </div>
+        <!-- Slide Two - Set the background image for this slide in the line below -->
+        <div class="carousel-item" style="background-image: url('assets/img/bookstore2.jpg')">
+          <div class="carousel-caption d-none d-md-block">
+            <h3 class="display-4">Welcome to Book Boutique!</h3>
+            <p class="lead">I know you are looking at the tits.</p>
+          </div>
+        </div>
+        <!-- Slide Three - Set the background image for this slide in the line below -->
+        <div class="carousel-item" style="background-image: url('assets/img/bookstore3.jpg')">
+          <div class="carousel-caption d-none d-md-block">
+            <h3 class="display-4">Welcome to Book Boutique!</h3>
+            <p class="lead">No ai libri scritti dai neri!</p>
+          </div>
+        </div>
+      </div>
+      <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+    </div>
+  </header>
 
-			<div class="container-fluid">
-				<div class="row jumbotron">
-					<div class="col-xs-12 col-sm-12 col-md-9 col-lg-9 col-xl-10">
-						<p class="lead">BookBoutique, a web store where you can find some of the most cherished books in the World!</p>
-					</div>
-				</div>
-			</div>
+  <div class="container-fluid">
+    <div class="row jumbotron">
+      <div class="col-xs-12 col-sm-12 col-md-9 col-lg-9 col-xl-10">
+        <p class="lead">BookBoutique, a web store where you can find some of the most cherished books in the World!</p>
+      </div>
+    </div>
+  </div>
 
 
-			<!-- Footer -->
-			<footer class="page-footer font-small bg-dark pt-4">
+  <!-- Footer -->
+  <footer class="page-footer font-small bg-dark pt-4">
 
-				<!-- Footer Links -->
-				<div class="container-fluid text-center text-md-left">
+    <!-- Footer Links -->
+    <div class="container-fluid text-center text-md-left">
 
-					<!-- Grid row -->
-					<div class="row">
+      <!-- Grid row -->
+      <div class="row">
 
-						<!-- Grid column -->
-						<div class="left-padding col-md-6 mt-md-0 mt-3">
+        <!-- Grid column -->
+        <div class="left-padding col-md-6 mt-md-0 mt-3">
 
-							<!-- Content -->
-							<ul class="list-unstyled bg-dark">
-								<li>
-									<a href="index.html">Home</a>
-								</li>
-								<li>
-									<a href="pages/registration.html">Registration</a>
-								</li>
-								<li>
-									<a href="pages/login.html">Login</a>
-								</li>
-								<li>
-									<a href="#">Shop</a>
-								</li>
-								<li>
-									<a href="#">Shopping Cart</a>
-								</li>
-								<li>
-									<a href="#">Contacts</a>
-								</li>
-							</ul>
+          <!-- Content -->
+          <ul class="list-unstyled bg-dark">
+            <li>
+              <a href="index.html">Home</a>
+            </li>
+            <li>
+              <a href="pages/registration.html">Registration</a>
+            </li>
+            <li>
+              <a href="pages/login.html">Login</a>
+            </li>
+            <li>
+              <a href="#">Shop</a>
+            </li>
+            <li>
+              <a href="#">Shopping Cart</a>
+            </li>
+            <li>
+              <a href="#">Contacts</a>
+            </li>
+          </ul>
 
-						</div>
-						<!-- Grid column -->
+        </div>
+        <!-- Grid column -->
 
-						<hr class="clearfix w-100 d-md-none pb-3">
+        <hr class="clearfix w-100 d-md-none pb-3">
 
-						<!-- Grid column -->
-						<div class="col-md-3 mb-md-0 mb-3">
+        <!-- Grid column -->
+        <div class="col-md-3 mb-md-0 mb-3">
 
-							<!-- Links -->
-							<h5 class="text-uppercase">Links</h5>
+          <!-- Links -->
+          <h5 class="text-uppercase">Links</h5>
 
-							<ul class="list-unstyled">
-								<li>
-									<a href="#!">Link 1</a>
-								</li>
-								<li>
-									<a href="#!">Link 2</a>
-								</li>
-								<li>
-									<a href="#!">Link 3</a>
-								</li>
-								<li>
-									<a href="#!">Link 4</a>
-								</li>
-							</ul>
+          <ul class="list-unstyled">
+            <li>
+              <a href="#!">Link 1</a>
+            </li>
+            <li>
+              <a href="#!">Link 2</a>
+            </li>
+            <li>
+              <a href="#!">Link 3</a>
+            </li>
+            <li>
+              <a href="#!">Link 4</a>
+            </li>
+          </ul>
 
-						</div>
-						<!-- Grid column -->
+        </div>
+        <!-- Grid column -->
 
-						<!-- Grid column -->
-						<div class="col-md-3 mb-md-0 mb-3">
+        <!-- Grid column -->
+        <div class="col-md-3 mb-md-0 mb-3">
 
-							<!-- Links -->
-							<h5 class="text-uppercase">Links</h5>
+          <!-- Links -->
+          <h5 class="text-uppercase">Links</h5>
 
-							<ul class="list-unstyled">
-								<li>
-									<a href="#!">Link 1</a>
-								</li>
-								<li>
-									<a href="#!">Link 2</a>
-								</li>
-								<li>
-									<a href="#!">Link 3</a>
-								</li>
-								<li>
-									<a href="#!">Link 4</a>
-								</li>
-							</ul>
+          <ul class="list-unstyled">
+            <li>
+              <a href="#!">Link 1</a>
+            </li>
+            <li>
+              <a href="#!">Link 2</a>
+            </li>
+            <li>
+              <a href="#!">Link 3</a>
+            </li>
+            <li>
+              <a href="#!">Link 4</a>
+            </li>
+          </ul>
 
-						</div>
-						<!-- Grid column -->
+        </div>
+        <!-- Grid column -->
 
-					</div>
-					<!-- Grid row -->
+      </div>
+      <!-- Grid row -->
 
-				</div>
-				<!-- Footer Links -->
+    </div>
+    <!-- Footer Links -->
 
-				<!-- Copyright -->
-				<div class="footer-copyright text-center py-3 font">© Politecnico di Milano.
-				</div>
-				<!-- Copyright -->
+    <!-- Copyright -->
+    <div class="footer-copyright text-center py-3 font">© Politecnico di Milano.
+    </div>
+    <!-- Copyright -->
 
-			</footer>
-			<!-- Footer -->
+  </footer>
+  <!-- Footer -->
 
-		</body>
-		</html>
+</body>
+
+</html>
