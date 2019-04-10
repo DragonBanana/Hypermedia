@@ -100,6 +100,8 @@ footer div.font {
   float: left;
   overflow: hidden;
   padding: 15px;
+  margin-right: 4rem;
+  margin-left: 4rem;  
   width: 100%;
   position: relative;
 }
@@ -117,7 +119,7 @@ footer div.font {
   text-align: center;
   padding: 10px;
   margin: 10px;
-  background: #f1f1f1;
+  background: white;
   color: #666;
 }
 
