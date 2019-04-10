@@ -8,24 +8,25 @@
   background-size: cover;
 }
 
-footer.bg-dark a{
+footer.bg-dark a {
   color: white;
 }
 
-footer div.left-padding{
+footer div.left-padding {
   padding-left: 2rem;
 }
 
-footer div.font{
+footer div.font {
   color: white;
 }
-.prova{
+
+.prova {
   padding-left: 200px;
   padding-right: 200px;
   align-content: center;
 }
 
-.col-centered{
+.col-centered {
   float: none;
   margin: auto;
 }
@@ -36,12 +37,11 @@ footer div.font{
   border-width: 0;
 }
 
-.dropdown-menu li a{
-  color: rgba(255,255,255,.5);
+.dropdown-menu li a {
+  color: rgba(255, 255, 255, .5);
 }
 
-.slider-holder
-{
+.slider-holder {
   width: 800px;
   height: 400px;
   background-color: white;
@@ -52,54 +52,90 @@ footer div.font{
   overflow: hidden;
 }
 
-.image-holder
-{
+.image-holder {
   width: 2400px;
   background-color: white;
   height: 400px;
   clear: both;
   position: relative;
-
   -webkit-transition: left 2s;
   -moz-transition: left 2s;
   -o-transition: left 2s;
   transition: left 2s;
 }
 
-.slider-image
-{
+.slider-image {
   float: left;
   margin: 25px;
   padding: 17px;
   position: relative;
 }
 
-#slider-image-1:target ~ .image-holder
-{
+#slider-image-1:target~.image-holder {
   left: 0px;
 }
 
-#slider-image-2:target ~ .image-holder
-{
+#slider-image-2:target~.image-holder {
   left: -800px;
 }
 
-#slider-image-3:target ~ .image-holder
-{
+#slider-image-3:target~.image-holder {
   left: -1600px;
 }
 
-.button-holder
-{
+.button-holder {
   position: relative;
   top: -65px;
 }
 
-.slider-change
-{
+.slider-change {
   display: inline-block;
   height: 10px;
   width: 10px;
   border-radius: 5px;
   background-color: black;
+}
+
+.MultiCarousel {
+  float: left;
+  overflow: hidden;
+  padding: 15px;
+  width: 100%;
+  position: relative;
+}
+
+.MultiCarousel .MultiCarousel-inner {
+  transition: 1s ease all;
+  float: left;
+}
+
+.MultiCarousel .MultiCarousel-inner .item {
+  float: left;
+}
+
+.MultiCarousel .MultiCarousel-inner .item>div {
+  text-align: center;
+  padding: 10px;
+  margin: 10px;
+  background: #f1f1f1;
+  color: #666;
+}
+
+.MultiCarousel .leftLst, .MultiCarousel .rightLst {
+  position: absolute;
+  border-radius: 50%;
+  top: calc(50% - 20px);
+}
+
+.MultiCarousel .leftLst {
+  left: 0;
+}
+
+.MultiCarousel .rightLst {
+  right: 0;
+}
+
+.MultiCarousel .leftLst.over, .MultiCarousel .rightLst.over {
+  pointer-events: none;
+  background: #ccc;
 }
