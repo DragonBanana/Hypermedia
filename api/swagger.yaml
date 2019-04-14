@@ -1,0 +1,446 @@
+swagger: '2.0'
+info:
+  description: |
+    This is a sample Petstore server.  You can find 
+    out more about Swagger at 
+    [http://swagger.io](http://swagger.io) or on 
+    [irc.freenode.net, #swagger](http://swagger.io/irc/).
+  version: 1.0.0
+  title: Swagger Book Boutique
+  termsOfService: http://swagger.io/terms/
+  contact:
+    email: 10493858@polimi.it
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+# host: petstore.swagger.io
+# basePath: /v2
+tags:
+- name: book
+  description: Books
+- name: author
+  description: Authors
+- name: user
+  description: Users
+- name: theme
+  description: Themes
+- name: genre
+  description: Genres
+# schemes:
+# - http
+paths:
+  /book:
+    get:
+      tags:
+      - book
+      summary: Find all books
+      operationId: findAll
+      produces:
+      - application/json
+      - application/xml
+      responses:
+        200:
+          description: successful operation
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Book'
+        400:
+          description: Invalid status value
+  /book/{isbn}:
+    get:
+      tags:
+      - book
+      summary: Finds books by isbn
+      operationId: findBooksByISBN
+      produces:
+      - application/json
+      - application/xml
+      parameters:
+      - name: isbn
+        in: path
+        description: ISBN of the book
+        required: true
+        type: string
+      responses:
+        200:
+          description: successful operation
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Book'
+        400:
+          description: Invalid status value
+  /book/theme/{themeId}:
+    get:
+      tags:
+      - book
+      summary: Finds books by theme
+      operationId: findBooksByTheme
+      produces:
+      - application/json
+      - application/xml
+      parameters:
+      - name: themeId
+        in: path
+        description: theme of the book
+        required: true
+        type: string
+      responses:
+        200:
+          description: successful operation
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Book'
+        400:
+          description: Invalid status value
+  /book/genre/{genreId}:
+    get:
+      tags:
+      - book
+      summary: Finds books by genre
+      operationId: findBooksByGenre
+      produces:
+      - application/json
+      - application/xml
+      parameters:
+      - name: genreId
+        in: path
+        description: genre of the book
+        required: true
+        type: string
+      responses:
+        200:
+          description: successful operation
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Book'
+        400:
+          description: Invalid status value
+  /book/bestselling:
+    get:
+      tags:
+      - book
+      summary: Finds favourite books
+      operationId: findFavouriteBooks
+      produces:
+      - application/json
+      - application/xml
+      responses:
+        200:
+          description: successful operation
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Book'
+        400:
+          description: Invalid status value
+  /book/favourite:
+    get:
+      tags:
+      - book
+      summary: Finds best selling books
+      operationId: findBestSellingBooks
+      produces:
+      - application/json
+      - application/xml
+      responses:
+        200:
+          description: successful operation
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Book'
+        400:
+          description: Invalid status value
+  /author:
+    get:
+      tags:
+      - author
+      summary: Finds all author
+      operationId: findAllBooks
+      produces:
+      - application/json
+      - application/xml
+      responses:
+        200:
+          description: successful operation
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Author'
+        400:
+          description: Invalid status value
+  /author/{id}:
+    get:
+      tags:
+      - author
+      summary: Finds all author by id
+      operationId: findAuthorById
+      produces:
+      - application/json
+      - application/xml
+      parameters:
+      - name: id
+        in: path
+        description: ID of the author
+        required: true
+        type: string
+      responses:
+        200:
+          description: successful operation
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Author'
+        400:
+          description: Invalid status value
+  /theme:
+    get:
+      tags:
+      - theme
+      summary: Finds all themes
+      operationId: findAllThemes
+      produces:
+      - application/json
+      - application/xml
+      responses:
+        200:
+          description: successful operation
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Theme'
+        400:
+          description: Invalid status value
+  /genre:
+    get:
+      tags:
+      - genre
+      summary: Finds all genres
+      operationId: findAllGenres
+      produces:
+      - application/json
+      - application/xml
+      responses:
+        200:
+          description: successful operation
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Genre'
+        400:
+          description: Invalid status value
+  /user/login:
+    post:
+      tags:
+      - user
+      summary: Login
+      operationId: userLoginPOST
+      consumes:
+      - application/x-www-form-urlencoded
+      produces:
+      - application/json
+      parameters:
+      - name: username
+        in: formData
+        required: true
+        type: string
+      - name: password
+        in: formData
+        required: true
+        type: string
+      responses:
+        200:
+          description: succesfull login
+        404:
+          description: unauthorized
+  /user/register:
+    post:
+      tags:
+      - user
+      summary: Register
+      description: Register into the store
+      operationId: userRegisterPOST
+      consumes:
+      - application/x-www-form-urlencoded
+      produces:
+      - application/json
+      parameters:
+      - in: body
+        name: body
+        required: true
+        schema:
+          $ref: "#/definitions/User"
+      responses:
+        200:
+          description: succesfull registration
+        404:
+          description: unauthorized
+  /event:
+    get:
+      tags:
+      - event
+      summary: Finds all events
+      operationId: findAllEvents
+      produces:
+      - application/json
+      - application/xml
+      responses:
+        200:
+          description: successful operation
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Event'
+        400:
+          description: Invalid status value
+          
+  /event/{id}:
+    get:
+      tags:
+      - event
+      summary: Finds events by id
+      operationId: findEventsById
+      produces:
+      - application/json
+      - application/xml
+      parameters:
+      - name: id
+        in: path
+        description: Id of the event
+        required: true
+        type: string
+      responses:
+        200:
+          description: successful operation
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Event'
+        400:
+          description: Invalid status value
+  /event/book/{id}:
+    get:
+      tags:
+      - event
+      summary: Finds events by bookId
+      operationId: findEventsByBookId
+      produces:
+      - application/json
+      - application/xml
+      parameters:
+      - name: id
+        in: path
+        description: Id of the book of the event
+        required: true
+        type: string
+      responses:
+        200:
+          description: successful operation
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Event'
+        400:
+          description: Invalid status value
+definitions:
+  Book:
+    type: object
+    properties:
+      isbn:
+        type: string
+      title:
+        type: string
+      description:
+        type: string
+      authorId:
+        type: string
+      themeId:
+        type: string
+      genreId:
+        type: string
+      price:
+        type: number
+        format: double
+    xml:
+      name: Book
+  Author:
+    type: object
+    properties:
+      id:
+        type: string
+      name:
+        type: string
+      surname:
+        type: string
+    xml:
+      name: Author
+  Event:
+    type: object
+    properties:
+      id:
+        type: string
+      name:
+        type: string
+      location:
+        type: string
+      time:
+        type: string
+        format: date-time
+      bookId:
+        type: string
+    xml:
+      name: Event
+  Theme:
+    type: object
+    properties:
+      name:
+        type: string
+      description:
+        type: string
+    xml:
+      name: Theme
+  Genre:
+    type: object
+    properties:
+      name:
+        type: string
+      description:
+        type: string
+    xml:
+      name: Genre
+  BookSold:
+    type: object
+    properties:
+      bookId:
+        type: string
+      user:
+        type: string
+      amount:
+        type: string
+      timestamp:
+        type: string
+        format: date-time
+      price:
+        type: number
+        format: double
+    xml:
+      name: Genre
+  User:
+    type: object
+    properties:
+      username:
+        type: string
+      name:
+        type: string
+      surname:
+        type: string
+      password:
+        type: string
+    xml:
+      name: User
+host: gayxkx7ln0.execute-api.eu-west-1.amazonaws.com
+basePath: /default/bookboutique
