@@ -141,3 +141,7 @@ footer div.font {
   pointer-events: none;
   background: #ccc;
 }
+
+.dropdown-menu{
+  padding-left: 1px;
+}
