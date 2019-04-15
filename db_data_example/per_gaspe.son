@@ -1,54 +1,76 @@
-Lista autori (almeno 5)
+AUTHOR
 
 [{
-  "id": "id autore",
-  "name": "nome",
-  "surname": "cognome"
+  "id": "ItaloCalvino",
+  "name": "Italo",
+  "surname": "Calvino"
 },{
-  "id": "LuigiPirandello",
-  "name": "Luigi",
-  "surname": "Pirandello"
+  "id": "GiovanniVega",
+  "name": "Giovanni",
+  "surname": "Verga"
+},{
+  "id": "JKRowling",
+  "name": "Joanne",
+  "surname": "Rowling"
+},{
+  "id": "AntonioDistefano",
+  "name": "Antonio",
+  "surname": "Distefano"
+},{
+  "id": "AlessandroDavenia",
+  "name": "Alessandro",
+  "surname": "D'Avenia"
 }]
 
 
 
 
-
-
-
-
-
-Lista libri (almeno 5)
+BOOK LIST
 
 [{
-  "authorId": "FranzKafka",
-  "bestSellers": "true",
-  "description": "\"The Metamorphosis\" (original German title: \"Die Verwandlung\") is a short novel by Franz Kafka, first published in 1915. It is often cited as one of the seminal works of fiction of the 20th century and is widely studied in colleges and universities across the western world. The story begins with a traveling salesman, Gregor Samsa, waking to find himself transformed into an insect.",
-  "genreId": "genre2",
-  "isbn": "9781557427663",
-  "price": 5.3,
-  "themeId": "theme2",
-  "title": "The Metamorphosis"
+  "authorId": "ItaloCalvino",
+  "description": "The Path to the Nest of Spiders (Italian: Il sentiero dei nidi di ragno) is a 1947 novel by the Italian writer Italo Calvino. The narrative is a coming-of-age story, set against the backdrop of World War II. It was Calvino's first novel.",
+  "genreId": "narrativa",
+  "isbn": "9788447300747",
+  "price": 12.99,
+  "themeId": "youth",
+  "title": "Il sentiero dei nidi di ragno"
 },{
-  "authorId": "FranzKafka",
-  "bestSellers": "true",
-  "description": "\"The Metamorphosis\" (original German title: \"Die Verwandlung\") is a short novel by Franz Kafka, first published in 1915. It is often cited as one of the seminal works of fiction of the 20th century and is widely studied in colleges and universities across the western world. The story begins with a traveling salesman, Gregor Samsa, waking to find himself transformed into an insect.",
-  "genreId": "genre2",
-  "isbn": "9781557427663",
-  "price": 5.3,
-  "themeId": "theme2",
-  "title": "The Metamorphosis"
+  "authorId": "GiovanniVega",
+  "description": "I Malavoglia is the best known novel by Giovanni Verga. It was first printed in 1881. An English edition, The House by the Medlar-Tree (1890), translated by Mary A. Craig, was published in the Continental Classics series.This work deal with the problem of social and economical advancement.",
+  "genreId": "narrativa",
+  "isbn": "9781557427653",
+  "price": 7,
+  "themeId": "social status",
+  "title": "I Malavoglia"
+},{
+  "authorId": "JKRowling",
+  "description": "Harry Potter and the Philosopher's Stone is the story of a young wizard who discovers his magical heritage on his eleventh birthday, when he receives a letter of acceptance to Hogwarts School of Witchcraft and Wizardry. Harry makes close friends and a few enemies during his first year at the school, and with the help of his friends, Harry faces an attempted comeback by the dark wizard Lord Voldemort, who killed Harry's parents, but failed to kill Harry when he was just 15 months old.",
+  "genreId": "fantasy",
+  "isbn": "9788425300747",
+  "price": 15.89,
+  "themeId": "youth",
+  "title": "Harry Potter and the Philosopher's Stone"
+},{
+  "authorId": "AntonioDistefano",
+  "description": "This is the story of a boy who has never been his age. It does not even have a name, and for convenience we will call it Zero. In reality he never had anything. Because his life is all in subtraction, which has always taken away and gave little.",
+  "genreId": "narrativa",
+  "isbn": "9788447393757",
+  "price": 10.50,
+  "themeId": "solitude",
+  "title": "I've never been my age"
+},{
+  "authorId": "AlessandroDavenia",
+  "description": "This is the story of a schoolboy that is in love with redhaired school beauty but too shy to tell her. When he finds out she is very sick, he looks her up in the hospital. His best friend is not amused.",
+  "genreId": "narrativa",
+  "isbn": "9788447398747",
+  "price": 18.90,
+  "themeId": "love",
+  "title": "White as Milk, Red as Blood"
 }]
 
 
-
-
-
-
-
-Lista eventi (almeno 5)
-
-
+EVENTS
 
 [{
   "bookId": "9781557427663",
@@ -69,20 +91,52 @@ Lista eventi (almeno 5)
 
 
 
-Lista generi  (almeno 5)
+GENRES
+
 [{
   "description": "Drama is the specific mode of fiction represented in performance: a play, opera, mime, ballet, etc, performed in a theatre, or on radio or television. Considered as a genre of poetry in general, the dramatic mode has been contrasted with the epic and the lyrical modes ever since Aristotle's Poetics (c. 335 BC)—the earliest work of dramatic theory.\nThe term \"drama\" comes from a Greek word meaning \"action\" (Classical Greek: δρᾶμα, drama), which is derived from \"I do\" (Classical Greek: δράω, drao). The two masks associated with drama represent the traditional generic division between comedy and tragedy.",
   "name": "drama"
 },{
-  "description": "Drama is the specific mode of fiction represented in performance: a play, opera, mime, ballet, etc, performed in a theatre, or on radio or television. Considered as a genre of poetry in general, the dramatic mode has been contrasted with the epic and the lyrical modes ever since Aristotle's Poetics (c. 335 BC)—the earliest work of dramatic theory.\nThe term \"drama\" comes from a Greek word meaning \"action\" (Classical Greek: δρᾶμα, drama), which is derived from \"I do\" (Classical Greek: δράω, drao). The two masks associated with drama represent the traditional generic division between comedy and tragedy.",
-  "name": "drama"
-}]
+  "description": "A narrative is a report of connected events, real or imaginary, presented in a sequence of written or spoken words, or still or moving images, or both.
+  The word derives from the Latin verb narrare, \"to tell\", which is derived from the adjective gnarus, \"knowing\" or "skilled". Narrative can be organized in a number of thematic or formal categories: non-fiction (such as definitively including creative non-fiction, biography, journalism, transcript poetry, and historiography); fictionalization of historical events (such as anecdote, myth, legend, and historical fiction); and fiction proper (such as literature in prose and sometimes poetry, such as short stories, novels, and narrative poems and songs, and imaginary narratives as portrayed in other textual forms, games, or live or recorded performances).",
+  "name": "narrative"
+},{
+  "description": "Fantasy is a genre of speculative fiction set in a fictional universe, often inspired by real world myth and folklore. Its roots are in oral traditions, which then became literature and drama. From the twentieth century it has expanded further into various media, including film, television, graphic novels and video games.
+  Fantasy is distinguished from the genres of science fiction and horror by the absence of scientific or macabre themes respectively, though these genres overlap. In popular culture, the fantasy genre is predominantly of the medievalist form. In its broadest sense, however, fantasy consists of works by many writers, artists, filmmakers, and musicians from ancient myths and legends to many recent and popular works.",
+  "name": "fantasy"
+},{
+  "description": "Although the genre is very old, the romance novel or romantic novel discussed in this article is the mass-market version. Novels of this type of genre fiction place their primary focus on the relationship and romantic love between two people, and must have an \"emotionally satisfying and optimistic ending.\" There are many subgenres of the romance novel, including fantasy, historical romance, paranormal fiction, and science fiction. Romance novels are read primarily by women",
+  "name": "Romance"
+  },{
+  "description": "Science fiction is a genre of speculative fiction that has been called the \"literature of ideas\". It typically deals with imaginative and futuristic concepts such as advanced science and technology, time travel, parallel universes, fictional worlds, space exploration, and extraterrestrial life. Science fiction often explores the potential consequences of scientific innovations.",
+  "name": "Science Fiction"
+  }]
 
 
 
 
 
 
-Lista temi (almeno 5)
+THEME
 
-uguale a genere
+[{
+  "description": "It's a theme aboute love story",
+  "name": "love"
+},{
+  "description": "",
+  "name": "social status"
+},{
+  "description": "",
+  "name": "happiness"
+},{
+  "description": "",
+  "name": "politic"
+},{
+  "description": "",
+  "name": "solitude"
+},{
+  "description": "",
+  "name": "youth"
+}
+
+]
