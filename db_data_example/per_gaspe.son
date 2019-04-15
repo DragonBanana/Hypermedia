@@ -1,0 +1,88 @@
+Lista autori (almeno 5)
+
+[{
+  "id": "id autore",
+  "name": "nome",
+  "surname": "cognome"
+},{
+  "id": "LuigiPirandello",
+  "name": "Luigi",
+  "surname": "Pirandello"
+}]
+
+
+
+
+
+
+
+
+
+Lista libri (almeno 5)
+
+[{
+  "authorId": "FranzKafka",
+  "bestSellers": "true",
+  "description": "\"The Metamorphosis\" (original German title: \"Die Verwandlung\") is a short novel by Franz Kafka, first published in 1915. It is often cited as one of the seminal works of fiction of the 20th century and is widely studied in colleges and universities across the western world. The story begins with a traveling salesman, Gregor Samsa, waking to find himself transformed into an insect.",
+  "genreId": "genre2",
+  "isbn": "9781557427663",
+  "price": 5.3,
+  "themeId": "theme2",
+  "title": "The Metamorphosis"
+},{
+  "authorId": "FranzKafka",
+  "bestSellers": "true",
+  "description": "\"The Metamorphosis\" (original German title: \"Die Verwandlung\") is a short novel by Franz Kafka, first published in 1915. It is often cited as one of the seminal works of fiction of the 20th century and is widely studied in colleges and universities across the western world. The story begins with a traveling salesman, Gregor Samsa, waking to find himself transformed into an insect.",
+  "genreId": "genre2",
+  "isbn": "9781557427663",
+  "price": 5.3,
+  "themeId": "theme2",
+  "title": "The Metamorphosis"
+}]
+
+
+
+
+
+
+
+Lista eventi (almeno 5)
+
+
+
+[{
+  "bookId": "9781557427663",
+  "id": "Tomorrowland 2019",
+  "location": "Provinciaal Recreatiedomein De Schorre",
+  "name": "Tomorrowland 2019",
+  "time": "2019-07-19T12:00:00UTC"
+},
+{
+  "bookId": "9781557427663",
+  "id": "Tomorrowland 2019",
+  "location": "Provinciaal Recreatiedomein De Schorre",
+  "name": "Tomorrowland 2019",
+  "time": "2019-07-19T12:00:00UTC"
+}]
+
+
+
+
+
+Lista generi  (almeno 5)
+[{
+  "description": "Drama is the specific mode of fiction represented in performance: a play, opera, mime, ballet, etc, performed in a theatre, or on radio or television. Considered as a genre of poetry in general, the dramatic mode has been contrasted with the epic and the lyrical modes ever since Aristotle's Poetics (c. 335 BC)—the earliest work of dramatic theory.\nThe term \"drama\" comes from a Greek word meaning \"action\" (Classical Greek: δρᾶμα, drama), which is derived from \"I do\" (Classical Greek: δράω, drao). The two masks associated with drama represent the traditional generic division between comedy and tragedy.",
+  "name": "drama"
+},{
+  "description": "Drama is the specific mode of fiction represented in performance: a play, opera, mime, ballet, etc, performed in a theatre, or on radio or television. Considered as a genre of poetry in general, the dramatic mode has been contrasted with the epic and the lyrical modes ever since Aristotle's Poetics (c. 335 BC)—the earliest work of dramatic theory.\nThe term \"drama\" comes from a Greek word meaning \"action\" (Classical Greek: δρᾶμα, drama), which is derived from \"I do\" (Classical Greek: δράω, drao). The two masks associated with drama represent the traditional generic division between comedy and tragedy.",
+  "name": "drama"
+}]
+
+
+
+
+
+
+Lista temi (almeno 5)
+
+uguale a genere
