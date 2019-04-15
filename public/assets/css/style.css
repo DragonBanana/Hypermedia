@@ -101,7 +101,7 @@ footer div.font {
   overflow: hidden;
   padding: 15px;
   margin-right: 4rem;
-  margin-left: 4rem;  
+  margin-left: 4rem;
   width: 100%;
   position: relative;
 }
@@ -142,6 +142,44 @@ footer div.font {
   background: #ccc;
 }
 
-.dropdown-menu{
+.dropdown-menu {
   padding-left: 1px;
+}
+
+.navbar-nav {
+  width: 100%;
+}
+
+@media (min-width: 992px) {
+  .navbar-nav li.right {
+    margin-left: auto!important;
+  }
+
+  .navbar-nav li.nav-item button {
+    margin-left: .5rem;
+  }
+}
+
+.navbar-nav li.nav-item button {
+  margin-left: .5rem;
+  background-color: #343a40!important;
+  border-color: #FFFFFF;
+}
+
+@media (max-width: 992px) {
+  .navbar-nav li.right {
+    margin-left: 0;
+  }
+
+  .navbar-nav li.nav-item button {
+    margin-left: 0;
+    margin-bottom: 1rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
+.container{
+  margin: 0 0;
+  max-width: 100%;
 }
