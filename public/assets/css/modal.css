@@ -37,6 +37,7 @@
     text-align: center; 
     margin: 24px 0 12px 0; 
     position: relative; 
+    
 } 
   
 img.avatar { 
@@ -76,6 +77,18 @@ span.psw {
     width: 80%;  
 } 
   
+@media screen and (max-width: 768px) { 
+    .modal-content {  
+        width: 80%;  
+    } 
+} 
+
+@media screen and (min-width: 768px) { 
+    .modal-content {  
+        width: 615px;  
+    } 
+} 
+
 .close { 
     position: absolute; 
     right: 25px; 

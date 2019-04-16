@@ -227,3 +227,29 @@ footer div.font {
 .mandarin{
   color: orange;
 }
+/*
+@media (min-width: 768px) {
+  .slick-slide img {
+  margin-right: 2.6rem;
+  }
+}
+*/
+.slick-slide img {
+  margin-right: 2.6rem;
+}
+/*
+@media (max-width: 768px) {
+  .slick-slide img {
+    margin-right: 1.3rem;
+  }
+}
+
+@media (max-width: 300px) {
+  .slick-slide img {
+    margin-right: 0;
+  }
+}
+*/
+.multiple-items {
+  margin-bottom: 2rem;
+}
