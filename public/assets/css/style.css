@@ -143,11 +143,15 @@ footer div.font {
 }
 
 .dropdown-menu {
-  padding-left: 1px;
+  padding-left: 1.4rem;
 }
 
 .navbar-nav {
   width: 100%;
+}
+
+.navbar-nav li.nav-item button {
+  padding: 0.35rem 0.5rem 0.25rem 0.5rem;
 }
 
 @media (min-width: 992px) {
@@ -177,6 +181,9 @@ footer div.font {
     padding-left: 1rem;
     padding-right: 1rem;
   }
+  .searchbar {
+    margin-bottom: 1rem;
+  }
 }
 
 .container{
@@ -184,5 +191,31 @@ footer div.font {
   max-width: 100%;*/
 }
 
+.searchbar{ 
+  box-sizing: border-box; 
+  background-color: rgba(255, 255, 255, 0.125);
+  color: white;
+  border-radius: 5px;
+  border-width: 0px;
+  padding-left: 1rem;
+  padding-top: 0.4rem;
+  padding-bottom: 0.25rem;
+} 
+
+.searchbar:focus{ 
+  background-color: rgba(255, 255, 255, 0.875);
+} 
+
+.searchbar:focus::placeholder{ 
+  color: #343a40;
+} 
 
 
+.searchbar::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.navbar-brand {
+  padding-top: 0.2rem;
+  padding-bottom: 0.5rem;
+}

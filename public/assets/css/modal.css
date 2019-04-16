@@ -6,17 +6,6 @@
     border: 1px solid #ccc; 
     box-sizing: border-box; 
 } 
-
-.searchbar{ 
-    width: 100%; 
-    display: inline-block; 
-    box-sizing: border-box; 
-    border-radius: 8px;
-    margin-left: 70px;
-    margin-bottom: 2px;
-    margin-top: 5px;
-
-} 
   
   
 .modal-button { 
