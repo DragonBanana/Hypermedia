@@ -20,6 +20,18 @@ AUTHOR
   "id": "AlessandroDavenia",
   "name": "Alessandro",
   "surname": "D'Avenia"
+},{
+  "id": "PaulaHawkins",
+  "name": "Paula",
+  "surname": "Hawkins"
+},{
+  "id": "PaoloGiordano",
+  "name": "Paolo",
+  "surname": "Giordano"
+},{
+  "id": "PhilKnight",
+  "name": "Phil",
+  "surname": "Knight"
 }]
 
 
@@ -30,7 +42,7 @@ BOOK LIST
 [{
   "authorId": "ItaloCalvino",
   "description": "The Path to the Nest of Spiders (Italian: Il sentiero dei nidi di ragno) is a 1947 novel by the Italian writer Italo Calvino. The narrative is a coming-of-age story, set against the backdrop of World War II. It was Calvino's first novel.",
-  "genreId": "narrativa",
+  "genreId": "narrative",
   "isbn": "9788447300747",
   "price": 12.99,
   "themeId": "youth",
@@ -38,7 +50,7 @@ BOOK LIST
 },{
   "authorId": "GiovanniVega",
   "description": "I Malavoglia is the best known novel by Giovanni Verga. It was first printed in 1881. An English edition, The House by the Medlar-Tree (1890), translated by Mary A. Craig, was published in the Continental Classics series.This work deal with the problem of social and economical advancement.",
-  "genreId": "narrativa",
+  "genreId": "narrative",
   "isbn": "9781557427653",
   "price": 7,
   "themeId": "social status",
@@ -54,7 +66,7 @@ BOOK LIST
 },{
   "authorId": "AntonioDistefano",
   "description": "This is the story of a boy who has never been his age. It does not even have a name, and for convenience we will call it Zero. In reality he never had anything. Because his life is all in subtraction, which has always taken away and gave little.",
-  "genreId": "narrativa",
+  "genreId": "narrative",
   "isbn": "9788447393757",
   "price": 10.50,
   "themeId": "solitude",
@@ -62,29 +74,76 @@ BOOK LIST
 },{
   "authorId": "AlessandroDavenia",
   "description": "This is the story of a schoolboy that is in love with redhaired school beauty but too shy to tell her. When he finds out she is very sick, he looks her up in the hospital. His best friend is not amused.",
-  "genreId": "narrativa",
+  "genreId": "narrative",
   "isbn": "9788447398747",
   "price": 18.90,
   "themeId": "love",
   "title": "White as Milk, Red as Blood"
+},{
+  "authorId": "PaulaHawkins",
+  "description": "The Girl on the Train (2015) is a psychological thriller novel by British author Paula Hawkins. The novel debuted at No. 1 on The New York Times Fiction Best Sellers of 2015 list (combined print and e-book) dated 1 February 2015, and remained in the top position for 13 consecutive weeks, until April 2015. In January 2016 it became the No.1 best-seller again for two weeks. Many reviews referred to the book as \"the next Gone Girl\", referring to a popular 2012 psychological mystery with similar themes and use of unreliable narrators.",
+  "genreId": "thriller",
+  "isbn": "9788667398747",
+  "price": 13.90,
+  "themeId": "drug",
+  "title": "The Girl on the Train"
+},{
+  "authorId": "PaoloGiordano",
+  "description": "The novel narrates the childhood and early adulthood of a boy and girl who were each exposed to traumatic situations that followed them into adulthood. Both are outsiders, similar to how prime numbers are outsiders in relation to the other numbers. They befriend each other, forming a special relationship – becoming very close but never romantic. Their relationship appears to have run its course, but circumstances bring them together again and while they clearly love each other, they are unable to express their emotions. This relationship is compared to prime pairs: always together, but never touching.",
+  "genreId": "narrative",
+  "isbn": "9788447394567",
+  "price": 14.77,
+  "themeId": "solitude",
+  "title": "The Solitude of Prime Numbers"
+},{
+  "authorId": "PhilKnight",
+  "description": "is a memoir by Nike co-founder Phil Knight.[3] The memoir chronicles the history of Nike from its early struggles to its evolution into one of the world’s most recognized and profitable companies.Bill Gates named Shoe Dog one of his five favorite books of 2016 and called it \"an amazing tale, a refreshingly honest reminder of what the path to business success really looks like. It’s a messy, perilous, and chaotic journey, riddled with mistakes, endless struggles, and sacrifice. Phil Knight opens up in ways few CEOs are willing to do.\",
+  "genreId": "biography",
+  "isbn": "9788498127547",
+  "price": 12.50,
+  "themeId": "social status",
+  "title": "Shoe Dog"
 }]
 
 
 EVENTS
 
 [{
-  "bookId": "9781557427663",
+  "bookId": "9788447300747",
   "id": "Tomorrowland 2019",
   "location": "Provinciaal Recreatiedomein De Schorre",
   "name": "Tomorrowland 2019",
   "time": "2019-07-19T12:00:00UTC"
-},
-{
-  "bookId": "9781557427663",
-  "id": "Tomorrowland 2019",
-  "location": "Provinciaal Recreatiedomein De Schorre",
-  "name": "Tomorrowland 2019",
-  "time": "2019-07-19T12:00:00UTC"
+},{
+  "bookId": "9781557427653",
+  "id": "Etna Comics",
+  "location": "Catania",
+  "name": "Etna Comics",
+  "time": "2019-09-28T21:00:00UTC"
+},{
+  "bookId": "9788447393757",
+  "id": "Festival del Fumetto",
+  "location": "Milan",
+  "name": "Festival del Fumetto",
+  "time": "2019-12-12T13:45:00UTC"
+},{
+  "bookId": "9788498127547",
+  "id": "American Book Fest",
+  "location": "New York",
+  "name": "American Book Fest",
+  "time": "2019-03-15T16:30:00UTC"
+},{
+  "bookId": "9788447394567",
+  "id": "CookBooks",
+  "location": "Riga",
+  "name": "cookBooks",
+  "time": "2019-02-28T22:00:00UTC"
+},{
+  "bookId": "9788667398747",
+  "id": "Smello Libri",
+  "location": "Magaluf",
+  "name": "Smello Libri",
+  "time": "2019-02-28T22:00:00UTC"
 }]
 
 
@@ -109,7 +168,13 @@ GENRES
   "name": "Romance"
   },{
   "description": "Science fiction is a genre of speculative fiction that has been called the \"literature of ideas\". It typically deals with imaginative and futuristic concepts such as advanced science and technology, time travel, parallel universes, fictional worlds, space exploration, and extraterrestrial life. Science fiction often explores the potential consequences of scientific innovations.",
-  "name": "Science Fiction"
+  "name": "science fiction"
+  },{
+  "description": "Thriller is a broad genre of literature, film and television, having numerous, often overlapping subgenres. Thrillers are characterized and defined by the moods they elicit, giving viewers heightened feelings of suspense, excitement, surprise, anticipation and anxiety. Thrillers generally keep the audience on the \"edge of their seats\" as the plot builds towards a climax. The cover-up of important information is a common element. Literary devices such as red herrings, plot twists, and cliffhangers are used extensively. A thriller is usually a villain-driven plot, whereby he or she presents obstacles that the protagonist must overcome.",
+  "name": "thriller"
+  },{
+  "description": "A biography, or simply bio, is a detailed description of a person's life. It involves more than just the basic facts like education, work, relationships, and death; it portrays a person's experience of these life events. Unlike a profile or curriculum vitae, a biography presents a subject's life story, highlighting various aspects of his or her life, including intimate details of experience, and may include an analysis of the subject's personality.",
+  "name": "biography"
   }]
 
 
@@ -137,6 +202,7 @@ THEME
 },{
   "description": "",
   "name": "youth"
-}
-
-]
+},{
+  "description": "",
+  "name": "drug"
+}]
