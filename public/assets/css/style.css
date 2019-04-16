@@ -219,3 +219,11 @@ footer div.font {
   padding-top: 0.2rem;
   padding-bottom: 0.5rem;
 }
+
+.bg-white{
+  background-color: white;
+}
+
+.mandarin{
+  color: orange;
+}
