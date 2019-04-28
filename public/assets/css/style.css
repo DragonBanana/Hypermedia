@@ -1,3 +1,11 @@
+table  {
+	border-collapse:collapse
+}
+td, th {
+	border:1px solid #ddd;
+	padding:8px;
+}
+
 .carousel-item {
   height: 65vh;
   min-height: 350px;
