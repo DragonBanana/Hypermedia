@@ -1,240 +1,270 @@
-table  {
-	border-collapse:collapse
+table {
+    border-collapse: collapse
 }
-td, th {
-	border:1px solid #ddd;
-	padding:8px;
+
+td,
+th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+.sidebarWrapper {
+    display: flex;
+    width: 100%;
+    align-items: stretch;
+    height: 100%;
+    border-right: 1px;
+    border-color: gray;
+}
+
+.categories {
+    border-style: groove;
+    border-color: orange;
+    border-width: 5px;
+    width: 150px;
+    border-radius: 20px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.center {
+    margin: auto;
+    
 }
 
 .carousel-item {
-  height: 65vh;
-  min-height: 350px;
-  background: no-repeat center center scroll;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
+    height: 65vh;
+    min-height: 350px;
+    background: no-repeat center center scroll;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
 }
 
 footer.bg-dark a {
-  color: white;
+    color: white;
 }
 
 footer div.left-padding {
-  padding-left: 2rem;
+    padding-left: 2rem;
 }
 
 footer div.font {
-  color: white;
+    color: white;
 }
 
 .prova {
-  padding-left: 200px;
-  padding-right: 200px;
-  align-content: center;
+    padding-left: 200px;
+    padding-right: 200px;
+    align-content: center;
 }
 
 .col-centered {
-  float: none;
-  margin: auto;
+    float: none;
+    margin: auto;
 }
 
 .dropdown-menu {
-  min-width: 0;
-  padding: .25rem 1rem .25rem .5rem;
-  border-width: 0;
+    min-width: 0;
+    padding: .25rem 1rem .25rem .5rem;
+    border-width: 0;
 }
 
 .dropdown-menu li a {
-  color: rgba(255, 255, 255, .5);
+    color: rgba(255, 255, 255, .5);
 }
 
 .slider-holder {
-  width: 800px;
-  height: 400px;
-  background-color: white;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 0px;
-  text-align: center;
-  overflow: hidden;
+    width: 800px;
+    height: 400px;
+    background-color: white;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 0px;
+    text-align: center;
+    overflow: hidden;
 }
 
 .image-holder {
-  width: 2400px;
-  background-color: white;
-  height: 400px;
-  clear: both;
-  position: relative;
-  -webkit-transition: left 2s;
-  -moz-transition: left 2s;
-  -o-transition: left 2s;
-  transition: left 2s;
+    width: 2400px;
+    background-color: white;
+    height: 400px;
+    clear: both;
+    position: relative;
+    -webkit-transition: left 2s;
+    -moz-transition: left 2s;
+    -o-transition: left 2s;
+    transition: left 2s;
 }
 
 .slider-image {
-  float: left;
-  margin: 25px;
-  padding: 17px;
-  position: relative;
+    float: left;
+    margin: 25px;
+    padding: 17px;
+    position: relative;
 }
 
-#slider-image-1:target~.image-holder {
-  left: 0px;
+#slider-image-1:target ~ .image-holder {
+    left: 0px;
 }
 
-#slider-image-2:target~.image-holder {
-  left: -800px;
+#slider-image-2:target ~ .image-holder {
+    left: -800px;
 }
 
-#slider-image-3:target~.image-holder {
-  left: -1600px;
+#slider-image-3:target ~ .image-holder {
+    left: -1600px;
 }
 
 .button-holder {
-  position: relative;
-  top: -65px;
+    position: relative;
+    top: -65px;
 }
 
 .slider-change {
-  display: inline-block;
-  height: 10px;
-  width: 10px;
-  border-radius: 5px;
-  background-color: black;
+    display: inline-block;
+    height: 10px;
+    width: 10px;
+    border-radius: 5px;
+    background-color: black;
 }
 
 .MultiCarousel {
-  float: left;
-  overflow: hidden;
-  padding: 15px;
-  margin-right: 4rem;
-  margin-left: 4rem;
-  width: 100%;
-  position: relative;
+    float: left;
+    overflow: hidden;
+    padding: 15px;
+    margin-right: 4rem;
+    margin-left: 4rem;
+    width: 100%;
+    position: relative;
 }
 
 .MultiCarousel .MultiCarousel-inner {
-  transition: 1s ease all;
-  float: left;
+    transition: 1s ease all;
+    float: left;
 }
 
 .MultiCarousel .MultiCarousel-inner .item {
-  float: left;
+    float: left;
 }
 
-.MultiCarousel .MultiCarousel-inner .item>div {
-  text-align: center;
-  padding: 10px;
-  margin: 10px;
-  background: white;
-  color: #666;
+.MultiCarousel .MultiCarousel-inner .item > div {
+    text-align: center;
+    padding: 10px;
+    margin: 10px;
+    background: white;
+    color: #666;
 }
 
-.MultiCarousel .leftLst, .MultiCarousel .rightLst {
-  position: absolute;
-  border-radius: 50%;
-  top: calc(50% - 20px);
+.MultiCarousel .leftLst,
+.MultiCarousel .rightLst {
+    position: absolute;
+    border-radius: 50%;
+    top: calc(50% - 20px);
 }
 
 .MultiCarousel .leftLst {
-  left: 0;
+    left: 0;
 }
 
 .MultiCarousel .rightLst {
-  right: 0;
+    right: 0;
 }
 
-.MultiCarousel .leftLst.over, .MultiCarousel .rightLst.over {
-  pointer-events: none;
-  background: #ccc;
+.MultiCarousel .leftLst.over,
+.MultiCarousel .rightLst.over {
+    pointer-events: none;
+    background: #ccc;
 }
 
 .dropdown-menu {
-  padding-left: 1.4rem;
+    padding-left: 1.4rem;
 }
 
 .navbar-nav {
-  width: 100%;
+    width: 100%;
 }
 
 .navbar-nav li.nav-item button {
-  padding: 0.35rem 0.5rem 0.25rem 0.5rem;
+    padding: 0.35rem 0.5rem 0.25rem 0.5rem;
 }
 
 @media (min-width: 992px) {
-  .navbar-nav li.right {
-    margin-left: auto!important;
-  }
+    .navbar-nav li.right {
+        margin-left: auto !important;
+    }
 
-  .navbar-nav li.nav-item button {
-    margin-left: .5rem;
-  }
+    .navbar-nav li.nav-item button {
+        margin-left: .5rem;
+    }
 }
 
 .navbar-nav li.nav-item button {
-  margin-left: .5rem;
-  background-color: #343a40!important;
-  border-color: #FFFFFF;
+    margin-left: .5rem;
+    background-color: #343a40 !important;
+    border-color: #FFFFFF;
 }
 
 @media (max-width: 992px) {
-  .navbar-nav li.right {
-    margin-left: 0;
-  }
+    .navbar-nav li.right {
+        margin-left: 0;
+    }
 
-  .navbar-nav li.nav-item button {
-    margin-left: 0;
-    margin-bottom: 1rem;
-    padding-left: 1rem;
-    padding-right: 1rem;
-  }
-  .searchbar {
-    margin-bottom: 1rem;
-  }
+    .navbar-nav li.nav-item button {
+        margin-left: 0;
+        margin-bottom: 1rem;
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+
+    .searchbar {
+        margin-bottom: 1rem;
+    }
 }
 
-.container{
-  /*margin: 0 0;
+.container {
+    /*margin: 0 0;
   max-width: 100%;*/
 }
 
-.searchbar{ 
-  box-sizing: border-box; 
-  background-color: rgba(255, 255, 255, 0.125);
-  color: white;
-  border-radius: 5px;
-  border-width: 0px;
-  padding-left: 1rem;
-  padding-top: 0.4rem;
-  padding-bottom: 0.25rem;
-} 
+.searchbar {
+    box-sizing: border-box;
+    background-color: rgba(255, 255, 255, 0.125);
+    color: white;
+    border-radius: 5px;
+    border-width: 0px;
+    padding-left: 1rem;
+    padding-top: 0.4rem;
+    padding-bottom: 0.25rem;
+}
 
-.searchbar:focus{ 
-  background-color: rgba(255, 255, 255, 0.875);
-} 
+.searchbar:focus {
+    background-color: rgba(255, 255, 255, 0.875);
+}
 
-.searchbar:focus::placeholder{ 
-  color: #343a40;
-} 
+.searchbar:focus::placeholder {
+    color: #343a40;
+}
 
 
 .searchbar::placeholder {
-  color: rgba(255, 255, 255, 0.5);
+    color: rgba(255, 255, 255, 0.5);
 }
 
 .navbar-brand {
-  padding-top: 0.2rem;
-  padding-bottom: 0.5rem;
+    padding-top: 0.2rem;
+    padding-bottom: 0.5rem;
 }
 
-.bg-white{
-  background-color: white;
+.bg-white {
+    background-color: white;
 }
 
-.mandarin{
-  color: orange;
+.mandarin {
+    color: orange;
 }
+
 /*
 @media (min-width: 768px) {
   .slick-slide img {
@@ -243,8 +273,9 @@ footer div.font {
 }
 */
 .slick-slide img {
-  margin-right: 2.6rem;
+    margin-right: 2.6rem;
 }
+
 /*
 @media (max-width: 768px) {
   .slick-slide img {
@@ -259,5 +290,9 @@ footer div.font {
 }
 */
 .multiple-items {
-  margin-bottom: 2rem;
+    margin-bottom: 2rem;
 }
+
+@media (max-width: 767px) {
+}
+
