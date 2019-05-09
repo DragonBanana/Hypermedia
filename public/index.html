@@ -14,6 +14,7 @@
     <script src="assets/js/multicarousel.js"></script>
     <script src="assets/js/modal.js"></script>
     <script src="assets/js/slick.min.js"></script>
+    <script src="assets/js/request.js"></script>
     <link rel="stylesheet" href="assets/css/slick.css">
     <link rel="stylesheet" href="assets/css/slick-theme.css">
     <link rel="stylesheet" href="assets/css/modal.css">
@@ -323,19 +324,19 @@
 
     <div id="id01" class="modal">
 
-        <form class="modal-content animate" action="/action_page.php">
+        <form class="modal-content animate">
             <div class="imgcontainer">
                 <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">×</span>
             </div>
 
             <div class="modal-container">
                 <label><b>Username</b></label>
-                <input type="text" class="form-button" placeholder="Enter Username" name="uname" required>
+                <input id="loginUsername" type="text" class="form-button" placeholder="Enter Username" name="uname" required>
 
                 <label><b>Password</b></label>
-                <input type="password" class="form-button" placeholder="Enter Password" name="psw" required>
+                <input id="loginPassword" type="password" class="form-button" placeholder="Enter Password" name="psw" required>
 
-                <button class="modal-button" type="submit">Login</button>
+                <button class="modal-button" type="button" onclick="login($('#loginUsername').val(), $('#loginPassword').val())" href="#">Login</button>
                 <input type="checkbox" checked="checked"> Remember me
             </div>
 
@@ -385,19 +386,18 @@
 
 
     <script>
-        var modal = document.getElementById('id01');
-        window.onclick = function(event) {
-            if (event.target == modal) {
-                modal.style.display = "none";
-            }
-        }
 
         var modal_02 = document.getElementById('id02');
+        var modal_01 = document.getElementById('id01');
         window.onclick = function(event) {
-            if (event.target == modal_02) {
+            if (event.target == modal_01) {
+                modal_01.style.display = "none";
+            } else if (event.target == modal_02) {
                 modal_02.style.display = "none";
             }
         }
+
+
 
         $('.multiple-items').slick({
             dots: false,

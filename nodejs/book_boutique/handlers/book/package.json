@@ -1,0 +1,8 @@
+{
+    "name": "book_handler",
+    "version": "1.0.0",
+    "description": "book-boutique book handler",
+    "main": "book.js",
+    "author": "SwagMaster"
+  }
+  

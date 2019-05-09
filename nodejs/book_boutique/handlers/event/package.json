@@ -1,0 +1,8 @@
+{
+    "name": "event_handler",
+    "version": "1.0.0",
+    "description": "book-boutique event handler",
+    "main": "event.js",
+    "author": "SwagMaster"
+  }
+  

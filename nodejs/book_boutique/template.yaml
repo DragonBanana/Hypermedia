@@ -1,0 +1,193 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: >
+  book_boutique
+
+  Sample SAM Template for book_boutique
+  
+# More info about Globals: https://github.com/awslabs/serverless-application-model/blob/master/docs/globals.rst
+Globals:
+  Function:
+    Timeout: 10
+    MemorySize: 128
+
+Resources:
+  FindAllBookFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: handlers/book/
+      Handler: book.findAll
+      Runtime: nodejs8.10
+      Policies: AmazonDynamoDBFullAccess 
+      Events:
+        FindAllBookAPI:
+          Type: Api
+          Properties:
+            Path: /book
+            Method: get
+  FindBookByISBNFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: handlers/book/
+      Handler: book.findByISBN
+      Runtime: nodejs8.10
+      Policies: AmazonDynamoDBFullAccess 
+      Events:
+        FindAllBookByISBNAPI:
+          Type: Api
+          Properties:
+            Path: /book/{isbn}
+            Method: get
+  FindFavouritesBookFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: handlers/book/
+      Handler: book.findFavourites
+      Runtime: nodejs8.10
+      Policies: AmazonDynamoDBFullAccess 
+      Events:
+        FindAllFavouriteBookAPI:
+          Type: Api
+          Properties:
+            Path: /book/favourite
+            Method: get
+  FindBestSellersBookFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: handlers/book/
+      Handler: book.findBestSellers
+      Runtime: nodejs8.10
+      Policies: AmazonDynamoDBFullAccess 
+      Events:
+        FindAllBestSellerBookAPI:
+          Type: Api
+          Properties:
+            Path: /book/bestseller
+            Method: get
+  FindAllAuthorFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: handlers/author/
+      Handler: author.findAll
+      Runtime: nodejs8.10
+      Policies: AmazonDynamoDBFullAccess 
+      Events:
+        FindAllAuthorAPI:
+          Type: Api
+          Properties:
+            Path: /author
+            Method: get
+  FindAuthorByIdFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: handlers/author/
+      Handler: author.findById
+      Runtime: nodejs8.10
+      Policies: AmazonDynamoDBFullAccess 
+      Events:
+        FindAuthorByIdAPI:
+          Type: Api
+          Properties:
+            Path: /author/{id}
+            Method: get
+  FindAllGenreFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: handlers/genre/
+      Handler: genre.findAll
+      Runtime: nodejs8.10
+      Policies: AmazonDynamoDBFullAccess 
+      Events:
+        FindAllGenreAPI:
+          Type: Api
+          Properties:
+            Path: /genre
+            Method: get
+  FindAllThemeFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: handlers/theme/
+      Handler: theme.findAll
+      Runtime: nodejs8.10
+      Policies: AmazonDynamoDBFullAccess 
+      Events:
+        FindAllThemeAPI:
+          Type: Api
+          Properties:
+            Path: /theme
+            Method: get
+  FindAllEventFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: handlers/event/
+      Handler: event.findAll
+      Runtime: nodejs8.10
+      Policies: AmazonDynamoDBFullAccess 
+      Events:
+        FindAllEventAPI:
+          Type: Api
+          Properties:
+            Path: /event
+            Method: get
+  FindEventByIdFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: handlers/event/
+      Handler: event.findById
+      Runtime: nodejs8.10
+      Policies: AmazonDynamoDBFullAccess 
+      Events:
+        FindEventByIdAPI:
+          Type: Api
+          Properties:
+            Path: /event/{id}
+            Method: get
+  LoginFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: handlers/user/
+      Handler: user.login
+      Runtime: nodejs8.10
+      Policies: AmazonDynamoDBFullAccess 
+      Events:
+        LoginAPI:
+          Type: Api
+          Properties:
+            Path: /login/
+            Method: post
+  RegisterFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: handlers/user/
+      Handler: user.register
+      Runtime: nodejs8.10
+      Policies: AmazonDynamoDBFullAccess 
+      Events:
+        RegisterAPI:
+          Type: Api
+          Properties:
+            Path: /register/
+            Method: post
+
+Outputs:
+  # ServerlessRestApi is an implicit API created out of Events key under Serverless::Function
+  # Find out more about other implicit resources you can reference within SAM
+  # https://github.com/awslabs/serverless-application-model/blob/master/docs/internals/generated_resources.rst#api
+  #HelloWorldApi:
+  #  Description: "API Gateway endpoint URL for Prod stage for Hello World function"
+  #  Value: !Sub "https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/hello/"
+  #HelloWorldFunction:
+  #  Description: "Hello World Lambda Function ARN"
+  #  Value: !GetAtt HelloWorldFunction.Arn
+  #HelloWorldFunctionIamRole:
+  #  Description: "Implicit IAM Role created for Hello World function"
+  #  Value: !GetAtt HelloWorldFunctionRole.Arn
+  FindAllBookAPI:
+    Description: "API Gateway endpoint URL for Prod stage for Hello World function"
+    Value: !Sub "https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/book/"
+  FindAllBookFunction:
+    Description: "Hello World Lambda Function ARN"
+    Value: !GetAtt FindAllBookFunction.Arn
+  FindAllBookFunctionIamRole:
+    Description: "Implicit IAM Role created for Hello World function"
+    Value: !GetAtt FindAllBookFunctionRole.Arn
