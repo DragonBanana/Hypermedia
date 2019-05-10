@@ -46,8 +46,13 @@ exports.login = async (event) => {
     if(result.Count === 1) {
         return {
             statusCode: 200,
-            headers: { "Set-Cookie": "session=" + result.Items[0].username},
-            body: "Login successful."
+            headers: { },
+            body: "{username: " + username + "}",
+            headers: {
+                'Set-Cookie': 'session='+ result.Items[0].username + ';domain=https://suhqk95c5h.execute-api.eu-west-1.amazonaws.com;path=/;Max-Age=100000',
+                'Access-Control-Allow-Origin': '*',
+                'Access-Control-Allow-Credentials': true
+            }
         };
     } else {
         return resp.stringify(200, "Username or password are wrong")

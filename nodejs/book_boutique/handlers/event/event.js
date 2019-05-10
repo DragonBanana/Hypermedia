@@ -45,7 +45,7 @@ exports.findAll = async (event) => {
             ":bookId": isbn
         }
     }
-    return resp.stringify(await db.scan(params, page));
+    return resp.stringify(200, await db.scan(params, page));
 };
 
 /*
@@ -66,7 +66,7 @@ exports.findById = async (event) => {
                 ":id": id
             }
         };
-        return resp.stringify(await db.query(params, 1));
+        return resp.stringify(200, await db.query(params, 1));
     } else {
         return resp.stringify(null);
     }

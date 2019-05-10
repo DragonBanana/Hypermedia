@@ -29,5 +29,5 @@ exports.findAll = async (event) => {
         TableName: 'bb_theme',
         Limit: pageSize,
     };
-    return resp.stringify(await db.scan(params, page));
+    return resp.stringify(200, await db.scan(params, page));
 };

@@ -69,7 +69,7 @@ exports.findAll = async (event) => {
             ":themeId": theme
         }
     }
-    return resp.stringify(await db.scan(params, page));
+    return resp.stringify(200, await db.scan(params, page));
 };
 
 /*
@@ -90,7 +90,7 @@ exports.findByISBN = async (event) => {
                 ":isbn": isbn
             }
         };
-        return resp.stringify(await db.query(params, 1));
+        return resp.stringify(200, await db.query(params, 1));
     } else {
         return resp.stringify(null);
     }
@@ -123,7 +123,7 @@ exports.findFavourites = async (event) => {
             ":favourite": "true"
         }
     };
-    return resp.stringify(await db.scan(params, page));
+    return resp.stringify(200, await db.scan(params, page));
 };
 
 /*
@@ -153,5 +153,5 @@ exports.findBestSellers = async (event) => {
             ":bestSellers": "true"
         }
     };
-    return resp.stringify(await db.scan(params, page));
+    return resp.stringify(200, await db.scan(params, page));
 };

@@ -10,6 +10,12 @@ Globals:
   Function:
     Timeout: 10
     MemorySize: 128
+  Api:
+    EndpointConfiguration: REGIONAL
+    Cors: 
+      AllowOrigin: "'book-boutique-static.s3-website-eu-west-1.amazonaws.com/'"
+      AllowCredentials: true
+
 
 Resources:
   FindAllBookFunction:
@@ -23,7 +29,7 @@ Resources:
         FindAllBookAPI:
           Type: Api
           Properties:
-            Path: /book
+            Path: /api/book
             Method: get
   FindBookByISBNFunction:
     Type: AWS::Serverless::Function
@@ -36,7 +42,7 @@ Resources:
         FindAllBookByISBNAPI:
           Type: Api
           Properties:
-            Path: /book/{isbn}
+            Path: /api/book/{isbn}
             Method: get
   FindFavouritesBookFunction:
     Type: AWS::Serverless::Function
@@ -49,7 +55,7 @@ Resources:
         FindAllFavouriteBookAPI:
           Type: Api
           Properties:
-            Path: /book/favourite
+            Path: /api/book/favourite
             Method: get
   FindBestSellersBookFunction:
     Type: AWS::Serverless::Function
@@ -62,7 +68,7 @@ Resources:
         FindAllBestSellerBookAPI:
           Type: Api
           Properties:
-            Path: /book/bestseller
+            Path: /api/book/bestseller
             Method: get
   FindAllAuthorFunction:
     Type: AWS::Serverless::Function
@@ -75,7 +81,7 @@ Resources:
         FindAllAuthorAPI:
           Type: Api
           Properties:
-            Path: /author
+            Path: /api/author
             Method: get
   FindAuthorByIdFunction:
     Type: AWS::Serverless::Function
@@ -88,7 +94,7 @@ Resources:
         FindAuthorByIdAPI:
           Type: Api
           Properties:
-            Path: /author/{id}
+            Path: /api/author/{id}
             Method: get
   FindAllGenreFunction:
     Type: AWS::Serverless::Function
@@ -101,7 +107,7 @@ Resources:
         FindAllGenreAPI:
           Type: Api
           Properties:
-            Path: /genre
+            Path: /api/genre
             Method: get
   FindAllThemeFunction:
     Type: AWS::Serverless::Function
@@ -114,7 +120,7 @@ Resources:
         FindAllThemeAPI:
           Type: Api
           Properties:
-            Path: /theme
+            Path: /api/theme
             Method: get
   FindAllEventFunction:
     Type: AWS::Serverless::Function
@@ -127,7 +133,7 @@ Resources:
         FindAllEventAPI:
           Type: Api
           Properties:
-            Path: /event
+            Path: /api/event
             Method: get
   FindEventByIdFunction:
     Type: AWS::Serverless::Function
@@ -140,7 +146,7 @@ Resources:
         FindEventByIdAPI:
           Type: Api
           Properties:
-            Path: /event/{id}
+            Path: /api/event/{id}
             Method: get
   LoginFunction:
     Type: AWS::Serverless::Function
@@ -153,7 +159,7 @@ Resources:
         LoginAPI:
           Type: Api
           Properties:
-            Path: /login/
+            Path: /api/login/
             Method: post
   RegisterFunction:
     Type: AWS::Serverless::Function
@@ -166,7 +172,7 @@ Resources:
         RegisterAPI:
           Type: Api
           Properties:
-            Path: /register/
+            Path: /api/register/
             Method: post
 
 Outputs:
