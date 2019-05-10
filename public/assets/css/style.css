@@ -2,8 +2,7 @@ table {
     border-collapse: collapse
 }
 
-td,
-th {
+td, th {
     border: 1px solid #ddd;
     padding: 8px;
 }
@@ -34,7 +33,6 @@ th {
 
 .center {
     margin: auto;
-    
 }
 
 .carousel-item {
@@ -110,15 +108,15 @@ footer div.font {
     position: relative;
 }
 
-#slider-image-1:target ~ .image-holder {
+#slider-image-1:target~.image-holder {
     left: 0px;
 }
 
-#slider-image-2:target ~ .image-holder {
+#slider-image-2:target~.image-holder {
     left: -800px;
 }
 
-#slider-image-3:target ~ .image-holder {
+#slider-image-3:target~.image-holder {
     left: -1600px;
 }
 
@@ -154,7 +152,7 @@ footer div.font {
     float: left;
 }
 
-.MultiCarousel .MultiCarousel-inner .item > div {
+.MultiCarousel .MultiCarousel-inner .item>div {
     text-align: center;
     padding: 10px;
     margin: 10px;
@@ -162,8 +160,7 @@ footer div.font {
     color: #666;
 }
 
-.MultiCarousel .leftLst,
-.MultiCarousel .rightLst {
+.MultiCarousel .leftLst, .MultiCarousel .rightLst {
     position: absolute;
     border-radius: 50%;
     top: calc(50% - 20px);
@@ -177,8 +174,7 @@ footer div.font {
     right: 0;
 }
 
-.MultiCarousel .leftLst.over,
-.MultiCarousel .rightLst.over {
+.MultiCarousel .leftLst.over, .MultiCarousel .rightLst.over {
     pointer-events: none;
     background: #ccc;
 }
@@ -199,7 +195,6 @@ footer div.font {
     .navbar-nav li.right {
         margin-left: auto !important;
     }
-
     .navbar-nav li.nav-item button {
         margin-left: .5rem;
     }
@@ -215,14 +210,12 @@ footer div.font {
     .navbar-nav li.right {
         margin-left: 0;
     }
-
     .navbar-nav li.nav-item button {
         margin-left: 0;
         margin-bottom: 1rem;
         padding-left: 1rem;
         padding-right: 1rem;
     }
-
     .searchbar {
         margin-bottom: 1rem;
     }
@@ -246,12 +239,12 @@ footer div.font {
 
 .searchbar:focus {
     background-color: rgba(255, 255, 255, 0.875);
+    color: black;
 }
 
 .searchbar:focus::placeholder {
     color: #343a40;
 }
-
 
 .searchbar::placeholder {
     color: rgba(255, 255, 255, 0.5);
@@ -277,6 +270,7 @@ footer div.font {
   }
 }
 */
+
 .slick-slide img {
     margin-right: 2.6rem;
 }
@@ -294,10 +288,79 @@ footer div.font {
   }
 }
 */
+
 .multiple-items {
     margin-bottom: 2rem;
 }
 
-@media (max-width: 767px) {
+@media (max-width: 767px) {}
+
+ul#genre_list li p {
+    margin-bottom: 0.2rem;
 }
 
+ul#genre_list li p::first-letter {
+    text-transform: uppercase;
+}
+
+ul#theme_list li p {
+    margin-bottom: 0.2rem;
+}
+
+ul#theme_list li p::first-letter {
+    text-transform: uppercase;
+}
+
+.book-element-image {
+    width: 90%;
+}
+
+.book-element .title {
+    font-size: 2rem;
+}
+
+.book-element .author {
+    font-size: 1.5rem;
+}
+
+.book-element .price {
+    font-size: 1.2rem;
+}
+
+.book-element .tags {
+    font-size: 1rem;
+}
+
+@media (min-width: 992px) {
+    .book-element .description {
+        font-size: 0.9rem;
+        width:80%;
+    }
+}
+
+@media (max-width: 991px) {
+    .book-element .description {
+        font-size: 0.8rem;
+        width:90%;
+    }
+}
+
+@media (max-width: 768px) {
+    .book-element .description {
+        font-size: 0.7rem;
+        width:100%;
+    }
+}
+
+.list-title {
+    font-size: 2rem;
+    text-transform: uppercase;
+}
+
+.add-to-cart {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    margin-top: 1rem;
+    color: white;
+    background-color: orange!important;
+}

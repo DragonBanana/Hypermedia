@@ -7,7 +7,8 @@ module.exports = {
                 body: "Resource not found.",
                 headers: {
                     'Access-Control-Allow-Origin': '*',
-                    'Access-Control-Allow-Credentials': true
+                    'Access-Control-Allow-Credentials': true,
+                    'Content-Type': "application/json"
                 }
             };
         } else {
@@ -16,7 +17,8 @@ module.exports = {
                 body: JSON.stringify(data.Items),
                 headers: {
                     'Access-Control-Allow-Origin': '*',
-                    'Access-Control-Allow-Credentials': true
+                    'Access-Control-Allow-Credentials': true,
+                    'Content-Type': "application/json"
                 }
             };
         }
@@ -29,18 +31,32 @@ module.exports = {
                 body: "Resource not found.",
                 headers: {
                     'Access-Control-Allow-Origin': '*',
-                    'Access-Control-Allow-Credentials': true
+                    'Access-Control-Allow-Credentials': true,
+                    'Content-Type': "application/json"
                 }
             };
         } else {
-            return {
-                statusCode: code,
-                body: JSON.stringify(data),
-                headers: {
-                    'Access-Control-Allow-Origin': '*',
-                    'Access-Control-Allow-Credentials': true
+                if(code === 400) {
+                    return {
+                        statusCode: code,
+                        body: JSON.stringify('{"error": "' + data + '"}'),
+                        headers: {
+                            'Access-Control-Allow-Origin': '*',
+                            'Access-Control-Allow-Credentials': true,
+                            'Content-Type': "application/json"
+                        }
+                    };
+                }else{
+                    return {
+                        statusCode: code,
+                        body: JSON.stringify(data),
+                        headers: {
+                            'Access-Control-Allow-Origin': '*',
+                            'Access-Control-Allow-Credentials': true,
+                            'Content-Type': "application/json"
+                        }
+                    };
                 }
-            };
         }
     }
 }

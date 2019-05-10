@@ -11,6 +11,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     <script src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.js"></script>
     <script src="assets/js/multicarousel.js"></script>
     <script src="assets/js/modal.js"></script>
     <script src="assets/js/slick.min.js"></script>
@@ -59,12 +60,30 @@
                     </li>
                     <li class="right">
                         <input class="searchbar" type="text" placeholder="Search" aria-label="Search">
-                    <li class="nav-item">
+                    <li id="navbar_loginButton" class="nav-item">
                         <button class="nav-link btn btn-rounded btn-primary" onclick="document.getElementById('id01').style.display='block'" style="width:auto;" href="pages/faq.html">Sign in</button>
                     </li>
-                    <li class="nav-item">
+                    <li id="navbar_registerButton" class="nav-item">
                         <button class="nav-link btn btn-rounded btn-primary" onclick="document.getElementById('id02').style.display='block'" style="width:auto;" href="pages/faq.html" href="pages/faq.html">Sign up</button>
                     </li>
+                    <li id="navbar_userLabel" class="dropdown nav-item">
+                            <a id="navbar_userLabel_username"href="#" class="dropdown-toggle nav-link" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true"> <span class="nav-label">Categories</span> <span class="caret"></span></a>
+                            <ul class="dropdown-menu bg-dark">
+                                <li><a href="#">Logout</a></li>
+                            </ul>
+                    </li>
+                    <script>
+                        if($.cookie("session")) {
+                            $('#navbar_loginButton').hide();
+                            $('#navbar_registerButton').hide();
+                            $('#navbar_userLabel').show();
+                            $('#navbar_userLabel_username').text($.cookie("session"));
+                        } else {
+                            $('#navbar_loginButton').show();
+                            $('#navbar_registerButton').show();
+                            $('#navbar_userLabel').hide();
+                        }
+                    </script>
                 </ul>
             </div>
         </div>

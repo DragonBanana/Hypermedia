@@ -47,7 +47,7 @@ exports.login = async (event) => {
         return {
             statusCode: 200,
             headers: { },
-            body: "{username: " + username + "}",
+            body: '{"username": "' + username + '"}',
             headers: {
                 'Set-Cookie': 'session='+ result.Items[0].username + ';domain=https://suhqk95c5h.execute-api.eu-west-1.amazonaws.com;path=/;Max-Age=100000',
                 'Access-Control-Allow-Origin': '*',
@@ -55,7 +55,7 @@ exports.login = async (event) => {
             }
         };
     } else {
-        return resp.stringify(200, "Username or password are wrong")
+        return resp.stringify(400, "Username or password are wrong")
     }
     
 };
@@ -73,22 +73,22 @@ exports.register = async (event) => {
     if ((parameter = param.getBodyParameter(event, "username")) != null) {
         username = parameter;
     } else {
-        return resp.stringify(200, "username parameter not found");
+        return resp.stringify(400, "username parameter not found");
     }
     if ((parameter = param.getBodyParameter(event, "password")) != null) {
         password = parameter;
     } else {
-        return resp.stringify(200, "password parameter not found");
+        return resp.stringify(400, "password parameter not found");
     }
     if ((parameter = param.getBodyParameter(event, "name")) != null) {
         name = parameter;
     } else {
-        return resp.stringify(200, "name parameter not found");
+        return resp.stringify(400, "name parameter not found");
     }
     if ((parameter = param.getBodyParameter(event, "surname")) != null) {
         surname = parameter;
     } else {
-        return resp.stringify(200, "surname parameter not found");
+        return resp.stringify(400, "surname parameter not found");
     }
 
     let params = {
@@ -128,7 +128,7 @@ exports.register = async (event) => {
         
         return resp.stringify(200, username + " created");
     } else {
-        return resp.stringify(200, username + " already registered");
+        return resp.stringify(400, username + " already registered");
     }
 
 }

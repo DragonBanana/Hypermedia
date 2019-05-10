@@ -88,9 +88,9 @@ span.psw {
   
   
 .modal-content { 
-    background-color: #343a40!important; 
+    background-color: rgb(78,85,90)!important; 
     margin: 5% auto 15% auto;  
-    border: 3px solid gray; 
+    border: 3px solid #343a40; 
     width: 80%; 
     padding-bottom: 1rem;
 } 

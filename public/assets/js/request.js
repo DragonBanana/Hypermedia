@@ -16,17 +16,16 @@ function login(username, password) {
         type: "POST",
         url: url,
         dataType: 'json',
-        crossDomain: true,
-        xhrFields: {
-            withCredentials: true
-         },
+        crossDomain: true
     })
     .done(function (data) {
-        let response = JSON.parse(data);
-        document.cookie = "session=" + response.username + "; max-age=3600; path=/;";
+        console.log(data);
+        $.cookie("session", data.username)
+        $("#id01").hide();
     })
-    .fail(function (err) {
-        console.log("err data: " + err);
+    .fail(function () {
+        console.log("Error");
+        alert("Login failed, username or password are wrong");
     });
 }
 
@@ -58,8 +57,58 @@ function register(username, password, name, surname) {
     })
     .done(function (data) {
         console.log(data);
+        $("#id02").hide();
     })
     .fail(function (err) {
-        console.log("err data: " + err);
+        alert("Registration failed")
+    });
+}
+
+/*Get genres function
+*/
+function getAllBookGenres() {
+    var method = "api/genre/"
+    var url = apiServer + method;
+    return $.ajax({
+        type: "GET",
+        url: url,
+        dataType: 'json',
+        crossDomain: true
+    })
+    .fail(function (err) {
+        alert("Registration failed")
+    });
+}
+
+/*Get themes function
+*/
+function getAllBookThemes() {
+    var method = "api/theme/"
+    var url = apiServer + method;
+    return $.ajax({
+        type: "GET",
+        url: url,
+        dataType: 'json',
+        crossDomain: true
+    })
+    .fail(function (err) {
+        alert("Registration failed")
+    });
+}
+
+
+/*Get books function
+*/
+function getAllBooks() {
+    var method = "api/book/"
+    var url = apiServer + method;
+    return $.ajax({
+        type: "GET",
+        url: url,
+        dataType: 'json',
+        crossDomain: true
+    })
+    .fail(function (err) {
+        alert("Registration failed")
     });
 }
