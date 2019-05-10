@@ -8,7 +8,7 @@ $('.like-btn').on('click', function() {
     var $input = $this.closest('div').find('input');
     var value = parseInt($input.val());
  
-    if (value &amp> 1) {
+    if (value &amp > 1) {
         value = value - 1;
     } else {
         value = 0;
