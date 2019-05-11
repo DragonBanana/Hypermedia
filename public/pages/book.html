@@ -15,6 +15,7 @@
     <script src="../assets/js/modal.js"></script>
     <script src="../assets/js/slick.min.js"></script>
     <script src="../assets/js/request.js"></script>
+    <script src="../assets/js/dynamicPage.js"></script>
     <link rel="stylesheet" href="../assets/css/slick.css">
     <link rel="stylesheet" href="../assets/css/slick-theme.css">
     <link rel="stylesheet" href="../assets/css/modal.css">
@@ -88,7 +89,7 @@
                                 getAllBookGenres()
                                     .done(function (data) {
                                         for (i = 0; i < data.Count; i++) {
-                                            $('#genre_list').append('<li><p href="#" style="color: black">' + data.Items[i].name + '</p></li>')
+                                            $('#genre_list').append('<li><p style="color: black"><a class="genre_element" href="#">' + data.Items[i].name + '</a></p></li>')
                                         }
                                     });
                                 console.log(typeof genres);
@@ -100,7 +101,7 @@
                                 getAllBookThemes()
                                     .done(function (data) {
                                         for (i = 0; i < data.Count; i++) {
-                                            $('#theme_list').append('<li><p href="#" style="color: black">' + data.Items[i].name + '</p></li>')
+                                            $('#theme_list').append('<li><p style="color: black"><a class="theme_element" href="#">' + data.Items[i].name + '</a></p></li>')
                                         }
                                     });
                                 console.log(typeof genres);
@@ -115,48 +116,26 @@
 
 
 
-            <div id="element_list" class="col-md-10 col-sm-12 " style="padding-top: 100px">
+            <div id="element-list" class="col-md-10 col-sm-12 " style="padding-top: 100px">
+                <span id="element-list-page">1</span>
+                <span id="element-list-page-size">4</span>
+                <span id="element-list-total-elements"></span>
+                <span id="element-list-query">api/book/?</span>
+                <div id="element-list-title" class="list-title"></div>
+                <div id="element-list-content"></div>
                 <script>
-                    function gen_book_html(isbn, title, author, price, theme, genre, description) {
-                        let html = '<hr hr style="height:3px;border:none;color:#DDDDDD;background-color:#DDDDDD;"> \
-                                    <div class="row book-element"> \
-                                        <div class="col-xl-2 col-lg-3 col-md-4 col-sm-5 text-center"> \
-                                            <img class="book-element-image" src="../assets/img/'+ isbn + '.jpg"> \
-                                        </div> \
-                                        <div class="col-xl-10 col-lg-9 col-md-8 col-sm-7"> \
-                                            <div class="title"> \
-                                                <a class="text-uppercase">' + title + '<a> \
-                                            </div> \
-                                            <div class="author"> \
-                                                <a>' + author + '</a> \
-                                            </div> \
-                                            <div class="price"> \
-                                                <a>$' + price + '</a> \
-                                            </div> \
-                                            <div class="tags"> \
-                                                <a class="font-weight-bold">Tag: </a> \
-                                                <a class="text-lowercase">' + theme + '</a>, \
-                                                <a class="text-lowercase">' + genre + '</a> \
-                                            </div> \
-                                            <div class="description"> \
-                                                <a class="font-weight-bold">Description: </a>' + description + ' \
-                                            </div> \
-                                            <button class="nav-link btn btn-rounded add-to-cart">Add to cart</button> \
-                                        </div> \
-                                    </div>'
-                        return html;
-                    }
-                    getAllBooks()
-                        .done(function (data) {
-                            for (i = 0; i < data.Count; i++) {
-                                let book = data.Items[i];
-                                $('#element_list').append(gen_book_html(book.isbn, book.title, book.authorId, book.price, book.themeId, book.genreId, book.description));
-                            }
-                        });
+                    gen_book_content();
                 </script>
-                <div class="list-title">
-                    Books
-                </div>
+                <div id="element-list-navigator"></div>
+                <nav aria-label="...">
+                    <ul id = 'element-list-nav' class="pagination">
+                        <li class="page-item"><a class="page-link" href="#">1</a></li>
+                        <li class="page-item active">
+                            <a class="page-link" href="#">2</a>
+                        </li>
+                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    </ul>
+                </nav>
             </div>
         </div>
     </div>

@@ -10,43 +10,31 @@ Query is needed when we are looking up in table using the primary key.
 Scan is needed when we are looking up in the table without the primary key.
 */
 module.exports = {
-    query: async function (params, page) {
-        return await dynamoQuery(params, 0, page);
+    query: async function (params) {
+        return await dynamoQuery(params);
     },
-    scan: async function (params, page) {
-        return await dynamoScan(params, 0, page);
+    scan: async function (params) {
+        return await dynamoScan(params);
     },
     put: async function (params) {
         return await dynamoPutItem(params);
     }
 };
 
-async function dynamoScan(params, currPage, page) {
+async function dynamoScan(params) {
     try{
-        const data = await dynamoDb.scan(params).promise()
-        currPage++;
-        if(currPage == page) {
-            return data;
-        } else {
-            params.ExclusiveStartKey = data.LastEvaluatedKey;
-            return dynamoScan(params, currPage, page);
-        }
+        const data = await dynamoDb.scan(params).promise();
+        return data;
     }catch(err) {
         console.log(err);
         return err;
     }
 }
 
-async function dynamoQuery(params, currPage, page) {
+async function dynamoQuery(params) {
     try{
-        const data = await dynamoDb.query(params).promise();
-        currPage++;
-        if(currPage == page) {
-            return data;
-        } else {
-            params.ExclusiveStartKey = data.LastEvaluatedKey;
-            return dynamoQuery(params, currPage, page);
-        }
+        const data = await dynamoDb.scan(params).promise();
+        return data;
     }catch(err) {
         console.log(err);
         return err;

@@ -293,7 +293,6 @@ footer div.font {
     margin-bottom: 2rem;
 }
 
-@media (max-width: 767px) {}
 
 ul#genre_list li p {
     margin-bottom: 0.2rem;
@@ -316,11 +315,11 @@ ul#theme_list li p::first-letter {
 }
 
 .book-element .title {
-    font-size: 2rem;
+    font-size: 1.8rem;
 }
 
 .book-element .author {
-    font-size: 1.5rem;
+    font-size: 1.4rem;
 }
 
 .book-element .price {
@@ -340,21 +339,36 @@ ul#theme_list li p::first-letter {
 
 @media (max-width: 991px) {
     .book-element .description {
-        font-size: 0.8rem;
-        width:90%;
+        font-size: 0.75rem;
+        width:100%;
     }
 }
 
 @media (max-width: 768px) {
     .book-element .description {
-        font-size: 0.7rem;
-        width:100%;
+        display: none;
+    }
+    .book-element .title {
+        font-size: 1.6rem;
+    }
+    
+    .book-element .author {
+        font-size: 1.1rem;
+    }
+    
+    .book-element .price {
+        font-size: 0.9rem;
+    }
+    
+    .book-element .tags {
+        font-size: 0.8rem;
     }
 }
 
 .list-title {
     font-size: 2rem;
     text-transform: uppercase;
+    display: none;
 }
 
 .add-to-cart {
@@ -363,4 +377,22 @@ ul#theme_list li p::first-letter {
     margin-top: 1rem;
     color: white;
     background-color: orange!important;
+}
+
+.genre_element {
+    color: black;
+}
+
+.theme_element {
+    color: black;
+}
+
+#element-list-nav .page-item a{
+    color: orange;
+}
+
+#element-list-nav .active a{
+    color: white;
+    background-color: orange;
+    border-color: darkorange;
 }

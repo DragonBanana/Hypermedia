@@ -39,8 +39,7 @@ exports.findAll = async (event) => {
         genre = parameter;
     }
     let params = {
-        TableName: 'bb_book',
-        Limit: pageSize
+        TableName: 'bb_book'
     };
     if (param.getQueryParameter(event, "theme") && param.getQueryParameter(event, "genre")) {
         params.FilterExpression = "#themeId = :themeId AND #genreId = :genreId";
@@ -69,7 +68,18 @@ exports.findAll = async (event) => {
             ":themeId": theme
         }
     }
-    return resp.stringify(200, await db.scan(params, page));
+    let dbResult = await db.scan(params);
+    let totalPage = parseInt(dbResult.Count/pageSize);
+    let count = pageSize;
+    if(page > totalPage) {
+        count = dbResult.Count - totalPage * pageSize;
+    }
+    let response = {
+        "Elements" : dbResult.Count,
+        "Count" : count,
+        "Items" : dbResult.Items.slice((page-1) * pageSize, page * pageSize)
+    }
+    return resp.stringify(200, response);
 };
 
 /*
@@ -81,7 +91,6 @@ exports.findByISBN = async (event) => {
         let isbn = parameter;
         let params = {
             TableName: 'bb_book',
-            Limit: 1,
             KeyConditionExpression: "#isbn = :isbn",
             ExpressionAttributeNames: {
                 "#isbn": "isbn"
@@ -90,7 +99,18 @@ exports.findByISBN = async (event) => {
                 ":isbn": isbn
             }
         };
-        return resp.stringify(200, await db.query(params, 1));
+        let dbResult = await db.scan(params);
+        let totalPage = parseInt(dbResult.Count/pageSize);
+        let count = pageSize;
+        if(page > totalPage) {
+            count = dbResult.Count - totalPage * pageSize;
+        }
+        let response = {
+            "Elements" : dbResult.Count,
+            "Count" : count,
+            "Items" : dbResult.Items.slice((page-1) * pageSize, page * pageSize)
+        }
+        return resp.stringify(200, response);
     } else {
         return resp.stringify(null);
     }
@@ -114,7 +134,6 @@ exports.findFavourites = async (event) => {
     }
     let params = {
         TableName: 'bb_book',
-        Limit: pageSize,
         FilterExpression: "#favourite = :favourite",
         ExpressionAttributeNames: {
             "#favourite": "favourite"
@@ -123,7 +142,18 @@ exports.findFavourites = async (event) => {
             ":favourite": "true"
         }
     };
-    return resp.stringify(200, await db.scan(params, page));
+    let dbResult = await db.scan(params);
+    let totalPage = parseInt(dbResult.Count/pageSize);
+    let count = pageSize;
+    if(page > totalPage) {
+        count = dbResult.Count - totalPage * pageSize;
+    }
+    let response = {
+        "Elements" : dbResult.Count,
+        "Count" : count,
+        "Items" : dbResult.Items.slice((page-1) * pageSize, page * pageSize)
+    }
+    return resp.stringify(200, response);
 };
 
 /*
@@ -144,7 +174,6 @@ exports.findBestSellers = async (event) => {
     }
     let params = {
         TableName: 'bb_book',
-        Limit: pageSize,
         FilterExpression: "#bestSellers = :bestSellers",
         ExpressionAttributeNames: {
             "#bestSellers": "bestSellers"
@@ -153,5 +182,16 @@ exports.findBestSellers = async (event) => {
             ":bestSellers": "true"
         }
     };
-    return resp.stringify(200, await db.scan(params, page));
+    let dbResult = await db.scan(params);
+    let totalPage = parseInt(dbResult.Count/pageSize);
+    let count = pageSize;
+    if(page > totalPage) {
+        count = dbResult.Count - totalPage * pageSize;
+    }
+    let response = {
+        "Elements" : dbResult.Count,
+        "Count" : count,
+        "Items" : dbResult.Items.slice((page-1) * pageSize, page * pageSize)
+    }
+    return resp.stringify(200, response);
 };

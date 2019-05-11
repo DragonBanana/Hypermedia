@@ -31,7 +31,6 @@ exports.login = async (event) => {
     }
     let params = {
         TableName: 'bb_user',
-        Limit: 1,
         FilterExpression: "#username = :username AND #password = :password",
         ExpressionAttributeNames: {
             "#username": "username",
@@ -43,7 +42,7 @@ exports.login = async (event) => {
         }
     };
     let result = await db.scan(params, 1);
-    if(result.Count === 1) {
+    if(result.Count >= 1) {
         return {
             statusCode: 200,
             headers: { },
@@ -93,7 +92,6 @@ exports.register = async (event) => {
 
     let params = {
         TableName: 'bb_user',
-        Limit: 1,
         KeyConditionExpression: "#username = :username",
         ExpressionAttributeNames: {
             "#username": "username"

@@ -29,5 +29,16 @@ exports.findAll = async (event) => {
         TableName: 'bb_theme',
         Limit: pageSize,
     };
-    return resp.stringify(200, await db.scan(params, page));
+    let dbResult = await db.scan(params);
+    let totalPage = parseInt(dbResult.Count/pageSize);
+    let count = pageSize;
+    if(page > totalPage) {
+        count = dbResult.Count - totalPage * pageSize;
+    }
+    let response = {
+        "Elements" : dbResult.Count,
+        "Count" : count,
+        "Items" : dbResult.Items.slice((page-1) * pageSize, page * pageSize)
+    }
+    return resp.stringify(200, response);
 };

@@ -12,7 +12,7 @@ var apiServer = "https://i2lfy3dum9.execute-api.eu-west-1.amazonaws.com/Prod/"
 function login(username, password) {
     var method = "api/login/"
     var url = apiServer + method + "?username=" + username + "&password=" + password;
-    $.ajax({
+    return $.ajax({
         type: "POST",
         url: url,
         dataType: 'json',
@@ -22,6 +22,7 @@ function login(username, password) {
         console.log(data);
         $.cookie("session", data.username)
         $("#id01").hide();
+        checkSessionStatus();
     })
     .fail(function () {
         console.log("Error");
@@ -48,7 +49,7 @@ function register(username, password, name, surname) {
         "name" : name,
         "surname" : surname
     }
-    $.ajax({
+    return $.ajax({
         type: "POST",
         url: url,
         data: JSON.stringify(user),
@@ -99,8 +100,8 @@ function getAllBookThemes() {
 
 /*Get books function
 */
-function getAllBooks() {
-    var method = "api/book/"
+function getAllBooks(query, page, pageSize) {
+    var method = query + "page="+ page + "&pageSize="  + pageSize;
     var url = apiServer + method;
     return $.ajax({
         type: "GET",

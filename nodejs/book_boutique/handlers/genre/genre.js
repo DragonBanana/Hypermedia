@@ -18,7 +18,7 @@ Query paramers :
 Example of request: ".../genre?page=3&pageSize=10"
 */
 exports.findAll = async (event) => {
-    let page = 1, pageSize = 10;
+    let page = 1, pageSize = 100;
     if ((parameter = param.getQueryParameter(event, "page")) != null) {
         page = parameter;
     }
@@ -29,5 +29,16 @@ exports.findAll = async (event) => {
         TableName: 'bb_genre',
         Limit: pageSize,
     };
-    return resp.stringify(200, await db.scan(params, page));
+    let dbResult = await db.scan(params);
+    let totalPage = parseInt(dbResult.Count/pageSize);
+    let count = pageSize;
+    if(page > totalPage) {
+        count = dbResult.Count - totalPage * pageSize;
+    }
+    let response = {
+        "Elements" : dbResult.Count,
+        "Count" : count,
+        "Items" : dbResult.Items.slice((page-1) * pageSize, page * pageSize)
+    }
+    return resp.stringify(200, response);
 };
