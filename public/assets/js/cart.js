@@ -2,13 +2,13 @@ $('.like-btn').on('click', function() {
     $(this).toggleClass('is-active');
  });
 
- $('.minus-btn').on('click', function(e) {
+ $(document).on('click','.btn-cart-minus', function(e) {
     e.preventDefault();
     var $this = $(this);
     var $input = $this.closest('div').find('input');
     var value = parseInt($input.val());
  
-    if (value &amp > 1) {
+    if (value  > 1) {
         value = value - 1;
     } else {
         value = 0;
@@ -18,13 +18,14 @@ $('.like-btn').on('click', function() {
  
 });
  
-$('.plus-btn').on('click', function(e) {
+$(document).on('click', '.btn-cart-plus', function(e) {
     e.preventDefault();
     var $this = $(this);
     var $input = $this.closest('div').find('input');
     var value = parseInt($input.val());
+    console.log(value);
  
-    if (value &amp < 100) {
+    if (value < 100) {
         value = value + 1;
     } else {
         value =100;
