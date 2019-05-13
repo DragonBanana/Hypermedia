@@ -77,7 +77,7 @@ function getAllBookGenres() {
         crossDomain: true
     })
     .fail(function (err) {
-        alert("Registration failed")
+        console.log(err);
     });
 }
 
@@ -93,7 +93,7 @@ function getAllBookThemes() {
         crossDomain: true
     })
     .fail(function (err) {
-        alert("Registration failed")
+        console.log(err);
     });
 }
 
@@ -110,6 +110,6 @@ function getAllBooks(query, page, pageSize) {
         crossDomain: true
     })
     .fail(function (err) {
-        alert("Registration failed")
+        console.log(err);
     });
 }
