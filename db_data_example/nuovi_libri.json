@@ -1,0 +1,105 @@
+
+
+"AUTHOR":
+
+[{
+  "id": "OrsonScottCard",
+  "name": "Orson Scott",
+  "surname": "Card"
+}]
+
+BOOK LIST
+
+[{
+  "authorId": "JKRowling",
+  "description": "Harry Potter and the Chamber of Secrets is a fantasy novel written by British author J. K. Rowling and the second novel in the Harry Potter series. The plot follows Harry's second year at Hogwarts School of Witchcraft and Wizardry, during which a series of messages on the walls of the school's corridors warn that the \"Chamber of Secrets\" has been opened and that the \"heir of Slytherin\" would kill all pupils who do not come from all-magical families. These threats are found after attacks which leave residents of the school petrified. Throughout the year, Harry and his friends Ron and Hermione investigate the attacks.",
+  "genreId": "fantasy",
+  "isbn": "9788005300747",
+  "price": 15.89,
+  "themeId": "social status",
+  "title": "Harry Potter and the Chamber of Secrets"
+},{
+    "authorId": "JKRowling",
+  "description": "Harry is back at the Dursleys for the summer holidays, where he sees on Muggle television that a convict named Sirius Black has escaped, though with no mention of what facility he has broken out of. Harry involuntarily inflates Aunt Marge when she comes to visit after she insults Harry and his parents. This leads to his running away and being picked up by the Knight Bus. He travels to the Leaky Cauldron where he meets Cornelius Fudge, the Minister for Magic, who asks Harry to stay in Diagon Alley for the remaining three weeks before the start of the school year at Hogwarts. While there, he meets his best friends Ron Weasley and Hermione Granger.",
+  "genreId": "fantasy",
+  "isbn": "9788005300657",
+  "price": 15.89,
+  "themeId": "solitude",
+  "title": "Harry Potter and the Prisoner of Azkaban"
+},{
+  "authorId": "JKRowling",
+  "description": "Harry Potter and the Goblet of Fire is a fantasy book written by British author J. K. Rowling and the fourth novel in the Harry Potter series. It follows Harry Potter, a wizard in his fourth year at Hogwarts School of Witchcraft and Wizardry and the mystery surrounding the entry of Harry's name into the Triwizard Tournament, in which he is forced to compete.",
+  "genreId": "fantasy",
+  "isbn": "9788005123657",
+  "price": 15.89,
+  "themeId": "love",
+  "title": "Harry Potter and the Goblet of Fire"
+},{  
+  "authorId": "JKRowling",
+  "description": "Harry Potter and the Order of the Phoenix is a fantasy novel written by British author J. K. Rowling and the fifth novel in the Harry Potter series. It follows Harry Potter's struggles through his fifth year at Hogwarts School of Witchcraft and Wizardry, including the surreptitious return of the antagonist Lord Voldemort, O.W.L. exams, and an obstructive Ministry of Magic. The novel was published on 21 June 2003 by Bloomsbury in the United Kingdom, Scholastic in the United States, and Raincoast in Canada. Five million copies were sold in the first 24 hours of publication. It is the longest book of the series.",
+  "genreId": "fantasy",
+  "isbn": "9788005123688",
+  "price": 15.89,
+  "themeId": "youth",
+  "title": "Harry Potter and the Order of the Phoenix"
+},{  
+  "authorId": "JKRowling",
+  "description": "Harry Potter and the Half-Blood Prince is a fantasy novel written by British author J. K. Rowling and the sixth and penultimate novel in the Harry Potter series. Set during protagonist Harry Potter's sixth year at Hogwarts, the novel explores the past of Harry's nemesis, Lord Voldemort, and Harry's preparations for the final battle against Voldemort alongside his headmaster and mentor Albus Dumbledore. The book was published in the United Kingdom by Bloomsbury, and in the United States by Scholastic on 16 July 2005, as well as in several other countries. It sold nine million copies in the first 24 hours after its release, a record at the time which was eventually broken by its sequel, Harry Potter and the Deathly Hallows. There were many controversies before and after it was published, including the right to read the copies delivered prior to the release date in Canada. Reception to the novel was generally positive and it won several awards and honours, including the 2006 British Book of the Year award.",
+  "genreId": "fantasy",
+  "isbn": "9788004444678",
+  "price": 15.89,
+  "themeId": "youth",
+  "title": "Harry Potter and the Half-Blood Prince"
+},{
+  "authorId": "JKRowling",
+  "description": "Harry Potter and the Deathly Hallows is a fantasy novel written by British author J. K. Rowling and the seventh and final novel of the Harry Potter series. The book was released on 21 July 2007, ending the series that began in 1997 with the publication of Harry Potter and the Philosopher's Stone. It was published in the United Kingdom by Bloomsbury Publishing, in the United States by Scholastic, and in Canada by Raincoast Books. The novel chronicles the events directly following Harry Potter and the Half-Blood Prince (2005) and the final confrontation between the wizards Harry Potter and Lord Voldemort.",
+  "genreId": "fantasy",
+  "isbn": "9788004544678",
+  "price": 15.89,
+  "themeId": "youth",
+  "title": "Harry Potter and the Deathly Hallows"
+},{
+
+  "authorId": "Orson Scott Card",
+  "description": "Ender's Game is a 1985 military science fiction novel by American author Orson Scott Card. Set at an unspecified date in Earth's future, the novel presents an imperiled humankind after two conflicts with the Formics, an insectoid alien species they dub the \"buggers\". In preparation for an anticipated third invasion, children, including the novel's protagonist, Andrew \"Ender\" Wiggin, are trained from a very young age by putting them through increasingly difficult games, including some in zero gravity, where Ender's tactical genius is revealed.",
+  "genreId": "science fiction",
+  "isbn": "9788019544678",
+  "price": 12,
+  "themeId": "politic",
+  "title": "Ender's Game"
+
+}]
+
+
+EVENTS 
+[{
+  "bookId": "9788004544678",
+  "id": "Doich Libren Fest",
+  "location": "Berlin",
+  "name": "Doich Libren Fest",
+  "time": "2019-08-19T12:00:00UTC"
+},{
+  "bookId": "9788004444678",
+  "id": "HP fest",
+  "location": "London",
+  "name": "HP fest",
+  "time": "2019-08-22T18:00:00UTC"
+},{
+  "bookId": "9788005123688",
+  "id": "Harry Potter Rally",
+  "location": "Manchester",
+  "name": "Harry Potter Rally",
+  "time": "2019-01-01T10:00:00UTC"  
+},{
+  "bookId": "9788005123657",
+  "id": "Harry Potter Meeting",
+  "location": "New York",
+  "name": "Harry Potter Meeting",
+  "time": "2019-02-01T15:00:00UTC"  
+},{
+  "bookId": "9788019544678",
+  "id": "Orson Festival",
+  "location": "Agrigento",
+  "name": "Orson Festival",
+  "time": "2019-03-15T16:00:00UTC"  
+}]
