@@ -12,8 +12,7 @@
   }
 
   .shopping-cart {
-    width: 750px;
-    height: 423px;
+    width: 550px;
     margin: 80px auto;
     background: #FFFFFF;
     box-shadow: 1px 2px 3px 0px rgba(0,0,0,0.10);
@@ -34,10 +33,14 @@
    
   .item {
     padding: 20px 30px;
-    height: 120px;
+    height: 160px;
     display: flex;
   }
    
+  .item .image img{
+    height: 100%;
+  }
+
   .item:nth-child(3) {
     border-top:  1px solid #E1E8EE;
     border-bottom:  1px solid #E1E8EE;
@@ -84,11 +87,10 @@
     100% { background-position: right; }
   }
 
-  .image {
+  .image{
     margin-right: 50px;
   }
    
-  Let’s add some basic style to  product name and description.
   .description {
     padding-top: 10px;
     margin-right: 60px;
@@ -125,7 +127,7 @@
     font-weight: 300;
   }
    
-  button[class*=btn] {
+  .cart-button {
     width: 30px;
     height: 30px;
     background-color: #E1E8EE;
@@ -154,7 +156,7 @@
     font-weight: 300;
   }
 
-  @media (max-width: 800px) {
+  @media (max-width: 400px) {
     .shopping-cart {
       width: 100%;
       height: auto;
@@ -177,5 +179,15 @@
     }
     .buttons {
       margin-right: 20px;
+    }
+  }
+
+  .cart-item-data {
+    display: none;
+  }
+
+  @media (min-width: 401px) {
+    .image {
+      max-width: 100px;
     }
   }

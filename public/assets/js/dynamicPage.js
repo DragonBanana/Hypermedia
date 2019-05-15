@@ -21,16 +21,43 @@ function gen_book_html(isbn, title, author, price, theme, genre, description) {
                         <div class="description"> \
                             <a class="font-weight-bold">Description: </a>' + description.substring(0, 250) + '... \
                         </div> \
-                        <button class="nav-link btn btn-rounded add-to-cart">Add to cart</button> \
+                        <button class="nav-link btn btn-rounded add-to-cart" onclick="addToCart('+ isbn + ',' + price + ')">Add to cart</button> \
                     </div> \
                 </div> \
                 <hr hr style="height:3px;border:none;color:#DDDDDD;background-color:#DDDDDD;">'
     return html;
 }
 
+function gen_cart_item_html(isbn, quantity, price) {
+    let html = '<div class="item"> \
+                    <span class="cart-item-isbn cart-item-data">' + isbn + '</span> \
+                    <span class="cart-item-price cart-item-data">' + price + '</span> \
+                    <span class="cart-item-quantity cart-item-data">' + quantity + '</span> \
+                    <div class="buttons"> \
+                    <span class="delete-btn"> \
+                        <i class="fas fa-trash"></i> \
+                    </span> \
+                    </div> \
+                    <div class="image"> \
+                    <img src="../assets/img/' + isbn +'.jpg" alt="" /> \
+                    </div> \
+                    <div class="quantity"> \
+                    <button type="button" class="btn-cart-plus btn-default btn-sm cart-button"> \
+                        <i class="fas fa-plus"></i> \
+                    </button> \
+                    <input type="text" name="name" value="' + quantity + '" readonly="readonly"> \
+                    <button type="button" class="btn-cart-minus btn-default btn-sm cart-button"> \
+                        <i class="fas fa-minus"></i> \
+                    </button> \
+                    </div> \
+                    <div class="total-price">' + price + '€</div> \
+                </div>'
+    return html;
+}
+
 function get_book_nav_button(num) {
     let active = "";
-    if(num === parseInt($("#element-list-page").text())) {
+    if (num === parseInt($("#element-list-page").text())) {
         active = "active";
     }
     let html = '<li class="page-item ' + active + '"><a class="page-link" href="#" onclick="changePage($(this).text())">' + num + '</a></li>'
@@ -39,26 +66,41 @@ function get_book_nav_button(num) {
 
 function gen_book_content() {
     getAllBooks($("#element-list-query").text(), $("#element-list-page").text(), $("#element-list-page-size").text())
-    .done(function (data) {
-        $('#element-list-content').empty();
-        $('#element-list-title').text("Books");
-        for (i = 0; i < data.Count; i++) {
-            let book = data.Items[i];
-            $('#element-list-content').append(gen_book_html(book.isbn, book.title, book.authorId, book.price, book.themeId, book.genreId, book.description));
+        .done(function (data) {
+            $('#element-list-content').empty();
+            $('#element-list-title').text("Books");
+            for (i = 0; i < data.Count; i++) {
+                let book = data.Items[i];
+                $('#element-list-content').append(gen_book_html(book.isbn, book.title, book.authorId, book.price, book.themeId, book.genreId, book.description));
+            }
+            $('#element-list-total-elements').text(data.Elements);
+            $('#element-list-nav').empty();
+            console.log($('#element-list-total-elements').text());
+            console.log($('#element-list-page-size').text());
+            for (i = 0; i < Math.ceil($('#element-list-total-elements').text() / $('#element-list-page-size').text()); i++) {
+                $('#element-list-nav').append(get_book_nav_button(i + 1));
+            }
+        });
+}
+
+function gen_cart_content() {
+    //getAllCartItems($.cookie("session")).
+    getAllCartItems("Giacomo").
+        done(function (data) {
+            $('#cart-items').empty();
+            let title = '<div class="title">Shopping Cart</div>';
+            $('#cart-items').append(title);
+            for (i = 0; i < data.Count; i++) {
+                let book = data.Items[i];
+                $('#cart-items').append(gen_cart_item_html(book.isbn, book.quantity, book.price));
+            }
         }
-        $('#element-list-total-elements').text(data.Elements);
-        $('#element-list-nav').empty();
-        console.log($('#element-list-total-elements').text());
-        console.log($('#element-list-page-size').text());
-        for (i = 0; i < Math.ceil($('#element-list-total-elements').text() / $('#element-list-page-size').text()); i++) {
-            $('#element-list-nav').append(get_book_nav_button(i+1));
-        }
-    });
+        );
 }
 
 $(document).on("click", ".genre_element", function (e) {
     e.preventDefault();
-    $("#element-list-query").text("api/book?genre=" + $(this).text() +"&");
+    $("#element-list-query").text("api/book?genre=" + $(this).text() + "&");
     $("#element-list-page").text(1);
     $("#element-list-page-size").text(4);
     gen_book_content();
@@ -66,7 +108,7 @@ $(document).on("click", ".genre_element", function (e) {
 
 $(document).on("click", ".theme_element", function (e) {
     e.preventDefault();
-    $("#element-list-query").text("api/book?theme=" + $(this).text() +"&");
+    $("#element-list-query").text("api/book?theme=" + $(this).text() + "&");
     $("#element-list-page").text(1);
     $("#element-list-page-size").text(4);
     gen_book_content();

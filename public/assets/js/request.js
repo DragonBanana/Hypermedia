@@ -113,3 +113,78 @@ function getAllBooks(query, page, pageSize) {
         console.log(err);
     });
 }
+
+/*Add to cart function
+    -Parameters:
+        -isbn : the book isbn
+        -price : the book price
+*/
+function addToCart(isbn, price) {
+    var method = "api/cart/"
+    var url = apiServer + method;
+    var cartItem = {
+        "username" : $.cookie("session"),
+        "isbn" : isbn.toString(),
+        "quantity" : "1",
+        "price" : price.toString()
+    }
+    return $.ajax({
+        type: "POST",
+        url: url,
+        data: JSON.stringify(cartItem),
+        dataType: 'json',
+        crossDomain: true
+    })
+    .done(function (data) {
+        console.log(data);
+    })
+    .fail(function (err) {
+        alert(err)
+    });
+}
+
+/*Get cart items function
+*/
+function getAllCartItems(user) {
+    var method = "api/cart/" + user
+    var url = apiServer + method;
+    return $.ajax({
+        type: "GET",
+        url: url,
+        dataType: 'json',
+        crossDomain: true
+    })
+    .fail(function (err) {
+        console.log(err);
+    });
+}
+
+/*Update cart item function
+    -Parameters:
+        -isbn : the book isbn
+        -quantity : the quantity of books
+        -price : the book price
+*/
+function updateCartItem(isbn, quantity, price) {
+    var method = "api/cart/"
+    var url = apiServer + method;
+    var cartItem = {
+        "username" : $.cookie("session"),
+        "isbn" : isbn.toString(),
+        "quantity" : quantity.toString(),
+        "price" : price.toString()
+    }
+    return $.ajax({
+        type: "PUT",
+        url: url,
+        data: JSON.stringify(cartItem),
+        dataType: 'json',
+        crossDomain: true
+    })
+    .done(function (data) {
+        console.log(data);
+    })
+    .fail(function (err) {
+        alert(err)
+    });
+}

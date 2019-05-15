@@ -8,13 +8,14 @@ Description: >
 # More info about Globals: https://github.com/awslabs/serverless-application-model/blob/master/docs/globals.rst
 Globals:
   Function:
-    Timeout: 10
-    MemorySize: 256
+    Timeout: 30
+    MemorySize: 320
   Api:
     EndpointConfiguration: REGIONAL
     Cors: 
-      AllowOrigin: "'book-boutique-static.s3-website-eu-west-1.amazonaws.com/'"
+      AllowOrigin: "'http://book-boutique-static.s3-website-eu-west-1.amazonaws.com'"
       AllowCredentials: true
+      AllowMethods: "'GET,POST,DELETE,PUT'"
 
 
 Resources:
