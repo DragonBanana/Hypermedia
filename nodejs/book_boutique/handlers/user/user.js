@@ -41,7 +41,7 @@ exports.login = async (event) => {
             ":password": password
         }
     };
-    let result = await db.scan(params, 1);
+    let result = await db.scan(params);
     if(result.Count >= 1) {
         return {
             statusCode: 200,
@@ -64,8 +64,8 @@ exports.login = async (event) => {
 Body parameters : 
     - username : the user username.
     - password : the user password.
-Example of requests : 
-    ".../login?userename=pippo&password=pippo
+    - name : the user name.
+    - surname : the user surname.
 */
 exports.register = async (event) => {
     let username, password, name, surname;
@@ -101,9 +101,9 @@ exports.register = async (event) => {
         }
     };
 
-    let result = await db.query(params, 1);
+    let result = await db.query(params);
 
-    if(result.Count != 1) {
+    if(result.Count == 0) {
         params = {
             TableName: 'bb_user',
             Item: {

@@ -9,7 +9,7 @@ Description: >
 Globals:
   Function:
     Timeout: 10
-    MemorySize: 128
+    MemorySize: 256
   Api:
     EndpointConfiguration: REGIONAL
     Cors: 
@@ -148,6 +148,58 @@ Resources:
           Properties:
             Path: /api/event/{id}
             Method: get
+  FindCartItemsByUsernameFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: handlers/cart/
+      Handler: cart.findCartItemsByUsername
+      Runtime: nodejs8.10
+      Policies: AmazonDynamoDBFullAccess 
+      Events:
+        FindCartItemsByUsernameAPI:
+          Type: Api
+          Properties:
+            Path: /api/cart/{username}
+            Method: get
+  DeleteCartItemByUsernameFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: handlers/cart/
+      Handler: cart.deleteCartItemByUsername
+      Runtime: nodejs8.10
+      Policies: AmazonDynamoDBFullAccess 
+      Events:
+        DeleteCartItemByUsernameAPI:
+          Type: Api
+          Properties:
+            Path: /api/cart/{username}
+            Method: delete
+  CreateCartItemFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: handlers/cart/
+      Handler: cart.createCartItem
+      Runtime: nodejs8.10
+      Policies: AmazonDynamoDBFullAccess 
+      Events:
+        CreateCartItemAPI:
+          Type: Api
+          Properties:
+            Path: /api/cart
+            Method: post
+  UpdateCartItemFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: handlers/cart/
+      Handler: cart.updateCartItem
+      Runtime: nodejs8.10
+      Policies: AmazonDynamoDBFullAccess 
+      Events:
+        UpdateCartItemAPI:
+          Type: Api
+          Properties:
+            Path: /api/cart
+            Method: put
   LoginFunction:
     Type: AWS::Serverless::Function
     Properties:

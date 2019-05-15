@@ -68,7 +68,6 @@ exports.findById = async (event) => {
         let id = parameter;
         let params = {
             TableName: 'bb_event',
-            Limit: 1,
             KeyConditionExpression: "#id = :id",
             ExpressionAttributeNames: {
                 "#id": "id"

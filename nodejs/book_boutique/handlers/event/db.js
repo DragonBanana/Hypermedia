@@ -18,6 +18,12 @@ module.exports = {
     },
     put: async function (params) {
         return await dynamoPutItem(params);
+    },
+    update: async function (params) {
+        return await dynamoUpdateItem(params);
+    },
+    delete: async function (params) {
+        return await dynamoDeleteItem(params);
     }
 };
 
@@ -44,6 +50,26 @@ async function dynamoQuery(params) {
 async function dynamoPutItem(params) {
     try{
         const data = (new AWS.DynamoDB).putItem(params).promise();
+        return data;
+    }catch(err) {
+        console.log(err);
+        return err;
+    }
+}
+
+async function dynamoUpdateItem(params) {
+    try{
+        const data = await dynamoDb.update(params).promise();
+        return data;
+    }catch(err) {
+        console.log(err);
+        return err;
+    }
+}
+
+async function dynamoDeleteItem(params) {
+    try{
+        const data = (new AWS.DynamoDB).delete(params).promise();
         return data;
     }catch(err) {
         console.log(err);
