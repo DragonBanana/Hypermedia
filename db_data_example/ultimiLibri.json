@@ -1,0 +1,50 @@
+BOOK LIST
+
+[{
+  "authorId": "PaulaHawkins",
+  "description": "Following the unexplained death of her sister, Nel, in a pool at the foot of a cliff, Jules Abbott returns to Beckford, a fictional town in Northumberland, to care for her niece, Lena. The novel focuses on a series of characters to unravel the relationships between them. It is told in a mixture of first-person and third-person narrative.",
+  "genreId": "drama",
+  "isbn": "9788005320727",
+  "price": 7.65,
+  "themeId": "happiness",
+  "title": "Into the Water"
+},{
+    "authorId": "OrsonScottCard",
+  "description": "Ender's Shadow (1999) is a parallel romance novel by the American author Orson Scott Card, taking place at the same time as the novel Ender's Game and depicting some of the same events from the point of view of Bean, a supporting character in the original novel. It was originally to be titled Urchin, but it was retitled Ender's Shadow prior to release. Ender's Shadow was shortlisted for a Locus Award in 2000.",
+  "genreId": "romance",
+  "isbn": "9788002200747",
+  "price": 11,
+  "themeId": "happiness",
+  "title": "Ender's Shadow"
+}]
+
+AUTHOR DESCRIPTION
+
+[{
+	"authorId":"ItaloCalvino",
+	"description":"Italo Calvino was an Italian writer and partisan. Intellectual of great political, civil and cultural commitment, he was one of the most important Italian storytellers of the late twentieth century."
+},{
+	"authorId":"OrsonScottCard",
+	"description":"Orson Scott Card (Richland, August 24, 1951) is an American science fiction and fantasy writer. Married and father of five children, of Mormon faith (he is a direct descendant of Brigham Young), a church for which he was also a missionary in Brazil, he lived in California, Arizona, and Utah. He now lives in Greensboro in the state of North Carolina."
+},{
+	"authorId":"GiovanniVega",
+	"description":"Giovanni Carmelo Verga (Vizzini, 2 September 1840 - Catania, 27 January 1922) was an Italian writer, playwright and senator, considered the greatest exponent of the literary current of realism."
+},{
+	"authorId":"JKRowling",
+	"description":"Joanne Rowling is a British writer, screenwriter and film producer. His fame is linked to the Harry Potter series of novels, which he wrote under the pseudonym J. K. Rowling, which is why the writer is often improperly referred to as Joanne Kathleen Rowling."
+},{
+	"authorId":"AntonioDistefano",
+	"description":"Antonio Dikele Distefano (Busto Arsizio, 25 May 1992) is an Italian writer. Born in Busto Arsizio to Angolan parents, he spent his childhood and adolescence in Ravenna, became fond of hip-hop music by composing some songs under the pseudonym \"Nashy\". In 2013 he was part of the Arab Spring duo."
+},{
+	"authorId":"AlessandroDavenia",
+	"description":"Alessandro D'Avenia (Palermo, 2 May 1977) is an Italian writer, teacher and screenwriter. D'Avenia was born on 2 May 1977, in Palermo, by Rita and Giuseppe, 3rd of 6 children. In 1990 he attended the Vittorio Emanuele II high school in Palermo, where he met father Pino Puglisi (he taught religion in the same institute) from whose figure he was strongly influenced."
+},{
+	"authorId":"PaulaHawkins",
+	"description":"Paula Hawkins, also known by the pseudonym Amy Silver (Harare, 26 August 1972), is a British writer and journalist. Born in Harare, Zimbabwe, daughter of a professor of economics and a financial journalist. He moved to London when he was 17 years old. He studied philosophy, politics and economics at the University of Oxford, then worked as a journalist for the Times. He has also worked for a number of freelance publications and has written a financial advisory book for women, entitled The Money Goddess."
+},{
+	"authorId":"PaoloGiordano",
+	"description":"Paolo Giordano (Turin, 19 December 1982) is an Italian writer and physicist. In 2008 he won the Strega Prize with his first novel: The Solitude of Prime Numbers. Paolo Giordano lives in Turin. His father Bruno is a gynecologist, his mother Isis is an English teacher; has an older sister, Cecilia, three years older."
+},{
+	"authorId":"PhilKnight",
+	"description":"Philip Hampson Knight is an American entrepreneur, business manager and film producer, co-founder and emeritus president of Nike after having been the CEO and president for over 50 years, he is the owner of Laika Entertainment."
+}]
