@@ -159,6 +159,22 @@ function getAllCartItems(user) {
     });
 }
 
+/*Delete cart item function
+*/
+function deleteAllCartItem(user, book) {
+    var method = "api/cart/" + user + "?isbn=" + book
+    var url = apiServer + method;
+    return $.ajax({
+        type: "DELETE",
+        url: url,
+        dataType: 'json',
+        crossDomain: true
+    })
+    .fail(function (err) {
+        console.log(err);
+    });
+}
+
 /*Update cart item function
     -Parameters:
         -isbn : the book isbn
@@ -186,5 +202,21 @@ function updateCartItem(isbn, quantity, price) {
     })
     .fail(function (err) {
         alert(err)
+    });
+}
+
+/*Get authors function
+*/
+function getAllAuthors(query, page, pageSize) {
+    var method = query + "page="+ page + "&pageSize="  + pageSize;
+    var url = apiServer + method;
+    return $.ajax({
+        type: "GET",
+        url: url,
+        dataType: 'json',
+        crossDomain: true
+    })
+    .fail(function (err) {
+        console.log(err);
     });
 }

@@ -314,6 +314,12 @@ ul#theme_list li p::first-letter {
     width: 90%;
 }
 
+@media (max-width: 576px) {
+    .book-element-image {
+        max-width: 300px;
+    }
+}
+
 .book-element .title {
     font-size: 1.8rem;
 }
@@ -339,14 +345,15 @@ ul#theme_list li p::first-letter {
 
 @media (max-width: 991px) {
     .book-element .description {
-        font-size: 0.75rem;
+        font-size: 0.8rem;
         width:100%;
     }
 }
 
 @media (max-width: 768px) {
     .book-element .description {
-        display: none;
+        font-size: 0.7rem;
+        width:100%;
     }
     .book-element .title {
         font-size: 1.6rem;

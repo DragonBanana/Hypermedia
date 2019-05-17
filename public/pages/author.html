@@ -39,7 +39,7 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav">
-                    <li class="nav-item">
+                    <li class="nav-item active">
                         <a class="nav-link" href="../index.html">Home
                             <span class="sr-only">(current)</span>
                         </a>
@@ -48,8 +48,8 @@
                             aria-haspopup="true" aria-expanded="true"> <span class="nav-label">Categories</span> <span
                                 class="caret"></span></a>
                         <ul class="dropdown-menu bg-dark">
-                            <li><a href="#">Books</a></li>
-                            <li><a href="#">Authors</a></li>
+                            <li><a href="book.html">Books</a></li>
+                            <li><a href="author.html">Authors</a></li>
                             <li><a href="#">Events</a></li>
                         </ul>
                     </li>
@@ -57,82 +57,59 @@
                         <a class="nav-link" href="info.html">Info</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Contacts</a>
+                        <a class="nav-link" href="ContactUs.html">Contacts</a>
                     </li>
-                    <li class="nav-item active">
+                    <li class="nav-item">
                         <a class="nav-link" href="faq.html">FAQ</a>
+                    </li>
+                    <li id="navbar_cart" class="nav-item">
+                        <a class="nav-link" href="cart.html">Shop</a>
                     </li>
                     <li class="right">
                         <input class="searchbar" type="text" placeholder="Search" aria-label="Search">
-                    <li class="nav-item">
+                    <li id="navbar_loginButton" class="nav-item">
                         <button class="nav-link btn btn-rounded btn-primary"
                             onclick="document.getElementById('id01').style.display='block'" style="width:auto;"
                             href="faq.html">Sign in</button>
                     </li>
-                    <li class="nav-item">
+                    <li id="navbar_registerButton" class="nav-item">
                         <button class="nav-link btn btn-rounded btn-primary"
                             onclick="document.getElementById('id02').style.display='block'" style="width:auto;"
-                            href="faq.html" href="faq.html">Sign up</button>
+                            href="faq.html">Sign up</button>
                     </li>
+                    <li id="navbar_userLabel" class="dropdown nav-item">
+                        <a id="navbar_userLabel_username" href="#" class="dropdown-toggle nav-link"
+                            data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true"> <span
+                                class="nav-label">Categories</span> <span class="caret"></span></a>
+                        <ul class="dropdown-menu bg-dark">
+                            <li><a href="#"
+                                    onclick='$.removeCookie("session", { path: "/" });checkSessionStatus();'>Logout</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <script>
+                        checkSessionStatus();
+                    </script>
                 </ul>
             </div>
         </div>
     </nav>
 
-
-    <!-- DIV DELLA PAGINA (slider + menù) -->
-    <div class="container-fluid">
+    <div class="container">
         <div class="row">
-            <div class="col-md-2 d-none d-md-block">
-                <div class="sidebarWrapper">
-                    <!-- Sidebar -->
-                    <nav id="sidebar" style="padding-top: 100px">
-                        <ul class="list-unstyled components">
-                            <p style="padding-top: 1rem"><a href="#" style="color: orange"><b>Genres</b></a></p>
-                            <script>
-                                getAllBookGenres()
-                                    .done(function (data) {
-                                        for (i = 0; i < data.Count; i++) {
-                                            $('#genre_list').append('<li><p style="color: black"><a class="genre_element" href="#">' + data.Items[i].name + '</a></p></li>')
-                                        }
-                                    });
-                                console.log(typeof genres);
-                            </script>
-                            <ul id="genre_list">
-                            </ul>
-                            <p style="padding-top: 1rem"><a href="#" style="color: orange"><b>Themes</b></a></p>
-                            <script>
-                                getAllBookThemes()
-                                    .done(function (data) {
-                                        for (i = 0; i < data.Count; i++) {
-                                            $('#theme_list').append('<li><p style="color: black"><a class="theme_element" href="#">' + data.Items[i].name + '</a></p></li>')
-                                        }
-                                    });
-                                console.log(typeof genres);
-                            </script>
-                            <ul id="theme_list">
-                            </ul>
-                        </ul>
-                    </nav>
-
-                </div>
-            </div>
-
-
-
-            <div id="element-list" class="col-md-10 col-sm-12 " style="padding-top: 100px">
+            <div id="element-list" class="col-md-12 col-sm-12 " style="padding-top: 100px">
                 <span id="element-list-page">1</span>
                 <span id="element-list-page-size">4</span>
                 <span id="element-list-total-elements"></span>
-                <span id="element-list-query">api/book/?</span>
+                <span id="element-list-query">api/author?</span>
                 <div id="element-list-title" class="list-title"></div>
                 <div id="element-list-content"></div>
                 <script>
-                    gen_book_content();
+                    gen_author_content();
                 </script>
                 <div id="element-list-navigator"></div>
                 <nav aria-label="...">
-                    <ul id = 'element-list-nav' class="pagination">
+                    <ul id='element-list-nav' class="pagination">
                         <li class="page-item"><a class="page-link" href="#"></a></li>
                         <li class="page-item active">
                             <a class="page-link" href="#"></a>
@@ -142,6 +119,69 @@
                 </nav>
             </div>
         </div>
+    </div>
+
+
+
+    <div id="id01" class="modal">
+
+        <form class="modal-content animate">
+            <div class="imgcontainer">
+                <span onclick="document.getElementById('id01').style.display='none'" class="close"
+                    title="Close Modal">×</span>
+            </div>
+
+            <div class="modal-container">
+                <label><b>Username</b></label>
+                <input id="loginUsername" type="text" class="form-button" placeholder="Enter Username" name="uname"
+                    required>
+
+                <label><b>Password</b></label>
+                <input id="loginPassword" type="password" class="form-button" placeholder="Enter Password" name="psw"
+                    required>
+
+                <button class="modal-button" type="button"
+                    onclick="login($('#loginUsername').val(), $('#loginPassword').val())" href="#">Login</button>
+                <input type="checkbox" checked="checked"> <label>Remember me</label>
+                <span class="psw">Forgot <a href="#">password?</a></span>
+            </div>
+        </form>
+    </div>
+
+    <!-- The Modal (contains the Sign Up form) -->
+    <div id="id02" class="modal">
+        <form class="modal-content animate" action="/action_page.php">
+            <div class="imgcontainer">
+                <span onclick="document.getElementById('id02').style.display='none'" class="close"
+                    title="Close Modal">×</span>
+            </div>
+            <div class="modal-container">
+
+                <label for="name"><b>Name</b></label>
+                <input id="registerName" type="text" class="form-button" placeholder="Enter Name" name="name" required>
+
+                <label for="surname"><b>Surname</b></label>
+                <input id="registerSurname" type="text" class="form-button" placeholder="Enter Surname" name="surname"
+                    required>
+
+                <label for="username"><b>Username</b></label>
+                <input id="registerUsername" type="text" class="form-button" placeholder="Enter Username"
+                    name="username" required>
+
+                <label for="psw"><b>Password</b></label>
+                <input id="registerPassword" type="password" class="form-button" placeholder="Enter Password" name="psw"
+                    required>
+
+                <label>
+                    <p>By creating an account you agree to our <a href="pages/PrivacyPolicy.html" target="_blank">Terms
+                            & Privacy</a>.</p>
+                </label>
+
+                <button class="modal-button" type="button"
+                    onclick="register($('#registerUsername').val(), $('#registerPassword').val(),$('#registerName').val(),$('#registerSurname').val());"
+                    href="#">Sign up</button>
+            </div>
+        </form>
     </div>
 
     <!-- Footer -->
@@ -172,7 +212,7 @@
                     <h6 class="text-uppercase font-weight-bold mandarin">Products</h6>
                     <hr class="mb-4 mt-0 d-inline-block mx-auto bg-white" style="width: 60px;">
                     <p>
-                        <a href="#!">Books</a>
+                        <a href="pages/book.html">Books</a>
                     </p>
                     <p>
                         <a href="#!">Authors</a>
@@ -180,9 +220,7 @@
                     <p>
                         <a href="#!">Events</a>
                     </p>
-                    <p>
-                        <a href="#!"></a>
-                    </p>
+                    <br>
 
                 </div>
                 <!-- Grid column -->
@@ -194,16 +232,16 @@
                     <h6 class="text-uppercase font-weight-bold mandarin">Useful Links</h6>
                     <hr class="mb-4 mt-0 d-inline-block mx-auto bg-white" style="width: 60px;">
                     <p>
-                        <a href="#!">Info</a>
+                        <a href="pages/info.html">Info</a>
                     </p>
                     <p>
-                        <a href="#!">Contacts</a>
+                        <a href="pages/ContactUs.html">Contacts</a>
                     </p>
                     <p>
-                        <a href="#!">FAQ</a>
+                        <a href="pages/faq.html">FAQ</a>
                     </p>
                     <p>
-                        <a href="#!">Privacy Policy</a>
+                        <a href="pages/PrivacyPolicy.html">Privacy Policy</a>
                     </p>
 
                 </div>
@@ -243,110 +281,21 @@
     <!-- Footer -->
 
 
-    <div id="id01" class="modal">
 
-        <form class="modal-content animate" action="/action_page.php">
-            <div class="imgcontainer">
-                <span onclick="document.getElementById('id01').style.display='none'" class="close"
-                    title="Close Modal">×</span>
-                <img src="https://www.w3schools.com/howto/img_avatar2.png" alt="Avatar" class="avatar">
-            </div>
 
-            <div class="modal-container">
-                <label><b>Username</b></label>
-                <input type="text" class="form-button" placeholder="Enter Username" name="uname" required>
 
-                <label><b>Password</b></label>
-                <input type="password" class="form-button" placeholder="Enter Password" name="psw" required>
-
-                <button class="modal-button" type="submit">Login</button>
-                <input type="checkbox" checked="checked"> Remember me
-            </div>
-
-            <div class="container" style="background-color:#f1f1f1">
-                <button type="button" onclick="document.getElementById('id01').style.display='none'"
-                    class="cancelbtn modal-button">Cancel</button>
-                <span class="psw">Forgot <a href="#">password?</a></span>
-            </div>
-        </form>
-    </div>
-
-    <!-- The Modal (contains the Sign Up form) -->
-    <div id="id02" class="modal">
-        <form class="modal-content animate" action="/action_page.php">
-            <div class="imgcontainer">
-                <span onclick="document.getElementById('id02').style.display='none'" class="close"
-                    title="Close Modal">×</span>
-            </div>
-            <div class="modal-container">
-                <h1>Sign Up</h1>
-                <p>Please fill in this form to create an account.</p>
-                <hr>
-                <label for="name"><b>Name</b></label>
-                <input type="text" class="form-button" placeholder="Enter Name" name="name" required>
-
-                <label for="surname"><b>Surname</b></label>
-                <input type="text" class="form-button" placeholder="Enter Surname" name="surname" required>
-
-                <label for="email"><b>Email</b></label>
-                <input type="text" class="form-button" placeholder="Enter Email" name="email" required>
-
-                <label for="psw"><b>Password</b></label>
-                <input type="password" class="form-button" placeholder="Enter Password" name="psw" required>
-
-                <label for="psw-repeat"><b>Repeat Password</b></label>
-                <input type="password" class="form-button" placeholder="Repeat Password" name="psw-repeat" required>
-
-                <label>
-                    <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
-                </label>
-
-                <p>By creating an account you agree to our <a href="pages/PrivacyPolicy.html" target="_blank"
-                        style="color:dodgerblue">Terms & Privacy</a>.</p>
-
-                <div class="clearfix">
-                    <button type="button" onclick="document.getElementById('id02').style.display='none'"
-                        class="cancelbtn modal-button">Cancel</button>
-                    <button class="modal-button signupbtn" type="submit" class="signup">Sign Up</button>
-                </div>
-            </div>
-        </form>
-    </div>
     <script>
-        $('.multiple-items').slick({
-            dots: false,
-            prevArrow: false,
-            nextArrow: false,
-            infinite: true,
-            speed: 750,
-            variableWidth: true,
-            slidesToShow: 4,
-            slidesToScroll: 4,
-            responsive: [{
-                breakpoint: 1024,
-                settings: {
-                    slidesToShow: 3,
-                    slidesToScroll: 3
-                }
-            },
-            {
-                breakpoint: 600,
-                settings: {
-                    slidesToShow: 2,
-                    slidesToScroll: 2
-                }
-            },
-            {
-                breakpoint: 480,
-                settings: {
-                    slidesToShow: 1,
-                    slidesToScroll: 1
-                }
-            }
-            ]
-        });
-    </script>
 
+        var modal_02 = document.getElementById('id02');
+        var modal_01 = document.getElementById('id01');
+        window.onclick = function (event) {
+            if (event.target == modal_01) {
+                modal_01.style.display = "none";
+            } else if (event.target == modal_02) {
+                modal_02.style.display = "none";
+            }
+        }
+    </script>
 </body>
 
 </html>

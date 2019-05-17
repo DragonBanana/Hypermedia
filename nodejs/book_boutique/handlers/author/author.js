@@ -26,8 +26,7 @@ exports.findAll = async (event) => {
         pageSize = parameter;
     }
     let params = {
-        TableName: 'bb_author',
-        Limit: pageSize,
+        TableName: 'bb_author'
     };
     let dbResult = await db.scan(params);
     let totalPage = parseInt(dbResult.Count/pageSize);

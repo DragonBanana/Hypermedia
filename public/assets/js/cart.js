@@ -15,12 +15,19 @@ $(document).on('click', '.btn-cart-minus', function (e) {
     }
 
     $input.val(value);
-    $this.parent().parent().find('.cart-item-quantity').text(value);
 
-    let price = $this.parent().closest('.cart-item-price').text();
-    let isbn = $this.parent().closest('.cart-item-isbn').text();
-    let quantity = $this.parent().closest('.cart-item-quantity').text();
-    updateCartItem(isbn, quantity, price);
+
+    if(value === 0) {
+        let isbn = $this.parent().siblings('.cart-item-isbn').text();
+        deleteAllCartItem($.cookie("session"), isbn);
+        $this.parent().parent().remove();
+    } else {
+        let price = $this.parent().siblings('.cart-item-price').text();
+        let isbn = $this.parent().siblings('.cart-item-isbn').text();
+        updateCartItem(isbn, value, price);
+        let total_price = price * value;
+        $this.parent().siblings('.cart-price').find('.total-price').text(total_price.toFixed(2));
+    }
 });
 
 $(document).on('click', '.btn-cart-plus', function (e) {
@@ -39,8 +46,18 @@ $(document).on('click', '.btn-cart-plus', function (e) {
     $input.val(value);
     $this.parent().parent().find('.cart-item-quantity').text(value);
 
-    let price = $this.parent().closest('.cart-item-price').text();
-    let isbn = $this.parent().closest('.cart-item-isbn').text();
-    let quantity = $this.parent().closest('.cart-item-quantity').text();
-    updateCartItem(isbn, quantity, price);
+    let price = $this.parent().siblings('.cart-item-price').text();
+    let isbn = $this.parent().siblings('.cart-item-isbn').text();
+    updateCartItem(isbn, value, price);
+
+    let total_price = price * value;
+    $this.parent().siblings('.cart-price').find('.total-price').text(total_price.toFixed(2));
+});
+
+$(document).on('click', '.delete-btn', function (e) {
+    e.preventDefault();
+    var $this = $(this);
+    let isbn = $this.parent().siblings('.cart-item-isbn').text();
+    deleteAllCartItem($.cookie("session"), isbn);
+    $this.parent().parent().remove();
 });

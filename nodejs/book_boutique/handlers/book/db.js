@@ -69,7 +69,7 @@ async function dynamoUpdateItem(params) {
 
 async function dynamoDeleteItem(params) {
     try{
-        const data = (new AWS.DynamoDB).delete(params).promise();
+        const data = await dynamoDb.delete(params).promise();
         return data;
     }catch(err) {
         console.log(err);
