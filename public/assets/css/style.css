@@ -70,8 +70,12 @@ footer div.font {
 
 .dropdown-menu {
     min-width: 0;
-    padding: .25rem 1rem .25rem .5rem;
+    padding: 0 0.5rem;
     border-width: 0;
+}
+
+.dropdown-menu li {
+    padding: 0.75rem 1.5rem 0.75rem 1rem;
 }
 
 .dropdown-menu li a {
@@ -177,10 +181,6 @@ footer div.font {
 .MultiCarousel .leftLst.over, .MultiCarousel .rightLst.over {
     pointer-events: none;
     background: #ccc;
-}
-
-.dropdown-menu {
-    padding-left: 1.4rem;
 }
 
 .navbar-nav {
@@ -310,13 +310,18 @@ ul#theme_list li p::first-letter {
     text-transform: uppercase;
 }
 
-.book-element-image {
-    width: 90%;
-}
-
 @media (max-width: 576px) {
     .book-element-image {
+        width: 80%;
         max-width: 300px;
+        margin-bottom: 0.5rem;
+    }
+}
+
+@media (min-width: 577px) {
+    .book-element-image {
+        width: 90%;
+        max-width: 200px;
     }
 }
 
@@ -334,6 +339,15 @@ ul#theme_list li p::first-letter {
 
 .book-element .tags {
     font-size: 1rem;
+}
+
+.book-element .buttons {
+    display: inline-block;
+}
+
+.book-element .buttons button{
+    display: inline-block;
+    margin-right: 1rem;
 }
 
 @media (min-width: 992px) {
@@ -372,6 +386,12 @@ ul#theme_list li p::first-letter {
     }
 }
 
+@media (max-width: 576px) {
+    .book-element .title {
+        text-align: center;
+    }
+}
+
 .list-title {
     font-size: 2rem;
     text-transform: uppercase;
@@ -379,6 +399,14 @@ ul#theme_list li p::first-letter {
 }
 
 .add-to-cart {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    margin-top: 1rem;
+    color: white;
+    background-color: #343a40!important;
+}
+
+.more-details {
     font-size: 0.8rem;
     text-transform: uppercase;
     margin-top: 1rem;

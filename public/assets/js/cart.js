@@ -26,7 +26,7 @@ $(document).on('click', '.btn-cart-minus', function (e) {
         let isbn = $this.parent().siblings('.cart-item-isbn').text();
         updateCartItem(isbn, value, price);
         let total_price = price * value;
-        $this.parent().siblings('.cart-price').find('.total-price').text(total_price.toFixed(2));
+        $this.parent().siblings('.cart-price').find('.total-price').text(total_price.toFixed(2) + "€");
     }
 });
 
@@ -51,7 +51,7 @@ $(document).on('click', '.btn-cart-plus', function (e) {
     updateCartItem(isbn, value, price);
 
     let total_price = price * value;
-    $this.parent().siblings('.cart-price').find('.total-price').text(total_price.toFixed(2));
+    $this.parent().siblings('.cart-price').find('.total-price').text(total_price.toFixed(2) + "€");
 });
 
 $(document).on('click', '.delete-btn', function (e) {

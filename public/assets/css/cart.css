@@ -12,7 +12,7 @@
   }
 
   .shopping-cart {
-    width: 550px;
+    width: 575px;
     margin: 80px auto;
     background: #FFFFFF;
     box-shadow: 1px 2px 3px 0px rgba(0,0,0,0.10);
@@ -35,18 +35,14 @@
     padding: 20px 30px;
     height: 160px;
     display: flex;
+    border-bottom:  1px solid #E1E8EE;
   }
    
   .item .cart-image img{
     height: 100%;
   }
 
-  .item:nth-child(3) {
-    border-top:  1px solid #E1E8EE;
-    border-bottom:  1px solid #E1E8EE;
-  }
-
-  .buttons {
+  .cart-buttons {
     position: relative;
     padding-top: 30px;
     margin-right: 60px;
@@ -91,28 +87,6 @@
     margin-right: 50px;
   }
    
-  .description {
-    padding-top: 10px;
-    margin-right: 60px;
-    width: 115px;
-  }
-   
-  .description span {
-    display: block;
-    font-size: 14px;
-    color: #43484D;
-    font-weight: 400;
-  }
-   
-  .description span:first-child {
-    margin-bottom: 5px;
-  }
-  .description span:last-child {
-    font-weight: 300;
-    margin-top: 8px;
-    color: #86939E;
-  }
-
   .cart-quantity {
     padding-top: 20px;
     margin-right: 60px;
@@ -151,7 +125,7 @@
     width: 83px;
     padding-top: 27px;
     text-align: center;
-    font-size: 16px;
+    font-size: 1.3rem;
     color: #43484D;
     font-weight: 300;
   }
@@ -159,12 +133,12 @@
   .cart-price {
     width: 83px;
     text-align: center;
-    font-size: 12px;
+    font-size: 0.8rem;
     color: #83888D;
     font-weight: 300;
   }
 
-  @media (max-width: 400px) {
+  @media (max-width: 576px) {
     .shopping-cart {
       width: 100%;
       height: auto;
@@ -179,14 +153,22 @@
       width: 50%;
     }
     .cart-image,
-    .cart-quantity,
-    .description {
+    .cart-quantity{
       width: 100%;
       text-align: center;
       margin: 6px 0;
     }
-    .buttons {
-      margin-right: 20px;
+    .cart-buttons {
+      margin: auto;
+    }
+    .total-price {
+      font-size: 1.5rem;
+    }
+    .cart-price {
+      font-size: 1rem;
+    }
+    .delete-btn {
+      font-size: 1.5rem;
     }
   }
 
@@ -194,7 +176,7 @@
     display: none;
   }
 
-  @media (min-width: 401px) {
+  @media (min-width: 575px) {
     .cart-image {
       max-width: 100px;
     }

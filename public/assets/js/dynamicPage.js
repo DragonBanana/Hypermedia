@@ -4,27 +4,20 @@ function gen_book_html(isbn, title, author, price, theme, genre, description) {
                         <img class="book-element-image" src="../assets/img/'+ isbn + '.jpg"> \
                     </div> \
                     <div class="col-xl-10 col-lg-9 col-md-8 col-sm-7"> \
-                        <div class="title"> \
-                            <a class="text-uppercase">' + title + '<a> \
-                        </div> \
-                        <div class="author"> \
-                            <a>' + author + '</a> \
-                        </div> \
-                        <div class="price"> \
-                            <a>$' + price + '</a> \
-                        </div> \
+                        <div class="title"><a class="text-uppercase">' + title + '<a></div> \
+                        <div class="author"><a>' + author + '</a></div> \
+                        <div class="price"><a>$' + price + '</a></div> \
                         <div class="tags"> \
                             <a class="font-weight-bold">Tag: </a> \
                             <a class="text-lowercase">' + theme + '</a>, \
-                            <a class="text-lowercase">' + genre + '</a> \
-                        </div> \
-                        <div class="description"> \
-                            <a class="font-weight-bold">Description: </a>' + description.substring(0, 250) + '... \
-                        </div>'
+                            <a class="text-lowercase">' + genre + '</a></div> \
+                        <div class="description"><a class="font-weight-bold">Description: </a>' + description.substring(0, 250) + '...</div> \
+                        <div class="buttons">'
     if ($.cookie("session")) {
         html = html + '<button class="nav-link btn btn-rounded add-to-cart" onclick="addToCart(' + isbn + ',' + price + ')">Add to cart</button>';
     }
-    html = html + '</div> \
+    html = html + '<button class="nav-link btn btn-rounded more-details"> More details </button></div> \
+                </div> \
                 </div> \
                 <hr hr style="height:3px;border:none;color:#DDDDDD;background-color:#DDDDDD;">'
     return html;
@@ -41,11 +34,25 @@ function gen_author_html(id, name, surname, bio) {
                         </div> \
                         <div class="description"> \
                             <a class="font-weight-bold">Bio: </a>' + bio + ' \
-                        </div>'
-    if ($.cookie("session")) {
-        html = html + '<button class="nav-link btn btn-rounded add-to-cart" onclick="addToCart(' + isbn + ',' + price + ')">View details</button>';
-    }
-    html = html + '</div> \
+                        </div> \
+                    </div> \
+                </div> \
+                <hr hr style="height:3px;border:none;color:#DDDDDD;background-color:#DDDDDD;">'
+    return html;
+}
+
+function gen_event_html(id, name, time, book, location) {
+    console.log(id + name + time + book + location);
+    let html = '<div class="row book-element"> \
+                    <div class="col-xl-2 col-lg-3 col-md-4 col-sm-5 text-center"> \
+                        <img class="book-element-image" src="../assets/img/'+ id + '.jpg"> \
+                    </div> \
+                    <div class="col-xl-10 col-lg-9 col-md-8 col-sm-7"> \
+                        <div class="title"><a class="text-uppercase">' + name + '<a></div> \
+                        <div class="description"><a class="font-weight-bold">Time: </a>' + time + '</div> \
+                        <div class="description"><a class="font-weight-bold">Book: </a>' + book + ' </div> \
+                        <div class="description"><a class="font-weight-bold">Location: </a>' + location + '</div> \
+                    </div> \
                 </div> \
                 <hr hr style="height:3px;border:none;color:#DDDDDD;background-color:#DDDDDD;">'
     return html;
@@ -56,7 +63,7 @@ function gen_cart_item_html(isbn, quantity, price) {
                     <span class="cart-item-isbn cart-item-data">' + isbn + '</span> \
                     <span class="cart-item-price cart-item-data">' + price + '</span> \
                     <span class="cart-item-quantity cart-item-data">' + quantity + '</span> \
-                    <div class="buttons"> \
+                    <div class="cart-buttons"> \
                     <span class="delete-btn"> \
                         <i class="fas fa-trash"></i> \
                     </span> \
@@ -99,6 +106,15 @@ function get_author_nav_button(num) {
     return html;
 }
 
+function get_event_nav_button(num) {
+    let active = "";
+    if (num === parseInt($("#element-list-page").text())) {
+        active = "active";
+    }
+    let html = '<li class="page-item ' + active + '"><a class="page-link" href="#" onclick="changeEventPage($(this).text())">' + num + '</a></li>'
+    return html;
+}
+
 function gen_book_content() {
     getAllBooks($("#element-list-query").text(), $("#element-list-page").text(), $("#element-list-page-size").text())
         .done(function (data) {
@@ -122,7 +138,7 @@ function gen_author_content() {
     getAllBooks($("#element-list-query").text(), $("#element-list-page").text(), $("#element-list-page-size").text())
         .done(function (data) {
             $('#element-list-content').empty();
-            $('#element-list-title').text("Books");
+            $('#element-list-title').text("Authors");
             for (i = 0; i < data.Count; i++) {
                 let author = data.Items[i];
                 $('#element-list-content').append(gen_author_html(author.id, author.name, author.surname, author.bio));
@@ -133,6 +149,25 @@ function gen_author_content() {
             console.log($('#element-list-page-size').text());
             for (i = 0; i < Math.ceil($('#element-list-total-elements').text() / $('#element-list-page-size').text()); i++) {
                 $('#element-list-nav').append(get_author_nav_button(i + 1));
+            }
+        });
+}
+
+function gen_event_content() {
+    getAllBooks($("#element-list-query").text(), $("#element-list-page").text(), $("#element-list-page-size").text())
+        .done(function (data) {
+            $('#element-list-content').empty();
+            $('#element-list-title').text("Events");
+            for (i = 0; i < data.Count; i++) {
+                let event = data.Items[i];
+                $('#element-list-content').append(gen_event_html(event.id, event.name, event.time, event.bookId, event.location));
+            }
+            $('#element-list-total-elements').text(data.Elements);
+            $('#element-list-nav').empty();
+            console.log($('#element-list-total-elements').text());
+            console.log($('#element-list-page-size').text());
+            for (i = 0; i < Math.ceil($('#element-list-total-elements').text() / $('#element-list-page-size').text()); i++) {
+                $('#element-list-nav').append(get_event_nav_button(i + 1));
             }
         });
 }
@@ -175,4 +210,9 @@ function changeBookPage(num) {
 function changeAuthorPage(num) {
     $("#element-list-page").text(num);
     gen_author_content();
+}
+
+function changeEventPage(num) {
+    $("#element-list-page").text(num);
+    gen_event_content();
 }

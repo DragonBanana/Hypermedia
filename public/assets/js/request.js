@@ -220,3 +220,19 @@ function getAllAuthors(query, page, pageSize) {
         console.log(err);
     });
 }
+
+/*Get events function
+*/
+function getAllEvents(query, page, pageSize) {
+    var method = query + "page="+ page + "&pageSize="  + pageSize;
+    var url = apiServer + method;
+    return $.ajax({
+        type: "GET",
+        url: url,
+        dataType: 'json',
+        crossDomain: true
+    })
+    .fail(function (err) {
+        console.log(err);
+    });
+}

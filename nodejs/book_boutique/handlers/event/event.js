@@ -32,8 +32,7 @@ exports.findAll = async (event) => {
         pageSize = parameter;
     }
     let params = {
-        TableName: 'bb_event',
-        Limit: pageSize,
+        TableName: 'bb_event'
     };
     if ((parameter = param.getQueryParameter(event, "isbn")) != null) {
         let isbn = parameter;
