@@ -59,16 +59,11 @@ exports.findById = async (event) => {
                 ":id": id
             }
         };
-        let dbResult = await db.scan(params);
-        let totalPage = parseInt(dbResult.Count/pageSize);
-        let count = pageSize;
-        if(page > totalPage) {
-            count = dbResult.Count - totalPage * pageSize;
-        }
+        let dbResult = await db.query(params);
         let response = {
-            "Elements" : dbResult.Count,
-            "Count" : count,
-            "Items" : dbResult.Items.slice((page-1) * pageSize, page * pageSize)
+            "Elements": dbResult.Count,
+            "Count": dbResult.Count,
+            "Items": dbResult.Items
         }
         return resp.stringify(200, response);
     } else {

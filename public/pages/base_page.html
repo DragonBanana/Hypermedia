@@ -30,7 +30,8 @@
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
         <div class="container">
             <a class="navbar-brand" href="#" style="color: orange; padding-top: 0.4rem">Book Boutique</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+                aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
@@ -40,7 +41,9 @@
                             <span class="sr-only">(current)</span>
                         </a>
                     <li class="dropdown nav-item">
-                        <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true"> <span class="nav-label">Categories</span> <span class="caret"></span></a>
+                        <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown" role="button"
+                            aria-haspopup="true" aria-expanded="true"> <span class="nav-label">Categories</span> <span
+                                class="caret"></span></a>
                         <ul class="dropdown-menu bg-dark">
                             <li><a href="pages/book.html">Books</a></li>
                             <li><a href="#">Authors</a></li>
@@ -62,16 +65,24 @@
                     <li class="right">
                         <input class="searchbar" type="text" placeholder="Search" aria-label="Search">
                     <li id="navbar_loginButton" class="nav-item">
-                        <button class="nav-link btn btn-rounded btn-primary" onclick="document.getElementById('id01').style.display='block'" style="width:auto;" href="pages/faq.html">Sign in</button>
+                        <button class="nav-link btn btn-rounded btn-primary"
+                            onclick="document.getElementById('id01').style.display='block'" style="width:auto;"
+                            href="pages/faq.html">Sign in</button>
                     </li>
                     <li id="navbar_registerButton" class="nav-item">
-                        <button class="nav-link btn btn-rounded btn-primary" onclick="document.getElementById('id02').style.display='block'" style="width:auto;" href="pages/faq.html" href="pages/faq.html">Sign up</button>
+                        <button class="nav-link btn btn-rounded btn-primary"
+                            onclick="document.getElementById('id02').style.display='block'" style="width:auto;"
+                            href="pages/faq.html" href="pages/faq.html">Sign up</button>
                     </li>
                     <li id="navbar_userLabel" class="dropdown nav-item">
-                            <a id="navbar_userLabel_username"href="#" class="dropdown-toggle nav-link" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true"> <span class="nav-label">Categories</span> <span class="caret"></span></a>
-                            <ul class="dropdown-menu bg-dark">
-                                <li><a href="#" onclick='$.removeCookie("session", { path: "/" });checkSessionStatus();'>Logout</a></li>
-                            </ul>
+                        <a id="navbar_userLabel_username" href="#" class="dropdown-toggle nav-link"
+                            data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true"> <span
+                                class="nav-label">Categories</span> <span class="caret"></span></a>
+                        <ul class="dropdown-menu bg-dark">
+                            <li><a href="#"
+                                    onclick='$.removeCookie("session", { path: "/" });checkSessionStatus();'>Logout</a>
+                            </li>
+                        </ul>
                     </li>
                     <script>
                         checkSessionStatus();
@@ -80,55 +91,6 @@
             </div>
         </div>
     </nav>
-
-
-    <div id="id01" class="modal">
-
-        <form class="modal-content animate">
-            <div class="imgcontainer">
-                <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">×</span>
-            </div>
-
-            <div class="modal-container">
-                <label><b>Username</b></label>
-                <input id="loginUsername" type="text" class="form-button" placeholder="Enter Username" name="uname" required>
-
-                <label><b>Password</b></label>
-                <input id="loginPassword" type="password" class="form-button" placeholder="Enter Password" name="psw" required>
-
-                <button class="modal-button" type="button" onclick="login($('#loginUsername').val(), $('#loginPassword').val())" href="#">Login</button>
-                <input type="checkbox" checked="checked"> <label>Remember me</label>
-                <span class="psw">Forgot <a href="#">password?</a></span>
-            </div>
-        </form>
-    </div>
-
-    <!-- The Modal (contains the Sign Up form) -->
-    <div id="id02" class="modal">
-        <form class="modal-content animate" action="/action_page.php">
-            <div class="imgcontainer">
-                <span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close Modal">×</span>
-            </div>
-            <div class="modal-container">
-
-                <label for="name"><b>Name</b></label>
-                <input id="registerName" type="text" class="form-button" placeholder="Enter Name" name="name" required>
-
-                <label for="surname"><b>Surname</b></label>
-                <input id="registerSurname" type="text" class="form-button" placeholder="Enter Surname" name="surname" required>
-
-                <label for="username"><b>Username</b></label>
-                <input id="registerUsername" type="text" class="form-button" placeholder="Enter Username" name="username" required>
-
-                <label for="psw"><b>Password</b></label>
-                <input id="registerPassword" type="password" class="form-button" placeholder="Enter Password" name="psw" required>
-
-                <label><p>By creating an account you agree to our <a href="pages/PrivacyPolicy.html" target="_blank">Terms & Privacy</a>.</p></label>
-
-                <button class="modal-button" type="button" onclick="register($('#registerUsername').val(), $('#registerPassword').val(),$('#registerName').val(),$('#registerSurname').val());" href="#">Sign up</button>
-            </div>
-        </form>
-    </div>
 
     <!-- Footer -->
     <footer class="page-footer font-small unique-color-dark bg-dark">
@@ -145,7 +107,8 @@
                     <!-- Content -->
                     <h6 class="text-uppercase font-weight-bold mandarin">Book Boutique</h6>
                     <hr class="mb-4 mt-0 d-inline-block mx-auto bg-white" style="width: 60px;">
-                    <p style="color: white">Welcome to our website! Here you can find some of the most cherished books in the World!</p>
+                    <p style="color: white">Welcome to our website! Here you can find some of the most cherished books
+                        in the World!</p>
 
                 </div>
                 <!-- Grid column -->
@@ -227,13 +190,44 @@
 
 
 
-
+    <div id="id01" class="modal">
+        <div class="container-small single-element-modal">
+            <div class="row">
+                <div class="col-xs-12 col-sm-5 image-div" style="padding-top: 30px">
+                    <img src="../assets/img/book4.jpg">
+                </div>
+                <div class="col-xs-12 col-sm-5 main-info" style="padding-top: 30px">
+                    <p>
+                        <a class="font-weight-bold main-key-info" style="color:darkorange">Title </a><br>
+                        Il sentiero dei nidi di ragno<br><br>
+                        <a class="font-weight-bold main-key-info" style="color:darkorange">Author </a><br>
+                        Italo Calvino<br><br>
+                        <a class="font-weight-bold main-key-info" style="color:darkorange">Price </a><br>
+                        22$
+                </div>
+            </div>
+            <div class="row buttons" style="padding-top: 15px">
+                <button class="nav-link btn btn-rounded add-to-cart" onclick="addToCart()" style="margin-left: 15px"> Add to cart </button>
+                <button class="nav-link btn btn-rounded more-details" onclick="findSimilar()" style="margin-left: 15px"> Find similar </button>
+            </div>
+            <div class="row" style="padding-top: 30px">
+                <div class="col-12 other-info">
+                    <p>
+                        <a class="font-weight-bold main-key-info" style="color:darkorange">Description </a><br>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris egestas ligula eu tellus
+                        maximus sodales. Pellentesque lorem leo, molestie vel hendrerit et, commodo sit amet nisi.
+                        Praesent vitae lectus convallis, tristique elit eu, finibus leo. Pellentesque venenatis
+                        iaculis tortor. Quisque eu eros porttitor, dignissim lacus aliquam, fermentum dui.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <script>
-
         var modal_02 = document.getElementById('id02');
         var modal_01 = document.getElementById('id01');
-        window.onclick = function(event) {
+        window.onclick = function (event) {
             if (event.target == modal_01) {
                 modal_01.style.display = "none";
             } else if (event.target == modal_02) {

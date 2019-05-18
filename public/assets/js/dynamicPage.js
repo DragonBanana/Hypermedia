@@ -1,22 +1,22 @@
 function gen_book_html(isbn, title, author, price, theme, genre, description) {
     let html = '<div class="row book-element"> \
-                    <div class="col-xl-2 col-lg-3 col-md-4 col-sm-5 text-center"> \
-                        <img class="book-element-image" src="../assets/img/'+ isbn + '.jpg"> \
+                    <div class="col-xl-3 col-lg-4 col-md-5 col-sm-6 text-center"> \
+                        <img class="book-element-image" src="../assets/img/'+ isbn + '.jpg" onclick="gen_single_book('+isbn+')"> \
                     </div> \
-                    <div class="col-xl-10 col-lg-9 col-md-8 col-sm-7"> \
-                        <div class="title"><a class="text-uppercase">' + title + '<a></div> \
-                        <div class="author"><a>' + author + '</a></div> \
-                        <div class="price"><a>$' + price + '</a></div> \
+                    <div class="col-xl-9 col-lg-8 col-md-7 col-sm-6"> \
+                        <div class="title"><a class="text-uppercase" onclick="gen_single_book('+isbn+')"> ' + title + '<a></div> \
+                        <div class="author"><a onclick="gen_single_author(\''+author+'\')">' + author + '</a></div> \
+                        <div class="price"><a>' + price + '€</a></div> \
                         <div class="tags"> \
                             <a class="font-weight-bold">Tag: </a> \
-                            <a class="text-lowercase">' + theme + '</a>, \
-                            <a class="text-lowercase">' + genre + '</a></div> \
+                            <a class="text-lowercase theme_element" href="#">' + theme + '</a>, \
+                            <a class="text-lowercase genre_element" href="#">' + genre + '</a></div> \
                         <div class="description"><a class="font-weight-bold">Description: </a>' + description.substring(0, 250) + '...</div> \
                         <div class="buttons">'
     if ($.cookie("session")) {
         html = html + '<button class="nav-link btn btn-rounded add-to-cart" onclick="addToCart(' + isbn + ',' + price + ')">Add to cart</button>';
     }
-    html = html + '<button class="nav-link btn btn-rounded more-details"> More details </button></div> \
+    html = html + '<button class="nav-link btn btn-rounded more-details" onclick="gen_single_book('+isbn+')"> More details </button></div> \
                 </div> \
                 </div> \
                 <hr hr style="height:3px;border:none;color:#DDDDDD;background-color:#DDDDDD;">'
@@ -25,16 +25,17 @@ function gen_book_html(isbn, title, author, price, theme, genre, description) {
 
 function gen_author_html(id, name, surname, bio) {
     let html = '<div class="row book-element"> \
-                    <div class="col-xl-2 col-lg-3 col-md-4 col-sm-5 text-center"> \
-                        <img class="book-element-image" src="../assets/img/'+ id + '.jpg"> \
+                    <div class="col-xl-3 col-lg-4 col-md-5 col-sm-6 text-center"> \
+                        <img class="book-element-image" src="../assets/img/'+ id + '.jpg" onclick="gen_single_author(\''+id+'\')"> \
                     </div> \
-                    <div class="col-xl-10 col-lg-9 col-md-8 col-sm-7"> \
+                    <div class="col-xl-9 col-lg-8 col-md-7 col-sm-6"> \
                         <div class="title"> \
-                            <a class="text-uppercase">' + surname + " " + name + '<a> \
+                            <a class="text-uppercase" onclick="gen_single_author(\''+id+'\')">' + surname + " " + name + '<a> \
                         </div> \
                         <div class="description"> \
                             <a class="font-weight-bold">Bio: </a>' + bio + ' \
                         </div> \
+                        <button class="nav-link btn btn-rounded more-details" onclick="gen_single_author(\''+id+'\')"> More details </button></div> \
                     </div> \
                 </div> \
                 <hr hr style="height:3px;border:none;color:#DDDDDD;background-color:#DDDDDD;">'
@@ -44,15 +45,16 @@ function gen_author_html(id, name, surname, bio) {
 function gen_event_html(id, name, time, book, location) {
     console.log(id + name + time + book + location);
     let html = '<div class="row book-element"> \
-                    <div class="col-xl-2 col-lg-3 col-md-4 col-sm-5 text-center"> \
+                        <div class="col-xl-3 col-lg-4 col-md-5 col-sm-6 text-center"> \
                         <img class="book-element-image" src="../assets/img/'+ id + '.jpg"> \
                     </div> \
-                    <div class="col-xl-10 col-lg-9 col-md-8 col-sm-7"> \
+                    <div class="col-xl-9 col-lg-8 col-md-7 col-sm-6"> \
                         <div class="title"><a class="text-uppercase">' + name + '<a></div> \
                         <div class="description"><a class="font-weight-bold">Time: </a>' + time + '</div> \
                         <div class="description"><a class="font-weight-bold">Book: </a>' + book + ' </div> \
-                        <div class="description"><a class="font-weight-bold">Location: </a>' + location + '</div> \
-                    </div> \
+                        <div class="description location"><a class="font-weight-bold">Location: </a>' + location + '</div> \
+                        <button class="nav-link btn btn-rounded show-map""> Show map </button></div> \
+                        </div> \
                 </div> \
                 <hr hr style="height:3px;border:none;color:#DDDDDD;background-color:#DDDDDD;">'
     return html;
@@ -186,6 +188,7 @@ function gen_cart_content() {
         );
 }
 
+
 $(document).on("click", ".genre_element", function (e) {
     e.preventDefault();
     $("#element-list-query").text("api/book?genre=" + $(this).text() + "&");
@@ -201,6 +204,54 @@ $(document).on("click", ".theme_element", function (e) {
     $("#element-list-page-size").text(4);
     gen_book_content();
 });
+
+$(document).on("click", ".author_element", function (e) {
+    e.preventDefault();
+    $("#element-list-query").text("api/book?author=" + $(this).siblings('.authorid').text() + "&");
+    $("#element-list-page").text(1);
+    $("#element-list-page-size").text(4);
+    gen_book_content();
+    $("#single_page_modal").remove();
+});
+
+$(document).on("click", ".show-map", function (e) {
+    e.preventDefault();
+    if($('#map')) {
+        $('#map').remove();
+    }
+    let location = $(this).siblings('.location').text();
+    let geo;
+    location = location.substring(9, location.length)
+    let g_api = 'https://maps.googleapis.com/maps/api/geocode/json?address='+location+'&key=AIzaSyDJ34rmsr_o1EDlKqRb9gh-e27atgouO68'
+    $.ajax({url: g_api, async:false, success: function(result){
+        console.log(result);
+        geo = result.results[0].geometry.location;
+      }});
+
+    console.log(geo);
+    let div = $(this).parent().parent();
+    let map_html = '<div id="map"></div> \
+    <script> \
+    var map = new google.maps.Map(document.getElementById(\'map\'), { \
+        center: '+JSON.stringify(geo)+', \
+        zoom: 8 \
+    }); \
+    </script>'
+    div.append(map_html);
+    console.log(location);
+});
+
+
+/*
+<div id="map"></div>
+    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY"></script>
+    <script>
+      var map = new google.maps.Map(document.getElementById('map'), {
+        center: {lat: -34.397, lng: 150.644},
+        zoom: 8
+      });
+    </script>
+*/
 
 function changeBookPage(num) {
     $("#element-list-page").text(num);

@@ -310,27 +310,31 @@ ul#theme_list li p::first-letter {
     text-transform: uppercase;
 }
 
-@media (max-width: 576px) {
+@media (max-width: 575px) {
     .book-element-image {
         width: 80%;
         max-width: 300px;
         margin-bottom: 0.5rem;
+        cursor: pointer;
     }
 }
 
-@media (min-width: 577px) {
+@media (min-width: 576px) {
     .book-element-image {
         width: 90%;
         max-width: 200px;
+        cursor: pointer;
     }
 }
 
 .book-element .title {
     font-size: 1.8rem;
+    cursor: pointer;
 }
 
 .book-element .author {
     font-size: 1.4rem;
+    cursor : pointer;
 }
 
 .book-element .price {
@@ -406,7 +410,7 @@ ul#theme_list li p::first-letter {
     background-color: #343a40!important;
 }
 
-.more-details {
+.more-details, .show-map{
     font-size: 0.8rem;
     text-transform: uppercase;
     margin-top: 1rem;
@@ -431,3 +435,56 @@ ul#theme_list li p::first-letter {
     background-color: orange;
     border-color: darkorange;
 }
+
+
+#map {
+    margin: auto;
+    margin-top: 15px;
+}
+
+.container-small{
+    max-width: 80%;
+    width: 80%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+@media (min-width: 576px) {
+    .container-small {
+        width: 504px;
+    }
+    #map {
+        width: 90%;
+        height: 250px;
+    }
+} 
+@media (min-width: 768px) {
+    .container-small {
+        width: 504px;
+    }
+    #map {
+        width: 85%;
+        height: 300px;
+    }
+} 
+@media (min-width: 992px) {
+    .container-small {
+        width: 504px;
+    }
+    #map {
+        width: 80%;
+        height: 350px;
+    }
+} 
+@media (min-width: 1200px) {
+    .container-small {
+        width: 504px;
+    }
+    #map {
+        width: 75%;
+        height: 400px;
+    }
+}
+
+

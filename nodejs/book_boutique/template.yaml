@@ -9,7 +9,7 @@ Description: >
 Globals:
   Function:
     Timeout: 30
-    MemorySize: 320
+    MemorySize: 512
   Api:
     EndpointConfiguration: REGIONAL
     Cors: 

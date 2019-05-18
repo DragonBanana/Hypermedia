@@ -1,60 +1,59 @@
-.form-button { 
-    width: 100%; 
-   padding: 12px 20px; 
-    margin: 8px 0; 
-    display: inline-block; 
-    border: 1px solid #ccc; 
-    box-sizing: border-box; 
-} 
-  
-  
-.modal-button { 
-    background-color: orange; 
-    color: white; 
-    padding: 14px 20px; 
-    margin: 8px 0; 
-    border: none; 
-    cursor: pointer; 
-    width: 100%; 
-} 
-  
-.modal-button button:hover { 
-    opacity: 0.8; 
-} 
-  
-  
-.cancelbtn { 
-    width: auto; 
-    padding: 10px 18px; 
-    background-color: orange; 
-} 
-  
-.cancelbtn,.signupbtn {float:left;
+.form-button {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+.modal-button {
+    background-color: orange;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+}
+
+.modal-button button:hover {
+    opacity: 0.8;
+}
+
+.cancelbtn {
+    width: auto;
     padding: 10px 18px;
-    margin:  auto!;
-    width:  45%} 
-  
-.imgcontainer { 
-    text-align: center; 
-    margin: 24px 0 12px 0; 
-    position: relative; 
-    
-} 
-  
-img.avatar { 
-    width: 40%; 
-    border-radius: 50%; 
-} 
-  
-.modal-container { 
-    padding: 16px; 
-} 
+    background-color: orange;
+}
+
+.cancelbtn, .signupbtn {
+    float: left;
+    padding: 10px 18px;
+    margin: auto!;
+    width: 45%
+}
+
+.imgcontainer {
+    text-align: center;
+    margin: 24px 0 12px 0;
+    position: relative;
+}
+
+img.avatar {
+    width: 40%;
+    border-radius: 50%;
+}
+
+.modal-container {
+    padding: 16px;
+}
 
 .modal-container label {
     color: white;
 }
 
-.modal-container label p a{
+.modal-container label p a {
     color: orange;
 }
 
@@ -62,94 +61,133 @@ img.avatar {
     color: white;
 }
 
-.modal-container span a{
+.modal-container span a {
     color: orange;
 }
 
-span.psw { 
-    float: right; 
-    padding-top: 16px; 
-} 
-  
-  
-.modal { 
-    display: none;  
-    position: fixed; 
-    z-index: 1031;  
-    left: 0; 
-    top: 0; 
-    width: 100%; 
-    height: 100%; 
-    overflow: auto;  
-    background-color: rgb(0,0,0); 
-    background-color: rgba(0,0,0,0.4); 
-    padding-top: 60px; 
-} 
-  
-  
-.modal-content { 
-    background-color: rgb(78,85,90)!important; 
-    margin: 5% auto 15% auto;  
-    border: 3px solid #343a40; 
-    width: 80%; 
+span.psw {
+    float: right;
+    padding-top: 16px;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1031;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.4);
+    padding-top: 60px;
+}
+
+.modal-content {
+    background-color: rgb(78, 85, 90)!important;
+    margin: 5% auto 15% auto;
+    border: 3px solid #343a40;
+    width: 80%;
     padding-bottom: 1rem;
-} 
+}
 
-.modal-content .container span { 
-    color: white; 
-} 
+.modal-content .container span {
+    color: white;
+}
 
-.modal-content .container span a{ 
-    color: orange; 
-} 
+.modal-content .container span a {
+    color: orange;
+}
 
+@media screen and (max-width: 768px) {
+    .modal-content {
+        width: 80%;
+    }
+}
 
-@media screen and (max-width: 768px) { 
-    .modal-content {  
-        width: 80%;  
-    } 
-} 
+@media screen and (min-width: 768px) {
+    .modal-content {
+        width: 615px;
+    }
+}
 
-@media screen and (min-width: 768px) { 
-    .modal-content {  
-        width: 615px;  
-    } 
-} 
+.close {
+    position: absolute;
+    right: 25px;
+    top: 0;
+    color: #FFFFFF;
+    font-size: 35px;
+    font-weight: bold;
+}
 
-.close { 
-    position: absolute; 
-    right: 25px; 
-    top: 0; 
-    color: #FFFFFF; 
-    font-size: 35px; 
-    font-weight: bold; 
-} 
-  
-.close:hover, 
-.close:focus { 
-    color: orange; 
-    cursor: pointer; 
-} 
-  
-.animate { 
-    -webkit-animation: animatezoom 0.6s; 
-    animation: animatezoom 0.6s 
-} 
-  
-@-webkit-keyframes animatezoom { 
-    from {-webkit-transform: scale(0)}  
-    to {-webkit-transform: scale(1)} 
-} 
-    @keyframes animatezoom { 
-    from {transform: scale(0)}  
-    to {transform: scale(1)} 
-} 
-@media screen and (max-width: 300px) { 
-    span.psw { 
-       display: block; 
-       float: none; 
-    } 
-    .cancelbtn { 
-       width: 100%; 
-    } 
-} 
+.close:hover, .close:focus {
+    color: orange;
+    cursor: pointer;
+}
+
+.animate {
+    -webkit-animation: animatezoom 0.6s;
+    animation: animatezoom 0.6s
+}
+
+@-webkit-keyframes animatezoom {
+    from {
+        -webkit-transform: scale(0)
+    }
+    to {
+        -webkit-transform: scale(1)
+    }
+}
+
+@keyframes animatezoom {
+    from {
+        transform: scale(0)
+    }
+    to {
+        transform: scale(1)
+    }
+}
+
+@media screen and (max-width: 300px) {
+    span.psw {
+        display: block;
+        float: none;
+    }
+    .cancelbtn {
+        width: 100%;
+    }
+}
+
+.single-element-modal {
+    background-color: white;
+    border-radius: 25px;
+}
+
+.single-element-modal .image-div {
+    text-align: center;
+}
+
+.single-element-modal .image-div img{
+    max-width: 200px;
+}
+
+@media screen and (max-width: 575px) {
+    .single-element-modal .main-info {
+        text-align: center;
+    }
+}
+
+@media screen and (min-width: 576px) {
+    .single-element-modal .main-info {
+        text-align: right;
+    }
+}
+
+.single-element-modal .other-info {
+    padding: 0 15px;
+}
+
+.main-key-info {
+    text-transform: uppercase;
+}

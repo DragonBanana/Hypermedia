@@ -17,6 +17,7 @@ Query paramers :
     - pageSize : the number of element in each page. By default its value is 10.
     - theme : the theme of the books.
     - genre : the genre of the books.
+    - author : the author of the books.
 Example of requests : 
     ".../book"
     ".../book?page=2"
@@ -25,7 +26,7 @@ Example of requests :
     ".../book?page=3&pageSize=10&theme=solitude&genre=narrative"
 */
 exports.findAll = async (event) => {
-    let theme, genre, page = 1, pageSize = 10;
+    let theme, genre, author, page = 1, pageSize = 10;
     if ((parameter = param.getQueryParameter(event, "page")) != null) {
         page = parameter;
     }
@@ -38,10 +39,45 @@ exports.findAll = async (event) => {
     if ((parameter = param.getQueryParameter(event, "genre")) != null) {
         genre = parameter;
     }
+    if ((parameter = param.getQueryParameter(event, "author")) != null) {
+        author = parameter;
+    }
     let params = {
         TableName: 'bb_book'
     };
-    if (param.getQueryParameter(event, "theme") && param.getQueryParameter(event, "genre")) {
+    if (param.getQueryParameter(event, "theme") && param.getQueryParameter(event, "genre") && param.getQueryParameter(event, "author")) {
+        params.FilterExpression = "#themeId = :themeId AND #genreId = :genreId AND #authorId = :authorId";
+        params.ExpressionAttributeNames = {
+            "#themeId": "themeId",
+            "#genreId": "genreId",
+            "#authorId": "authorId"
+        };
+        params.ExpressionAttributeValues = {
+            ":themeId": theme,
+            ":genreId": genre,
+            ":authorId": author
+        }
+    } else if (!param.getQueryParameter(event, "theme") && param.getQueryParameter(event, "genre") && param.getQueryParameter(event, "author")) {
+        params.FilterExpression = "#genreId = :genreId AND #authorId = :authorId";
+        params.ExpressionAttributeNames = {
+            "#genreId": "genreId",
+            "#authorId": "authorId"
+        };
+        params.ExpressionAttributeValues = {
+            ":genreId": genre,
+            ":authorId": author
+        }
+    } else if (param.getQueryParameter(event, "theme") && !param.getQueryParameter(event, "genre") && param.getQueryParameter(event, "author")) {
+        params.FilterExpression = "#themeId = :themeId AND #authorId = :authorId";
+        params.ExpressionAttributeNames = {
+            "#themeId": "themeId",
+            "#authorId": "authorId"
+        };
+        params.ExpressionAttributeValues = {
+            ":themeId": theme,
+            ":authorId": author
+        }
+    } else if (param.getQueryParameter(event, "theme") && param.getQueryParameter(event, "genre") && !param.getQueryParameter(event, "author")) {
         params.FilterExpression = "#themeId = :themeId AND #genreId = :genreId";
         params.ExpressionAttributeNames = {
             "#themeId": "themeId",
@@ -51,7 +87,7 @@ exports.findAll = async (event) => {
             ":themeId": theme,
             ":genreId": genre
         }
-    } else if (!param.getQueryParameter(event, "theme") && param.getQueryParameter(event, "genre")) {
+    } else if (!param.getQueryParameter(event, "theme") && param.getQueryParameter(event, "genre") && !param.getQueryParameter(event, "author")) {
         params.FilterExpression = "#genreId = :genreId";
         params.ExpressionAttributeNames = {
             "#genreId": "genreId"
@@ -59,13 +95,22 @@ exports.findAll = async (event) => {
         params.ExpressionAttributeValues = {
             ":genreId": genre
         }
-    } if (param.getQueryParameter(event, "theme") && !param.getQueryParameter(event, "genre")) {
+    } else if (param.getQueryParameter(event, "theme") && !param.getQueryParameter(event, "genre") && !param.getQueryParameter(event, "author")) {
         params.FilterExpression = "#themeId = :themeId";
         params.ExpressionAttributeNames = {
             "#themeId": "themeId"
         };
         params.ExpressionAttributeValues = {
             ":themeId": theme
+        }
+    }
+    else if (!param.getQueryParameter(event, "theme") && !param.getQueryParameter(event, "genre") && param.getQueryParameter(event, "author")) {
+        params.FilterExpression = "#authorId = :authorId";
+        params.ExpressionAttributeNames = {
+            "#authorId": "authorId"
+        };
+        params.ExpressionAttributeValues = {
+            ":authorId": author
         }
     }
     let dbResult = await db.scan(params);
@@ -99,16 +144,11 @@ exports.findByISBN = async (event) => {
                 ":isbn": isbn
             }
         };
-        let dbResult = await db.scan(params);
-        let totalPage = parseInt(dbResult.Count/pageSize);
-        let count = pageSize;
-        if(page > totalPage) {
-            count = dbResult.Count - totalPage * pageSize;
-        }
+        let dbResult = await db.query(params);
         let response = {
             "Elements" : dbResult.Count,
-            "Count" : count,
-            "Items" : dbResult.Items.slice((page-1) * pageSize, page * pageSize)
+            "Count" : dbResult.Count,
+            "Items" : dbResult.Items
         }
         return resp.stringify(200, response);
     } else {
@@ -143,15 +183,10 @@ exports.findFavourites = async (event) => {
         }
     };
     let dbResult = await db.scan(params);
-    let totalPage = parseInt(dbResult.Count/pageSize);
-    let count = pageSize;
-    if(page > totalPage) {
-        count = dbResult.Count - totalPage * pageSize;
-    }
     let response = {
         "Elements" : dbResult.Count,
-        "Count" : count,
-        "Items" : dbResult.Items.slice((page-1) * pageSize, page * pageSize)
+        "Count" : dbResult.Count,
+        "Items" : dbResult.Items
     }
     return resp.stringify(200, response);
 };
@@ -183,15 +218,10 @@ exports.findBestSellers = async (event) => {
         }
     };
     let dbResult = await db.scan(params);
-    let totalPage = parseInt(dbResult.Count/pageSize);
-    let count = pageSize;
-    if(page > totalPage) {
-        count = dbResult.Count - totalPage * pageSize;
-    }
     let response = {
         "Elements" : dbResult.Count,
-        "Count" : count,
-        "Items" : dbResult.Items.slice((page-1) * pageSize, page * pageSize)
+        "Count" : dbResult.Count,
+        "Items" : dbResult.Items
     }
     return resp.stringify(200, response);
 };

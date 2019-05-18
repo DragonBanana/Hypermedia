@@ -17,6 +17,7 @@
     <script src="../assets/js/slick.min.js"></script>
     <script src="../assets/js/request.js"></script>
     <script src="../assets/js/session.js"></script>
+    <script src="../assets/js/dynamicModal.js"></script>
     <script src="../assets/js/dynamicPage.js"></script>
     <script src="../assets/js/cart.js"></script>
     <link rel="stylesheet" href="../assets/css/slick.css">
@@ -98,10 +99,10 @@
     <div class="container">
         <div class="row">
             <div id="element-list" class="col-md-12 col-sm-12 " style="padding-top: 100px">
-                <span id="element-list-page">1</span>
-                <span id="element-list-page-size">4</span>
-                <span id="element-list-total-elements"></span>
-                <span id="element-list-query">api/author?</span>
+                <span id="element-list-page" style="display: none">1</span>
+                <span id="element-list-page-size" style="display: none">4</span>
+                <span id="element-list-total-elements" style="display: none"></span>
+                <span id="element-list-query" style="display: none">api/author?</span>
                 <div id="element-list-title" class="list-title"></div>
                 <div id="element-list-content"></div>
                 <script>

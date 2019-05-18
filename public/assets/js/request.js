@@ -114,6 +114,22 @@ function getAllBooks(query, page, pageSize) {
     });
 }
 
+/*Get book function
+*/
+function getBook(isbn) {
+    var method = "api/book/" + isbn;
+    var url = apiServer + method;
+    return $.ajax({
+        type: "GET",
+        url: url,
+        dataType: 'json',
+        crossDomain: true
+    })
+    .fail(function (err) {
+        console.log(err);
+    });
+}
+
 /*Add to cart function
     -Parameters:
         -isbn : the book isbn
@@ -209,6 +225,22 @@ function updateCartItem(isbn, quantity, price) {
 */
 function getAllAuthors(query, page, pageSize) {
     var method = query + "page="+ page + "&pageSize="  + pageSize;
+    var url = apiServer + method;
+    return $.ajax({
+        type: "GET",
+        url: url,
+        dataType: 'json',
+        crossDomain: true
+    })
+    .fail(function (err) {
+        console.log(err);
+    });
+}
+
+/*Get author function
+*/
+function getAuthor(id) {
+    var method = "api/author/" + id;
     var url = apiServer + method;
     return $.ajax({
         type: "GET",
