@@ -466,7 +466,7 @@ ul#theme_list li p::first-letter {
         height: 300px;
     }
     .slider-img {
-        height: 275px;
+        height: 260px;
     }
 } 
 @media (min-width: 768px) {
@@ -478,7 +478,7 @@ ul#theme_list li p::first-letter {
         height: 350px;
     }
     .slider-img {
-        height: 310px;
+        height: 280px;
     }
 } 
 @media (min-width: 992px) {
@@ -490,7 +490,7 @@ ul#theme_list li p::first-letter {
         height: 400px;
     }
     .slider-img {
-        height: 345px;
+        height: 300px;
     }
 } 
 @media (min-width: 1200px) {

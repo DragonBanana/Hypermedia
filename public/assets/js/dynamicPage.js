@@ -331,6 +331,7 @@ function loadFavourite() {
             let book = data.Items[i];
             $('#favouritebooks').append(gen_index_page_book_html(book.isbn));
         }
+        let count = data.Count;
         $('#favouritebooks').slick({
             dots: false,
             prevArrow: false,
@@ -342,22 +343,15 @@ function loadFavourite() {
             responsive: [{
                 breakpoint: 1024,
                 settings: {
-                    slidesToShow: 3,
-                    slidesToScroll: 3
+                    slidesToShow: count/2,
+                    slidesToScroll: count/2
                 }
             },
             {
-                breakpoint: 600,
+                breakpoint: 768,
                 settings: {
-                    slidesToShow: 2,
-                    slidesToScroll: 2
-                }
-            },
-            {
-                breakpoint: 480,
-                settings: {
-                    slidesToShow: 1,
-                    slidesToScroll: 1
+                    slidesToShow: count/3,
+                    slidesToScroll: count/3
                 }
             }
             ]
