@@ -18,7 +18,7 @@ Query paramers :
 Example of request: ".../theme?page=3&pageSize=10"
 */
 exports.findAll = async (event) => {
-    let page = 1, pageSize = 10;
+    let page = 1, pageSize = 100;
     if ((parameter = param.getQueryParameter(event, "page")) != null) {
         page = parameter;
     }

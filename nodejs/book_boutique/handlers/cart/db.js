@@ -39,7 +39,7 @@ async function dynamoScan(params) {
 
 async function dynamoQuery(params) {
     try{
-        const data = await dynamoDb.scan(params).promise();
+        const data = await dynamoDb.query(params).promise();
         return data;
     }catch(err) {
         console.log(err);

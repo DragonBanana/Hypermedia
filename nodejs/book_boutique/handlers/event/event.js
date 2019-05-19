@@ -24,7 +24,7 @@ Example of request:
     ".../event?page=3&pageSize=10&isbn=9788447394567"
 */
 exports.findAll = async (event) => {
-    let page = 1, pageSize = 10, isbn;
+    let page = 1, pageSize = 100, isbn;
     if ((parameter = param.getQueryParameter(event, "page")) != null) {
         page = parameter;
     }

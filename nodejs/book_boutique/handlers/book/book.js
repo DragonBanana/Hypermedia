@@ -26,7 +26,7 @@ Example of requests :
     ".../book?page=3&pageSize=10&theme=solitude&genre=narrative"
 */
 exports.findAll = async (event) => {
-    let theme, genre, author, page = 1, pageSize = 10;
+    let theme, genre, author, page = 1, pageSize = 1000;
     if ((parameter = param.getQueryParameter(event, "page")) != null) {
         page = parameter;
     }
@@ -114,15 +114,15 @@ exports.findAll = async (event) => {
         }
     }
     let dbResult = await db.scan(params);
-    let totalPage = parseInt(dbResult.Count/pageSize);
+    let totalPage = parseInt(dbResult.Count / pageSize);
     let count = pageSize;
-    if(page > totalPage) {
+    if (page > totalPage) {
         count = dbResult.Count - totalPage * pageSize;
     }
     let response = {
-        "Elements" : dbResult.Count,
-        "Count" : count,
-        "Items" : dbResult.Items.slice((page-1) * pageSize, page * pageSize)
+        "Elements": dbResult.Count,
+        "Count": count,
+        "Items": dbResult.Items.slice((page - 1) * pageSize, page * pageSize)
     }
     return resp.stringify(200, response);
 };
@@ -146,14 +146,78 @@ exports.findByISBN = async (event) => {
         };
         let dbResult = await db.query(params);
         let response = {
-            "Elements" : dbResult.Count,
-            "Count" : dbResult.Count,
-            "Items" : dbResult.Items
+            "Elements": dbResult.Count,
+            "Count": dbResult.Count,
+            "Items": dbResult.Items
         }
         return resp.stringify(200, response);
     } else {
         return resp.stringify(null);
     }
+};
+
+/*
+/book/similar/{isbn} - Find all similar books.
+This method support pagination.
+Query paramers : 
+    - page : the page number. By default its value is 1.
+    - pageSize : the number of element in each page. By default its value is 10.
+Example of request: ".../book/similar/9788447394567?page=3&pageSize=10"
+*/
+exports.findSimilar = async (event) => {
+    if ((parameter = param.getPathParameter(event, "isbn")) != null) {
+        let isbn = parameter;
+        let params = {
+            TableName: 'bb_book',
+            KeyConditionExpression: "#isbn = :isbn",
+            ExpressionAttributeNames: {
+                "#isbn": "isbn"
+            },
+            ExpressionAttributeValues: {
+                ":isbn": isbn
+            }
+        };
+        let dbResult = await db.query(params);
+        let theme = dbResult.Items[0].themeId;
+        let genre = dbResult.Items[0].genreId;
+        let author = dbResult.Items[0].authorId;
+        let page = 1, pageSize = 100;
+        if ((parameter = param.getQueryParameter(event, "page")) != null) {
+            page = parameter;
+        }
+        if ((parameter = param.getQueryParameter(event, "pageSize")) != null) {
+            pageSize = parameter;
+        }
+        params = {
+            TableName: 'bb_book',
+            FilterExpression: "(#themeId = :themeId) OR (#genreId = :genreId) OR (#authorId = :authorId)",
+            ExpressionAttributeNames: {
+                "#themeId": "themeId",
+                "#genreId": "genreId",
+                "#authorId": "authorId"
+            },
+            ExpressionAttributeValues: {
+                ":themeId": theme,
+                ":genreId": genre,
+                ":authorId": author
+            }
+        };
+        dbResult = await db.scan(params);
+        let totalPage = parseInt(dbResult.Count / pageSize);
+        let count = pageSize;
+        if (page > totalPage) {
+            count = dbResult.Count - totalPage * pageSize;
+        }
+        let response = {
+            "Elements": dbResult.Count,
+            "Count": count,
+            "Items": dbResult.Items.slice((page - 1) * pageSize, page * pageSize)
+        }
+        return resp.stringify(200, response);
+    } else {
+        return resp.stringify(null);
+    }
+
 };
 
 /*
@@ -165,7 +229,7 @@ Query paramers :
 Example of request: ".../book/favourite?page=3&pageSize=10"
 */
 exports.findFavourites = async (event) => {
-    let page = 1, pageSize = 10;
+    let page = 1, pageSize = 100;
     if ((parameter = param.getQueryParameter(event, "page")) != null) {
         page = parameter;
     }
@@ -183,10 +247,15 @@ exports.findFavourites = async (event) => {
         }
     };
     let dbResult = await db.scan(params);
+    let totalPage = parseInt(dbResult.Count / pageSize);
+    let count = pageSize;
+    if (page > totalPage) {
+        count = dbResult.Count - totalPage * pageSize;
+    }
     let response = {
-        "Elements" : dbResult.Count,
-        "Count" : dbResult.Count,
-        "Items" : dbResult.Items
+        "Elements": dbResult.Count,
+        "Count": count,
+        "Items": dbResult.Items.slice((page - 1) * pageSize, page * pageSize)
     }
     return resp.stringify(200, response);
 };
@@ -200,7 +269,7 @@ Query paramers :
 Example of request: ".../book/bestseller?page=3&pageSize=10"
 */
 exports.findBestSellers = async (event) => {
-    let page = 1, pageSize = 10;
+    let page = 1, pageSize = 100;
     if ((parameter = param.getQueryParameter(event, "page")) != null) {
         page = parameter;
     }
@@ -218,10 +287,15 @@ exports.findBestSellers = async (event) => {
         }
     };
     let dbResult = await db.scan(params);
+    let totalPage = parseInt(dbResult.Count / pageSize);
+    let count = pageSize;
+    if (page > totalPage) {
+        count = dbResult.Count - totalPage * pageSize;
+    }
     let response = {
-        "Elements" : dbResult.Count,
-        "Count" : dbResult.Count,
-        "Items" : dbResult.Items
+        "Elements": dbResult.Count,
+        "Count": count,
+        "Items": dbResult.Items.slice((page - 1) * pageSize, page * pageSize)
     }
     return resp.stringify(200, response);
 };

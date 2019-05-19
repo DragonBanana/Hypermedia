@@ -130,6 +130,38 @@ function getBook(isbn) {
     });
 }
 
+/*Get book function
+*/
+function getBestsellerBook() {
+    var method = "api/book/bestseller"
+    var url = apiServer + method;
+    return $.ajax({
+        type: "GET",
+        url: url,
+        dataType: 'json',
+        crossDomain: true
+    })
+    .fail(function (err) {
+        console.log(err);
+    });
+}
+
+/*Get book function
+*/
+function getFavouriteBook() {
+    var method = "api/book/favourite"
+    var url = apiServer + method;
+    return $.ajax({
+        type: "GET",
+        url: url,
+        dataType: 'json',
+        crossDomain: true
+    })
+    .fail(function (err) {
+        console.log(err);
+    });
+}
+
 /*Add to cart function
     -Parameters:
         -isbn : the book isbn

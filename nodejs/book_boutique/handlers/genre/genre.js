@@ -18,7 +18,7 @@ Query paramers :
 Example of request: ".../genre?page=3&pageSize=10"
 */
 exports.findAll = async (event) => {
-    let page = 1, pageSize = 100;
+    let page = 1, pageSize = 1000;
     if ((parameter = param.getQueryParameter(event, "page")) != null) {
         page = parameter;
     }

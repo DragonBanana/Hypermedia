@@ -8,8 +8,8 @@ Description: >
 # More info about Globals: https://github.com/awslabs/serverless-application-model/blob/master/docs/globals.rst
 Globals:
   Function:
-    Timeout: 30
-    MemorySize: 512
+    Timeout: 60
+    MemorySize: 384
   Api:
     EndpointConfiguration: REGIONAL
     Cors: 
@@ -44,6 +44,20 @@ Resources:
           Type: Api
           Properties:
             Path: /api/book/{isbn}
+            Method: get
+  
+  FindSimilarBookByISBNFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: handlers/book/
+      Handler: book.findSimilar
+      Runtime: nodejs8.10
+      Policies: AmazonDynamoDBFullAccess 
+      Events:
+        FindSimilarBookByISBNAPI:
+          Type: Api
+          Properties:
+            Path: /api/book/similar/{isbn}
             Method: get
   FindFavouritesBookFunction:
     Type: AWS::Serverless::Function

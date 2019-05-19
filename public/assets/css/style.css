@@ -440,6 +440,8 @@ ul#theme_list li p::first-letter {
 #map {
     margin: auto;
     margin-top: 15px;
+    width: 95%;
+    height: 250px;
 }
 
 .container-small{
@@ -450,13 +452,21 @@ ul#theme_list li p::first-letter {
     margin-right: auto;
     margin-left: auto;
 }
+
+.slider-img {
+    height: 240px;
+}
+
 @media (min-width: 576px) {
     .container-small {
         width: 504px;
     }
     #map {
         width: 90%;
-        height: 250px;
+        height: 300px;
+    }
+    .slider-img {
+        height: 275px;
     }
 } 
 @media (min-width: 768px) {
@@ -465,7 +475,10 @@ ul#theme_list li p::first-letter {
     }
     #map {
         width: 85%;
-        height: 300px;
+        height: 350px;
+    }
+    .slider-img {
+        height: 310px;
     }
 } 
 @media (min-width: 992px) {
@@ -474,7 +487,10 @@ ul#theme_list li p::first-letter {
     }
     #map {
         width: 80%;
-        height: 350px;
+        height: 400px;
+    }
+    .slider-img {
+        height: 345px;
     }
 } 
 @media (min-width: 1200px) {
@@ -483,8 +499,6 @@ ul#theme_list li p::first-letter {
     }
     #map {
         width: 75%;
-        height: 400px;
+        height: 450px;
     }
 }
-
-

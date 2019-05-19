@@ -31,14 +31,14 @@
     font-weight: 400;
   }
    
-  .item {
+  .cart-item {
     padding: 20px 30px;
     height: 160px;
     display: flex;
     border-bottom:  1px solid #E1E8EE;
   }
    
-  .item .cart-image img{
+  .cart-item .cart-image img{
     height: 100%;
   }
 
@@ -144,7 +144,7 @@
       height: auto;
       overflow: hidden;
     }
-    .item {
+    .cart-item {
       height: auto;
       flex-wrap: wrap;
       justify-content: center;

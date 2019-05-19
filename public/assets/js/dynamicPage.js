@@ -50,8 +50,9 @@ function gen_event_html(id, name, time, book, location) {
                     </div> \
                     <div class="col-xl-9 col-lg-8 col-md-7 col-sm-6"> \
                         <div class="title"><a class="text-uppercase">' + name + '<a></div> \
-                        <div class="description"><a class="font-weight-bold">Time: </a>' + time + '</div> \
-                        <div class="description"><a class="font-weight-bold">Book: </a>' + book + ' </div> \
+                        <div class="description"><a class="font-weight-bold">Date: </a>' + time.split('T')[0]+ '</div> \
+                        <div class="description"><a class="font-weight-bold">Time: </a>' + time.split('T')[1].slice(0, -1)+ '</div> \
+                        <div class="description" onclick="gen_single_book('+book+')" style="cursor:pointer"><a class="font-weight-bold">Book: </a>' + book + ' </div> \
                         <div class="description location"><a class="font-weight-bold">Location: </a>' + location + '</div> \
                         <button class="nav-link btn btn-rounded show-map""> Show map </button></div> \
                         </div> \
@@ -61,7 +62,7 @@ function gen_event_html(id, name, time, book, location) {
 }
 
 function gen_cart_item_html(isbn, quantity, price) {
-    let html = '<div class="item"> \
+    let html = '<div class="cart-item"> \
                     <span class="cart-item-isbn cart-item-data">' + isbn + '</span> \
                     <span class="cart-item-price cart-item-data">' + price + '</span> \
                     <span class="cart-item-quantity cart-item-data">' + quantity + '</span> \
@@ -188,6 +189,15 @@ function gen_cart_content() {
         );
 }
 
+function findSimilar(isbn) {
+    var modal = document.getElementById("single_page_modal");
+    $("#element-list-query").text("api/book/similar/" + isbn + "?");
+    $("#element-list-page").text(1);
+    $("#element-list-page-size").text(4);
+    gen_book_content();
+    modal.remove();
+}
+
 
 $(document).on("click", ".genre_element", function (e) {
     e.preventDefault();
@@ -234,7 +244,7 @@ $(document).on("click", ".show-map", function (e) {
     <script> \
     var map = new google.maps.Map(document.getElementById(\'map\'), { \
         center: '+JSON.stringify(geo)+', \
-        zoom: 8 \
+        zoom: 12 \
     }); \
     </script>'
     div.append(map_html);
@@ -266,4 +276,91 @@ function changeAuthorPage(num) {
 function changeEventPage(num) {
     $("#element-list-page").text(num);
     gen_event_content();
+}
+
+function gen_index_page_book_html(isbn) {
+    let html = '<div class="item"> \
+                    <div class="pad15"> \
+                        <img class="slider-img" src="assets/img/'+isbn+'.jpg"> \
+                    </div> \
+                </div>';
+    return html;
+}
+
+function loadBestSeller() {
+    $('#bestsellerbooks').empty();
+    getBestsellerBook()
+    .done(function (data) {
+        for (i = 0; i < data.Count; i++) {
+            let book = data.Items[i];
+            $('#bestsellerbooks').append(gen_index_page_book_html(book.isbn));
+        }
+        let count = data.Count;
+        $('#bestsellerbooks').slick({
+            dots: false,
+            prevArrow: false,
+            nextArrow: false,
+            speed: 750,
+            slidesToShow: 4,
+            slidesToScroll: 4,
+            infinite: true,
+            responsive: [{
+                breakpoint: 1024,
+                settings: {
+                    slidesToShow: count/2,
+                    slidesToScroll: count/2
+                }
+            },
+            {
+                breakpoint: 768,
+                settings: {
+                    slidesToShow: count/3,
+                    slidesToScroll: count/3
+                }
+            }
+            ]
+        });
+    });
+}
+
+function loadFavourite() {
+    $('#favouritebooks').empty();
+    getFavouriteBook()
+    .done(function (data) {
+        for (i = 0; i < data.Count; i++) {
+            let book = data.Items[i];
+            $('#favouritebooks').append(gen_index_page_book_html(book.isbn));
+        }
+        $('#favouritebooks').slick({
+            dots: false,
+            prevArrow: false,
+            nextArrow: false,
+            speed: 750,
+            infinite: true,
+            slidesToShow: 4,
+            slidesToScroll: 4,
+            responsive: [{
+                breakpoint: 1024,
+                settings: {
+                    slidesToShow: 3,
+                    slidesToScroll: 3
+                }
+            },
+            {
+                breakpoint: 600,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 2
+                }
+            },
+            {
+                breakpoint: 480,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1
+                }
+            }
+            ]
+        });
+    });
 }
