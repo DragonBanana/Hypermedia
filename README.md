@@ -3,7 +3,7 @@
 ## General group information
 | Member n. | Role| First name | Last Name | Matricola | Email address|
 | --------- | ------------- | ---------- | --------- | --------- | --------------- |
-| 1 | administrator | Foo | FooL | 123456 | foo@example.com |
+| 1 | administrator | Ibrahim | El Shemy | 920174 | ibrahim.elshemy@mail.polimi.it |
 | 2 | member | Bar | BarL | 78982 | bar@example.com |
 | 3 | member | Davide Yi Xian | Hu | 919754 | davideyi.hu@mail.polimi.it |
 ## Links to other deliverables
