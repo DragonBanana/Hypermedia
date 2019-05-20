@@ -20,10 +20,7 @@ available [this address](https://github.com/Ibriaco/Hypermedia). We hereby decla
 instructors.
 ## Specification
 ### Web Architecture
-Describe here, with a diagram, the components of your web application and how
-3
-|they interact. Highlight which parts belong to the application layer, data layer
-or presentation layer. How did you ensure that HTML is not rendered server side?
+![Alt text](documentation/images/hypermedia_architecture.png?raw=true "Architecture")
 ### API
 #### REST compliance
 Describe here to what extent did you follow REST principles and what are the
