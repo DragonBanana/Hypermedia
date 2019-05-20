@@ -34,9 +34,8 @@
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
         <div class="container">
-            <a class="navbar-brand" href="#" style="color: orange; padding-top: 0.4rem">Book Boutique</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
-                aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <a class="navbar-brand" href="../index.html" style="color: orange; padding-top: 0.4rem">Book Boutique</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
@@ -46,9 +45,7 @@
                             <span class="sr-only">(current)</span>
                         </a>
                     <li class="dropdown nav-item">
-                        <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown" role="button"
-                            aria-haspopup="true" aria-expanded="true"> <span class="nav-label">Categories</span> <span
-                                class="caret"></span></a>
+                        <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true"> <span class="nav-label">Categories</span> <span class="caret"></span></a>
                         <ul class="dropdown-menu bg-dark">
                             <li><a href="book.html">Books</a></li>
                             <li><a href="author.html">Authors</a></li>
@@ -59,7 +56,7 @@
                         <a class="nav-link" href="info.html">Info</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="contactUs.html">Contacts</a>
+                        <a class="nav-link" href="contactUs.html">Contact us</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="faq.html">FAQ</a>
@@ -70,19 +67,13 @@
                     <li class="right">
                         <input class="searchbar" type="text" placeholder="Search" aria-label="Search">
                     <li id="navbar_loginButton" class="nav-item">
-                        <button class="nav-link btn btn-rounded btn-primary"
-                            onclick="document.getElementById('id01').style.display='block'" style="width:auto;"
-                            href="faq.html">Sign in</button>
+                        <button class="nav-link btn btn-rounded btn-primary" onclick="document.getElementById('id01').style.display='block'" style="width:auto;" href="faq.html">Sign in</button>
                     </li>
                     <li id="navbar_registerButton" class="nav-item">
-                        <button class="nav-link btn btn-rounded btn-primary"
-                            onclick="document.getElementById('id02').style.display='block'" style="width:auto;"
-                            href="faq.html">Sign up</button>
+                        <button class="nav-link btn btn-rounded btn-primary" onclick="document.getElementById('id02').style.display='block'" style="width:auto;" href="faq.html">Sign up</button>
                     </li>
                     <li id="navbar_userLabel" class="dropdown nav-item">
-                        <a id="navbar_userLabel_username" href="#" class="dropdown-toggle nav-link"
-                            data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true"> <span
-                                class="nav-label"></span> <span class="caret"></span></a>
+                        <a id="navbar_userLabel_username" href="#" class="dropdown-toggle nav-link" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true"> <span class="nav-label"></span> <span class="caret"></span></a>
                         <ul class="dropdown-menu bg-dark">
                             <li><a href="#" onclick='logout()'>Logout</a>
                             </li>
@@ -155,8 +146,7 @@
                             <div class="col-md-12">
 
                                 <div class="md-form">
-                                    <textarea type="text" id="message" name="message" rows="2"
-                                        class="form-control md-textarea"></textarea>
+                                    <textarea type="text" id="message" name="message" rows="2" class="form-control md-textarea"></textarea>
                                     <label for="message">Your message</label>
                                 </div>
 
@@ -232,10 +222,6 @@
                     <p>
                         <a href="event.html">Events</a>
                     </p>
-                    <p>
-                        <a href="#!"></a>
-                    </p>
-
                 </div>
                 <!-- Grid column -->
 
@@ -249,7 +235,7 @@
                         <a href="info.html">Info</a>
                     </p>
                     <p>
-                        <a href="ContactUs.html">Contacts</a>
+                        <a href="ContactUs.html">Contact us</a>
                     </p>
                     <p>
                         <a href="faq.html">FAQ</a>
@@ -298,21 +284,17 @@
 
         <form class="modal-content animate">
             <div class="imgcontainer">
-                <span onclick="document.getElementById('id01').style.display='none'" class="close"
-                    title="Close Modal">×</span>
+                <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">×</span>
             </div>
 
             <div class="modal-container">
                 <label><b>Username</b></label>
-                <input id="loginUsername" type="text" class="form-button" placeholder="Enter Username" name="uname"
-                    required>
+                <input id="loginUsername" type="text" class="form-button" placeholder="Enter Username" name="uname" required>
 
                 <label><b>Password</b></label>
-                <input id="loginPassword" type="password" class="form-button" placeholder="Enter Password" name="psw"
-                    required>
+                <input id="loginPassword" type="password" class="form-button" placeholder="Enter Password" name="psw" required>
 
-                <button class="modal-button" type="button"
-                    onclick="login($('#loginUsername').val(), $('#loginPassword').val())" href="#">Login</button>
+                <button class="modal-button" type="button" onclick="login($('#loginUsername').val(), $('#loginPassword').val())" href="#">Login</button>
                 <input type="checkbox" checked="checked"> <label>Remember me</label>
                 <span class="psw">Forgot <a href="#">password?</a></span>
             </div>
@@ -323,8 +305,7 @@
     <div id="id02" class="modal">
         <form class="modal-content animate" action="/action_page.php">
             <div class="imgcontainer">
-                <span onclick="document.getElementById('id02').style.display='none'" class="close"
-                    title="Close Modal">×</span>
+                <span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close Modal">×</span>
             </div>
             <div class="modal-container">
 
@@ -332,25 +313,20 @@
                 <input id="registerName" type="text" class="form-button" placeholder="Enter Name" name="name" required>
 
                 <label for="surname"><b>Surname</b></label>
-                <input id="registerSurname" type="text" class="form-button" placeholder="Enter Surname" name="surname"
-                    required>
+                <input id="registerSurname" type="text" class="form-button" placeholder="Enter Surname" name="surname" required>
 
                 <label for="username"><b>Username</b></label>
-                <input id="registerUsername" type="text" class="form-button" placeholder="Enter Username"
-                    name="username" required>
+                <input id="registerUsername" type="text" class="form-button" placeholder="Enter Username" name="username" required>
 
                 <label for="psw"><b>Password</b></label>
-                <input id="registerPassword" type="password" class="form-button" placeholder="Enter Password" name="psw"
-                    required>
+                <input id="registerPassword" type="password" class="form-button" placeholder="Enter Password" name="psw" required>
 
                 <label>
                     <p>By creating an account you agree to our <a href="pages/PrivacyPolicy.html" target="_blank">Terms
                             & Privacy</a>.</p>
                 </label>
 
-                <button class="modal-button" type="button"
-                    onclick="register($('#registerUsername').val(), $('#registerPassword').val(),$('#registerName').val(),$('#registerSurname').val());"
-                    href="#">Sign up</button>
+                <button class="modal-button" type="button" onclick="register($('#registerUsername').val(), $('#registerPassword').val(),$('#registerName').val(),$('#registerSurname').val());" href="#">Sign up</button>
             </div>
         </form>
     </div>
@@ -359,7 +335,7 @@
         var modal_02 = document.getElementById('id02');
         var modal_01 = document.getElementById('id01');
         var modal = document.getElementById("single_page_modal");
-        window.onclick = function (event) {
+        window.onclick = function(event) {
             if (event.target == modal_01) {
                 modal_01.style.display = "none";
             } else if (event.target == modal_02) {

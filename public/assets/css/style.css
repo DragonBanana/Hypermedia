@@ -1,3 +1,8 @@
+.btn-primary {
+    color: #fff;
+    background-color: orange;
+    border-color: orange;
+}
 .faq{
     padding-bottom: 20;
     padding-top: 8px;
