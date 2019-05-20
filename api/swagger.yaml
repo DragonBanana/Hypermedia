@@ -6,7 +6,7 @@ info:
     [http://swagger.io](http://swagger.io) or on 
     [irc.freenode.net, #swagger](http://swagger.io/irc/).
   version: 1.0.0
-  title: Swagger Book Boutique
+  title: book_boutique
   termsOfService: http://swagger.io/terms/
   contact:
     email: 10493858@polimi.it
@@ -26,6 +26,10 @@ tags:
   description: Themes
 - name: genre
   description: Genres
+- name: event
+  description: Events
+- name: cart
+  description: Carts
 # schemes:
 # - http
 paths:
@@ -33,18 +37,39 @@ paths:
     get:
       tags:
       - book
-      summary: Find all books
+      summary: Find all books 
       operationId: findAll
       produces:
       - application/json
       - application/xml
+      parameters:
+      - name: page
+        in: query
+        description: The page of the search
+        required: false
+        type: integer
+      - name: pageSize
+        in: query
+        description: The page-size of the search
+        required: false
+        type: integer
+      - name: theme
+        in: query
+        description: The theme of the books
+        required: false
+        type: string
+      - name: genre
+        in: query
+        description: The genre of the books
+        required: false
+        type: string
       responses:
         200:
           description: successful operation
           schema:
             type: array
             items:
-              $ref: '#/definitions/Book'
+              $ref: '#/definitions/BookResponse'
         400:
           description: Invalid status value
   /book/{isbn}:
@@ -68,55 +93,7 @@ paths:
           schema:
             type: array
             items:
-              $ref: '#/definitions/Book'
-        400:
-          description: Invalid status value
-  /book/theme/{themeId}:
-    get:
-      tags:
-      - book
-      summary: Finds books by theme
-      operationId: findBooksByTheme
-      produces:
-      - application/json
-      - application/xml
-      parameters:
-      - name: themeId
-        in: path
-        description: theme of the book
-        required: true
-        type: string
-      responses:
-        200:
-          description: successful operation
-          schema:
-            type: array
-            items:
-              $ref: '#/definitions/Book'
-        400:
-          description: Invalid status value
-  /book/genre/{genreId}:
-    get:
-      tags:
-      - book
-      summary: Finds books by genre
-      operationId: findBooksByGenre
-      produces:
-      - application/json
-      - application/xml
-      parameters:
-      - name: genreId
-        in: path
-        description: genre of the book
-        required: true
-        type: string
-      responses:
-        200:
-          description: successful operation
-          schema:
-            type: array
-            items:
-              $ref: '#/definitions/Book'
+              $ref: '#/definitions/BookResponse'
         400:
           description: Invalid status value
   /book/bestselling:
@@ -128,13 +105,24 @@ paths:
       produces:
       - application/json
       - application/xml
+      parameters:
+      - name: page
+        in: query
+        description: The page of the search
+        required: false
+        type: integer
+      - name: pageSize
+        in: query
+        description: The page-size of the search
+        required: false
+        type: integer
       responses:
         200:
           description: successful operation
           schema:
             type: array
             items:
-              $ref: '#/definitions/Book'
+              $ref: '#/definitions/BookResponse'
         400:
           description: Invalid status value
   /book/favourite:
@@ -146,13 +134,24 @@ paths:
       produces:
       - application/json
       - application/xml
+      parameters:
+      - name: page
+        in: query
+        description: The page of the search
+        required: false
+        type: integer
+      - name: pageSize
+        in: query
+        description: The page-size of the search
+        required: false
+        type: integer
       responses:
         200:
           description: successful operation
           schema:
             type: array
             items:
-              $ref: '#/definitions/Book'
+              $ref: '#/definitions/BookResponse'
         400:
           description: Invalid status value
   /author:
@@ -164,13 +163,24 @@ paths:
       produces:
       - application/json
       - application/xml
+      parameters:
+      - name: page
+        in: query
+        description: The page of the search
+        required: false
+        type: integer
+      - name: pageSize
+        in: query
+        description: The page-size of the search
+        required: false
+        type: integer
       responses:
         200:
           description: successful operation
           schema:
             type: array
             items:
-              $ref: '#/definitions/Author'
+              $ref: '#/definitions/AuthorResponse'
         400:
           description: Invalid status value
   /author/{id}:
@@ -194,7 +204,7 @@ paths:
           schema:
             type: array
             items:
-              $ref: '#/definitions/Author'
+              $ref: '#/definitions/AuthorResponse'
         400:
           description: Invalid status value
   /theme:
@@ -206,13 +216,24 @@ paths:
       produces:
       - application/json
       - application/xml
+      parameters:
+      - name: page
+        in: query
+        description: The page of the search
+        required: false
+        type: integer
+      - name: pageSize
+        in: query
+        description: The page-size of the search
+        required: false
+        type: integer
       responses:
         200:
           description: successful operation
           schema:
             type: array
             items:
-              $ref: '#/definitions/Theme'
+              $ref: '#/definitions/ThemeResponse'
         400:
           description: Invalid status value
   /genre:
@@ -224,13 +245,24 @@ paths:
       produces:
       - application/json
       - application/xml
+      parameters:
+      - name: page
+        in: query
+        description: The page of the search
+        required: false
+        type: integer
+      - name: pageSize
+        in: query
+        description: The page-size of the search
+        required: false
+        type: integer
       responses:
         200:
           description: successful operation
           schema:
             type: array
             items:
-              $ref: '#/definitions/Genre'
+              $ref: '#/definitions/GenreResponse'
         400:
           description: Invalid status value
   /user/login:
@@ -245,16 +277,16 @@ paths:
       - application/json
       parameters:
       - name: username
-        in: formData
+        in: query
         required: true
         type: string
       - name: password
-        in: formData
+        in: query
         required: true
         type: string
       responses:
         200:
-          description: succesfull login
+          description: successful login
         404:
           description: unauthorized
   /user/register:
@@ -288,13 +320,29 @@ paths:
       produces:
       - application/json
       - application/xml
+      parameters:
+      - name: page
+        in: query
+        description: The page of the search
+        required: false
+        type: integer
+      - name: pageSize
+        in: query
+        description: The page-size of the search
+        required: false
+        type: integer
+      - name: isbn
+        in: query
+        description: The isbn of the book
+        required: false
+        type: string
       responses:
         200:
           description: successful operation
           schema:
             type: array
             items:
-              $ref: '#/definitions/Event'
+              $ref: '#/definitions/EventResponse'
         400:
           description: Invalid status value
           
@@ -319,22 +367,69 @@ paths:
           schema:
             type: array
             items:
-              $ref: '#/definitions/Event'
+              $ref: '#/definitions/EventResponse'
         400:
           description: Invalid status value
-  /event/book/{id}:
-    get:
+  /cart:
+    post:
       tags:
-      - event
-      summary: Finds events by bookId
-      operationId: findEventsByBookId
+      - cart
+      summary: Add book to user's cart
+      operationId: addBookToCart
       produces:
       - application/json
       - application/xml
       parameters:
-      - name: id
+      - in: body
+        name: body
+        required: true
+        schema:
+          $ref: "#/definitions/Cart"
+      responses:
+        200:
+          description: successful operation
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/CartResponse'
+        400:
+          description: Invalid status value
+    put:
+      tags:
+      - cart
+      summary: Edit a book of user's cart
+      operationId: editBookToCart
+      produces:
+      - application/json
+      - application/xml
+      parameters:
+      - in: body
+        name: body
+        required: true
+        schema:
+          $ref: "#/definitions/Cart"
+      responses:
+        200:
+          description: successful operation
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/CartResponse'
+        400:
+          description: Invalid status value
+  /cart/{username}:
+    get:
+      tags:
+      - cart
+      summary: Finds cart by username
+      operationId: findCartByUsername
+      produces:
+      - application/json
+      - application/xml
+      parameters:
+      - name: username
         in: path
-        description: Id of the book of the event
+        description: User's cart
         required: true
         type: string
       responses:
@@ -343,7 +438,34 @@ paths:
           schema:
             type: array
             items:
-              $ref: '#/definitions/Event'
+              $ref: '#/definitions/CartResponse'
+        400:
+          description: Invalid status value
+    delete:
+      tags:
+      - cart
+      summary: Delete a book from user's cart
+      operationId: deleteBookFromCart
+      produces:
+      - application/json
+      - application/xml
+      parameters:
+      - name: username
+        in: path
+        description: User's cart
+        required: true
+        type: string
+      - name: isbn
+        in: query
+        required: true
+        type: string
+      responses:
+        200:
+          description: successful operation
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Cart'
         400:
           description: Invalid status value
 definitions:
@@ -365,8 +487,6 @@ definitions:
       price:
         type: number
         format: double
-    xml:
-      name: Book
   Author:
     type: object
     properties:
@@ -376,8 +496,6 @@ definitions:
         type: string
       surname:
         type: string
-    xml:
-      name: Author
   Event:
     type: object
     properties:
@@ -392,8 +510,6 @@ definitions:
         format: date-time
       bookId:
         type: string
-    xml:
-      name: Event
   Theme:
     type: object
     properties:
@@ -401,8 +517,6 @@ definitions:
         type: string
       description:
         type: string
-    xml:
-      name: Theme
   Genre:
     type: object
     properties:
@@ -410,25 +524,6 @@ definitions:
         type: string
       description:
         type: string
-    xml:
-      name: Genre
-  BookSold:
-    type: object
-    properties:
-      bookId:
-        type: string
-      user:
-        type: string
-      amount:
-        type: string
-      timestamp:
-        type: string
-        format: date-time
-      price:
-        type: number
-        format: double
-    xml:
-      name: Genre
   User:
     type: object
     properties:
@@ -440,7 +535,82 @@ definitions:
         type: string
       password:
         type: string
-    xml:
-      name: User
-host: gayxkx7ln0.execute-api.eu-west-1.amazonaws.com
-basePath: /default/bookboutique
+  Cart:
+    type: object
+    properties:
+      username:
+        type: string
+      isbn:
+        type: string
+      quantity:
+        type: number
+      price:
+        type: number
+  BookResponse:
+    type: object
+    properties:
+      elements:
+        type: number
+      count:
+        type: number
+      items:
+        type: array
+        items:
+          $ref: '#/definitions/Book'
+  AuthorResponse:
+    type: object
+    properties:
+      elements:
+        type: number
+      count:
+        type: number
+      items:
+        type: array
+        items:
+          $ref: '#/definitions/Author'
+  EventResponse:
+    type: object
+    properties:
+      elements:
+        type: number
+      count:
+        type: number
+      items:
+        type: array
+        items:
+          $ref: '#/definitions/Event'
+  ThemeResponse:
+    type: object
+    properties:
+      elements:
+        type: number
+      count:
+        type: number
+      items:
+        type: array
+        items:
+          $ref: '#/definitions/Theme'
+  GenreResponse:
+    type: object
+    properties:
+      elements:
+        type: number
+      count:
+        type: number
+      items:
+        type: array
+        items:
+          $ref: '#/definitions/Genre'
+  CartResponse:
+    type: object
+    properties:
+      elements:
+        type: number
+      count:
+        type: number
+      items:
+        type: array
+        items:
+          $ref: '#/definitions/Cart'
+basePath: /Prod/api
+host: i2lfy3dum9.execute-api.eu-west-1.amazonaws.com

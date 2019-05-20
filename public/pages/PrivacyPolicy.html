@@ -12,7 +12,7 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
   <script src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.js"></script>
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDd-P41Q61iFV4yskc6dqkHUVg5zFcJDBQ"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDJ34rmsr_o1EDlKqRb9gh-e27atgouO68"></script>
   <script src="../assets/js/multicarousel.js"></script>
   <script src="../assets/js/modal.js"></script>
   <script src="../assets/js/slick.min.js"></script>
@@ -31,7 +31,6 @@
 
 <body>
 
-  <!-- Navigation -->
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
     <div class="container">
@@ -59,7 +58,7 @@
             <a class="nav-link" href="info.html">Info</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="ContactUs.html">Contacts</a>
+            <a class="nav-link" href="contactUs.html">Contacts</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="faq.html">FAQ</a>
@@ -81,10 +80,10 @@
           </li>
           <li id="navbar_userLabel" class="dropdown nav-item">
             <a id="navbar_userLabel_username" href="#" class="dropdown-toggle nav-link" data-toggle="dropdown"
-              role="button" aria-haspopup="true" aria-expanded="true"> <span class="nav-label">Categories</span> <span
+              role="button" aria-haspopup="true" aria-expanded="true"> <span class="nav-label"></span> <span
                 class="caret"></span></a>
             <ul class="dropdown-menu bg-dark">
-              <li><a href="#" onclick='$.removeCookie("session", { path: "/" });checkSessionStatus();'>Logout</a>
+              <li><a href="#" onclick='logout()'>Logout</a>
               </li>
             </ul>
           </li>
@@ -264,91 +263,24 @@
 
   </div>
 
-   <!-- Footer -->
-<footer class="page-footer font-small unique-color-dark bg-dark">
-  
-        <!-- Footer Links -->
-        <div class="container text-center text-md-left mt-5" style="padding-top: 1rem">
-      
-          <!-- Grid row -->
-          <div class="row mt-3">
-      
-            <!-- Grid column -->
-            <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
-      
-              <!-- Content -->
-              <h6 class="text-uppercase font-weight-bold mandarin">Book Boutique</h6>
-              <hr class="mb-4 mt-0 d-inline-block mx-auto bg-white" style="width: 60px;">
-              <p style="color: white">Welcome to our website! Here you can find some of the most cherished books in the World!</p>
-      
-            </div>
-            <!-- Grid column -->
-      
-            <!-- Grid column -->
-            <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
-      
-              <!-- Links -->
-              <h6 class="text-uppercase font-weight-bold mandarin">Products</h6>
-              <hr class="mb-4 mt-0 d-inline-block mx-auto bg-white" style="width: 60px;">
-              <p>
-                <a href="book.html">Books</a>
-              </p>
-              <p>
-                <a href="author.html">Authors</a>
-              </p>
-              <p>
-                <a href="event.html">Events</a>
-              </p>
-              <p>
-                <a href="#!"></a>
-              </p>
-      
-            </div>
-            <!-- Grid column -->
-      
-            <!-- Grid column -->
-            <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
-      
-              <!-- Links -->
-              <h6 class="text-uppercase font-weight-bold mandarin">Useful Links</h6>
-              <hr class="mb-4 mt-0 d-inline-block mx-auto bg-white" style="width: 60px;">
-              <p>
-                <a href="info.html">Info</a>
-              </p>
-              <p>
-                <a href="ContactUs.html">Contacts</a>
-              </p>
-              <p>
-                <a href="faq.html">FAQ</a>
-              </p>
-              <p>
-                <a href="PrivacyPolicy.html">Privacy Policy</a>
-              </p>
-      
-            </div>
-            <!-- Grid column -->
-      
-            <!-- Grid column -->
-            <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4" style="color: white">
-      
-              <!-- Links -->
-              <h6 class="text-uppercase font-weight-bold mandarin">Contacts</h6>
-              <hr class="mb-4 mt-0 d-inline-block mx-auto bg-white" style="width: 60px">
-              <p>
-                <i class="fas fa-home mr-3"></i> Milano, MI 20142, IT</p>
-              <p>
-                <i class="fas fa-envelope mr-3"></i> bookboutique@info.it</p>
-              <p>
-                <i class="fas fa-phone mr-3"></i> + 02 234 567 88</p>
-              <p>
-                <i class="fas fa-print mr-3"></i> + 02 224 567 89</p>
-      
-            </div>
-            <!-- Grid column -->
-      
-          </div>
-          <!-- Grid row -->
-      
+  <!-- Footer -->
+  <footer class="page-footer font-small unique-color-dark bg-dark">
+
+    <!-- Footer Links -->
+    <div class="container text-center text-md-left mt-5" style="padding-top: 1rem">
+
+      <!-- Grid row -->
+      <div class="row mt-3">
+
+        <!-- Grid column -->
+        <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+
+          <!-- Content -->
+          <h6 class="text-uppercase font-weight-bold mandarin">Book Boutique</h6>
+          <hr class="mb-4 mt-0 d-inline-block mx-auto bg-white" style="width: 60px;">
+          <p style="color: white">Welcome to our website! Here you can find some of the most cherished books in the
+            World!</p>
+
         </div>
         <!-- Grid column -->
 
@@ -359,13 +291,13 @@
           <h6 class="text-uppercase font-weight-bold mandarin">Products</h6>
           <hr class="mb-4 mt-0 d-inline-block mx-auto bg-white" style="width: 60px;">
           <p>
-            <a href="#!">Books</a>
+            <a href="book.html">Books</a>
           </p>
           <p>
-            <a href="#!">Authors</a>
+            <a href="author.html">Authors</a>
           </p>
           <p>
-            <a href="#!">Events</a>
+            <a href="event.html">Events</a>
           </p>
           <p>
             <a href="#!"></a>
@@ -381,16 +313,16 @@
           <h6 class="text-uppercase font-weight-bold mandarin">Useful Links</h6>
           <hr class="mb-4 mt-0 d-inline-block mx-auto bg-white" style="width: 60px;">
           <p>
-            <a href="#!">Info</a>
+            <a href="info.html">Info</a>
           </p>
           <p>
-            <a href="#!">Contacts</a>
+            <a href="ContactUs.html">Contacts</a>
           </p>
           <p>
-            <a href="#!">FAQ</a>
+            <a href="faq.html">FAQ</a>
           </p>
           <p>
-            <a href="#!">Privacy Policy</a>
+            <a href="PrivacyPolicy.html">Privacy Policy</a>
           </p>
 
         </div>
@@ -418,6 +350,74 @@
       <!-- Grid row -->
 
     </div>
+    <!-- Grid column -->
+
+    <!-- Grid column -->
+    <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+
+      <!-- Links -->
+      <h6 class="text-uppercase font-weight-bold mandarin">Products</h6>
+      <hr class="mb-4 mt-0 d-inline-block mx-auto bg-white" style="width: 60px;">
+      <p>
+        <a href="#!">Books</a>
+      </p>
+      <p>
+        <a href="#!">Authors</a>
+      </p>
+      <p>
+        <a href="#!">Events</a>
+      </p>
+      <p>
+        <a href="#!"></a>
+      </p>
+
+    </div>
+    <!-- Grid column -->
+
+    <!-- Grid column -->
+    <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+
+      <!-- Links -->
+      <h6 class="text-uppercase font-weight-bold mandarin">Useful Links</h6>
+      <hr class="mb-4 mt-0 d-inline-block mx-auto bg-white" style="width: 60px;">
+      <p>
+        <a href="#!">Info</a>
+      </p>
+      <p>
+        <a href="#!">Contacts</a>
+      </p>
+      <p>
+        <a href="#!">FAQ</a>
+      </p>
+      <p>
+        <a href="#!">Privacy Policy</a>
+      </p>
+
+    </div>
+    <!-- Grid column -->
+
+    <!-- Grid column -->
+    <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4" style="color: white">
+
+      <!-- Links -->
+      <h6 class="text-uppercase font-weight-bold mandarin">Contacts</h6>
+      <hr class="mb-4 mt-0 d-inline-block mx-auto bg-white" style="width: 60px">
+      <p>
+        <i class="fas fa-home mr-3"></i> Milano, MI 20142, IT</p>
+      <p>
+        <i class="fas fa-envelope mr-3"></i> bookboutique@info.it</p>
+      <p>
+        <i class="fas fa-phone mr-3"></i> + 02 234 567 88</p>
+      <p>
+        <i class="fas fa-print mr-3"></i> + 02 224 567 89</p>
+
+    </div>
+    <!-- Grid column -->
+
+    </div>
+    <!-- Grid row -->
+
+    </div>
     <!-- Footer Links -->
 
     <!-- Copyright -->
@@ -428,30 +428,23 @@
 
   </footer>
   <!-- Footer -->
-
-
   <div id="id01" class="modal">
 
-    <form class="modal-content animate" action="/action_page.php">
+    <form class="modal-content animate">
       <div class="imgcontainer">
         <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">×</span>
-        <img src="https://www.w3schools.com/howto/img_avatar2.png" alt="Avatar" class="avatar">
       </div>
 
       <div class="modal-container">
         <label><b>Username</b></label>
-        <input type="text" class="form-button" placeholder="Enter Username" name="uname" required>
+        <input id="loginUsername" type="text" class="form-button" placeholder="Enter Username" name="uname" required>
 
         <label><b>Password</b></label>
-        <input type="password" class="form-button" placeholder="Enter Password" name="psw" required>
+        <input id="loginPassword" type="password" class="form-button" placeholder="Enter Password" name="psw" required>
 
-        <button class="modal-button" type="submit">Login</button>
-        <input type="checkbox" checked="checked"> Remember me
-      </div>
-
-      <div class="container" style="background-color:#f1f1f1">
-        <button type="button" onclick="document.getElementById('id01').style.display='none'"
-          class="cancelbtn modal-button">Cancel</button>
+        <button class="modal-button" type="button" onclick="login($('#loginUsername').val(), $('#loginPassword').val())"
+          href="#">Login</button>
+        <input type="checkbox" checked="checked"> <label>Remember me</label>
         <span class="psw">Forgot <a href="#">password?</a></span>
       </div>
     </form>
@@ -464,42 +457,47 @@
         <span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close Modal">×</span>
       </div>
       <div class="modal-container">
-        <h1>Sign Up</h1>
-        <p>Please fill in this form to create an account.</p>
-        <hr>
+
         <label for="name"><b>Name</b></label>
-        <input type="text" class="form-button" placeholder="Enter Name" name="name" required>
+        <input id="registerName" type="text" class="form-button" placeholder="Enter Name" name="name" required>
 
         <label for="surname"><b>Surname</b></label>
-        <input type="text" class="form-button" placeholder="Enter Surname" name="surname" required>
+        <input id="registerSurname" type="text" class="form-button" placeholder="Enter Surname" name="surname" required>
 
-        <label for="email"><b>Email</b></label>
-        <input type="text" class="form-button" placeholder="Enter Email" name="email" required>
+        <label for="username"><b>Username</b></label>
+        <input id="registerUsername" type="text" class="form-button" placeholder="Enter Username" name="username"
+          required>
 
         <label for="psw"><b>Password</b></label>
-        <input type="password" class="form-button" placeholder="Enter Password" name="psw" required>
-
-        <label for="psw-repeat"><b>Repeat Password</b></label>
-        <input type="password" class="form-button" placeholder="Repeat Password" name="psw-repeat" required>
+        <input id="registerPassword" type="password" class="form-button" placeholder="Enter Password" name="psw"
+          required>
 
         <label>
-          <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
+          <p>By creating an account you agree to our <a href="pages/PrivacyPolicy.html" target="_blank">Terms
+              & Privacy</a>.</p>
         </label>
 
-        <p>By creating an account you agree to our <a href="pages/PrivacyPolicy.html" target="_blank"
-            style="color:dodgerblue">Terms & Privacy</a>.</p>
-
-        <div class="clearfix">
-          <button type="button" onclick="document.getElementById('id02').style.display='none'"
-            class="cancelbtn modal-button">Cancel</button>
-          <button class="modal-button signupbtn" type="submit" class="signup">Sign Up</button>
-        </div>
+        <button class="modal-button" type="button"
+          onclick="register($('#registerUsername').val(), $('#registerPassword').val(),$('#registerName').val(),$('#registerSurname').val());"
+          href="#">Sign up</button>
       </div>
     </form>
   </div>
 
-
-
+  <script>
+    var modal_02 = document.getElementById('id02');
+    var modal_01 = document.getElementById('id01');
+    var modal = document.getElementById("single_page_modal");
+    window.onclick = function (event) {
+      if (event.target == modal_01) {
+        modal_01.style.display = "none";
+      } else if (event.target == modal_02) {
+        modal_02.style.display = "none";
+      } else if (event.target == modal) {
+        modal.remove();
+      }
+    }
+  </script>
 </body>
 
 </html>

@@ -12,3 +12,9 @@ function checkSessionStatus() {
         $('#navbar_cart').hide();
     }
 }
+
+function logout() {
+    $.removeCookie("session", { path: "/" });
+    $.removeCookie("session", { path: "/pages" });
+    checkSessionStatus();
+}
