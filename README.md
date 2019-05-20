@@ -21,6 +21,43 @@ instructors.
 ## Specification
 ### Web Architecture
 ![Alt text](documentation/images/hypermedia_architecture.png?raw=true "Architecture")
+
+#### Presentation Layer
+The presentation layer is the topmost level of the application. It is the layer
+which users can use to access directly to this project features. It is
+an e-commerce web application of a bookstore that is accessible from personal computers and
+smartphones. Exploring the website a user can see
+a catalog of books, authors and events. The book catalog can be filtered by book themes and
+genres and it allow users to add books to the cart.
+
+The presentation layer, as most of the frontend application, uses technologies like HTML, CSS5 and Javascript.
+It also implements external libraries such as Bootstrap, Google Maps and Slick (an image slider library).
+
+The static content of the frontend can be retrieved from an Amazon Web Service: Amazon S3.
+This service, known also as Simple Storage Service, is an unstructured data storage service that offers 
+industry-leading scalability, data availability, security, and performance.
+
+#### Application Layer
+The application layer is pulled out from the presentation tier and,
+as its own layer, it provides all the logical services such as user registration and authentication,
+retrieving book, author and event catalogs, easy and basic catalogs filtering and cart management.
+
+The protocol used in order to offer those features is REST and the data exchanged between
+clients and servers are in JSON format.
+
+This layer uses two Amazon Web Service: AWS API Gateway and AWS Lambda. The first one manages the HTTP endpoints
+that accept the requests. The second one, written using NodeJS, implements the logical features of the application.
+
+#### Data Layer
+The data layer encapsulates the persistence mechanisms and exposes the data. In
+particular, this layer is used to store data regarding books, events, authors,
+users and cart items.
+
+The data layer uses AWS DynamoDB, a key-value and document database
+ that delivers single-digit millisecond performance at any scale.
+It's not a SQL database and so it has pros, such as good scaling and performance, but
+it does not have an important property like the ACID one (Atomicity, Consistency, Isolation, Durability).
+
 ### API
 #### REST compliance
 Describe here to what extent did you follow REST principles and what are the
