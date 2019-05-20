@@ -4,7 +4,7 @@
 | Member n. | Role| First name | Last Name | Matricola | Email address|
 | --------- | ------------- | ---------- | --------- | --------- | --------------- |
 | 1 | administrator | Ibrahim | El Shemy | 920174 | ibrahim.elshemy@mail.polimi.it |
-| 2 | member | Bar | BarL | 78982 | bar@example.com |
+| 2 | member | Marco | Gasperini | 847650 | marco1.gasperini@mail.polimi.it |
 | 3 | member | Davide Yi Xian | Hu | 919754 | davideyi.hu@mail.polimi.it |
 ## Links to other deliverables
 - Deliverable D0: the web application is accessible at
