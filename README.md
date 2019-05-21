@@ -26,8 +26,8 @@ instructors.
 The presentation layer is the topmost level of the application. It is the layer
 which users can use to access directly to this project features. It is
 an e-commerce web application of a bookstore that is accessible from personal computers and
-smartphones. Exploring the website a user can see
-a catalog of books, authors and events. The book catalog can be filtered by book themes and
+smartphones. Exploring the website a user can see 
+catalogs of books, authors and events. The book catalog can be filtered by book themes and
 genres and it allow users to add books to the cart.
 
 The presentation layer, as most of the frontend application, uses technologies like HTML, CSS5 and Javascript.
@@ -45,7 +45,7 @@ retrieving book, author and event catalogs, easy and basic catalogs filtering an
 The protocol used in order to offer those features is REST and the data exchanged between
 clients and servers are in JSON format.
 
-This layer uses two Amazon Web Service: AWS API Gateway and AWS Lambda. The first one manages the HTTP endpoints
+This layer uses two Amazon Web Services: AWS API Gateway and AWS Lambda. The first one manages the HTTP endpoints
 that accept the requests. The second one, written using NodeJS, implements the logical features of the application.
 
 #### Data Layer
@@ -60,11 +60,35 @@ it does not have an important property like the ACID one (Atomicity, Consistency
 
 ### API
 #### REST compliance
-Describe here to what extent did you follow REST principles and what are the
-reasons for which you might have decided to diverge. Note, you must not describe
-the whole API here, just the design decisions.
+
+The services are exposed through a RESTful API. Web services, built using this architecture, 
+allow the requesting systems to access and manipulate textual representations of web resources 
+by using a uniform and pre-defined set of stateless operations.
+
+This software architectural style is very popular when software engineers have to design and develope web services.
+It is based on an client-server architecture and it suits very well with the serverless architecture we
+decided to adopt. The main reasons we decided to use this architecture are:
+- Statelessness: The client-server communication is constrained by no client context being stored on the server between requests. Each request from any client contains all the information necessary to service the request, and the session state is held in the client.
+- Cacheability: Clients and intermediaries can cache responses. This property improves server performance and user experience
+(when a data has already been retrieved, there is no need for the server to send it again to the client)
+- Very popular: This property is not related to technical details about the architecture, but it is one of the reason we choose it.
+Since it is very used in IT world, this architectural design pattern is well documented (so it is easy to use and do troubleshooting) and supported
+(there are many libraries and frameworks that can simplify backend communication).
+
+The web application follows all the principles of a REST architecture and it extends it by adding some query parameter in the
+request URI in order to allow server to filter data that clients are not interested on.
 #### OpenAPI Resource models
 Describe here synthetically, which models you have introduced for resources.
+
+The resources specified in the OPENAPI are the following ones:
+- **User** (*username*, password, name, surname)
+- **Book** (*isbn*, title, description, price, authorId, themeId, genreId)
+- **Author** (*id*, name, surname)
+- **Event** (*id*, name, location, time, bookId)
+- **Theme** (*name*, description)
+- **Genre** (*name*, description)
+- **Cart** (*username*, *isbn*, quantity, price)
+
 ### Data model
 Describe with an ER diagram the model used in the data layer of your web
 application. How these map to the OpenAPI data model?
