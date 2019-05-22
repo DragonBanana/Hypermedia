@@ -32,7 +32,6 @@ genres and it allow users to add books to the cart.
 
 The presentation layer, as most of the frontend application, uses technologies like HTML, CSS5 and Javascript.
 It also implements external libraries such as Bootstrap, Google Maps and Slick (an image slider library).
-
 The static content of the frontend can be retrieved from an Amazon Web Service: Amazon S3.
 This service, known also as Simple Storage Service, is an unstructured data storage service that offers 
 industry-leading scalability, data availability, security, and performance.
@@ -44,7 +43,6 @@ retrieving book, author and event catalogs, easy and basic catalogs filtering an
 
 The protocol used in order to offer those features is REST and the data exchanged between
 clients and servers are in JSON format.
-
 This layer uses two Amazon Web Services: AWS API Gateway and AWS Lambda. The first one manages the HTTP endpoints
 that accept the requests. The second one, written using NodeJS, implements the logical features of the application.
 
@@ -68,17 +66,16 @@ by using a uniform and pre-defined set of stateless operations.
 This software architectural style is very popular when software engineers have to design and develope web services.
 It is based on an client-server architecture and it suits very well with the serverless architecture we
 decided to adopt. The main reasons we decided to use this architecture are:
-- Statelessness: The client-server communication is constrained by no client context being stored on the server between requests. Each request from any client contains all the information necessary to service the request, and the session state is held in the client.
-- Cacheability: Clients and intermediaries can cache responses. This property improves server performance and user experience
+- **Statelessness**: The client-server communication is constrained by no client context being stored on the server between requests. Each request from any client contains all the information necessary to service the request, and the session state is held in the client.
+- **Cacheability**: Clients and intermediaries can cache responses. This property improves server performance and user experience
 (when a data has already been retrieved, there is no need for the server to send it again to the client)
-- Very popular: This property is not related to technical details about the architecture, but it is one of the reason we choose it.
+- **Popularity**: This property is not related to technical details about the architecture, but it is one of the reason we choose it.
 Since it is very used in IT world, this architectural design pattern is well documented (so it is easy to use and do troubleshooting) and supported
 (there are many libraries and frameworks that can simplify backend communication).
 
 The web application follows all the principles of a REST architecture and it extends it by adding some query parameter in the
 request URI in order to allow server to filter data that clients are not interested on.
 #### OpenAPI Resource models
-Describe here synthetically, which models you have introduced for resources.
 
 The resources specified in the OPENAPI are the following ones:
 - **User** (*username*, password, name, surname)
@@ -90,12 +87,40 @@ The resources specified in the OPENAPI are the following ones:
 - **Cart** (*username*, *isbn*, quantity, price)
 
 ### Data model
-Describe with an ER diagram the model used in the data layer of your web
-application. How these map to the OpenAPI data model?
+![Alt text](documentation/images/er_hypermedia.png?raw=true "Architecture")
 ## Implementation
 ### Tools used
-Describe here which tools, languages and frameworks did you use for the backend
-of the application.
+In this section we will present the tools, the languages and the frameworks we used in order
+to develope and deploy the backend of the application.
+
+We decided to use AWS technologies in order to develope our application: in particular we opted to use
+ the serveless-type services. We will briefly describe what are these services, why we choose them
+and how we used them.
+
+#### Serverless architecture.
+Before introducing the AWS services we used, we'd like to spend two words on the serverless architecture.
+Serverless is a cloud computing execution model where the cloud provider dynamically manages the allocation and provisioning of servers. 
+A serverless application runs in stateless compute containers that are event-triggered, ephemeral (may last for one invocation), 
+and fully managed by the cloud provider.
+Its main advantages is that it suits very well for small and medium size project since it is a pay-as-you-go service, it is horizontally scalable
+and there is no need to design and manage the infrastructure.
+
+#### Amazon S3
+Amazon S3, as we already said in the 'web architecture' section is an unstructured data storage service that offers 
+industry-leading scalability, data availability, security, and performance.
+It can be used to store and protect any amount of data for a range of use cases, 
+such as websites, mobile applications, backup, as a data lake and etc.
+
+We use this service to store the static content of the data. We configured this service in order to
+allow all people to access this service (by default it is a private cloud storage, like Dropbox).
+It is also configured with some particular header in order to allow the resources to be cached.
+
+#### AWS API Gateway
+
+#### AWS Lambda
+
+#### Amazon DynamoDB
+
 ### Discussion
 Describe here:
 - How did you make sure your web application adheres to the provided OpenAPI
