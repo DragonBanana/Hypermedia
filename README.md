@@ -116,10 +116,27 @@ allow all people to access this service (by default it is a private cloud storag
 It is also configured with some particular header in order to allow the resources to be cached.
 
 #### AWS API Gateway
+Amazon API Gateway is a fully managed service that makes it easy for developers to create, publish, maintain, monitor, and secure APIs at any scale.
+
+In our application it is used to receive all HTTP/HTTPS requests, make some (little) input parameters processing and then forward the requests to AWS Lambda service.
+
+Since we use the OpenAPI 2.0 protocol to define our API and this service allow the automatic generation of the HTTP/HTTPS endopoint by using an OpenAPI 2.0 document, we seized to opportunity to kill two birds with one stone.
 
 #### AWS Lambda
+AWS Lambda is the most famous serverless service. It simply lets you run code without provisioning or managing servers. You pay only for the compute time you consume - there is no charge when your code is not running.
+
+As all technology, it has advantages and drawbacks. We briefly report the main ones:
+- **Faster development** : Technology stack can be updated in a flexible manner. Identity management, storage are some examples of the concerns of internet applications which are exposed to FaaS or handled by middleware.
+- **Scaling** : AWS Lambda dynamically scales function execution in response to increased traffic, up the concurrency limit (1000 but can be increased). The provisioning and the scaling of the function is done automatically by the provider.
+- **Pay as you go** : The basic advantage of this technology is that you only pay for the time your function executes and the resources it needs to execute. So part of the amount of expenses we can have depends on the traffic on our application.
+- **Startup latency** : It may take a while for a FaaS function to respond. This is the main cons of this technology when developers are using programming languages (like Java) that needs a particular environment in order to be runned. In our case, the functions takes less than 500ms to process a request when it starts from a cold start state and 50ms-100ms when in has been already warmed.
+- **State** : Serverless functions must be stateless (or stateful implementation can not take advantage of the benefits of this technology). This limitation did not influence our application since it has been designed and developed following the RESTful guidelines, so all of our APIs are stateless.
 
 #### Amazon DynamoDB
+Amazon DynamoDB is a fully managed proprietary NoSQL database service that supports key-value and document data structures.
+DynamoDB differs from other Amazon services by allowing developers to purchase a service based on throughput, rather than storage.
+
+We decided to adopt this service as our database because it suits very well with the serverless architecture. It can be able to autoscale just by enabling the option, so it is able to sustain an high amount of concurrent request.
 
 ### Discussion
 Describe here:
