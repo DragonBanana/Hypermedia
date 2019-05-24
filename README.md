@@ -105,6 +105,11 @@ and fully managed by the cloud provider.
 Its main advantages is that it suits very well for small and medium size project since it is a pay-as-you-go service, it is horizontally scalable
 and there is no need to design and manage the infrastructure.
 
+#### CloudFormation
+AWS CloudFormation provides a common language for you to describe and provision all the infrastructure resources in your cloud environment. CloudFormation allows you to use a simple text file to model and provision, in an automated and secure manner, all the resources needed for your applications across all regions and accounts. This file serves as the single source of truth for your cloud environment.
+
+In our case the informations that describe our serverless services are contained in the template.yaml file.
+
 #### Amazon S3
 Amazon S3, as we already said in the 'web architecture' section is an unstructured data storage service that offers 
 industry-leading scalability, data availability, security, and performance.
@@ -132,38 +137,44 @@ As all technology, it has advantages and drawbacks. We briefly report the main o
 - **Startup latency** : It may take a while for a FaaS function to respond. This is the main cons of this technology when developers are using programming languages (like Java) that needs a particular environment in order to be runned. In our case, the functions takes less than 500ms to process a request when it starts from a cold start state and 50ms-100ms when in has been already warmed.
 - **State** : Serverless functions must be stateless (or stateful implementation can not take advantage of the benefits of this technology). This limitation did not influence our application since it has been designed and developed following the RESTful guidelines, so all of our APIs are stateless.
 
+For each resource we decide to create an AWS Lambda module. Each module is written in NodeJS and uses AWS-SDK in order to use the Amazon Cloud features.
+Through some testing we noticed that the best configuration of each function is: 384 MB memory and 30s timeout. Those parameters can be increased to improve latency and throughput or decreased to have less cost.
+
 #### Amazon DynamoDB
 Amazon DynamoDB is a fully managed proprietary NoSQL database service that supports key-value and document data structures.
 DynamoDB differs from other Amazon services by allowing developers to purchase a service based on throughput, rather than storage.
 
-We decided to adopt this service as our database because it suits very well with the serverless architecture. It can be able to autoscale just by enabling the option, so it is able to sustain an high amount of concurrent request.
+We decided to adopt this service as our database because it suits very well with the serverless architecture. It can be able to autoscale just by enabling the option, so it is able to sustain an high amount of concurrent requests.
 
 ### Discussion
-Describe here:
-- How did you make sure your web application adheres to the provided OpenAPI
-specification?
-- Why do you think your web application adheres to common practices to partition
-the web application (static assets vs. application data)
-- Describe synthetically why and how did you manage session state, what are the
-state change triggering actions (e.g., POST to login etc..).
-- Which technology did you use (relational or a no-SQL database) for managing
-the data model?
-## Other information
+
+How did you make sure your web application adheres to the provided OpenAPI specification?
+
+
+- As previously stated, our HTTP/HTTPS endpoints provided by AWS API Gateway, are directly generated using our OpenAPI documentation file. Among the many jobs AWS API Gateway has, one of them is to check that requests and responses match the OpenAPI specification.
+
+Why do you think your web application adheres to common practices to partition the web application (static assets vs. application data) ?
+
+- Static assets (such as images and static web pages) are clearly separated by the logical application layer. In fact, in order to develope and deploy them on the cloud we used two differents Amazon services: S3 (for static contents) and AWS Lambda (for application logic).
+<br>
+All web pages (both static and dynamic pages) are rendered on client side and no HTML code are provided by the application layer.
+
+Describe synthetically why and how did you manage session state, what are the state change triggering actions (e.g., POST to login etc..).
+- Cookies. Everyone loves cookies. The web applications uses them in order to save the state of the current session. The only two interaction that can change the state of the cookie is the 'login' and 'logout' actions.
+
+
+Which technology did you use (relational or a no-SQL database) for managing the data model?
+- We decided to adopt a no-SQL database for many reason: *curiosity* (we never tried a no-SQL database, so we decided to use this opportunity to try those new and very hyped technologies), *performance* (no-SQL database, usually has more throughput and less latency than common SQL databases) and for *ecosystem* reasons (since we were already using a serverless architecture, the most natural choice is to link the application layer with a data service that has similar features).
 ### Task assignment
-Describe here how development tasks have been subdivided among members of the
-group, e.g.:
-- Foo worked on front end (80%) and OpenAPI Spec (20% of the time)
-- Bar worked on ....
+Describe here how development tasks have been subdivided among members of the group, e.g.:
+- Ibrahim... //TODO
+- Marco ... //TODO
+- Davide worked on front end (30%), OpenAPI spec (20%) and backend (50% of the time).
+
 ### Analysis of existing API
 4Describe here if you have found relevant APIs that have inspired the OpenAPI
 specification and why (at least two).
 ### Learning outcome
-What was the most important thing all the members have learned while developing
-this part of the project, what questions remained unanswered, how you will use
-what you ' ve learned in your everyday life?
-Examples:
-- Foo learned to write SQL queries and Javascript but wanted to know more about
-caching, he ' s probably going to create his own startup with what she has
-learned
-- Bar learned how to deploy on a cloud platform, he would have liked to know
-more about promises for asynchronous code..
+- Ibrahim //TODO
+- Marco //TODO
+- Davide learned how to build serverless applications.
