@@ -157,7 +157,7 @@
                     </form>
 
                     <div class="text-center text-md-left">
-                        <a class="btn btn-primary">Send</a>
+                        <a class="btn btn-primary" style="color:white">Send</a>
                     </div>
                     <div class="status"></div>
                 </div>
@@ -166,15 +166,15 @@
                 <!--Grid column-->
                 <div class="col-md-3 text-center">
                     <ul class="list-unstyled mb-0">
-                        <li><i class="fas fa-map-marker-alt fa-2x"></i>
+                        <li><i class="fas fa-map-marker-alt fa-2x" style="color:orange"></i>
                             <p>Milano, MI 20142, IT</p>
                         </li>
 
-                        <li><i class="fas fa-phone mt-4 fa-2x"></i>
+                        <li><i class="fas fa-phone mt-4 fa-2x" style="color:orange"></i>
                             <p>+ 02 234 567 88</p>
                         </li>
 
-                        <li><i class="fas fa-envelope mt-4 fa-2x"></i>
+                        <li><i class="fas fa-envelope mt-4 fa-2x" style="color:orange"></i>
                             <p>bookboutique@info.it</p>
                         </li>
                     </ul>
@@ -329,6 +329,14 @@
                 <button class="modal-button" type="button" onclick="register($('#registerUsername').val(), $('#registerPassword').val(),$('#registerName').val(),$('#registerSurname').val());" href="#">Sign up</button>
             </div>
         </form>
+    </div>
+
+    <div id="message">
+        <div style="padding: 5px;">
+            <div id="inner-message" class="alert alert-error">
+                <button type="button" class="close" onclick="document.getElementById('message').style.display = 'none';">&times;</button>
+            </div>
+        </div>
     </div>
 
     <script>

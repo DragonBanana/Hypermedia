@@ -79,6 +79,7 @@ function getAllBookGenres() {
     })
     .fail(function (err) {
         console.log(err);
+        showError(err);
     });
 }
 
@@ -95,6 +96,7 @@ function getAllBookThemes() {
     })
     .fail(function (err) {
         console.log(err);
+        showError(err);
     });
 }
 
@@ -112,6 +114,7 @@ function getAllBooks(query, page, pageSize) {
     })
     .fail(function (err) {
         console.log(err);
+        showError(err);
     });
 }
 
@@ -128,6 +131,7 @@ function getBook(isbn) {
     })
     .fail(function (err) {
         console.log(err);
+        showError(err);
     });
 }
 
@@ -144,6 +148,7 @@ function getBestsellerBook() {
     })
     .fail(function (err) {
         console.log(err);
+        showError(err);
     });
 }
 
@@ -160,6 +165,7 @@ function getFavouriteBook() {
     })
     .fail(function (err) {
         console.log(err);
+        showError(err);
     });
 }
 
@@ -189,6 +195,7 @@ function addToCart(isbn, price) {
     })
     .fail(function (err) {
         alert(err)
+        showError(err);
     });
 }
 
@@ -205,6 +212,7 @@ function getAllCartItems(user) {
     })
     .fail(function (err) {
         console.log(err);
+        showError(err);
     });
 }
 
@@ -221,6 +229,7 @@ function deleteAllCartItem(user, book) {
     })
     .fail(function (err) {
         console.log(err);
+        showError(err);
     });
 }
 
@@ -251,6 +260,7 @@ function updateCartItem(isbn, quantity, price) {
     })
     .fail(function (err) {
         alert(err)
+        showError(err);
     });
 }
 
@@ -267,6 +277,7 @@ function getAllAuthors(query, page, pageSize) {
     })
     .fail(function (err) {
         console.log(err);
+        showError(err);
     });
 }
 
@@ -299,5 +310,6 @@ function getAllEvents(query, page, pageSize) {
     })
     .fail(function (err) {
         console.log(err);
+        showError(err);
     });
 }

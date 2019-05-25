@@ -628,7 +628,7 @@ ul#theme_list li p::first-letter {
 	box-shadow: none;
 }
 .switch-flat .switch-label:after {
-	color: #0088cc;
+	color: orange;
 }
 .switch-flat .switch-handle {
 	top: 6px;
@@ -643,10 +643,27 @@ ul#theme_list li p::first-letter {
 }
 .switch-flat .switch-input:checked ~ .switch-label {
 	background: #FFF;
-	border-color: #0088cc;
+	border-color: orange;
 }
 .switch-flat .switch-input:checked ~ .switch-handle {
 	left: 72px;
-	background: #0088cc;
+	background: orange;
 	box-shadow: none;
+}
+
+#message {
+    position: fixed;
+    top: 0;
+    margin: 80px 10% 0 10%;
+    left: 0;
+    width: 80%;
+    z-index: 1040;
+    background-color: #e74c3c;
+    border-radius: 10px;
+    display: none;
+}
+#inner-message {
+    text-align: center;
+    margin: 0 auto;
+    color: white;
 }

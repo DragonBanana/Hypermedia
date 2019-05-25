@@ -82,12 +82,12 @@ function gen_cart_item_html(isbn, quantity, price) {
                     <button type="button" class="btn-cart-minus btn-default btn-sm cart-button"> \
                         <i class="fas fa-minus"></i> \
                     </button> \
-                    </div> \
-                    <label class="switch switch-flat"> \
+                    <label class="switch switch-flat" style="margin:auto; margin-top:1rem"> \
                         <input class="switch-input" type="checkbox" /> \
-                        <span class="switch-label" data-on="On" data-off="Off"></span> \
+                        <span class="switch-label" data-on="Digital" data-off="Paper"></span> \
                         <span class="switch-handle"></span> \
                     </label> \
+                    </div> \
                     <div class="cart-price"> \
                         <div class="total-price">' + (price * quantity).toFixed(2) + '€</div> \
                         <div class="price">' + price + '€/unit</div> \
@@ -370,4 +370,9 @@ function loadFavourite() {
             ]
         });
     });
+}
+
+function showError(text) {
+    document.getElementById('message').style.display = 'block';
+    $('#inner-message').text(text);
 }
