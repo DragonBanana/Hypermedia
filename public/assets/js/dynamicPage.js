@@ -83,6 +83,11 @@ function gen_cart_item_html(isbn, quantity, price) {
                         <i class="fas fa-minus"></i> \
                     </button> \
                     </div> \
+                    <label class="switch switch-flat"> \
+                        <input class="switch-input" type="checkbox" /> \
+                        <span class="switch-label" data-on="On" data-off="Off"></span> \
+                        <span class="switch-handle"></span> \
+                    </label> \
                     <div class="cart-price"> \
                         <div class="total-price">' + (price * quantity).toFixed(2) + '€</div> \
                         <div class="price">' + price + '€/unit</div> \
@@ -193,17 +198,25 @@ function findSimilar(isbn) {
     var modal = document.getElementById("single_page_modal");
     $("#element-list-query").text("api/book/similar/" + isbn + "?");
     $("#element-list-page").text(1);
-    $("#element-list-page-size").text(4);
+    $("#element-list-page-size").text(5);
     gen_book_content();
     modal.remove();
 }
 
+function findEvent(isbn) {
+    var modal = document.getElementById("single_page_modal");
+    $("#element-list-query").text("api/event/?isbn=" + isbn + "&");
+    $("#element-list-page").text(1);
+    $("#element-list-page-size").text(5);
+    gen_event_content();
+    modal.remove();
+}
 
 $(document).on("click", ".genre_element", function (e) {
     e.preventDefault();
     $("#element-list-query").text("api/book?genre=" + $(this).text() + "&");
     $("#element-list-page").text(1);
-    $("#element-list-page-size").text(4);
+    $("#element-list-page-size").text(5);
     gen_book_content();
 });
 
@@ -211,7 +224,7 @@ $(document).on("click", ".theme_element", function (e) {
     e.preventDefault();
     $("#element-list-query").text("api/book?theme=" + $(this).text() + "&");
     $("#element-list-page").text(1);
-    $("#element-list-page-size").text(4);
+    $("#element-list-page-size").text(5);
     gen_book_content();
 });
 
@@ -219,7 +232,7 @@ $(document).on("click", ".author_element", function (e) {
     e.preventDefault();
     $("#element-list-query").text("api/book?author=" + $(this).siblings('.authorid').text() + "&");
     $("#element-list-page").text(1);
-    $("#element-list-page-size").text(4);
+    $("#element-list-page-size").text(5);
     gen_book_content();
     $("#single_page_modal").remove();
 });

@@ -31,6 +31,9 @@ exports.findAll = async (event) => {
     if ((parameter = param.getQueryParameter(event, "pageSize")) != null) {
         pageSize = parameter;
     }
+    if ((parameter = param.getQueryParameter(event, "isbn")) != null) {
+        isbn = parameter;
+    }
     let params = {
         TableName: 'bb_event'
     };
@@ -44,16 +47,25 @@ exports.findAll = async (event) => {
             ":bookId": isbn
         }
     }
+    if (param.getQueryParameter(event, "isbn")) {
+        params.FilterExpression = "#bookId = :bookId";
+        params.ExpressionAttributeNames = {
+            "#bookId": "bookId"
+        };
+        params.ExpressionAttributeValues = {
+            ":bookId": isbn
+        }
+    }
     let dbResult = await db.scan(params);
-    let totalPage = parseInt(dbResult.Count/pageSize);
+    let totalPage = parseInt(dbResult.Count / pageSize);
     let count = pageSize;
-    if(page > totalPage) {
+    if (page > totalPage) {
         count = dbResult.Count - totalPage * pageSize;
     }
     let response = {
-        "Elements" : dbResult.Count,
-        "Count" : count,
-        "Items" : dbResult.Items.slice((page-1) * pageSize, page * pageSize)
+        "Elements": dbResult.Count,
+        "Count": count,
+        "Items": dbResult.Items.slice((page - 1) * pageSize, page * pageSize)
     }
     return resp.stringify(200, response);
 };

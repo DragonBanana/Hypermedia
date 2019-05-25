@@ -150,18 +150,14 @@ We decided to adopt this service as our database because it suits very well with
 
 How did you make sure your web application adheres to the provided OpenAPI specification?
 
-
 - As previously stated, our HTTP/HTTPS endpoints provided by AWS API Gateway, are directly generated using our OpenAPI documentation file. Among the many jobs AWS API Gateway has, one of them is to check that requests and responses match the OpenAPI specification.
 
 Why do you think your web application adheres to common practices to partition the web application (static assets vs. application data) ?
 
-- Static assets (such as images and static web pages) are clearly separated by the logical application layer. In fact, in order to develope and deploy them on the cloud we used two differents Amazon services: S3 (for static contents) and AWS Lambda (for application logic).
-<br>
-All web pages (both static and dynamic pages) are rendered on client side and no HTML code are provided by the application layer.
+- Static assets (such as images and static web pages) are clearly separated by the logical application layer. In fact, in order to develope and deploy them on the cloud we used two differents Amazon services: S3 (for static contents) and AWS Lambda (for application logic). All web pages (both static and dynamic pages) are rendered on client side and no HTML code are provided by the application layer.
 
 Describe synthetically why and how did you manage session state, what are the state change triggering actions (e.g., POST to login etc..).
 - Cookies. Everyone loves cookies. The web applications uses them in order to save the state of the current session. The only two interaction that can change the state of the cookie is the 'login' and 'logout' actions.
-
 
 Which technology did you use (relational or a no-SQL database) for managing the data model?
 - We decided to adopt a no-SQL database for many reason: *curiosity* (we never tried a no-SQL database, so we decided to use this opportunity to try those new and very hyped technologies), *performance* (no-SQL database, usually has more throughput and less latency than common SQL databases) and for *ecosystem* reasons (since we were already using a serverless architecture, the most natural choice is to link the application layer with a data service that has similar features).

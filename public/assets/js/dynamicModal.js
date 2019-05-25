@@ -20,6 +20,7 @@ function gen_book_modal_html(isbn, title, author, price, theme, genre, descripti
                             html = html + '<button class="nav-link btn btn-rounded add-to-cart" onclick="addToCart(\''+isbn+'\', \''+price+'\')" style="margin-left: 15px"> Add to cart </button>'
                         }
                         html = html + '<button class="nav-link btn btn-rounded more-details" onclick="findSimilar(\''+isbn+'\')" style="margin-left: 15px"> Find similar </button> \
+                            <button class="nav-link btn btn-rounded more-details" onclick="findEvent(\''+isbn+'\')" style="margin-left: 15px"> Related events </button> \
                         </div> \
                         <div class="row" style="padding-top: 30px"> \
                             <div class="col-12 other-info"> \

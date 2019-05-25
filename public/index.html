@@ -21,6 +21,7 @@
     <script src="assets/js/dynamicModal.js"></script>
     <script src="assets/js/cart.js"></script>
     <link rel="stylesheet" href="assets/css/slick.css">
+    <link rel="stylesheet" href="assets/css/gray-scale.css">
     <link rel="stylesheet" href="assets/css/slick-theme.css">
     <link rel="stylesheet" href="assets/css/modal.css">
     <link rel="stylesheet" href="assets/css/cart.css">
@@ -66,9 +67,7 @@
                     <li id="navbar_cart" class="nav-item">
                         <a class="nav-link" href="pages/cart.html">Shop</a>
                     </li>
-                    <li class="right">
-                        <input class="searchbar" type="text" placeholder="Search" aria-label="Search">
-                    <li id="navbar_loginButton" class="nav-item">
+                    <li id="navbar_loginButton" class="nav-item right">
                         <button class="nav-link btn btn-rounded btn-primary"
                             onclick="document.getElementById('id01').style.display='block'" style="width:auto;"
                             href="pages/faq.html">Sign in</button>
@@ -81,7 +80,7 @@
                     <li id="navbar_userLabel" class="dropdown nav-item">
                         <a id="navbar_userLabel_username" href="#" class="dropdown-toggle nav-link"
                             data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true"> <span
-                                class="nav-label">Categories</span> <span class="caret"></span></a>
+                                class="nav-label"></span> <span class="caret"></span></a>
                         <ul class="dropdown-menu bg-dark">
                             <li><a href="#"
                                     onclick='$.removeCookie("session", { path: "/" });checkSessionStatus();'>Logout</a>
@@ -137,51 +136,122 @@
         </div>
     </header>
 
-    <div class="container-fluid">
-        <div class="row jumbotron">
-            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12" style="text-align: center">
+    <section>
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 order-lg-2">
+                    <div class="p-5">
+                        <img class="img-fluid rounded-circle" src="assets/img/mainAuthor.jpg" alt="">
+                    </div>
+                </div>
+                <div class="col-lg-6 order-lg-1">
+                    <div class="p-5">
+                        <h2 class="display-4">10+ Authors</h2>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod aliquid, mollitia odio veniam
+                            sit iste esse assumenda amet aperiam exercitationem, ea animi blanditiis recusandae! Ratione
+                            voluptatum molestiae adipisci, beatae obcaecati.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-                <h1>Welcome to Book Boutique!</h1> <br>
 
-                <h4>A bookstore where you can find some of the most cherished books in the World!</h4>
+    <section>
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <div class="p-5">
+                        <img class="img-fluid rounded-circle" src="assets/img/mainAuthor.jpg" alt="">
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="p-5">
+                        <h2 class="display-4">Mohamed Salah</h2>
+                        <p>Here you can find all buks u want. Here you can find all buks
+                            u want.Here you can find all buks u want.Here you can find all buks u want.Here you can find
+                            all buks u want.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 order-lg-2">
+                    <div class="p-5">
+                        <img class="img-fluid rounded-circle" src="assets/img/mainAuthor.jpg" alt="">
+                    </div>
+                </div>
+                <div class="col-lg-6 order-lg-1">
+                    <div class="p-5">
+                        <h2 class="display-4">Many Events</h2>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod aliquid, mollitia odio veniam
+                            sit iste esse assumenda amet aperiam exercitationem, ea animi blanditiis recusandae! Ratione
+                            voluptatum molestiae adipisci, beatae obcaecati.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Jumbotron -->
+    <div class="card card-image" style="background-image: url('assets/img/bookstore1.jpg')">
+        <div class="text-white text-center rgba-stylish-strong py-5 px-4">
+            <div class="py-5">
+
+                <!-- Content -->
+                <h1 class="card-title h1 my-4 py-2">Meet your favourite books</h2>
+                    <p class="mb-4 pb-2 px-md-5 mx-md-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                        Pariatur
+                        obcaecati vero aliquid libero doloribus ad, unde tempora maiores, ullam, modi qui quidem minima
+                        debitis perferendis vitae cumque et quo impedit.</p>
+                    <a class="btn peach-gradient"><i class="fas fa-clone left"></i> View project</a>
 
             </div>
         </div>
     </div>
+    <!-- Jumbotron -->
 
-    <script>
-        loadBestSeller();
-    </script>
-
-    <div class="container">
-        <div id="bestsellerbooks" class="multiple-items">
-        </div>
-    </div>
-
-
-
-    <div class="container-fluid">
-        <div class="row jumbotron">
-            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12" style="text-align: center">
-                <p class="lead"><b>
-                        <h1>Welcome to Book Boutique!</h1> <br>
-                    </b>
-                    <h4>A bookstore where you can find some of the most cherished books in the World!</h4>
-                </p>
+    <!-- Projects Section -->
+    <section id="projects" class="projects-section bg-light">
+        <div class="container">
+            <!-- Featured Project Row -->
+            <div class="row align-items-center no-gutters mb-4 mb-lg-5">
+                <div class="col-xl-8 col-lg-7">
+                    <img class="img-fluid mb-3 mb-lg-0" src="assets/img/bookstore1.jpg" alt="">
+                </div>
+                <div class="col-xl-4 col-lg-5">
+                    <div class="featured-text text-center text-lg-left">
+                        <h3>Book boutique</h3>
+                        <p class="text-black-50 mb-0">Grayscale is open source and MIT licensed. This means you can use
+                            it for any project - even commercial projects! Download it, customize it, and publish your
+                            website!</p>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
+    </section>
 
+   <!-- Jumbotron -->
+   <div class="card card-image" style="background-image: url('assets/img/bookstore1.jpg')">
+    <div class="text-white text-center rgba-stylish-strong py-5 px-4">
+        <div class="py-5">
 
-    <script>
-        loadFavourite();
-    </script>
+            <!-- Content -->
+            <h1 class="card-title h1 my-4 py-2">Subscribe to the newsletter</h2>
+                <p class="mb-4 pb-2 px-md-5 mx-md-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                    Pariatur
+                    obcaecati vero aliquid libero doloribus ad, unde tempora maiores, ullam, modi qui quidem minima
+                    debitis perferendis vitae cumque et quo impedit.</p>
+                <a class="btn peach-gradient"><i class="fas fa-clone left"></i> Subscribe</a>
 
-    <div class="container">
-        <div id="favouritebooks" class="multiple-items">
         </div>
     </div>
-
+</div>
+<!-- Jumbotron -->
 
     <!-- Footer -->
     <footer class="page-footer font-small unique-color-dark bg-dark">
