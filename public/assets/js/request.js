@@ -27,7 +27,7 @@ function login(username, password) {
     })
     .fail(function () {
         console.log("Error");
-        alert("Login failed, username or password are wrong");
+        showError("Login failed, username or password are wrong");
     });
 }
 
@@ -62,7 +62,7 @@ function register(username, password, name, surname) {
         $("#id02").hide();
     })
     .fail(function (err) {
-        alert("Registration failed")
+        showError("Registration failed");
     });
 }
 
@@ -79,7 +79,7 @@ function getAllBookGenres() {
     })
     .fail(function (err) {
         console.log(err);
-        showError(err);
+        showError("Resources not found");
     });
 }
 
@@ -96,7 +96,7 @@ function getAllBookThemes() {
     })
     .fail(function (err) {
         console.log(err);
-        showError(err);
+        showError("Resources not found");
     });
 }
 
@@ -114,7 +114,7 @@ function getAllBooks(query, page, pageSize) {
     })
     .fail(function (err) {
         console.log(err);
-        showError(err);
+        showError("Resources not found");
     });
 }
 
@@ -131,7 +131,7 @@ function getBook(isbn) {
     })
     .fail(function (err) {
         console.log(err);
-        showError(err);
+        showError("Resources not found");
     });
 }
 
@@ -148,7 +148,7 @@ function getBestsellerBook() {
     })
     .fail(function (err) {
         console.log(err);
-        showError(err);
+        showError("Resources not found");
     });
 }
 
@@ -165,7 +165,7 @@ function getFavouriteBook() {
     })
     .fail(function (err) {
         console.log(err);
-        showError(err);
+        showError("Resources not found");
     });
 }
 
@@ -195,7 +195,7 @@ function addToCart(isbn, price) {
     })
     .fail(function (err) {
         alert(err)
-        showError(err);
+        showError("Error adding to cart. Please verify if the item is already present");
     });
 }
 
@@ -212,7 +212,7 @@ function getAllCartItems(user) {
     })
     .fail(function (err) {
         console.log(err);
-        showError(err);
+        showError("No items found");
     });
 }
 
@@ -229,7 +229,7 @@ function deleteAllCartItem(user, book) {
     })
     .fail(function (err) {
         console.log(err);
-        showError(err);
+        showError("Delete failed");
     });
 }
 
@@ -260,7 +260,7 @@ function updateCartItem(isbn, quantity, price) {
     })
     .fail(function (err) {
         alert(err)
-        showError(err);
+        showError("Error updating the cart item");
     });
 }
 
@@ -277,7 +277,7 @@ function getAllAuthors(query, page, pageSize) {
     })
     .fail(function (err) {
         console.log(err);
-        showError(err);
+        showError("Resources not found");
     });
 }
 
@@ -294,6 +294,7 @@ function getAuthor(id) {
     })
     .fail(function (err) {
         console.log(err);
+        showError("Resources not found");
     });
 }
 
@@ -310,6 +311,6 @@ function getAllEvents(query, page, pageSize) {
     })
     .fail(function (err) {
         console.log(err);
-        showError(err);
+        showError("Resources not found");
     });
 }

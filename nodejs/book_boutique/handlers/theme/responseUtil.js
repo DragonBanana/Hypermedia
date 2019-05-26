@@ -4,7 +4,7 @@ module.exports = {
         if (data === null || data.Count === 0) {
             return {
                 statusCode: 400,
-                body: "Resource not found.",
+                body: '{"error": "Resource not found."}',
                 headers: {
                     'Access-Control-Allow-Origin': '*',
                     'Access-Control-Allow-Credentials': true,
@@ -28,7 +28,7 @@ module.exports = {
         if (data === null || data.Count === 0) {
             return {
                 statusCode: 400,
-                body: "Resource not found.",
+                body: '{"error": "Resource not found."}',
                 headers: {
                     'Access-Control-Allow-Origin': '*',
                     'Access-Control-Allow-Credentials': true,

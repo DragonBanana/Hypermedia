@@ -84,8 +84,7 @@
                             data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true"> <span
                                 class="nav-label"></span> <span class="caret"></span></a>
                         <ul class="dropdown-menu bg-dark">
-                            <li><a href="#"
-                                    onclick='logout()'>Logout</a>
+                            <li><a href="#" onclick='logout()'>Logout</a>
                             </li>
                         </ul>
                     </li>
@@ -278,7 +277,9 @@
     <div id="message">
         <div style="padding: 5px;">
             <div id="inner-message" class="alert alert-error">
-                <button type="button" class="close" onclick="document.getElementById('message').style.display = 'none';">&times;</button>
+                <button type="button" class="close"
+                    onclick="document.getElementById('message').style.display = 'none';">&times;</button>
+                <a id="error-meesage"></a>
             </div>
         </div>
     </div>

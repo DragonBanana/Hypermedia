@@ -427,11 +427,7 @@ ul#theme_list li p::first-letter {
     background-color: orange!important;
 }
 
-.genre_element {
-    color: black;
-}
-
-.theme_element {
+.theme_element, .best_seller_element, .favourite_element, .genre_element {
     color: black;
 }
 

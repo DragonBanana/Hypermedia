@@ -228,6 +228,22 @@ $(document).on("click", ".theme_element", function (e) {
     gen_book_content();
 });
 
+$(document).on("click", ".best_seller_element", function (e) {
+    e.preventDefault();
+    $("#element-list-query").text("api/book/bestseller?");
+    $("#element-list-page").text(1);
+    $("#element-list-page-size").text(5);
+    gen_book_content();
+});
+
+$(document).on("click", ".favourite_element", function (e) {
+    e.preventDefault();
+    $("#element-list-query").text("api/book/favourite?");
+    $("#element-list-page").text(1);
+    $("#element-list-page-size").text(5);
+    gen_book_content();
+});
+
 $(document).on("click", ".author_element", function (e) {
     e.preventDefault();
     $("#element-list-query").text("api/book?author=" + $(this).siblings('.authorid').text() + "&");
@@ -374,5 +390,5 @@ function loadFavourite() {
 
 function showError(text) {
     document.getElementById('message').style.display = 'block';
-    $('#inner-message').text(text);
+    $('#error-message').text(text);
 }
