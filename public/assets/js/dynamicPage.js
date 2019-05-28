@@ -1,11 +1,11 @@
-function gen_book_html(isbn, title, author, price, theme, genre, description) {
+function gen_book_html(isbn, title, authorId, author, price, theme, genre, description) {
     let html = '<div class="row book-element"> \
                     <div class="col-xl-3 col-lg-4 col-md-5 col-sm-6 text-center"> \
                         <img class="book-element-image" src="../assets/img/'+ isbn + '.jpg" onclick="gen_single_book('+isbn+')"> \
                     </div> \
                     <div class="col-xl-9 col-lg-8 col-md-7 col-sm-6"> \
                         <div class="title"><a class="text-uppercase" onclick="gen_single_book('+isbn+')"> ' + title + '<a></div> \
-                        <div class="author"><a onclick="gen_single_author(\''+author+'\')">' + author + '</a></div> \
+                        <div class="author"><a onclick="gen_single_author(\''+authorId+'\')">' + author + '</a></div> \
                         <div class="price"><a>' + price + '€</a></div> \
                         <div class="tags"> \
                             <a class="font-weight-bold">Tag: </a> \
@@ -16,7 +16,8 @@ function gen_book_html(isbn, title, author, price, theme, genre, description) {
     if ($.cookie("session")) {
         html = html + '<button class="nav-link btn btn-rounded add-to-cart" onclick="addToCart(' + isbn + ',' + price + ')">Add to cart</button>';
     }
-    html = html + '<button class="nav-link btn btn-rounded more-details" onclick="gen_single_book('+isbn+')"> More details </button></div> \
+    html = html + '<button class="nav-link btn btn-rounded more-details" onclick="gen_single_book('+isbn+')"> More details </button> \
+                    <button class="nav-link btn btn-rounded more-details" onclick="gen_single_author(\''+authorId+'\')"> Author </button></div> \
                 </div> \
                 </div> \
                 <hr hr style="height:3px;border:none;color:#DDDDDD;background-color:#DDDDDD;">'
@@ -46,15 +47,15 @@ function gen_event_html(id, name, time, book, location) {
     console.log(id + name + time + book + location);
     let html = '<div class="row book-element"> \
                         <div class="col-xl-3 col-lg-4 col-md-5 col-sm-6 text-center"> \
-                        <img class="book-element-image" src="../assets/img/'+ id + '.jpg"> \
+                        <img class="event-element-image" src="../assets/img/'+ id + '.jpg"> \
                     </div> \
                     <div class="col-xl-9 col-lg-8 col-md-7 col-sm-6"> \
                         <div class="title"><a class="text-uppercase">' + name + '<a></div> \
                         <div class="description"><a class="font-weight-bold">Date: </a>' + time.split('T')[0]+ '</div> \
                         <div class="description"><a class="font-weight-bold">Time: </a>' + time.split('T')[1].slice(0, -1)+ '</div> \
-                        <div class="description" onclick="gen_single_book('+book+')" style="cursor:pointer"><a class="font-weight-bold">Book: </a>' + book + ' </div> \
                         <div class="description location"><a class="font-weight-bold">Location: </a>' + location + '</div> \
-                        <button class="nav-link btn btn-rounded show-map""> Show map </button></div> \
+                        <div class="buttons"><button class="nav-link btn btn-rounded show-map"> Show map </button> \
+                        <button class="nav-link btn btn-rounded more-details" onclick="gen_single_book('+book+')""> Show book </button></div></div> \
                         </div> \
                 </div> \
                 <hr hr style="height:3px;border:none;color:#DDDDDD;background-color:#DDDDDD;">'
@@ -130,7 +131,10 @@ function gen_book_content() {
             $('#element-list-title').text("Books");
             for (i = 0; i < data.Count; i++) {
                 let book = data.Items[i];
-                $('#element-list-content').append(gen_book_html(book.isbn, book.title, book.authorId, book.price, book.themeId, book.genreId, book.description));
+                getAuthor(book.authorId).
+                done(function (data) {
+                    $('#element-list-content').append(gen_book_html(book.isbn, book.title, book.authorId, data.Items[0].name + " " + data.Items[0].surname, book.price, book.themeId, book.genreId, book.description));
+                })
             }
             $('#element-list-total-elements').text(data.Elements);
             $('#element-list-nav').empty();

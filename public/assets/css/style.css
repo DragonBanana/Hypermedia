@@ -334,6 +334,11 @@ ul#best_list li p::first-letter {
         margin-bottom: 0.5rem;
         cursor: pointer;
     }
+    .event-element-image {
+        width: 90%;
+        max-width: 350px;
+        margin-bottom: 0.5rem;
+    }
 }
 
 @media (min-width: 576px) {
@@ -341,6 +346,10 @@ ul#best_list li p::first-letter {
         width: 90%;
         max-width: 200px;
         cursor: pointer;
+    }
+    .event-element-image {
+        width: 95%;
+        max-width: 300px;
     }
 }
 
@@ -380,14 +389,14 @@ ul#best_list li p::first-letter {
 
 @media (max-width: 991px) {
     .book-element .description {
-        font-size: 0.8rem;
+        font-size: 0.85rem;
         width:100%;
     }
 }
 
 @media (max-width: 768px) {
     .book-element .description {
-        font-size: 0.7rem;
+        font-size: 0.8rem;
         width:100%;
     }
     .book-element .title {
@@ -399,11 +408,11 @@ ul#best_list li p::first-letter {
     }
     
     .book-element .price {
-        font-size: 0.9rem;
+        font-size: 1.0rem;
     }
     
     .book-element .tags {
-        font-size: 0.8rem;
+        font-size: 0.9rem;
     }
 }
 
