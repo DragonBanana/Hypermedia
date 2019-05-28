@@ -6,6 +6,7 @@
 \usepackage{amssymb}
 \usepackage{graphicx}
 \usepackage{fancyhdr}
+\usepackage{pdfpages}
 \usepackage[hidelinks]{hyperref}
 
 \pagestyle{fancy}
@@ -22,25 +23,39 @@
 \newpage
 
 \section{Abstract}
-During the implementation of a Web App the first step is making a document that describes the structure and shows the design model.\\For this purpose we have used the schemes C, L - IDM which show respectively:
+The scope of this document is to show the development of the project assigned during the Hypermedia Applications in the academic year 2018/2019.
+The project consists in the development of a website which purpose is to let the user to be able to purchase either books or eBooks, retreive information about authors and events.
+In particular it will be shown the design model associated to the development of the Front End of the website and how the User interacts with it.
+For this purpose we have used the schemes C, L - IDM which show respectively:
 \begin{itemize}
 \item The conceptual model and the decisions related to it
 \item The logical scheme in detail
 \end{itemize}
+The document will be organized as follows:
+\begin{itemize}
+	\item \textbf{Abstract} \\
+	In this chapter we provide a brief introduction to the document.
+	\item \textbf{Design-in-the-large} \\
+	In this chapter we provide detailed information about the Design-in-the-large, in addition with the C-IDM diagram.
+	\item \textbf{Design-in-the-small} \\
+	In this chapter we provide detailed information about the Design-in-the-small, in addition with the L-IDM diagram.
+	\item \textbf{Scenarios}\\
+	In this chapter we presented some scenarios with some commented miniaturized screenshots that the user would use to traverse to execute a specific scenario.
+	\item \textbf{DB Design}\\
+	In this chapter we present the Database, along with the E-R diagram and the Relational Tables from the main pages.
+\end{itemize}
 
+\newpage
 \section{Design-in-the-large}
 \subsection{C-IDM}
 In this scheme we reported all the Topic, Kind of Topic, Group of Topic and Multiple Groups of Topic regarding the specifications, including the Relevant Relations and the requested cardinalities.
-\begin{figure}[h]
+\begin{figure}[h!]
 \centering
 \includegraphics[width=0.9\linewidth]{imm.jpg}
 \label{fig:IDM}
 \end{figure}
 
-\section{Design-in-the-small}
-\subsection{L-IDM}
-In the transaction from the conceptual scheme to the logical scheme, we added the Dialogue Acts concerning the Topics and Kind of Topics and the Introductory Dialogue Acts corresponding to the Group of Topic and the Multiple Groups of Topic, previously presented in the C-IDM.
-\section{Design of DB}
+\newpage
 \section{Scenarios}
 In this section we can find three scenarios with a little description of them and some commented miniaturized screenshots that the user would traverse to execute the scenario.
 \subsection{First scenario}
@@ -52,4 +67,22 @@ AGGIUNGERE SCREENSHOT DEI PASSAGGI!
 \subsection{Third scenario}
 Federico is a high school student and needs to do some homework research about an author of the Italian literature, Paolo Giordano. He visits our \textit{HomePage}, and by scrolling down he finds a link, \textit{Author}, with an image and some brief description about what he will find in that page. He clicks on the link and then is redirected to a page where he finds a list of different authors. He looks for Paolo Giordano, and by clicking on his image he can retrieve all the information he needed.\\\\
 AGGIUNGERE SCREENSHOT DEI PASSAGGI!
+
+\newpage
+\section{Design-in-the-small}
+\subsection{L-IDM}
+In the transaction from the conceptual scheme to the logical scheme, we added the Dialogue Acts concerning the Topics and Kind of Topics and the Introductory Dialogue Acts corresponding to the Group of Topic and the Multiple Groups of Topic, previously presented in the C-IDM.
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=1.0\linewidth]{L-IDM}
+	\label{fig:l-idm}	
+\end{figure}
+
+\subsection{Home page}
+\includepdf[pages={1-},scale=0.75]{homepage1.pdf}
+
+
+
+\newpage
+\section{Design of DB} 	
 \end{document}

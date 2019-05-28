@@ -1,10 +1,11 @@
 \BOOKMARK [1][-]{section.1}{Abstract}{}% 1
 \BOOKMARK [1][-]{section.2}{Design-in-the-large}{}% 2
 \BOOKMARK [2][-]{subsection.2.1}{C-IDM}{section.2}% 3
-\BOOKMARK [1][-]{section.3}{Design-in-the-small}{}% 4
-\BOOKMARK [2][-]{subsection.3.1}{L-IDM}{section.3}% 5
-\BOOKMARK [1][-]{section.4}{Design of DB}{}% 6
-\BOOKMARK [1][-]{section.5}{Scenarios}{}% 7
-\BOOKMARK [2][-]{subsection.5.1}{First scenario}{section.5}% 8
-\BOOKMARK [2][-]{subsection.5.2}{Second scenario}{section.5}% 9
-\BOOKMARK [2][-]{subsection.5.3}{Third scenario}{section.5}% 10
+\BOOKMARK [1][-]{section.3}{Scenarios}{}% 4
+\BOOKMARK [2][-]{subsection.3.1}{First scenario}{section.3}% 5
+\BOOKMARK [2][-]{subsection.3.2}{Second scenario}{section.3}% 6
+\BOOKMARK [2][-]{subsection.3.3}{Third scenario}{section.3}% 7
+\BOOKMARK [1][-]{section.4}{Design-in-the-small}{}% 8
+\BOOKMARK [2][-]{subsection.4.1}{L-IDM}{section.4}% 9
+\BOOKMARK [2][-]{subsection.4.2}{Home page}{section.4}% 10
+\BOOKMARK [1][-]{section.5}{Design of DB}{}% 11
