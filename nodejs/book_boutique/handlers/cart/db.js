@@ -28,50 +28,50 @@ module.exports = {
 };
 
 async function dynamoScan(params) {
-    try{
+    try {
         const data = await dynamoDb.scan(params).promise();
         return data;
-    }catch(err) {
+    } catch (err) {
         console.log(err);
         return err;
     }
 }
 
 async function dynamoQuery(params) {
-    try{
+    try {
         const data = await dynamoDb.query(params).promise();
         return data;
-    }catch(err) {
+    } catch (err) {
         console.log(err);
         return err;
     }
 }
 
 async function dynamoPutItem(params) {
-    try{
+    try {
         const data = (new AWS.DynamoDB).putItem(params).promise();
         return data;
-    }catch(err) {
+    } catch (err) {
         console.log(err);
         return err;
     }
 }
 
 async function dynamoUpdateItem(params) {
-    try{
+    try {
         const data = await dynamoDb.update(params).promise();
         return data;
-    }catch(err) {
+    } catch (err) {
         console.log(err);
         return err;
     }
 }
 
 async function dynamoDeleteItem(params) {
-    try{
+    try {
         const data = await dynamoDb.delete(params).promise();
         return data;
-    }catch(err) {
+    } catch (err) {
         console.log(err);
         return err;
     }

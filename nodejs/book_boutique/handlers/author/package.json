@@ -1,8 +1,7 @@
 {
-    "name": "author_handler",
-    "version": "1.0.0",
-    "description": "book-boutique author handler",
-    "main": "author.js",
-    "author": "SwagMaster"
-  }
-  
+  "name": "author_handler",
+  "version": "1.0.0",
+  "description": "book-boutique author handler",
+  "main": "author.js",
+  "author": "SwagMaster"
+}

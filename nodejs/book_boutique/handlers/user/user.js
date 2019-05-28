@@ -42,13 +42,13 @@ exports.login = async (event) => {
         }
     };
     let result = await db.scan(params);
-    if(result.Count >= 1) {
+    if (result.Count >= 1) {
         return {
             statusCode: 200,
-            headers: { },
+            headers: {},
             body: '{"username": "' + username + '"}',
             headers: {
-                'Set-Cookie': 'session='+ result.Items[0].username + ';domain=https://suhqk95c5h.execute-api.eu-west-1.amazonaws.com;path=/;Max-Age=100000',
+                'Set-Cookie': 'session=' + result.Items[0].username + ';domain=https://suhqk95c5h.execute-api.eu-west-1.amazonaws.com;path=/;Max-Age=100000',
                 'Access-Control-Allow-Origin': '*',
                 'Access-Control-Allow-Credentials': true
             }
@@ -56,7 +56,7 @@ exports.login = async (event) => {
     } else {
         return resp.stringify(400, "Username or password are wrong")
     }
-    
+
 };
 
 /*
@@ -103,27 +103,27 @@ exports.register = async (event) => {
 
     let result = await db.query(params);
 
-    if(result.Count == 0) {
+    if (result.Count == 0) {
         params = {
             TableName: 'bb_user',
             Item: {
-                "username" : {
+                "username": {
                     S: username
                 },
-                "password" : {
+                "password": {
                     S: password
                 },
-                "name" : {
+                "name": {
                     S: name
                 },
-                "surname" : {
+                "surname": {
                     S: surname
                 },
             }
         }
-        
+
         await db.put(params);
-        
+
         return resp.stringify(200, username + " created");
     } else {
         return resp.stringify(400, username + " already registered");

@@ -1,8 +1,7 @@
 {
-    "name": "genre_handler",
-    "version": "1.0.0",
-    "description": "book-boutique genre handler",
-    "main": "genre.js",
-    "author": "SwagMaster"
-  }
-  
+  "name": "genre_handler",
+  "version": "1.0.0",
+  "description": "book-boutique genre handler",
+  "main": "genre.js",
+  "author": "SwagMaster"
+}
