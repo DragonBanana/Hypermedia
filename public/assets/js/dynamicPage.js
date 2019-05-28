@@ -190,6 +190,12 @@ function gen_cart_content() {
                 let book = data.Items[i];
                 $('#cart-items').append(gen_cart_item_html(book.isbn, book.quantity, book.price));
             }
+            let payment = ' \
+            <div> \
+                <button class="nav-link btn btn-rounded more-details" style="margin:1rem auto;" \
+                    onclick="$(\'.cart-item-isbn\').each(function () {deleteAllCartItem($.cookie(\'session\'), $(this).text());$(\'.cart-item\').remove()}) ">Payment</button> \
+            </div>'
+            $('#cart-items').append(payment);
         }
         );
 }

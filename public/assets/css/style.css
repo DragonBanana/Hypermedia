@@ -319,6 +319,14 @@ ul#theme_list li p::first-letter {
     text-transform: uppercase;
 }
 
+ul#best_list li p {
+    margin-bottom: 0.2rem;
+}
+
+ul#best_list li p::first-letter {
+    text-transform: uppercase;
+}
+
 @media (max-width: 575px) {
     .book-element-image {
         width: 80%;

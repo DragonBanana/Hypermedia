@@ -37,9 +37,12 @@ module.exports = {
             };
         } else {
                 if(code === 400) {
+                    var x = {
+                        error : data
+                    }
                     return {
                         statusCode: code,
-                        body: JSON.stringify('{"error": "' + data + '"}'),
+                        body: JSON.stringify(x),
                         headers: {
                             'Access-Control-Allow-Origin': '*',
                             'Access-Control-Allow-Credentials': true,

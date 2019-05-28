@@ -27,7 +27,7 @@ function login(username, password) {
     })
     .fail(function () {
         console.log("Error");
-        showError("Login failed, username or password are wrong");
+        showError(err.responseJSON.error);
     });
 }
 
@@ -62,7 +62,7 @@ function register(username, password, name, surname) {
         $("#id02").hide();
     })
     .fail(function (err) {
-        showError("Registration failed");
+        showError(err.responseJSON.error);
     });
 }
 
@@ -78,8 +78,8 @@ function getAllBookGenres() {
         crossDomain: true
     })
     .fail(function (err) {
-        console.log(err);
-        showError("Resources not found");
+        console.log(err.responseJSON.error);
+        showError(err.responseJSON.error);
     });
 }
 
@@ -95,8 +95,8 @@ function getAllBookThemes() {
         crossDomain: true
     })
     .fail(function (err) {
-        console.log(err);
-        showError("Resources not found");
+        console.log(err.responseJSON.error);
+        showError(err.responseJSON.error);
     });
 }
 
@@ -113,8 +113,8 @@ function getAllBooks(query, page, pageSize) {
         crossDomain: true
     })
     .fail(function (err) {
-        console.log(err);
-        showError("Resources not found");
+        console.log(err.responseJSON.error);
+        showError(err.responseJSON.error);
     });
 }
 
@@ -130,8 +130,8 @@ function getBook(isbn) {
         crossDomain: true
     })
     .fail(function (err) {
-        console.log(err);
-        showError("Resources not found");
+        console.log(err.responseJSON.error);
+        showError(err.responseJSON.error);
     });
 }
 
@@ -147,8 +147,8 @@ function getBestsellerBook() {
         crossDomain: true
     })
     .fail(function (err) {
-        console.log(err);
-        showError("Resources not found");
+        console.log(err.responseJSON.error);
+        showError(err.responseJSON.error);
     });
 }
 
@@ -164,8 +164,8 @@ function getFavouriteBook() {
         crossDomain: true
     })
     .fail(function (err) {
-        console.log(err);
-        showError("Resources not found");
+        console.log(err.responseJSON.error);
+        showError(err.responseJSON.error);
     });
 }
 
@@ -194,8 +194,7 @@ function addToCart(isbn, price) {
         console.log(data);
     })
     .fail(function (err) {
-        alert(err)
-        showError("Error adding to cart. Please verify if the item is already present");
+        showError(err.responseJSON.error);
     });
 }
 
@@ -211,8 +210,8 @@ function getAllCartItems(user) {
         crossDomain: true
     })
     .fail(function (err) {
-        console.log(err);
-        showError("No items found");
+        console.log(err.responseJSON.error);
+        showError(err.responseJSON.error);
     });
 }
 
@@ -228,8 +227,8 @@ function deleteAllCartItem(user, book) {
         crossDomain: true
     })
     .fail(function (err) {
-        console.log(err);
-        showError("Delete failed");
+        console.log(err.responseJSON.error);
+        showError(err.responseJSON.error);
     });
 }
 
@@ -260,7 +259,7 @@ function updateCartItem(isbn, quantity, price) {
     })
     .fail(function (err) {
         alert(err)
-        showError("Error updating the cart item");
+        showError(err.responseJSON.error);
     });
 }
 
@@ -276,8 +275,8 @@ function getAllAuthors(query, page, pageSize) {
         crossDomain: true
     })
     .fail(function (err) {
-        console.log(err);
-        showError("Resources not found");
+        console.log(err.responseJSON.error);
+        showError(err.responseJSON.error);
     });
 }
 
@@ -293,8 +292,8 @@ function getAuthor(id) {
         crossDomain: true
     })
     .fail(function (err) {
-        console.log(err);
-        showError("Resources not found");
+        console.log(err.responseJSON.error);
+        showError(err.responseJSON.error);
     });
 }
 
@@ -310,7 +309,7 @@ function getAllEvents(query, page, pageSize) {
         crossDomain: true
     })
     .fail(function (err) {
-        console.log(err);
-        showError("Resources not found");
+        console.log(err.responseJSON.error);
+        showError(err.responseJSON.error);
     });
 }
