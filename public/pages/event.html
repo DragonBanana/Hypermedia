@@ -41,50 +41,49 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="../index.html">Home
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html">HOME
                             <span class="sr-only">(current)</span>
                         </a>
+                    <li class="nav-item">
+                        <a class="nav-link" href="book.html">BOOKS</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="author.html">AUTHORS</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="event.html">EVENTS</a>
+                    </li>
                     <li class="dropdown nav-item">
                         <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown" role="button"
-                            aria-haspopup="true" aria-expanded="true"> <span class="nav-label">Categories</span> <span
+                            aria-haspopup="true" aria-expanded="true"> <span class="nav-label">MORE</span> <span
                                 class="caret"></span></a>
                         <ul class="dropdown-menu bg-dark">
-                            <li><a href="book.html">Books</a></li>
-                            <li><a href="author.html">Authors</a></li>
-                            <li><a href="event.html">Events</a></li>
+                            <li><a href="info.html">INFO</a></li>
+                            <li><a href="contactUs.html">CONTACT&nbsp;US</a></li>
+                            <li><a href="faq.html">FAQ</a></li>
                         </ul>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="info.html">Info</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="contactUs.html">Contact us</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="faq.html">FAQ</a>
-                    </li>
                     <li id="navbar_cart" class="nav-item">
-                        <a class="nav-link" href="cart.html">Shop</a>
+                        <a class="nav-link" href="cart.html">CART</a>
                     </li>
-                    <li class="right">
-                        <input class="searchbar" type="text" placeholder="Search" aria-label="Search">
-                    <li id="navbar_loginButton" class="nav-item">
+                    <li id="navbar_loginButton" class="nav-item right">
                         <button class="nav-link btn btn-rounded btn-primary"
                             onclick="document.getElementById('id01').style.display='block'" style="width:auto;"
-                            href="faq.html">Sign in</button>
+                            href="faq.html">SIGN IN</button>
                     </li>
                     <li id="navbar_registerButton" class="nav-item">
                         <button class="nav-link btn btn-rounded btn-primary"
                             onclick="document.getElementById('id02').style.display='block'" style="width:auto;"
-                            href="faq.html">Sign up</button>
+                            href="faq.html" href="faq.html">SIGN UP</button>
                     </li>
-                    <li id="navbar_userLabel" class="dropdown nav-item">
+                    <li id="navbar_userLabel" class="dropdown nav-item right">
                         <a id="navbar_userLabel_username" href="#" class="dropdown-toggle nav-link"
                             data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true"> <span
                                 class="nav-label"></span> <span class="caret"></span></a>
                         <ul class="dropdown-menu bg-dark">
-                            <li><a href="#" onclick='logout()'>Logout</a>
+                            <li><a href="#"
+                                    onclick='$.removeCookie("session", { path: "/" });checkSessionStatus();'>Logout</a>
                             </li>
                         </ul>
                     </li>
@@ -117,101 +116,101 @@
         </div>
     </div>
 
-    <!-- Footer -->
-    <footer class="page-footer font-small unique-color-dark bg-dark">
+  <!-- Footer -->
+  <footer class="page-footer font-small unique-color-dark bg-dark">
 
-        <!-- Footer Links -->
-        <div class="container text-center text-md-left mt-5" style="padding-top: 1rem">
+    <!-- Footer Links -->
+    <div class="container text-center text-md-left mt-5" style="padding-top: 1rem">
 
-            <!-- Grid row -->
-            <div class="row mt-3">
+        <!-- Grid row -->
+        <div class="row mt-3">
 
-                <!-- Grid column -->
-                <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+            <!-- Grid column -->
+            <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
 
-                    <!-- Content -->
-                    <h6 class="text-uppercase font-weight-bold mandarin">Book Boutique</h6>
-                    <hr class="mb-4 mt-0 d-inline-block mx-auto bg-white" style="width: 60px;">
-                    <p style="color: white">Welcome to our website! Here you can find some of the most cherished books
-                        in the World!</p>
-
-                </div>
-                <!-- Grid column -->
-
-                <!-- Grid column -->
-                <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
-
-                    <!-- Links -->
-                    <h6 class="text-uppercase font-weight-bold mandarin">Products</h6>
-                    <hr class="mb-4 mt-0 d-inline-block mx-auto bg-white" style="width: 60px;">
-                    <p>
-                        <a href="book.html">Books</a>
-                    </p>
-                    <p>
-                        <a href="author.html">Authors</a>
-                    </p>
-                    <p>
-                        <a href="event.html">Events</a>
-                    </p>
-                    <br>
-
-                </div>
-                <!-- Grid column -->
-
-                <!-- Grid column -->
-                <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
-
-                    <!-- Links -->
-                    <h6 class="text-uppercase font-weight-bold mandarin">Useful Links</h6>
-                    <hr class="mb-4 mt-0 d-inline-block mx-auto bg-white" style="width: 60px;">
-                    <p>
-                        <a href="info.html">Info</a>
-                    </p>
-                    <p>
-                        <a href="ContactUs.html">Contact us</a>
-                    </p>
-                    <p>
-                        <a href="faq.html">FAQ</a>
-                    </p>
-                    <p>
-                        <a href="PrivacyPolicy.html">Privacy Policy</a>
-                    </p>
-
-                </div>
-                <!-- Grid column -->
-
-                <!-- Grid column -->
-                <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4" style="color: white">
-
-                    <!-- Links -->
-                    <h6 class="text-uppercase font-weight-bold mandarin">Contacts</h6>
-                    <hr class="mb-4 mt-0 d-inline-block mx-auto bg-white" style="width: 60px">
-                    <p>
-                        <i class="fas fa-home mr-3"></i> Milano, MI 20142, IT</p>
-                    <p>
-                        <i class="fas fa-envelope mr-3"></i> bookboutique@info.it</p>
-                    <p>
-                        <i class="fas fa-phone mr-3"></i> + 02 234 567 88</p>
-                    <p>
-                        <i class="fas fa-print mr-3"></i> + 02 224 567 89</p>
-
-                </div>
-                <!-- Grid column -->
+                <!-- Content -->
+                <h6 class="text-uppercase font-weight-bold mandarin">Book Boutique</h6>
+                <hr class="mb-4 mt-0 d-inline-block mx-auto bg-white" style="width: 60px;">
+                <p style="color: white">Welcome to our website! Here you can find some of the most cherished books
+                    in the World!</p>
 
             </div>
-            <!-- Grid row -->
+            <!-- Grid column -->
+
+            <!-- Grid column -->
+            <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+
+                <!-- Links -->
+                <h6 class="text-uppercase font-weight-bold mandarin">Products</h6>
+                <hr class="mb-4 mt-0 d-inline-block mx-auto bg-white" style="width: 60px;">
+                <p>
+                    <a href="book.html">BOOKS</a>
+                </p>
+                <p>
+                    <a href="author.html">AUTHORS</a>
+                </p>
+                <p>
+                    <a href="event.html">EVENTS</a>
+                </p>
+                <br>
+
+            </div>
+            <!-- Grid column -->
+
+            <!-- Grid column -->
+            <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+
+                <!-- Links -->
+                <h6 class="text-uppercase font-weight-bold mandarin">USEFUL LINKS</h6>
+                <hr class="mb-4 mt-0 d-inline-block mx-auto bg-white" style="width: 60px;">
+                <p>
+                    <a href="info.html">INFO</a>
+                </p>
+                <p>
+                    <a href="ContactUs.html">CONTACT&nbsp;US</a>
+                </p>
+                <p>
+                    <a href="faq.html">FAQ</a>
+                </p>
+                <p>
+                    <a href="PrivacyPolicy.html">PRIVACY&nbsp;POLICY</a>
+                </p>
+
+            </div>
+            <!-- Grid column -->
+
+            <!-- Grid column -->
+            <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4" style="color: white">
+
+                <!-- Links -->
+                <h6 class="text-uppercase font-weight-bold mandarin">Contacts</h6>
+                <hr class="mb-4 mt-0 d-inline-block mx-auto bg-white" style="width: 60px">
+                <p>
+                    <i class="fas fa-home mr-3"></i> Milano, MI 20142, IT</p>
+                <p>
+                    <i class="fas fa-envelope mr-3"></i> bookboutique@info.it</p>
+                <p>
+                    <i class="fas fa-phone mr-3"></i> + 02 234 567 88</p>
+                <p>
+                    <i class="fas fa-print mr-3"></i> + 02 224 567 89</p>
+
+            </div>
+            <!-- Grid column -->
 
         </div>
-        <!-- Footer Links -->
+        <!-- Grid row -->
 
-        <!-- Copyright -->
-        <div class="footer-copyright text-center py-3" style="color: white">© 2019 Copyright:
-            <a href="https://www.polimi.it/" style="color: white"> Politecnico Di Milano</a>
-        </div>
-        <!-- Copyright -->
+    </div>
+    <!-- Footer Links -->
 
-    </footer>
-    <!-- Footer -->
+    <!-- Copyright -->
+    <div class="footer-copyright text-center py-3" style="color: white">© 2019 Copyright:
+        <a href="https://www.polimi.it/" style="color: white"> Politecnico Di Milano</a>
+    </div>
+    <!-- Copyright -->
+
+</footer>
+<!-- Footer -->
 
     <div id="id01" class="modal">
 
