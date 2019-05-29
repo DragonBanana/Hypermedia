@@ -10,7 +10,7 @@
 - Deliverable D0: the web application is accessible at
 [this address](http://book-boutique-static.s3-website-eu-west-1.amazonaws.com/index.html).
 - Deliverable D2: the YAML or JSON file containing the specification of the app
-API can be found at [this address](https://example.com/backend/spec.yaml).
+API can be found at [this address](http://book-boutique-static.s3-website-eu-west-1.amazonaws.com/backend/swagger.yaml).
 - Deliverable D3: the SwaggerUI page of the same API is available at
 [this address](https://app.swaggerhub.com/apis/DragonBanana/book_boutique/1.0.0).
 - Deliverable D4: the source code of D0 is available as a zip file at

@@ -18,3 +18,9 @@ function logout() {
     $.removeCookie("session", { path: "/pages" });
     checkSessionStatus();
 }
+
+checkSessionStatus();
+
+function updatePath() {
+    
+}

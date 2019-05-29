@@ -55,7 +55,7 @@ function gen_event_html(id, name, time, book, location) {
                         <div class="description"><a class="font-weight-bold">Time: </a>' + time.split('T')[1].slice(0, -1)+ '</div> \
                         <div class="description location"><a class="font-weight-bold">Location: </a>' + location + '</div> \
                         <div class="buttons"><button class="nav-link btn btn-rounded show-map"> Show map </button> \
-                        <button class="nav-link btn btn-rounded more-details" onclick="gen_single_book('+book+')""> Show book </button></div></div> \
+                        <button class="nav-link btn btn-rounded more-details" onclick="gen_single_book('+book+')""> Show book </button></div> \
                         </div> \
                 </div> \
                 <hr hr style="height:3px;border:none;color:#DDDDDD;background-color:#DDDDDD;">'
@@ -268,7 +268,7 @@ $(document).on("click", ".show-map", function (e) {
     if($('#map')) {
         $('#map').remove();
     }
-    let location = $(this).siblings('.location').text();
+    let location = $(this).parent().siblings('.location').text();
     let geo;
     location = location.substring(9, location.length)
     let g_api = 'https://maps.googleapis.com/maps/api/geocode/json?address='+location+'&key=AIzaSyDJ34rmsr_o1EDlKqRb9gh-e27atgouO68'
@@ -278,7 +278,7 @@ $(document).on("click", ".show-map", function (e) {
       }});
 
     console.log(geo);
-    let div = $(this).parent().parent();
+    let div = $(this).parent().parent().parent();
     let map_html = '<div id="map"></div> \
     <script> \
     var map = new google.maps.Map(document.getElementById(\'map\'), { \
