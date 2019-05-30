@@ -79,7 +79,7 @@ request URI in order to allow server to filter data that clients are not interes
 
 The resources specified in the OPENAPI are the following ones:
 - **User** (*username*, password, name, surname)
-- **Book** (*isbn*, title, description, price, authorId, themeId, genreId)
+- **Book** (*isbn*, title, description, price, authorId, themeId, genreId, author2, author3, author4)
 - **Author** (*id*, name, surname)
 - **Event** (*id*, name, location, time, bookId)
 - **Theme** (*name*, description)

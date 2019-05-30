@@ -150,6 +150,19 @@ Resources:
           Properties:
             Path: /api/event
             Method: get
+  FindAllEventThisMonthFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: handlers/event/
+      Handler: event.findThisMonth
+      Runtime: nodejs8.10
+      Policies: AmazonDynamoDBFullAccess 
+      Events:
+        FindAllEventThisMonthAPI:
+          Type: Api
+          Properties:
+            Path: /api/event/month/current
+            Method: get
   FindEventByIdFunction:
     Type: AWS::Serverless::Function
     Properties:

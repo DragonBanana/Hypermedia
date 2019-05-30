@@ -31,23 +31,11 @@ exports.findAll = async (event) => {
     if ((parameter = param.getQueryParameter(event, "pageSize")) != null) {
         pageSize = parameter;
     }
-    if ((parameter = param.getQueryParameter(event, "isbn")) != null) {
-        isbn = parameter;
-    }
     let params = {
         TableName: 'bb_event'
     };
     if ((parameter = param.getQueryParameter(event, "isbn")) != null) {
         let isbn = parameter;
-        params.FilterExpression = "#bookId = :bookId";
-        params.ExpressionAttributeNames = {
-            "#bookId": "bookId"
-        };
-        params.ExpressionAttributeValues = {
-            ":bookId": isbn
-        }
-    }
-    if (param.getQueryParameter(event, "isbn")) {
         params.FilterExpression = "#bookId = :bookId";
         params.ExpressionAttributeNames = {
             "#bookId": "bookId"
@@ -97,4 +85,37 @@ exports.findById = async (event) => {
     } else {
         return resp.stringify(null);
     }
+};
+
+/*
+/event/month/current - Find events in this month.
+Example of request: ".../event/month/current"
+*/
+exports.findThisMonth = async (event) => {
+    let page = 1, pageSize = 100, isbn;
+    if ((parameter = param.getQueryParameter(event, "page")) != null) {
+        page = parameter;
+    }
+    if ((parameter = param.getQueryParameter(event, "pageSize")) != null) {
+        pageSize = parameter;
+    }
+    let params = {
+        TableName: 'bb_event'
+    };
+    let dbResult = await db.scan(params);
+    dbResult.Items = dbResult.Items.filter(function (event) {
+        return Number(event.time.toString().slice(5,7)) == (new Date().getMonth() + 1) 
+    })
+    dbResult.Count = dbResult.Items.length;
+    let totalPage = parseInt(dbResult.Count / pageSize);
+    let count = pageSize;
+    if (page > totalPage) {
+        count = dbResult.Count - totalPage * pageSize;
+    }
+    let response = {
+        "Elements": dbResult.Count,
+        "Count": count,
+        "Items": dbResult.Items.slice((page - 1) * pageSize, page * pageSize)
+    }
+    return resp.stringify(200, response);
 };
