@@ -1,4 +1,5 @@
 function checkSessionStatus() {
+    console.log("checking session status");
     if($.cookie("session")) {
         $('#navbar_loginButton').hide();
         $('#navbar_registerButton').hide();
@@ -17,10 +18,5 @@ function logout() {
     $.removeCookie("session", { path: "/" });
     $.removeCookie("session", { path: "/pages" });
     checkSessionStatus();
-}
-
-checkSessionStatus();
-
-function updatePath() {
-    
+    showSuccess("Logout successful")
 }

@@ -29,7 +29,7 @@
     <link rel="icon" href="../assets/img/logo.png" type="image/png" />
 </head>
 
-<body>
+<body onload="checkSessionStatus();">
 
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
@@ -278,6 +278,16 @@
                 <button type="button" class="close"
                     onclick="document.getElementById('message').style.display = 'none';">&times;</button>
                 <a id="error-message"></a>
+            </div>
+        </div>
+    </div>
+    
+    <div id="success">
+        <div style="padding: 5px;">
+            <div id="inner-message" class="alert alert-error">
+                <button type="button" class="close"
+                    onclick="document.getElementById('success').style.display = 'none';">&times;</button>
+                <a id="success-message"></a>
             </div>
         </div>
     </div>

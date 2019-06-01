@@ -401,4 +401,15 @@ function loadFavourite() {
 function showError(text) {
     document.getElementById('message').style.display = 'block';
     $('#error-message').text(text);
+    setTimeout(function (){
+        document.getElementById('message').style.display = 'none';
+      }, 5000);
+}
+
+function showSuccess(text) {
+    document.getElementById('success').style.display = 'block';
+    $('#success-message').text(text);
+    setTimeout(function (){
+        document.getElementById('success').style.display = 'none';
+      }, 3000);
 }

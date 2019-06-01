@@ -683,14 +683,13 @@ ul#best_list li p::first-letter {
     box-shadow: none;
 }
 
-#message {
+#message, #success {
     position: fixed;
     top: 0;
     margin: 80px 10% 0 10%;
     left: 0;
     width: 80%;
     z-index: 1040;
-    background-color: #e74c3c;
     border-radius: 10px;
     display: none;
 }
@@ -699,4 +698,12 @@ ul#best_list li p::first-letter {
     text-align: center;
     margin: 0 auto;
     color: white;
+}
+
+#message {
+    background-color: #e17055;
+}
+
+#success {
+    background-color: #00b894;
 }

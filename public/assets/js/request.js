@@ -60,6 +60,7 @@ function register(username, password, name, surname) {
     .done(function (data) {
         console.log(data);
         $("#id02").hide();
+        showSuccess("User " +username+ "registrated successfully")
     })
     .fail(function (err) {
         showError(err.responseJSON.error);
@@ -192,6 +193,7 @@ function addToCart(isbn, price) {
     })
     .done(function (data) {
         console.log(data);
+        showSuccess("Book " +isbn+" added to cart")
     })
     .fail(function (err) {
         showError(err.responseJSON.error);
