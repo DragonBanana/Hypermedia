@@ -1,5 +1,4 @@
 function checkSessionStatus() {
-    console.log("checking session status");
     if($.cookie("session")) {
         $('#navbar_loginButton').hide();
         $('#navbar_registerButton').hide();

@@ -17,7 +17,8 @@ function gen_book_html(isbn, title, authorId, author, price, theme, genre, descr
         html = html + '<button class="nav-link btn btn-rounded add-to-cart" onclick="addToCart(' + isbn + ',' + price + ')">Add to cart</button>';
     }
     html = html + '<button class="nav-link btn btn-rounded more-details" onclick="gen_single_book('+isbn+')"> More details </button> \
-                    <button class="nav-link btn btn-rounded more-details" onclick="gen_single_author(\''+authorId+'\')"> Author </button></div> \
+                    <button class="nav-link btn btn-rounded more-details" onclick="gen_single_author(\''+authorId+'\')"> Author </button> \
+                    <button class="nav-link btn btn-rounded more-details" onclick="gen_review()"> Reviews </button></div> \
                 </div> \
                 </div> \
                 <hr hr style="height:3px;border:none;color:#DDDDDD;background-color:#DDDDDD;">'
