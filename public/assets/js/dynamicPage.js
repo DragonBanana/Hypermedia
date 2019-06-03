@@ -45,7 +45,6 @@ function gen_author_html(id, name, surname, bio) {
 }
 
 function gen_event_html(id, name, time, book, location) {
-    console.log(id + name + time + book + location);
     let html = '<div class="row book-element"> \
                         <div class="col-xl-3 col-lg-4 col-md-5 col-sm-6 text-center"> \
                         <img class="event-element-image" src="../assets/img/'+ id + '.jpg"> \
@@ -139,8 +138,6 @@ function gen_book_content() {
             }
             $('#element-list-total-elements').text(data.Elements);
             $('#element-list-nav').empty();
-            console.log($('#element-list-total-elements').text());
-            console.log($('#element-list-page-size').text());
             for (i = 0; i < Math.ceil($('#element-list-total-elements').text() / $('#element-list-page-size').text()); i++) {
                 $('#element-list-nav').append(get_book_nav_button(i + 1));
             }
@@ -158,8 +155,6 @@ function gen_author_content() {
             }
             $('#element-list-total-elements').text(data.Elements);
             $('#element-list-nav').empty();
-            console.log($('#element-list-total-elements').text());
-            console.log($('#element-list-page-size').text());
             for (i = 0; i < Math.ceil($('#element-list-total-elements').text() / $('#element-list-page-size').text()); i++) {
                 $('#element-list-nav').append(get_author_nav_button(i + 1));
             }
@@ -177,8 +172,6 @@ function gen_event_content() {
             }
             $('#element-list-total-elements').text(data.Elements);
             $('#element-list-nav').empty();
-            console.log($('#element-list-total-elements').text());
-            console.log($('#element-list-page-size').text());
             for (i = 0; i < Math.ceil($('#element-list-total-elements').text() / $('#element-list-page-size').text()); i++) {
                 $('#element-list-nav').append(get_event_nav_button(i + 1));
             }
@@ -274,11 +267,8 @@ $(document).on("click", ".show-map", function (e) {
     location = location.substring(9, location.length)
     let g_api = 'https://maps.googleapis.com/maps/api/geocode/json?address='+location+'&key=AIzaSyDJ34rmsr_o1EDlKqRb9gh-e27atgouO68'
     $.ajax({url: g_api, async:false, success: function(result){
-        console.log(result);
         geo = result.results[0].geometry.location;
       }});
-
-    console.log(geo);
     let div = $(this).parent().parent().parent();
     let map_html = '<div id="map"></div> \
     <script> \
@@ -288,7 +278,6 @@ $(document).on("click", ".show-map", function (e) {
     }); \
     </script>'
     div.append(map_html);
-    console.log(location);
 });
 
 

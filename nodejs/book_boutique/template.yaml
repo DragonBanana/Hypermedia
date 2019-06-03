@@ -13,7 +13,7 @@ Globals:
   Api:
     EndpointConfiguration: REGIONAL
     Cors: 
-      AllowOrigin: "'http://book-boutique-static.s3-website-eu-west-1.amazonaws.com', 'http://d1tsgi0b3g31ee.cloudfront.net'"
+      AllowOrigin: "'http://book-boutique-static.s3-website-eu-west-1.amazonaws.com'"
       AllowCredentials: true
       AllowMethods: "'GET,POST,DELETE,PUT'"
 
