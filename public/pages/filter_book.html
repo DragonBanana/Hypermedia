@@ -71,13 +71,11 @@
                     </li>
                     <li id="navbar_loginButton" class="nav-item right">
                         <button class="nav-link btn btn-rounded btn-primary"
-                            onclick="document.getElementById('id01').style.display='block'" style="width:auto;"
-                            href="faq.html">SIGN IN</button>
+                            onclick="window.location='login.html'">SIGN IN</button>
                     </li>
                     <li id="navbar_registerButton" class="nav-item">
                         <button class="nav-link btn btn-rounded btn-primary"
-                            onclick="document.getElementById('id02').style.display='block'" style="width:auto;"
-                            href="faq.html" href="faq.html">SIGN UP</button>
+                            onclick="window.location='registration.html'">REGISTER</button>
                     </li>
                     <li id="navbar_userLabel" class="dropdown nav-item right">
                         <a id="navbar_userLabel_username" href="#" class="dropdown-toggle nav-link"
@@ -285,7 +283,7 @@
         </form>
     </div>
 
-    <!-- The Modal (contains the Sign Up form) -->
+    <!-- The Modal (contains the REGISTER form) -->
     <div id="id02" class="modal">
         <form class="modal-content animate" action="/action_page.php">
             <div class="imgcontainer">
@@ -316,7 +314,7 @@
 
                 <button class="modal-button" type="button"
                     onclick="register($('#registerUsername').val(), $('#registerPassword').val(),$('#registerName').val(),$('#registerSurname').val());"
-                    href="#">Sign up</button>
+                    href="#">REGISTER</button>
             </div>
         </form>
     </div>

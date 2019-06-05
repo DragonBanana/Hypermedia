@@ -23,9 +23,10 @@ function login(username, password) {
         $.cookie("session", data.username, {path: "/"});
         $.cookie("session", data.username, {path: "/pages"});
         $("#id01").hide();
+        window.location='../index.html'
         checkSessionStatus();
     })
-    .fail(function () {
+    .fail(function (err) {
         console.log("Error");
         showError(err.responseJSON.error);
     });
@@ -60,7 +61,7 @@ function register(username, password, name, surname) {
     .done(function (data) {
         console.log(data);
         $("#id02").hide();
-        showSuccess("User " +username+ "registrated successfully")
+        showSuccess("User " +username+ " registrated successfully")
     })
     .fail(function (err) {
         showError(err.responseJSON.error);

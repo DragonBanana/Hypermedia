@@ -73,13 +73,11 @@
                     </li>
                     <li id="navbar_loginButton" class="nav-item right">
                         <button class="nav-link btn btn-rounded btn-primary"
-                            onclick="document.getElementById('id01').style.display='block'" style="width:auto;"
-                            href="faq.html">SIGN IN</button>
+                            onclick="window.location='login.html'">SIGN IN</button>
                     </li>
                     <li id="navbar_registerButton" class="nav-item">
                         <button class="nav-link btn btn-rounded btn-primary"
-                            onclick="document.getElementById('id02').style.display='block'" style="width:auto;"
-                            href="faq.html" href="faq.html">SIGN UP</button>
+                            onclick="window.location='registration.html'">REGISTER</button>
                     </li>
                     <li id="navbar_userLabel" class="dropdown nav-item right">
                         <a id="navbar_userLabel_username" href="#" class="dropdown-toggle nav-link"
@@ -360,68 +358,7 @@
         <!-- Copyright -->
 
     </footer>
-    <!-- Footer -->
-    <div id="id01" class="modal">
-
-        <form class="modal-content animate">
-            <div class="imgcontainer">
-                <span onclick="document.getElementById('id01').style.display='none'" class="close"
-                    title="Close Modal">×</span>
-            </div>
-
-            <div class="modal-container">
-                <label><b>Username</b></label>
-                <input id="loginUsername" type="text" class="form-button" placeholder="Enter Username" name="uname"
-                    required>
-
-                <label><b>Password</b></label>
-                <input id="loginPassword" type="password" class="form-button" placeholder="Enter Password" name="psw"
-                    required>
-
-                <button class="modal-button" type="button"
-                    onclick="login($('#loginUsername').val(), $('#loginPassword').val())" href="#">Login</button>
-                <input type="checkbox" checked="checked"> <label>Remember me</label>
-                <span class="psw">Forgot <a href="#">password?</a></span>
-            </div>
-        </form>
-    </div>
-
-    <!-- The Modal (contains the Sign Up form) -->
-    <div id="id02" class="modal">
-        <form class="modal-content animate" action="/action_page.php">
-            <div class="imgcontainer">
-                <span onclick="document.getElementById('id02').style.display='none'" class="close"
-                    title="Close Modal">×</span>
-            </div>
-            <div class="modal-container">
-
-                <label for="name"><b>Name</b></label>
-                <input id="registerName" type="text" class="form-button" placeholder="Enter Name" name="name" required>
-
-                <label for="surname"><b>Surname</b></label>
-                <input id="registerSurname" type="text" class="form-button" placeholder="Enter Surname" name="surname"
-                    required>
-
-                <label for="username"><b>Username</b></label>
-                <input id="registerUsername" type="text" class="form-button" placeholder="Enter Username"
-                    name="username" required>
-
-                <label for="psw"><b>Password</b></label>
-                <input id="registerPassword" type="password" class="form-button" placeholder="Enter Password" name="psw"
-                    required>
-
-                <label>
-                    <p>By creating an account you agree to our <a href="pages/PrivacyPolicy.html" target="_blank">Terms
-                            & Privacy</a>.</p>
-                </label>
-
-                <button class="modal-button" type="button"
-                    onclick="register($('#registerUsername').val(), $('#registerPassword').val(),$('#registerName').val(),$('#registerSurname').val());"
-                    href="#">Sign up</button>
-            </div>
-        </form>
-    </div>
-
+ 
     <div id="message">
         <div style="padding: 5px;">
             <div id="inner-message" class="alert alert-error">
@@ -442,20 +379,6 @@
         </div>
     </div>
 
-    <script>
-        var modal_02 = document.getElementById('id02');
-        var modal_01 = document.getElementById('id01');
-        var modal = document.getElementById("single_page_modal");
-        window.onclick = function (event) {
-            if (event.target == modal_01) {
-                modal_01.style.display = "none";
-            } else if (event.target == modal_02) {
-                modal_02.style.display = "none";
-            } else if (event.target == modal) {
-                modal.remove();
-            }
-        }
-    </script>
 </body>
 
 </html>
