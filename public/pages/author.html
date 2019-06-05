@@ -30,7 +30,7 @@
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
         <div class="container">
-            <a class="navbar-brand" href="index.html" style="color: orange; padding-top: 0.4rem">Book Boutique</a>
+            <a class="navbar-brand" href="../index.html" style="color: orange; padding-top: 0.4rem">Book Boutique</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
                 aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -42,18 +42,20 @@
                             <span class="sr-only">(current)</span>
                         </a>
                     <li class="nav-item">
-                        <a class="nav-link" href="book.html">BOOKS</a>
+                        <a class="nav-link" href="book.html?query=api/book&page=1&page-size=5">BOOKS</a>
                     </li>
                     <li class="nav-item active">
-                        <a class="nav-link" href="author.html">AUTHORS</a>
+                        <a class="nav-link" href="author.html?query=api/author&page=1&page-size=5">AUTHORS</a>
                     </li>
                     <li class="dropdown nav-item">
                         <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown" role="button"
                             aria-haspopup="true" aria-expanded="true"> <span class="nav-label">EVENTS</span> <span
                                 class="caret"></span></a>
                         <ul class="dropdown-menu bg-dark">
-                            <li><a href="event_now.html">THIS&nbsp;MONTH</a></li>
-                            <li><a href="event.html">ALL</a></li>
+                            <li><a
+                                    href="event.html?query=api/event/month/current&page=1&page-size=5">THIS&nbsp;MONTH</a>
+                            </li>
+                            <li><a href="event.html?query=api/event&page=1&page-size=5">ALL</a></li>
                         </ul>
                     </li>
                     <li class="dropdown nav-item">
@@ -77,7 +79,7 @@
                     <li id="navbar_registerButton" class="nav-item">
                         <button class="nav-link btn btn-rounded btn-primary"
                             onclick="document.getElementById('id02').style.display='block'" style="width:auto;"
-                            href="aq.html" href="faq.html">SIGN UP</button>
+                            href="faq.html" href="faq.html">SIGN UP</button>
                     </li>
                     <li id="navbar_userLabel" class="dropdown nav-item right">
                         <a id="navbar_userLabel_username" href="#" class="dropdown-toggle nav-link"
@@ -99,13 +101,16 @@
     <div class="container">
         <div class="row">
             <div id="element-list" class="col-md-12 col-sm-12 " style="padding-top: 100px">
-                <span id="element-list-page" style="display: none">1</span>
-                <span id="element-list-page-size" style="display: none">5</span>
+                <span id="element-list-page" style="display: none"></span>
+                <span id="element-list-page-size" style="display: none"></span>
                 <span id="element-list-total-elements" style="display: none"></span>
-                <span id="element-list-query" style="display: none">api/author?</span>
+                <span id="element-list-query" style="display: none"></span>
                 <div id="element-list-title" class="list-title"></div>
                 <div id="element-list-content"></div>
                 <script>
+                    $('#element-list-query').text(getUrlParameter('query'));
+                    $('#element-list-page').text(getUrlParameter('page'));
+                    $('#element-list-page-size').text(getUrlParameter('page-size'));
                     gen_author_content();
                 </script>
                 <div id="element-list-navigator"></div>
@@ -283,7 +288,7 @@
             </div>
         </div>
     </div>
-    
+
     <div id="success">
         <div style="padding: 5px;">
             <div id="inner-message" class="alert alert-error">

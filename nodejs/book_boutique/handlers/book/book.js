@@ -43,7 +43,8 @@ exports.findAll = async (event) => {
         author = parameter;
     }
     let params = {
-        TableName: 'bb_book'
+        TableName: 'bb_book',
+        ScanIndexForward: true
     };
     if (param.getQueryParameter(event, "theme") && param.getQueryParameter(event, "genre") && param.getQueryParameter(event, "author")) {
         params.FilterExpression = "#themeId = :themeId AND #genreId = :genreId AND #authorId = :authorId";
@@ -175,7 +176,8 @@ exports.findSimilar = async (event) => {
             },
             ExpressionAttributeValues: {
                 ":isbn": isbn
-            }
+            },
+            ScanIndexForward: true
         };
         let dbResult = await db.query(params);
         let theme = dbResult.Items[0].themeId;
@@ -244,7 +246,8 @@ exports.findFavourites = async (event) => {
         },
         ExpressionAttributeValues: {
             ":favourite": "true"
-        }
+        },
+        ScanIndexForward: true
     };
     let dbResult = await db.scan(params);
     let totalPage = parseInt(dbResult.Count / pageSize);
@@ -284,7 +287,8 @@ exports.findBestSellers = async (event) => {
         },
         ExpressionAttributeValues: {
             ":bestSellers": "true"
-        }
+        },
+        ScanIndexForward: true
     };
     let dbResult = await db.scan(params);
     let totalPage = parseInt(dbResult.Count / pageSize);

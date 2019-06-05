@@ -707,3 +707,8 @@ ul#best_list li p::first-letter {
 #success {
     background-color: #00b894;
 }
+
+.single-image{
+    min-width: 60%;
+    max-width: 95%;
+}

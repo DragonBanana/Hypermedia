@@ -41,24 +41,22 @@
                         <a class="nav-link" href="../index.html">HOME
                             <span class="sr-only">(current)</span>
                         </a>
-                    <li class="nav-item">
-                        <a class="nav-link" href="book.html?query=api/book&page=1&page-size=5">BOOKS</a>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="book.html?query=api/book?&page=1&page-size=5">BOOKS</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="author.html?query=api/author&page=1&page-size=5">AUTHORS</a>
+                        <a class="nav-link" href="author.html?query=api/author?&page=1&page-size=5">AUTHORS</a>
                     </li>
                     <li class="dropdown nav-item">
                         <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown" role="button"
                             aria-haspopup="true" aria-expanded="true"> <span class="nav-label">EVENTS</span> <span
                                 class="caret"></span></a>
                         <ul class="dropdown-menu bg-dark">
-                            <li><a
-                                    href="event.html?query=api/event/month/current?&page=1&page-size=5">THIS&nbsp;MONTH</a>
-                            </li>
-                            <li><a href="event.html?query=api/event?&page=1&page-size=5">ALL</a></li>
+                            <li><a href="pages/event.html?query=api/event/month/current?&page=1&page-size=5">THIS&nbsp;MONTH</a></li>
+                            <li><a href="pages/event.html?query=api/event?&page=1&page-size=5">ALL</a></li>
                         </ul>
                     </li>
-                    <li class="dropdown nav-item active">
+                    <li class="dropdown nav-item">
                         <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown" role="button"
                             aria-haspopup="true" aria-expanded="true"> <span class="nav-label">MORE</span> <span
                                 class="caret"></span></a>
@@ -98,96 +96,72 @@
         </div>
     </nav>
 
+
+    <!-- DIV DELLA PAGINA (slider + menù) -->
     <div class="container">
-        <h1 style="padding-top: 100px">Payment Methods</h1>
+        <div class="row">
+            <div class="col-md-2 d-none d-md-block">
+                <div class="sidebarWrapper">
+                    <!-- Sidebar -->
+                    <nav id="sidebar" style="padding-top: 100px">
+                        <ul class="list-unstyled components">
+                            <p style="padding-top: 1rem"><a href="#" style="color: orange"><b>Best</b></a></p>
+                            <ul id="best_list">
+                                <li>
+                                    <p style="color: black"><a class="best_seller_element" href="#">Best Sellers</a></p>
+                                </li>
+                                <li>
+                                    <p style="color: black"><a class="favourite_element" href="#">BB favourites</a></p>
+                                </li>
+                            </ul>
+                            <p style="padding-top: 1rem"><a href="#" style="color: orange"><b>Genres</b></a></p>
+                            <script>
+                                getAllBookGenres()
+                                    .done(function (data) {
+                                        for (i = 0; i < data.Count; i++) {
+                                            $('#genre_list').append('<li><p style="color: black"><a class="genre_element" href="#">' + data.Items[i].name + '</a></p></li>')
+                                        }
+                                    });
+                            </script>
+                            <ul id="genre_list">
+                            </ul>
+                            <p style="padding-top: 1rem"><a href="#" style="color: orange"><b>Themes</b></a></p>
+                            <script>
+                                getAllBookThemes()
+                                    .done(function (data) {
+                                        for (i = 0; i < data.Count; i++) {
+                                            $('#theme_list').append('<li><p style="color: black"><a class="theme_element" href="#">' + data.Items[i].name + '</a></p></li>')
+                                        }
+                                    });
+                            </script>
+                            <ul id="theme_list">
+                            </ul>
+                        </ul>
+                    </nav>
 
-        <p>Buyers can pay with all major credit cards or PayPal.
-            The credit cards we accept are:</p>
-        <ul>
-            <li>Visa</li>
-            <li>MasterCard</li>
-            <li>American Express</li>
-            <li>JCB</li>
-            <li>Union Pay</li>
-        </ul>
-        <p>We do not accept:</p>
-        <ul>
-            <li>Bank notes</li>
-            <li>International money orders</li>
-            <li>Paypal account</li>
-            <li>SKRILL account</li>
-            <li>Bank transfers</li>
-            <li>Payment by installments</li>
-        </ul>
+                </div>
+            </div>
+
+
+
+            <div id="element-list" class="col-md-10 col-sm-12 " style="padding-top: 100px">
+                <span id="element-list-page" style="display: none">1</span>
+                <span id="element-list-page-size" style="display: none">5</span>
+                <span id="element-list-total-elements" style="display: none"></span>
+                <span id="element-list-query" style="display: none">api/book/?</span>
+                <div id="element-list-title" class="list-title"></div>
+                <div id="element-list-content"></div>
+                <script>
+                    gen_book_content();
+                </script>
+                <div id="element-list-navigator"></div>
+                <nav aria-label="...">
+                    <ul id='element-list-nav' class="pagination">
+                    </ul>
+                </nav>
+            </div>
+        </div>
     </div>
-    <div class="container">
-        <h1>Shipping and Returns</h1>
-
-        <h3>Delivery Mode</h3>
-        <p>Book Boutique ships in Italy and in other European countries. The shipping methods you can choose are:</p>
-        <ul>
-            <li>Fast Delivery:
-                <p>Daily shipping by express courier. Delivery within 1-2 working days from product retrieval.</p>
-            </li>
-        </ul>
-        <ul>
-            <li>Standard Delivery:
-                <p>Daily shipping by express courier
-                    Delivery within 3-5 working days from product retrieval.</p>
-            </li>
-        </ul>
-
-        <h3>Shipping Time</h3>
-        <p>The time it takes to deliver your purchases to your home results from this sum: time of preparation of the
-            order for shipping, plus, delivery time by the chosen carrier. The first depends on the availability of the
-            product and refers to the time required to find the products from our suppliers and prepare the package, to
-            then proceed with the shipment. The second depends on the carrier and it is the time it takes the courier to
-            actually deliver the package to your address.</p>
-
-        <h3>Order Cancellation</h3>
-        <p>It is possible to cancel an order until it is still being prepared. You can follow and act on your order on
-            the "My orders" page. if an order has already been prepared and sent, it cannot be canceled.</p>
-
-        <h3>Tracking</h3>
-        <p>You cannot keep track of your orders for now. The functionality is almost complete and will be available
-            soon.</p>
-
-        <h3>Price</h3>
-        <br>
-        <table>
-            <thead>
-                <tr>
-                    <th>Size*</th>
-                    <th>Italy</th>
-                    <th>Other Countries</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Small</td>
-                    <td>Free</td>
-                    <td>1-2€</td>
-                </tr>
-                <tr>
-                    <td>Medium</td>
-                    <td>2€</td>
-                    <td>3-4€</td>
-                </tr>
-                <tr>
-                    <td>Large</td>
-                    <td>3€</td>
-                    <td>5€</td>
-                </tr>
-            </tbody>
-        </table>
-        <br>
-        <p>*Size of book is indicated in its own description.</p>
-        <h3>Other Information</h3>
-        <p>For other frequently information you can find it in <a href="faq.html">this page</a> or you can contact us by
-            complete the form <a href="ContactUs.html">here</a>.</p>
-
-    </div>
-
 
     <!-- Footer -->
     <footer class="page-footer font-small unique-color-dark bg-dark">
@@ -284,6 +258,8 @@
 
     </footer>
     <!-- Footer -->
+
+
     <div id="id01" class="modal">
 
         <form class="modal-content animate">
@@ -354,7 +330,7 @@
             </div>
         </div>
     </div>
-
+    
     <div id="success">
         <div style="padding: 5px;">
             <div id="inner-message" class="alert alert-error">
@@ -379,6 +355,7 @@
             }
         }
     </script>
+
 </body>
 
 </html>

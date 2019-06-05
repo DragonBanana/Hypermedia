@@ -105,6 +105,11 @@ function getAllBookThemes() {
 /*Get books function
 */
 function getAllBooks(query, page, pageSize) {
+    if(query.includes("?")) {
+        query = query + "&";
+    }else{
+        query = query + "?";
+    } 
     var method = query + "page="+ page + "&pageSize="  + pageSize;
     var url = apiServer + method;
     return $.ajax({
