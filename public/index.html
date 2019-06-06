@@ -41,8 +41,28 @@
                         <a class="nav-link" href="index.html">HOME
                             <span class="sr-only">(current)</span>
                         </a>
-                    <li class="nav-item">
-                        <a class="nav-link" href="pages/book.html?query=api/book&page=1&page-size=5">BOOKS</a>
+                    </li>
+                    <li class="dropdown nav-item">
+                        <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown" role="button"
+                            aria-haspopup="true" aria-expanded="true"> <span class="nav-label">BOOKS</span> <span
+                                class="caret"></span></a>
+                        <ul class="dropdown-menu bg-dark">
+                            <li><a href="pages/book.html?query=api/book&page=1&page-size=5">ALL&nbsp;BOOKS</a>
+                            </li>
+                            <li><a href="pages/book.html?query=api/book/bestseller&page=1&page-size=5">BEST&nbsp;SELLING</a>
+                            </li>
+                            <li><a href="pages/book.html?query=api/book/favourite&page=1&page-size=5">OUR&nbsp;FAVOURITE</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="dropdown nav-item">
+                        <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown" role="button"
+                            aria-haspopup="true" aria-expanded="true"> <span class="nav-label">CATEGORIES</span> <span
+                                class="caret"></span></a>
+                        <ul class="dropdown-menu bg-dark">
+                            <li><a href="pages/theme.html">THEMES</a></li>
+                            <li><a href="pages/genre.html">GENRES</a></li>
+                        </ul>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="pages/author.html?query=api/author&page=1&page-size=5">AUTHORS</a>
@@ -52,7 +72,9 @@
                             aria-haspopup="true" aria-expanded="true"> <span class="nav-label">EVENTS</span> <span
                                 class="caret"></span></a>
                         <ul class="dropdown-menu bg-dark">
-                            <li><a href="pages/event.html?query=api/event/month/current&page=1&page-size=5">THIS&nbsp;MONTH</a></li>
+                            <li><a
+                                    href="pages/event.html?query=api/event/month/current&page=1&page-size=5">THIS&nbsp;MONTH</a>
+                            </li>
                             <li><a href="pages/event.html?query=api/event&page=1&page-size=5">ALL</a></li>
                         </ul>
                     </li>
@@ -142,7 +164,7 @@
                 </div>
                 <div class="col-lg-6 order-lg-1">
                     <div class="p-5">
-                        <h2 class="display-4"><a href="pages/book.html" style="color: orange">Books</a> </h2>
+                        <h2 class="display-4"><a href="pages/book.html?query=api/book&page=1&page-size=5" style="color: orange">Books</a> </h2>
                         <p style="font-size: 1.5rem">
                             Explore our website where we selected for you a great variety of books and eBooks.
                             You will find Science fiction, Drama, Fantasy, Biography, Thriller, Romance and Narrative
@@ -166,7 +188,7 @@
                 </div>
                 <div class="col-lg-6">
                     <div class="p-5">
-                        <h2 class="display-4"><a href="pages/author.html" style="color: orange">Authors</a></h2>
+                        <h2 class="display-4"><a href="pages/author.html?query=api/author&page=1&page-size=5" style="color: orange">Authors</a></h2>
                         <p style="font-size: 1.5rem">Find curiosities and informations about many authors from all over
                             the World!
                             Read about great authors such as Paolo Giordano and Joanne Rowling.
@@ -187,7 +209,7 @@
                 </div>
                 <div class="col-lg-6 order-lg-1">
                     <div class="p-5">
-                        <h2 class="display-4"><a href="pages/event.html" style="color:orange ">Events</a></h2>
+                        <h2 class="display-4"><a href="pages/event.html?query=api/event?&page=1&page-size=5" style="color:orange ">Events</a></h2>
                         <p style="font-size: 1.5rem">Events are always a good moment where you can share your passion
                             for books with other people.
                             You will also have the opportunity to get in contacts with your favourite authors. We
@@ -283,13 +305,13 @@
                     <h6 class="text-uppercase font-weight-bold mandarin">Products</h6>
                     <hr class="mb-4 mt-0 d-inline-block mx-auto bg-white" style="width: 60px;">
                     <p>
-                        <a href="pages/book.html">BOOKS</a>
+                        <a href="pages/book.html?query=api/book&page=1&page-size=5">BOOKS</a>
                     </p>
                     <p>
-                        <a href="pages/author.html">AUTHORS</a>
+                        <a href="pages/author.html?query=api/author&page=1&page-size=5">AUTHORS</a>
                     </p>
                     <p>
-                        <a href="pages/event.html">EVENTS</a>
+                        <a href="pages/event.html?query=api/event?&page=1&page-size=5">EVENTS</a>
                     </p>
                     <br>
 

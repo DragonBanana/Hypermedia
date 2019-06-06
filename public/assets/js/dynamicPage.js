@@ -288,36 +288,16 @@ function findEvent(isbn) {
     gen_events("api/event/?isbn=" + isbn + "&", 1, 5)
 }
 
-$(document).on("click", ".genre_element", function (e) {
+$(document).on("click", ".theme-element", function (e) {
     e.preventDefault();
-    $("#element-list-query").text("api/book?genre=" + $(this).text() + "&");
-    $("#element-list-page").text(1);
-    $("#element-list-page-size").text(5);
-    gen_book_content();
+    var theme = $(this).text();
+    gen_books("api/book?theme=" + theme, 1, 5)
 });
 
-$(document).on("click", ".theme_element", function (e) {
+$(document).on("click", ".genre-element", function (e) {
     e.preventDefault();
-    $("#element-list-query").text("api/book?theme=" + $(this).text() + "&");
-    $("#element-list-page").text(1);
-    $("#element-list-page-size").text(5);
-    gen_book_content();
-});
-
-$(document).on("click", ".best_seller_element", function (e) {
-    e.preventDefault();
-    $("#element-list-query").text("api/book/bestseller?");
-    $("#element-list-page").text(1);
-    $("#element-list-page-size").text(5);
-    gen_book_content();
-});
-
-$(document).on("click", ".favourite_element", function (e) {
-    e.preventDefault();
-    $("#element-list-query").text("api/book/favourite?");
-    $("#element-list-page").text(1);
-    $("#element-list-page-size").text(5);
-    gen_book_content();
+    var genre = $(this).text();
+    gen_books("api/book?genre=" + genre, 1, 5)
 });
 
 $(document).on("click", ".author_element", function (e) {

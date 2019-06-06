@@ -708,7 +708,35 @@ ul#best_list li p::first-letter {
     background-color: #00b894;
 }
 
-.single-image{
+.single-image {
     min-width: 60%;
     max-width: 95%;
+}
+
+.macro-list-item-div {
+    display: inline-block;
+    padding: 25px 0;
+    width: 80%;
+    border-radius: 10px;
+    text-align: center;
+    cursor: pointer;
+    margin: 0 10% 3rem 10%;
+    text-transform: uppercase;
+    border: 2px solid black;
+}
+
+@media (min-width: 576px) {
+    .macro-list-item-div {
+        width: 40%;
+        margin: 0 5% 2rem 5%;
+        border: 0px;
+    }
+}
+
+@media (min-width: 768px) {
+    .macro-list-item-div {
+        width: 23.333333%;
+        margin: 0 5% 2rem 5%;
+        border: 0px;
+    }
 }

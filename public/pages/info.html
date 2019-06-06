@@ -41,8 +41,28 @@
                         <a class="nav-link" href="../index.html">HOME
                             <span class="sr-only">(current)</span>
                         </a>
-                    <li class="nav-item">
-                        <a class="nav-link" href="book.html?query=api/book&page=1&page-size=5">BOOKS</a>
+                    </li>
+                    <li class="dropdown nav-item">
+                        <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown" role="button"
+                            aria-haspopup="true" aria-expanded="true"> <span class="nav-label">BOOKS</span> <span
+                                class="caret"></span></a>
+                        <ul class="dropdown-menu bg-dark">
+                            <li><a href="book.html?query=api/book&page=1&page-size=5">ALL&nbsp;BOOKS</a>
+                            </li>
+                            <li><a href="book.html?query=api/book/bestseller&page=1&page-size=5">BEST&nbsp;SELLING</a>
+                            </li>
+                            <li><a href="book.html?query=api/book/favourite&page=1&page-size=5">OUR&nbsp;FAVOURITE</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="dropdown nav-item">
+                        <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown" role="button"
+                            aria-haspopup="true" aria-expanded="true"> <span class="nav-label">CATEGORIES</span> <span
+                                class="caret"></span></a>
+                        <ul class="dropdown-menu bg-dark">
+                            <li><a href="theme.html">THEMES</a></li>
+                            <li><a href="genre.html">GENRES</a></li>
+                        </ul>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="author.html?query=api/author&page=1&page-size=5">AUTHORS</a>
@@ -72,8 +92,8 @@
                         <a class="nav-link" href="cart.html">CART</a>
                     </li>
                     <li id="navbar_loginButton" class="nav-item right">
-                        <button class="nav-link btn btn-rounded btn-primary"
-                            onclick="window.location='login.html'">SIGN IN</button>
+                        <button class="nav-link btn btn-rounded btn-primary" onclick="window.location='login.html'">SIGN
+                            IN</button>
                     </li>
                     <li id="navbar_registerButton" class="nav-item">
                         <button class="nav-link btn btn-rounded btn-primary"
@@ -215,13 +235,13 @@
                     <h6 class="text-uppercase font-weight-bold mandarin">Products</h6>
                     <hr class="mb-4 mt-0 d-inline-block mx-auto bg-white" style="width: 60px;">
                     <p>
-                        <a href="book.html">BOOKS</a>
+                        <a href="book.html?query=api/book&page=1&page-size=5">BOOKS</a>
                     </p>
                     <p>
-                        <a href="author.html">AUTHORS</a>
+                        <a href="author.html?query=api/author&page=1&page-size=5">AUTHORS</a>
                     </p>
                     <p>
-                        <a href="event.html">EVENTS</a>
+                        <a href="event.html?query=api/event?&page=1&page-size=5">EVENTS</a>
                     </p>
                     <br>
 
@@ -282,7 +302,7 @@
 
     </footer>
     <!-- Footer -->
-    
+
     <div id="message">
         <div style="padding: 5px;">
             <div id="inner-message" class="alert alert-error">

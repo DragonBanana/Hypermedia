@@ -46,8 +46,28 @@
                         <a class="nav-link" href="../index.html">HOME
                             <span class="sr-only">(current)</span>
                         </a>
-                    <li class="nav-item">
-                        <a class="nav-link" href="book.html?query=api/book&page=1&page-size=5">BOOKS</a>
+                    </li>
+                    <li class="dropdown nav-item">
+                        <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown" role="button"
+                            aria-haspopup="true" aria-expanded="true"> <span class="nav-label">BOOKS</span> <span
+                                class="caret"></span></a>
+                        <ul class="dropdown-menu bg-dark">
+                            <li><a href="book.html?query=api/book&page=1&page-size=5">ALL&nbsp;BOOKS</a>
+                            </li>
+                            <li><a href="book.html?query=api/book/bestseller&page=1&page-size=5">BEST&nbsp;SELLING</a>
+                            </li>
+                            <li><a href="book.html?query=api/book/favourite&page=1&page-size=5">OUR&nbsp;FAVOURITE</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="dropdown nav-item">
+                        <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown" role="button"
+                            aria-haspopup="true" aria-expanded="true"> <span class="nav-label">CATEGORIES</span> <span
+                                class="caret"></span></a>
+                        <ul class="dropdown-menu bg-dark">
+                            <li><a href="theme.html">THEMES</a></li>
+                            <li><a href="genre.html">GENRES</a></li>
+                        </ul>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="author.html?query=api/author&page=1&page-size=5">AUTHORS</a>
@@ -77,8 +97,8 @@
                         <a class="nav-link" href="cart.html">CART</a>
                     </li>
                     <li id="navbar_loginButton" class="nav-item right">
-                        <button class="nav-link btn btn-rounded btn-primary"
-                            onclick="window.location='login.html'">SIGN IN</button>
+                        <button class="nav-link btn btn-rounded btn-primary" onclick="window.location='login.html'">SIGN
+                            IN</button>
                     </li>
                     <li id="navbar_registerButton" class="nav-item">
                         <button class="nav-link btn btn-rounded btn-primary"
@@ -129,6 +149,16 @@
                         onClick="login($('#loginUsername').val(), $('#loginPassword').val())" href="#">
                         Login
                     </button>
+                </div>
+
+                <div class="text-center w-full p-t-115">
+                    <span class="txt1">
+                        Not a member?
+                    </span>
+
+                    <a class="txt1 bo1 hov1" href="registration.html">
+                        REGISTER now							
+                    </a>
                 </div>
             </div>
         </div>
