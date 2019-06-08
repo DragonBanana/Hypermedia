@@ -21,7 +21,7 @@ function login(username, password) {
     .done(function (data) {
         console.log(data);
         $.cookie("session", data.username, {path: "/"});
-        $.cookie("session", data.username, {path: "/pages"});
+        //$.cookie("session", data.username, {path: "/pages"});
         $("#id01").hide();
         window.location='../index.html'
         checkSessionStatus();

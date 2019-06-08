@@ -492,7 +492,7 @@ ul#best_list li p::first-letter {
 
 @media (min-width: 768px) {
     .container-small {
-        width: 504px;
+        width: 576px;
     }
     #map {
         width: 85%;
@@ -505,7 +505,7 @@ ul#best_list li p::first-letter {
 
 @media (min-width: 992px) {
     .container-small {
-        width: 504px;
+        width: 576px;
     }
     #map {
         width: 80%;
@@ -518,7 +518,7 @@ ul#best_list li p::first-letter {
 
 @media (min-width: 1200px) {
     .container-small {
-        width: 504px;
+        width: 576px;
     }
     #map {
         width: 75%;
@@ -738,5 +738,99 @@ ul#best_list li p::first-letter {
         width: 23.333333%;
         margin: 0 5% 2rem 5%;
         border: 0px;
+    }
+}
+
+.unit-4 {
+    padding: 30px;
+    border-radius: 5px;
+    -webkit-transition: .3s all ease;
+    -o-transition: .3s all ease;
+    transition: .3s all ease;
+    position: relative;
+    top: 0;
+    cursor: pointer;
+    border: 2px solid orange;
+}
+
+.unit-4 .unit-4-icon .icon-wrap {
+    width: 40px;
+    height: 40px;
+    position: relative;
+    border-radius: 50%;
+    display: inline-block;
+    background-color: orange;
+}
+
+.unit-4 .unit-4-icon .icon-wrap span {
+    font-size: 1.5rem;
+    position: absolute;
+    top: 50%;
+    color: #fff !important;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+.unit-4 h3 {
+    font-size: 16px;
+    color: #000;
+    -webkit-transition: .3s all ease;
+    -o-transition: .3s all ease;
+    transition: .3s all ease;
+    text-transform: uppercase;
+}
+
+.unit-4 p {
+    font-weight: 300;
+    font-size: 15px;
+    -webkit-transition: .3s all ease;
+    -o-transition: .3s all ease;
+    transition: .3s all ease;
+    color: rgb(128, 128, 128);
+}
+
+.unit-4 *:last-child {
+    margin-bottom: 0;
+}
+
+.unit-4:hover {
+    background: orange;
+    -webkit-box-shadow: 0 4px 20px -5px rgba(255, 165, 0, 0.4);
+    box-shadow: 0 4px 20px -5px rgba(255, 165, 0, 0.4);
+    top: -7px;
+}
+
+.unit-4:hover .icon-wrap {
+    background-color: #fff;
+}
+
+.unit-4:hover .icon-wrap span {
+    color: orange !important;
+}
+
+.unit-4:hover h3 {
+    color: #fff;
+}
+
+.unit-4:hover p {
+    font-weight: 300;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.unit-4:hover p a {
+    color: #fff;
+}
+
+.section-title {
+    color: #000;
+    font-size: 40px;
+    font-weight: 900;
+}
+
+@media (max-width: 991.98px) {
+    .section-title {
+        font-size: 30px;
     }
 }

@@ -124,12 +124,32 @@
                 <div class="sidebarWrapper">
                     <!-- Sidebar -->
                     <nav id="sidebar" style="padding-top: 100px; width:100%">
+                        <div class="site-section" id="features-section">
+                            <div class="container">
+                                <div class="row mb-3">
+                                    <div class="col-12 text-center">
+                                        <h2 class="section-title mb-3">THEMES</h2>
+                                    </div>
+                                </div>
+                                <div class="row align-items-stretch" id="theme-list">
+                                </div>
+                            </div>
+                        </div>
                         <script>
                             getAllBookThemes()
                                 .done(function (data) {
-                                    var colors = ['#f6e58d', '#ffbe76', '#ff7979', '#f9ca24', '#badc58', '#dff9fb', '#c7ecee', '#6ab04c', '#f9ca24'];
                                     for (i = 0; i < data.Count; i++) {
-                                        $('#sidebar').append('<div class="macro-list-item-div theme-element" style="background:'+ colors[i % colors.length] +'">' + data.Items[i].name + '</div>')
+                                        $('#theme-list').append('<div class="col-md-6 col-lg-4 mb-4 mb-lg-4" \
+                                            onclick="gen_books(\'api/book?theme=' + data.Items[i].name + '\', 1, 5)"> \
+                                            <div class="unit-4 d-block"> \
+                                                <div class="unit-4-icon mb-3"> \
+                                                    <span class="icon-wrap"></span> \
+                                                </div> \
+                                                <div> \
+                                                    <h3>'+data.Items[i].name+'</h3> \
+                                                    <p>'+data.Items[i].description+'</p> \
+                                                </div> \
+                                            </div>')
                                     }
                                 });
                         </script>
