@@ -22,7 +22,6 @@ function login(username, password) {
         console.log(data);
         $.cookie("session", data.username, {path: "/"});
         //$.cookie("session", data.username, {path: "/pages"});
-        $("#id01").hide();
         window.location='../index.html'
         checkSessionStatus();
     })
@@ -60,8 +59,10 @@ function register(username, password, name, surname) {
     })
     .done(function (data) {
         console.log(data);
-        $("#id02").hide();
         showSuccess("User " +username+ " registrated successfully")
+        setTimeout(function () {
+            window.location='../index.html';
+        }, 1000);
     })
     .fail(function (err) {
         showError(err.responseJSON.error);
@@ -125,44 +126,33 @@ function getAllBooks(query, page, pageSize) {
     });
 }
 
+/*Count books function
+*/
+function countAllBooks(query, page, pageSize) {
+    if(query.includes("?")) {
+        query = query + "&";
+    }else{
+        query = query + "?";
+    }
+    query = query.substring(0, 3) + "/count/" + query.substring(4, query.length);
+    var method = query + "page="+ page + "&pageSize="  + pageSize;
+    var url = apiServer + method;
+    return $.ajax({
+        type: "GET",
+        url: url,
+        dataType: 'json',
+        crossDomain: true
+    })
+    .fail(function (err) {
+        console.log(err.responseJSON.error);
+        showError(err.responseJSON.error);
+    });
+}
+
 /*Get book function
 */
 function getBook(isbn) {
     var method = "api/book/" + isbn;
-    var url = apiServer + method;
-    return $.ajax({
-        type: "GET",
-        url: url,
-        dataType: 'json',
-        crossDomain: true
-    })
-    .fail(function (err) {
-        console.log(err.responseJSON.error);
-        showError(err.responseJSON.error);
-    });
-}
-
-/*Get book function
-*/
-function getBestsellerBook() {
-    var method = "api/book/bestseller"
-    var url = apiServer + method;
-    return $.ajax({
-        type: "GET",
-        url: url,
-        dataType: 'json',
-        crossDomain: true
-    })
-    .fail(function (err) {
-        console.log(err.responseJSON.error);
-        showError(err.responseJSON.error);
-    });
-}
-
-/*Get book function
-*/
-function getFavouriteBook() {
-    var method = "api/book/favourite"
     var url = apiServer + method;
     return $.ajax({
         type: "GET",
@@ -288,6 +278,24 @@ function getAllAuthors(query, page, pageSize) {
     });
 }
 
+/*Count authors function
+*/
+function countAllAuthors(query, page, pageSize) {
+    query = query.substring(0, 3) + "/count/" + query.substring(4, query.length);
+    var method = query + "page="+ page + "&pageSize="  + pageSize;
+    var url = apiServer + method;
+    return $.ajax({
+        type: "GET",
+        url: url,
+        dataType: 'json',
+        crossDomain: true
+    })
+    .fail(function (err) {
+        console.log(err.responseJSON.error);
+        showError(err.responseJSON.error);
+    });
+}
+
 /*Get author function
 */
 function getAuthor(id) {
@@ -308,6 +316,24 @@ function getAuthor(id) {
 /*Get events function
 */
 function getAllEvents(query, page, pageSize) {
+    var method = query + "page="+ page + "&pageSize="  + pageSize;
+    var url = apiServer + method;
+    return $.ajax({
+        type: "GET",
+        url: url,
+        dataType: 'json',
+        crossDomain: true
+    })
+    .fail(function (err) {
+        console.log(err.responseJSON.error);
+        showError(err.responseJSON.error);
+    });
+}
+
+/*Count events function
+*/
+function countAllEvents(query, page, pageSize) {
+    query = query.substring(0, 3) + "/count/" + query.substring(4, query.length);
     var method = query + "page="+ page + "&pageSize="  + pageSize;
     var url = apiServer + method;
     return $.ajax({
