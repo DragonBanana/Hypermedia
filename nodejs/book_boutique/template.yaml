@@ -32,6 +32,19 @@ Resources:
           Properties:
             Path: /api/book
             Method: get
+  CountAllBookFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: handlers/book/
+      Handler: book.countFindAll
+      Runtime: nodejs8.10
+      Policies: AmazonDynamoDBFullAccess 
+      Events:
+        CountAllBookAPI:
+          Type: Api
+          Properties:
+            Path: /api/count/book
+            Method: get
   FindBookByISBNFunction:
     Type: AWS::Serverless::Function
     Properties:
@@ -45,7 +58,6 @@ Resources:
           Properties:
             Path: /api/book/{isbn}
             Method: get
-  
   FindSimilarBookByISBNFunction:
     Type: AWS::Serverless::Function
     Properties:
@@ -58,6 +70,19 @@ Resources:
           Type: Api
           Properties:
             Path: /api/book/similar/{isbn}
+            Method: get
+  CountSimilarBookByISBNFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: handlers/book/
+      Handler: book.countFindSimilar
+      Runtime: nodejs8.10
+      Policies: AmazonDynamoDBFullAccess 
+      Events:
+        CountSimilarBookByISBNAPI:
+          Type: Api
+          Properties:
+            Path: /api/count/book/similar/{isbn}
             Method: get
   FindFavouritesBookFunction:
     Type: AWS::Serverless::Function
@@ -72,6 +97,19 @@ Resources:
           Properties:
             Path: /api/book/favourite
             Method: get
+  CountFavouritesBookFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: handlers/book/
+      Handler: book.countFindFavourites
+      Runtime: nodejs8.10
+      Policies: AmazonDynamoDBFullAccess 
+      Events:
+        CountAllFavouriteBookAPI:
+          Type: Api
+          Properties:
+            Path: /api/count/book/favourite
+            Method: get
   FindBestSellersBookFunction:
     Type: AWS::Serverless::Function
     Properties:
@@ -85,6 +123,19 @@ Resources:
           Properties:
             Path: /api/book/bestseller
             Method: get
+  CountBestSellersBookFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: handlers/book/
+      Handler: book.countFindBestSellers
+      Runtime: nodejs8.10
+      Policies: AmazonDynamoDBFullAccess 
+      Events:
+        CountAllBestSellerBookAPI:
+          Type: Api
+          Properties:
+            Path: /api/count/book/bestseller
+            Method: get
   FindAllAuthorFunction:
     Type: AWS::Serverless::Function
     Properties:
@@ -94,9 +145,23 @@ Resources:
       Policies: AmazonDynamoDBFullAccess 
       Events:
         FindAllAuthorAPI:
+
           Type: Api
           Properties:
             Path: /api/author
+            Method: get
+  CountAllAuthorFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: handlers/author/
+      Handler: author.countFindAll
+      Runtime: nodejs8.10
+      Policies: AmazonDynamoDBFullAccess 
+      Events:
+        CountAllAuthorAPI:
+          Type: Api
+          Properties:
+            Path: /api/count/author
             Method: get
   FindAuthorByIdFunction:
     Type: AWS::Serverless::Function
@@ -124,6 +189,19 @@ Resources:
           Properties:
             Path: /api/genre
             Method: get
+  CountAllGenreFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: handlers/genre/
+      Handler: genre.countFindAll
+      Runtime: nodejs8.10
+      Policies: AmazonDynamoDBFullAccess 
+      Events:
+        CountAllGenreAPI:
+          Type: Api
+          Properties:
+            Path: /api/count/genre
+            Method: get
   FindAllThemeFunction:
     Type: AWS::Serverless::Function
     Properties:
@@ -136,6 +214,19 @@ Resources:
           Type: Api
           Properties:
             Path: /api/theme
+            Method: get
+  CountAllThemeFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: handlers/theme/
+      Handler: theme.countFindAll
+      Runtime: nodejs8.10
+      Policies: AmazonDynamoDBFullAccess 
+      Events:
+        CountAllThemeAPI:
+          Type: Api
+          Properties:
+            Path: /api/count/theme
             Method: get
   FindAllEventFunction:
     Type: AWS::Serverless::Function
@@ -150,6 +241,19 @@ Resources:
           Properties:
             Path: /api/event
             Method: get
+  CountAllEventFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: handlers/event/
+      Handler: event.countFindAll
+      Runtime: nodejs8.10
+      Policies: AmazonDynamoDBFullAccess 
+      Events:
+        CountAllEventAPI:
+          Type: Api
+          Properties:
+            Path: /api/count/event
+            Method: get
   FindAllEventThisMonthFunction:
     Type: AWS::Serverless::Function
     Properties:
@@ -162,6 +266,19 @@ Resources:
           Type: Api
           Properties:
             Path: /api/event/month/current
+            Method: get
+  CountAllEventThisMonthFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: handlers/event/
+      Handler: event.countFindThisMonth
+      Runtime: nodejs8.10
+      Policies: AmazonDynamoDBFullAccess 
+      Events:
+        CountAllEventThisMonthAPI:
+          Type: Api
+          Properties:
+            Path: /api/count/event/month/current
             Method: get
   FindEventByIdFunction:
     Type: AWS::Serverless::Function

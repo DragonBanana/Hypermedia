@@ -42,3 +42,20 @@ exports.findAll = async (event) => {
     }
     return resp.stringify(200, response);
 };
+
+/*
+/count/theme - Count all themes.
+Example of request: ".../count/theme?page=3&pageSize=10"
+*/
+exports.countFindAll = async (event) => {
+    let params = {
+        TableName: 'bb_theme',
+        Limit: pageSize,
+    };
+    let dbResult = await db.scan(params);
+    let response = {
+        "Elements": dbResult.Count
+    }
+    return resp.stringify(200, response);
+};
+

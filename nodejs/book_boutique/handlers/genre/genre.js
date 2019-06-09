@@ -42,3 +42,19 @@ exports.findAll = async (event) => {
     }
     return resp.stringify(200, response);
 };
+
+/*
+/count/genre - Find all genres.
+Example of request: ".../count/genre?page=3&pageSize=10"
+*/
+exports.countFindAll = async (event) => {
+    let params = {
+        TableName: 'bb_genre',
+        Limit: pageSize,
+    };
+    let dbResult = await db.scan(params);
+    let response = {
+        "Elements": dbResult.Count
+    }
+    return resp.stringify(200, response);
+};

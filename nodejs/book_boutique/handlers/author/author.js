@@ -70,3 +70,18 @@ exports.findById = async (event) => {
         return resp.stringify(null);
     }
 };
+
+/*
+/count/author - Count all authors.
+Example of request: ".../count/author"
+*/
+exports.countFindAll = async (event) => {
+    let params = {
+        TableName: 'bb_author'
+    };
+    let dbResult = await db.scan(params);
+    let response = {
+        "Elements": dbResult.Count
+    }
+    return resp.stringify(200, response);
+};
