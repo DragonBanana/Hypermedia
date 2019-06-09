@@ -27,12 +27,7 @@ exports.findCartItemsByUsername = async (event) => {
             }
         };
         let dbResult = await db.scan(params);
-        let response = {
-            "Elements": dbResult.Count,
-            "Count": dbResult.Count,
-            "Items": dbResult.Items
-        }
-        return resp.stringify(200, response);
+        return resp.stringify(200, dbResult.Items);
     } else {
         return resp.stringify(null);
     }

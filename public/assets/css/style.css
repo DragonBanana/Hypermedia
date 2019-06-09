@@ -203,6 +203,28 @@ footer div.font {
     padding: 0.35rem 0.5rem 0.25rem 0.5rem;
 }
 
+
+.navbar-nav li.nav-item .btn {
+    font-size: 16px;
+    border-radius: 30px;
+}
+.navbar-nav li.nav-item .btn:hover, .navbar-nav li.nav-item .btn:active, .navbar-nav li.nav-item .btn:focus {
+    outline: none;
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+}
+.navbar-nav li.nav-item .btn.btn-primary {
+    border-width: 2px;
+    background: orange;
+    border-color: orange;
+    color: #fff;
+}
+.navbar-nav li.nav-item .btn.btn-primary:hover {
+    background: transparent;
+    border-color: darkorange;
+    color: #ddd;
+}
+
 @media (min-width: 992px) {
     .navbar-nav li.right {
         margin-left: auto !important;

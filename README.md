@@ -86,6 +86,8 @@ The resources specified in the OPENAPI are the following ones:
 - **Genre** (*name*, description)
 - **Cart** (*username*, *isbn*, quantity, price)
 
+![Alt text](documentation/images/sawgger.png?raw=true "Swagger open api")
+
 ### Data model
 ![Alt text](documentation/images/er_hypermedia.png?raw=true "Architecture")
 ## Implementation

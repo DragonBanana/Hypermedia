@@ -115,17 +115,7 @@ exports.findAll = async (event) => {
         }
     }
     let dbResult = await db.scan(params);
-    let totalPage = parseInt(dbResult.Count / pageSize);
-    let count = pageSize;
-    if (page > totalPage) {
-        count = dbResult.Count - totalPage * pageSize;
-    }
-    let response = {
-        "Elements": dbResult.Count,
-        "Count": count,
-        "Items": dbResult.Items.slice((page - 1) * pageSize, page * pageSize)
-    }
-    return resp.stringify(200, response);
+    return resp.stringify(200, dbResult.Items.slice((page - 1) * pageSize, page * pageSize));
 };
 
 /*
@@ -146,12 +136,7 @@ exports.findByISBN = async (event) => {
             }
         };
         let dbResult = await db.query(params);
-        let response = {
-            "Elements": dbResult.Count,
-            "Count": dbResult.Count,
-            "Items": dbResult.Items
-        }
-        return resp.stringify(200, response);
+        return resp.stringify(200, dbResult.Items);
     } else {
         return resp.stringify(null);
     }
@@ -205,17 +190,7 @@ exports.findSimilar = async (event) => {
             }
         };
         dbResult = await db.scan(params);
-        let totalPage = parseInt(dbResult.Count / pageSize);
-        let count = pageSize;
-        if (page > totalPage) {
-            count = dbResult.Count - totalPage * pageSize;
-        }
-        let response = {
-            "Elements": dbResult.Count,
-            "Count": count,
-            "Items": dbResult.Items.slice((page - 1) * pageSize, page * pageSize)
-        }
-        return resp.stringify(200, response);
+        return resp.stringify(200, dbResult.Items.slice((page - 1) * pageSize, page * pageSize));
     } else {
         return resp.stringify(null);
     }
@@ -250,17 +225,7 @@ exports.findFavourites = async (event) => {
         ScanIndexForward: true
     };
     let dbResult = await db.scan(params);
-    let totalPage = parseInt(dbResult.Count / pageSize);
-    let count = pageSize;
-    if (page > totalPage) {
-        count = dbResult.Count - totalPage * pageSize;
-    }
-    let response = {
-        "Elements": dbResult.Count,
-        "Count": count,
-        "Items": dbResult.Items.slice((page - 1) * pageSize, page * pageSize)
-    }
-    return resp.stringify(200, response);
+    return resp.stringify(200, dbResult.Items.slice((page - 1) * pageSize, page * pageSize));
 };
 
 /*
@@ -291,17 +256,7 @@ exports.findBestSellers = async (event) => {
         ScanIndexForward: true
     };
     let dbResult = await db.scan(params);
-    let totalPage = parseInt(dbResult.Count / pageSize);
-    let count = pageSize;
-    if (page > totalPage) {
-        count = dbResult.Count - totalPage * pageSize;
-    }
-    let response = {
-        "Elements": dbResult.Count,
-        "Count": count,
-        "Items": dbResult.Items.slice((page - 1) * pageSize, page * pageSize)
-    }
-    return resp.stringify(200, response);
+    return resp.stringify(200, dbResult.Items.slice((page - 1) * pageSize, page * pageSize));
 };
 
 /*

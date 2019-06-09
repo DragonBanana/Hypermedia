@@ -179,19 +179,25 @@ function get_event_nav_button(num) {
 function gen_book_content() {
     getAllBooks($("#element-list-query").text(), $("#element-list-page").text(), $("#element-list-page-size").text())
         .done(function (data) {
+            countAllBooks($("#element-list-query").text(), $("#element-list-page").text(), $("#element-list-page-size").text()).
+            done(function (data) {
+                $('#element-list-total-elements').text(data.Elements);
+                $('#element-list-nav').empty();
+                for (i = 0; i < Math.ceil($('#element-list-total-elements').text() / $('#element-list-page-size').text()); i++) {
+                    $('#element-list-nav').append(get_book_nav_button(i + 1));
+                }
+                if(data.Elements === 0) {
+                    showError("No book found");
+                }
+            });
             $('#element-list-content').empty();
             $('#element-list-title').text("Books");
-            for (i = 0; i < data.Count; i++) {
-                let book = data.Items[i];
+            for (i = 0; i < data.length; i++) {
+                let book = data[i];
                 getAuthor(book.authorId).
                     done(function (data) {
-                        $('#element-list-content').append(gen_book_html(book.isbn, book.title, book.authorId, data.Items[0].name + " " + data.Items[0].surname, book.price, book.themeId, book.genreId, book.description));
+                        $('#element-list-content').append(gen_book_html(book.isbn, book.title, book.authorId, data[0].name + " " + data[0].surname, book.price, book.themeId, book.genreId, book.description));
                     })
-            }
-            $('#element-list-total-elements').text(data.Elements);
-            $('#element-list-nav').empty();
-            for (i = 0; i < Math.ceil($('#element-list-total-elements').text() / $('#element-list-page-size').text()); i++) {
-                $('#element-list-nav').append(get_book_nav_button(i + 1));
             }
         });
 }
@@ -201,11 +207,11 @@ function gen_single_book_content() {
         .done(function (data) {
             $('#element-list-content').empty();
             $('#element-list-title').text("Books");
-            for (i = 0; i < data.Count; i++) {
-                let book = data.Items[i];
+            for (i = 0; i < data.length; i++) {
+                let book = data[i];
                 getAuthor(book.authorId).
                     done(function (data) {
-                        $('#element-list-content').append(gen_single_book_html(book.isbn, book.title, book.authorId, data.Items[0].name + " " + data.Items[0].surname, book.price, book.themeId, book.genreId, book.description));
+                        $('#element-list-content').append(gen_single_book_html(book.isbn, book.title, book.authorId, data[0].name + " " + data[0].surname, book.price, book.themeId, book.genreId, book.description));
                     })
             }
             $('#element-list-total-elements').text(data.Elements);
@@ -215,16 +221,22 @@ function gen_single_book_content() {
 function gen_author_content() {
     getAllBooks($("#element-list-query").text(), $("#element-list-page").text(), $("#element-list-page-size").text())
         .done(function (data) {
+            countAllBooks($("#element-list-query").text(), $("#element-list-page").text(), $("#element-list-page-size").text()).
+            done(function (data) {
+                $('#element-list-total-elements').text(data.Elements);
+                $('#element-list-nav').empty();
+                for (i = 0; i < Math.ceil($('#element-list-total-elements').text() / $('#element-list-page-size').text()); i++) {
+                    $('#element-list-nav').append(get_author_nav_button(i + 1));
+                }
+                if(data.Elements === 0) {
+                    showError("No author found");
+                }
+            });
             $('#element-list-content').empty();
             $('#element-list-title').text("Authors");
-            for (i = 0; i < data.Count; i++) {
-                let author = data.Items[i];
+            for (i = 0; i < data.length; i++) {
+                let author = data[i];
                 $('#element-list-content').append(gen_author_html(author.id, author.name, author.surname, author.bio));
-            }
-            $('#element-list-total-elements').text(data.Elements);
-            $('#element-list-nav').empty();
-            for (i = 0; i < Math.ceil($('#element-list-total-elements').text() / $('#element-list-page-size').text()); i++) {
-                $('#element-list-nav').append(get_author_nav_button(i + 1));
             }
         });
 }
@@ -234,8 +246,8 @@ function gen_single_author_content() {
         .done(function (data) {
             $('#element-list-content').empty();
             $('#element-list-title').text("Authors");
-            for (i = 0; i < data.Count; i++) {
-                let author = data.Items[i];
+            for (i = 0; i < data.length; i++) {
+                let author = data[i];
                 $('#element-list-content').append(gen_single_author_html(author.id, author.name, author.surname, author.bio));
             }
             $('#element-list-total-elements').text(data.Elements);
@@ -246,16 +258,22 @@ function gen_single_author_content() {
 function gen_event_content() {
     getAllBooks($("#element-list-query").text(), $("#element-list-page").text(), $("#element-list-page-size").text())
         .done(function (data) {
+            countAllBooks($("#element-list-query").text(), $("#element-list-page").text(), $("#element-list-page-size").text()).
+            done(function (data) {
+                $('#element-list-total-elements').text(data.Elements);
+                $('#element-list-nav').empty();
+                for (i = 0; i < Math.ceil($('#element-list-total-elements').text() / $('#element-list-page-size').text()); i++) {
+                    $('#element-list-nav').append(get_event_nav_button(i + 1));
+                }
+                if(data.Elements === 0) {
+                    showError("No event found");
+                }
+            });
             $('#element-list-content').empty();
             $('#element-list-title').text("Events");
-            for (i = 0; i < data.Count; i++) {
-                let event = data.Items[i];
+            for (i = 0; i < data.length; i++) {
+                let event = data[i];
                 $('#element-list-content').append(gen_event_html(event.id, event.name, event.time, event.bookId, event.location));
-            }
-            $('#element-list-total-elements').text(data.Elements);
-            $('#element-list-nav').empty();
-            for (i = 0; i < Math.ceil($('#element-list-total-elements').text() / $('#element-list-page-size').text()); i++) {
-                $('#element-list-nav').append(get_event_nav_button(i + 1));
             }
         });
 }
@@ -266,14 +284,14 @@ function gen_cart_content() {
             $('#cart-items').empty();
             let title = '<div class="cart-title">Shopping Cart</div>';
             $('#cart-items').append(title);
-            for (i = 0; i < data.Count; i++) {
-                let book = data.Items[i];
+            for (i = 0; i < data.length; i++) {
+                let book = data[i];
                 $('#cart-items').append(gen_cart_item_html(book.isbn, book.quantity, book.price));
             }
             let payment = ' \
             <div> \
                 <button class="nav-link btn btn-rounded more-details" style="margin:1rem auto;" \
-                    onclick="$(\'.cart-item-isbn\').each(function () {deleteAllCartItem($.cookie(\'session\'), $(this).text());$(\'.cart-item\').remove()}) ">Payment</button> \
+                    onclick="$(\'.cart-item-isbn\').each(function () {deleteAllCartItem($.cookie(\'session\'), $(this).text());$(\'.cart-item\').remove()}); showSuccess(\'Payment done\') ">Payment</button> \
             </div>'
             $('#cart-items').append(payment);
         }
@@ -287,18 +305,6 @@ function findSimilar(isbn) {
 function findEvent(isbn) {
     gen_events("api/event/?isbn=" + isbn + "&", 1, 5)
 }
-
-$(document).on("click", ".theme-element", function (e) {
-    e.preventDefault();
-    var theme = $(this).text();
-    gen_books("api/book?theme=" + theme, 1, 5)
-});
-
-$(document).on("click", ".genre-element", function (e) {
-    e.preventDefault();
-    var genre = $(this).text();
-    gen_books("api/book?genre=" + genre, 1, 5)
-});
 
 $(document).on("click", ".author_element", function (e) {
     gen_books("api/book?author=" + $(this).siblings('.authorid').text() + "&", 1, 5)

@@ -45,17 +45,7 @@ exports.findAll = async (event) => {
         }
     }
     let dbResult = await db.scan(params);
-    let totalPage = parseInt(dbResult.Count / pageSize);
-    let count = pageSize;
-    if (page > totalPage) {
-        count = dbResult.Count - totalPage * pageSize;
-    }
-    let response = {
-        "Elements": dbResult.Count,
-        "Count": count,
-        "Items": dbResult.Items.slice((page - 1) * pageSize, page * pageSize)
-    }
-    return resp.stringify(200, response);
+    return resp.stringify(200, dbResult.Items.slice((page - 1) * pageSize, page * pageSize));
 };
 
 /*
@@ -106,12 +96,7 @@ exports.findById = async (event) => {
             }
         };
         let dbResult = await db.query(params);
-        let response = {
-            "Elements": dbResult.Count,
-            "Count": dbResult.Count,
-            "Items": dbResult.Items
-        }
-        return resp.stringify(200, response);
+        return resp.stringify(200, dbResult.Items);
     } else {
         return resp.stringify(null);
     }
@@ -136,18 +121,7 @@ exports.findThisMonth = async (event) => {
     dbResult.Items = dbResult.Items.filter(function (event) {
         return Number(event.time.toString().slice(5,7)) == (new Date().getMonth() + 1) 
     })
-    dbResult.Count = dbResult.Items.length;
-    let totalPage = parseInt(dbResult.Count / pageSize);
-    let count = pageSize;
-    if (page > totalPage) {
-        count = dbResult.Count - totalPage * pageSize;
-    }
-    let response = {
-        "Elements": dbResult.Count,
-        "Count": count,
-        "Items": dbResult.Items.slice((page - 1) * pageSize, page * pageSize)
-    }
-    return resp.stringify(200, response);
+    return resp.stringify(200, dbResult.Items.slice((page - 1) * pageSize, page * pageSize));
 };
 
 /*

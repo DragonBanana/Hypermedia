@@ -138,16 +138,16 @@
                         <script>
                             getAllBookGenres()
                                 .done(function (data) {
-                                    for (i = 0; i < data.Count; i++) {
+                                    for (i = 0; i < data.length; i++) {
                                         $('#genre-list').append('<div class="col-md-6 col-lg-4 mb-4 mb-lg-4" \
-                                            onclick="gen_books(\'api/book?genre=' + data.Items[i].name + '\', 1, 5)"> \
+                                            onclick="gen_books(\'api/book?genre=' + data[i].name + '\', 1, 5)"> \
                                             <div class="unit-4 d-block"> \
                                                 <div class="unit-4-icon mb-3"> \
                                                     <span class="icon-wrap"></span> \
                                                 </div> \
                                                 <div> \
-                                                    <h3>'+data.Items[i].name+'</h3> \
-                                                    <p>'+data.Items[i].description.split('.')[0]+'.</p> \
+                                                    <h3>'+data[i].name+'</h3> \
+                                                    <p>'+data[i].description.split('.')[0]+'.</p> \
                                                 </div> \
                                             </div>')
                                     }
