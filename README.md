@@ -165,7 +165,7 @@ Which technology did you use (relational or a no-SQL database) for managing the 
 ### Task assignment
 Describe here how development tasks have been subdivided among members of the group, e.g.:
 - Ibrahim... //TODO
-- Marco ... //TODO
+- Marco worked on front end (60%), database (10%), documentation (30%).
 - Davide worked on front end (30%), OpenAPI spec (20%) and backend (50% of the time).
 
 ### Analysis of existing API
@@ -173,5 +173,5 @@ Describe here how development tasks have been subdivided among members of the gr
 specification and why (at least two).
 ### Learning outcome
 - Ibrahim //TODO
-- Marco //TODO
+- Marco learnet how to create a frontend website and how to analyse the usability of the site by adopt the user testing method
 - Davide learned how to build serverless applications.
