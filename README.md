@@ -164,7 +164,7 @@ Which technology did you use (relational or a no-SQL database) for managing the 
 - We decided to adopt a no-SQL database for many reason: *curiosity* (we never tried a no-SQL database, so we decided to use this opportunity to try those new and very hyped technologies), *performance* (no-SQL database, usually has more throughput and less latency than common SQL databases) and for *ecosystem* reasons (since we were already using a serverless architecture, the most natural choice is to link the application layer with a data service that has similar features).
 ### Task assignment
 Describe here how development tasks have been subdivided among members of the group, e.g.:
-- Ibrahim... //TODO
+- Ibrahim worked on Front End (75%), Database (5%), Design Document (20%).
 - Marco worked on front end (60%), database (10%), documentation (30%).
 - Davide worked on front end (30%), OpenAPI spec (20%) and backend (50% of the time).
 
@@ -172,6 +172,6 @@ Describe here how development tasks have been subdivided among members of the gr
 4Describe here if you have found relevant APIs that have inspired the OpenAPI
 specification and why (at least two).
 ### Learning outcome
-- Ibrahim //TODO
-- Marco learnet how to create a frontend website and how to analyse the usability of the site by adopt the user testing method
+- Ibrahim learned how to design and implement the frontend of a website with the Boostrap framework.
+- Marco learned how to create a frontend website and how to analyse the usability of the site by adopt the user testing method
 - Davide learned how to build serverless applications.
