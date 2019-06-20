@@ -161,7 +161,7 @@ Describe synthetically why and how did you manage session state, what are the st
 - Cookies. Everyone loves cookies. The web applications uses them in order to save the state of the current session. The only two interaction that can change the state of the cookie is the 'login' and 'logout' actions.
 
 Which technology did you use (relational or a no-SQL database) for managing the data model?
-- We decided to adopt a no-SQL database for many reason: *curiosity* (we never tried a no-SQL database, so we decided to use this opportunity to try those new and very hyped technologies), *performance* (no-SQL database, usually has more throughput and less latency than common SQL databases) and for *ecosystem* reasons (since we were already using a serverless architecture, the most natural choice is to link the application layer with a data service that has similar features).
+- We decided to adopt a no-SQL database for many reasons: *curiosity* (we never tried a no-SQL database, so we decided to use this opportunity to try those new and very hyped technologies), *performance* (no-SQL database, usually has more throughput and less latency than common SQL databases) and for *ecosystem* reasons (since we were already using a serverless architecture, the most natural choice is to link the application layer with a data service that has similar features).
 ### Task assignment
 Describe here how development tasks have been subdivided among members of the group, e.g.:
 - Ibrahim worked on Front End (75% of the time), Database (5%), Design Document (20%).
