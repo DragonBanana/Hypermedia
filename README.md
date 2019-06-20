@@ -11,10 +11,10 @@
 [this address](http://book-boutique-static.s3-website-eu-west-1.amazonaws.com/index.html).
 - Deliverable D2: the YAML or JSON file containing the specification of the app
 API can be found at [this address](http://book-boutique-static.s3-website-eu-west-1.amazonaws.com/backend/spec.yaml).
-- Deliverable D3: the SwaggerUI page of the same API is available at [this address (hosted)] (http://book-boutique-static.s3-website-eu-west-1.amazonaws.com/backend/swagger.html)
+- Deliverable D3: the SwaggerUI page of the same API is available at [this address (hosted)](http://book-boutique-static.s3-website-eu-west-1.amazonaws.com/backend/swaggerui/swagger.html)
 [this address (swagger site)](https://app.swaggerhub.com/apis/DragonBanana/book_boutique/1.0.0).
 - Deliverable D4: the source code of D0 is available as a zip file at
-[this address](https://example.com/backend/swaggerui/app.zip).
+[this address](http://book-boutique-static.s3-website-eu-west-1.amazonaws.com/backend/swaggerui/app.zip).
 - Deliverable D5: the address of the online source control repository is
 available [this address](https://github.com/Ibriaco/Hypermedia). We hereby declare that this is a private repository and, upon request, we will give access to the
 instructors.
