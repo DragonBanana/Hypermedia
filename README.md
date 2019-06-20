@@ -12,7 +12,7 @@
 - Deliverable D2: the YAML or JSON file containing the specification of the app
 API can be found at [this address](http://book-boutique-static.s3-website-eu-west-1.amazonaws.com/backend/spec.yaml).
 - Deliverable D3: the SwaggerUI page of the same API is available at [this address (hosted)](http://book-boutique-static.s3-website-eu-west-1.amazonaws.com/backend/swaggerui/swagger.html)
-[this address (swagger site)](https://app.swaggerhub.com/apis/DragonBanana/book_boutique/1.0.0).
+ and [this address (swagger site)](https://app.swaggerhub.com/apis/DragonBanana/book_boutique/1.0.0) (for the try it out button).
 - Deliverable D4: the source code of D0 is available as a zip file at
 [this address](http://book-boutique-static.s3-website-eu-west-1.amazonaws.com/backend/swaggerui/app.zip).
 - Deliverable D5: the address of the online source control repository is
@@ -151,7 +151,7 @@ We decided to adopt this service as our database because it suits very well with
 
 How did you make sure your web application adheres to the provided OpenAPI specification?
 
-- As previously stated, our HTTP/HTTPS endpoints provided by AWS API Gateway, are directly generated using our OpenAPI documentation file. Among the many jobs AWS API Gateway has, one of them is to check that requests and responses match the OpenAPI specification.
+- As previously stated, our HTTP/HTTPS endpoints provided by AWS API Gateway, are directly generated using our OpenAPI documentation file. Among the many jobs AWS API Gateway has, one of them is to check that requests and responses match the OpenAPI specification (validation).
 
 Why do you think your web application adheres to common practices to partition the web application (static assets vs. application data) ?
 
@@ -164,14 +164,14 @@ Which technology did you use (relational or a no-SQL database) for managing the 
 - We decided to adopt a no-SQL database for many reason: *curiosity* (we never tried a no-SQL database, so we decided to use this opportunity to try those new and very hyped technologies), *performance* (no-SQL database, usually has more throughput and less latency than common SQL databases) and for *ecosystem* reasons (since we were already using a serverless architecture, the most natural choice is to link the application layer with a data service that has similar features).
 ### Task assignment
 Describe here how development tasks have been subdivided among members of the group, e.g.:
-- Ibrahim worked on Front End (75%), Database (5%), Design Document (20%).
-- Marco worked on front end (60%), database (10%), documentation (30%).
-- Davide worked on front end (30%), OpenAPI spec (20%) and backend (50% of the time).
+- Ibrahim worked on Front End (75% of the time), Database (5%), Design Document (20%).
+- Marco worked on Front end (60%), Database (10%), Documentation (30%).
+- Davide worked on Front end (30%), OpenAPI spec (20%) and Backend (50%).
 
 ### Analysis of existing API
-4Describe here if you have found relevant APIs that have inspired the OpenAPI
-specification and why (at least two).
+The API has been inspired by the API provided by Prof. Zaccaria's template (you can find it at [this address](https://github.com/vzaccaria/nodejs-server-server/blob/master/api/swagger.yaml)).
+
 ### Learning outcome
 - Ibrahim learned how to design and implement the frontend of a website with the Boostrap framework.
-- Marco learned how to create a frontend website and how to analyse the usability of the site by adopt the user testing method
+- Marco learned how to create a frontend website and how to analyse the usability of the site by adopt the user testing method.
 - Davide learned how to build serverless applications.

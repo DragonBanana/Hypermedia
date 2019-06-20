@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>README</title>
+  <style>
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<h1 id="documentation-of-the-backend-part">Documentation of the Backend part</h1>
+<blockquote>
+<p>Deliverable D1</p>
+</blockquote>
+<h2 id="general-group-information">General group information</h2>
+<table>
+<thead>
+<tr class="header">
+<th>Member n.</th>
+<th>Role</th>
+<th>First name</th>
+<th>Last Name</th>
+<th>Matricola</th>
+<th>Email address</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>administrator</td>
+<td>Ibrahim</td>
+<td>El Shemy</td>
+<td>920174</td>
+<td><a href="mailto:ibrahim.elshemy@mail.polimi.it">ibrahim.elshemy@mail.polimi.it</a></td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>member</td>
+<td>Marco</td>
+<td>Gasperini</td>
+<td>847650</td>
+<td><a href="mailto:marco1.gasperini@mail.polimi.it">marco1.gasperini@mail.polimi.it</a></td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>member</td>
+<td>Davide Yi Xian</td>
+<td>Hu</td>
+<td>919754</td>
+<td><a href="mailto:davideyi.hu@mail.polimi.it">davideyi.hu@mail.polimi.it</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="links-to-other-deliverables">Links to other deliverables</h2>
+<ul>
+<li>Deliverable D0: the web application is accessible at <a href="http://book-boutique-static.s3-website-eu-west-1.amazonaws.com/index.html">this address</a>.</li>
+<li>Deliverable D2: the YAML or JSON file containing the specification of the app API can be found at <a href="http://book-boutique-static.s3-website-eu-west-1.amazonaws.com/backend/spec.yaml">this address</a>.</li>
+<li>Deliverable D3: the SwaggerUI page of the same API is available at <a href="http://book-boutique-static.s3-website-eu-west-1.amazonaws.com/backend/swaggerui/swagger.html">this address (hosted)</a> and <a href="https://app.swaggerhub.com/apis/DragonBanana/book_boutique/1.0.0">this address (swagger site)</a> (for the try it out button).</li>
+<li>Deliverable D4: the source code of D0 is available as a zip file at <a href="http://book-boutique-static.s3-website-eu-west-1.amazonaws.com/backend/swaggerui/app.zip">this address</a>.</li>
+<li>Deliverable D5: the address of the online source control repository is available <a href="https://github.com/Ibriaco/Hypermedia">this address</a>. We hereby declare that this is a private repository and, upon request, we will give access to the instructors.</li>
+</ul>
+<h2 id="specification">Specification</h2>
+<h3 id="web-architecture">Web Architecture</h3>
+<p><img src="documentation/images/hypermedia_architecture.png?raw=true" title="Architecture" alt="Alt text" /></p>
+<h4 id="presentation-layer">Presentation Layer</h4>
+<p>The presentation layer is the topmost level of the application. It is the layer which users can use to access directly to this project features. It is an e-commerce web application of a bookstore that is accessible from personal computers and smartphones. Exploring the website a user can see catalogs of books, authors and events. The book catalog can be filtered by book themes and genres and it allow users to add books to the cart.</p>
+<p>The presentation layer, as most of the frontend application, uses technologies like HTML, CSS5 and Javascript. It also implements external libraries such as Bootstrap, Google Maps and Slick (an image slider library). The static content of the frontend can be retrieved from an Amazon Web Service: Amazon S3. This service, known also as Simple Storage Service, is an unstructured data storage service that offers industry-leading scalability, data availability, security, and performance.</p>
+<h4 id="application-layer">Application Layer</h4>
+<p>The application layer is pulled out from the presentation tier and, as its own layer, it provides all the logical services such as user registration and authentication, retrieving book, author and event catalogs, easy and basic catalogs filtering and cart management.</p>
+<p>The protocol used in order to offer those features is REST and the data exchanged between clients and servers are in JSON format. This layer uses two Amazon Web Services: AWS API Gateway and AWS Lambda. The first one manages the HTTP endpoints that accept the requests. The second one, written using NodeJS, implements the logical features of the application.</p>
+<h4 id="data-layer">Data Layer</h4>
+<p>The data layer encapsulates the persistence mechanisms and exposes the data. In particular, this layer is used to store data regarding books, events, authors, users and cart items.</p>
+<p>The data layer uses AWS DynamoDB, a key-value and document database that delivers single-digit millisecond performance at any scale. It's not a SQL database and so it has pros, such as good scaling and performance, but it does not have an important property like the ACID one (Atomicity, Consistency, Isolation, Durability).</p>
+<h3 id="api">API</h3>
+<h4 id="rest-compliance">REST compliance</h4>
+<p>The services are exposed through a RESTful API. Web services, built using this architecture, allow the requesting systems to access and manipulate textual representations of web resources by using a uniform and pre-defined set of stateless operations.</p>
+<p>This software architectural style is very popular when software engineers have to design and develope web services. It is based on an client-server architecture and it suits very well with the serverless architecture we decided to adopt. The main reasons we decided to use this architecture are:</p>
+<ul>
+<li><strong>Statelessness</strong>: The client-server communication is constrained by no client context being stored on the server between requests. Each request from any client contains all the information necessary to service the request, and the session state is held in the client.</li>
+<li><strong>Cacheability</strong>: Clients and intermediaries can cache responses. This property improves server performance and user experience (when a data has already been retrieved, there is no need for the server to send it again to the client)</li>
+<li><strong>Popularity</strong>: This property is not related to technical details about the architecture, but it is one of the reason we choose it. Since it is very used in IT world, this architectural design pattern is well documented (so it is easy to use and do troubleshooting) and supported (there are many libraries and frameworks that can simplify backend communication).</li>
+</ul>
+<p>The web application follows all the principles of a REST architecture and it extends it by adding some query parameter in the request URI in order to allow server to filter data that clients are not interested on.</p>
+<h4 id="openapi-resource-models">OpenAPI Resource models</h4>
+<p>The resources specified in the OPENAPI are the following ones:</p>
+<ul>
+<li><strong>User</strong> (<em>username</em>, password, name, surname)</li>
+<li><strong>Book</strong> (<em>isbn</em>, title, description, price, authorId, themeId, genreId, author2, author3, author4)</li>
+<li><strong>Author</strong> (<em>id</em>, name, surname)</li>
+<li><strong>Event</strong> (<em>id</em>, name, location, time, bookId)</li>
+<li><strong>Theme</strong> (<em>name</em>, description)</li>
+<li><strong>Genre</strong> (<em>name</em>, description)</li>
+<li><strong>Cart</strong> (<em>username</em>, <em>isbn</em>, quantity, price) <img src="documentation/images/swagger.png?raw=true" title="Swagger open api" alt="Alt text" /></li>
+</ul>
+<h3 id="data-model">Data model</h3>
+<p><img src="documentation/images/er_hypermedia.png?raw=true" title="Architecture" alt="Alt text" /></p>
+<h2 id="implementation">Implementation</h2>
+<h3 id="tools-used">Tools used</h3>
+<p>In this section we will present the tools, the languages and the frameworks we used in order to develope and deploy the backend of the application.</p>
+<p>We decided to use AWS technologies in order to develope our application: in particular we opted to use the serveless-type services. We will briefly describe what are these services, why we choose them and how we used them.</p>
+<h4 id="serverless-architecture">Serverless architecture.</h4>
+<p>Before introducing the AWS services we used, we'd like to spend two words on the serverless architecture. Serverless is a cloud computing execution model where the cloud provider dynamically manages the allocation and provisioning of servers. A serverless application runs in stateless compute containers that are event-triggered, ephemeral (may last for one invocation), and fully managed by the cloud provider. Its main advantages is that it suits very well for small and medium size project since it is a pay-as-you-go service, it is horizontally scalable and there is no need to design and manage the infrastructure.</p>
+<h4 id="cloudformation">CloudFormation</h4>
+<p>AWS CloudFormation provides a common language for you to describe and provision all the infrastructure resources in your cloud environment. CloudFormation allows you to use a simple text file to model and provision, in an automated and secure manner, all the resources needed for your applications across all regions and accounts. This file serves as the single source of truth for your cloud environment.</p>
+<p>In our case the informations that describe our serverless services are contained in the template.yaml file.</p>
+<h4 id="amazon-s3">Amazon S3</h4>
+<p>Amazon S3, as we already said in the 'web architecture' section is an unstructured data storage service that offers industry-leading scalability, data availability, security, and performance. It can be used to store and protect any amount of data for a range of use cases, such as websites, mobile applications, backup, as a data lake and etc.</p>
+<p>We use this service to store the static content of the data. We configured this service in order to allow all people to access this service (by default it is a private cloud storage, like Dropbox). It is also configured with some particular header in order to allow the resources to be cached.</p>
+<h4 id="aws-api-gateway">AWS API Gateway</h4>
+<p>Amazon API Gateway is a fully managed service that makes it easy for developers to create, publish, maintain, monitor, and secure APIs at any scale.</p>
+<p>In our application it is used to receive all HTTP/HTTPS requests, make some (little) input parameters processing and then forward the requests to AWS Lambda service.</p>
+<p>Since we use the OpenAPI 2.0 protocol to define our API and this service allow the automatic generation of the HTTP/HTTPS endopoint by using an OpenAPI 2.0 document, we seized to opportunity to kill two birds with one stone.</p>
+<h4 id="aws-lambda">AWS Lambda</h4>
+<p>AWS Lambda is the most famous serverless service. It simply lets you run code without provisioning or managing servers. You pay only for the compute time you consume - there is no charge when your code is not running.</p>
+<p>As all technology, it has advantages and drawbacks. We briefly report the main ones:</p>
+<ul>
+<li><strong>Faster development</strong> : Technology stack can be updated in a flexible manner. Identity management, storage are some examples of the concerns of internet applications which are exposed to FaaS or handled by middleware.</li>
+<li><strong>Scaling</strong> : AWS Lambda dynamically scales function execution in response to increased traffic, up the concurrency limit (1000 but can be increased). The provisioning and the scaling of the function is done automatically by the provider.</li>
+<li><strong>Pay as you go</strong> : The basic advantage of this technology is that you only pay for the time your function executes and the resources it needs to execute. So part of the amount of expenses we can have depends on the traffic on our application.</li>
+<li><strong>Startup latency</strong> : It may take a while for a FaaS function to respond. This is the main cons of this technology when developers are using programming languages (like Java) that needs a particular environment in order to be runned. In our case, the functions takes less than 500ms to process a request when it starts from a cold start state and 50ms-100ms when in has been already warmed.</li>
+<li><strong>State</strong> : Serverless functions must be stateless (or stateful implementation can not take advantage of the benefits of this technology). This limitation did not influence our application since it has been designed and developed following the RESTful guidelines, so all of our APIs are stateless.</li>
+</ul>
+<p>For each resource we decide to create an AWS Lambda module. Each module is written in NodeJS and uses AWS-SDK in order to use the Amazon Cloud features. Through some testing we noticed that the best configuration of each function is: 384 MB memory and 30s timeout. Those parameters can be increased to improve latency and throughput or decreased to have less cost.</p>
+<h4 id="amazon-dynamodb">Amazon DynamoDB</h4>
+<p>Amazon DynamoDB is a fully managed proprietary NoSQL database service that supports key-value and document data structures. DynamoDB differs from other Amazon services by allowing developers to purchase a service based on throughput, rather than storage.</p>
+<p>We decided to adopt this service as our database because it suits very well with the serverless architecture. It can be able to autoscale just by enabling the option, so it is able to sustain an high amount of concurrent requests.</p>
+<h3 id="discussion">Discussion</h3>
+<p>How did you make sure your web application adheres to the provided OpenAPI specification?</p>
+<ul>
+<li>As previously stated, our HTTP/HTTPS endpoints provided by AWS API Gateway, are directly generated using our OpenAPI documentation file. Among the many jobs AWS API Gateway has, one of them is to check that requests and responses match the OpenAPI specification (validation).</li>
+</ul>
+<p>Why do you think your web application adheres to common practices to partition the web application (static assets vs. application data) ?</p>
+<ul>
+<li>Static assets (such as images and static web pages) are clearly separated by the logical application layer. In fact, in order to develope and deploy them on the cloud we used two differents Amazon services: S3 (for static contents) and AWS Lambda (for application logic). All web pages (both static and dynamic pages) are rendered on client side and no HTML code are provided by the application layer.</li>
+</ul>
+<p>Describe synthetically why and how did you manage session state, what are the state change triggering actions (e.g., POST to login etc..).</p>
+<ul>
+<li>Cookies. Everyone loves cookies. The web applications uses them in order to save the state of the current session. The only two interaction that can change the state of the cookie is the 'login' and 'logout' actions.</li>
+</ul>
+<p>Which technology did you use (relational or a no-SQL database) for managing the data model?</p>
+<ul>
+<li>We decided to adopt a no-SQL database for many reason: <em>curiosity</em> (we never tried a no-SQL database, so we decided to use this opportunity to try those new and very hyped technologies), <em>performance</em> (no-SQL database, usually has more throughput and less latency than common SQL databases) and for <em>ecosystem</em> reasons (since we were already using a serverless architecture, the most natural choice is to link the application layer with a data service that has similar features).</li>
+</ul>
+<h3 id="task-assignment">Task assignment</h3>
+<p>Describe here how development tasks have been subdivided among members of the group, e.g.:</p>
+<ul>
+<li>Ibrahim worked on Front End (75% of the time), Database (5%), Design Document (20%).</li>
+<li>Marco worked on Front end (60%), Database (10%), Documentation (30%).</li>
+<li>Davide worked on Front end (30%), OpenAPI spec (20%) and Backend (50%).</li>
+</ul>
+<h3 id="analysis-of-existing-api">Analysis of existing API</h3>
+<p>The API has been inspired by the API provided by Prof. Zaccaria's template (you can find it at <a href="https://github.com/vzaccaria/nodejs-server-server/blob/master/api/swagger.yaml">this address</a>).</p>
+<h3 id="learning-outcome">Learning outcome</h3>
+<ul>
+<li>Ibrahim learned how to design and implement the frontend of a website with the Boostrap framework.</li>
+<li>Marco learned how to create a frontend website and how to analyse the usability of the site by adopt the user testing method.</li>
+<li>Davide learned how to build serverless applications.</li>
+</ul>
+</body>
+</html>
