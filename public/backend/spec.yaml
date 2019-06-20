@@ -1,10 +1,8 @@
-swagger: '2.0'
+---
+swagger: "2.0"
 info:
   description: |
-    This is a sample Petstore server.  You can find 
-    out more about Swagger at 
-    [http://swagger.io](http://swagger.io) or on 
-    [irc.freenode.net, #swagger](http://swagger.io/irc/).
+    This is a simple book server.
   version: 1.0.0
   title: book_boutique
   termsOfService: http://swagger.io/terms/
@@ -13,8 +11,8 @@ info:
   license:
     name: Apache 2.0
     url: http://www.apache.org/licenses/LICENSE-2.0.html
-# host: petstore.swagger.io
-# basePath: /v2
+host: i2lfy3dum9.execute-api.eu-west-1.amazonaws.com
+basePath: /Prod/api
 tags:
 - name: book
   description: Books
@@ -30,14 +28,12 @@ tags:
   description: Events
 - name: cart
   description: Carts
-# schemes:
-# - http
 paths:
   /book:
     get:
       tags:
       - book
-      summary: Find all books 
+      summary: Find all books
       operationId: findAll
       produces:
       - application/json
@@ -45,31 +41,41 @@ paths:
       parameters:
       - name: page
         in: query
-        description: The page of the search
+        description: The page of the search (starting from 1)
         required: false
         type: integer
+        default: 1
       - name: pageSize
         in: query
         description: The page-size of the search
         required: false
         type: integer
+        default: 5
       - name: theme
         in: query
         description: The theme of the books
         required: false
         type: string
+        default: solitude
       - name: genre
         in: query
         description: The genre of the books
         required: false
         type: string
+        default: narrative
+      - name: author
+        in: query
+        description: The author of the books
+        required: false
+        type: string
+        default: PaoloGiordano
       responses:
         200:
           description: successful operation
           schema:
             type: array
             items:
-              $ref: '#/definitions/BookResponse'
+              $ref: '#/definitions/Book'
         400:
           description: Invalid status value
   /book/{isbn}:
@@ -87,16 +93,54 @@ paths:
         description: ISBN of the book
         required: true
         type: string
+        default: "9788447394567"
       responses:
         200:
           description: successful operation
           schema:
             type: array
             items:
-              $ref: '#/definitions/BookResponse'
+              $ref: '#/definitions/Book'
         400:
           description: Invalid status value
-  /book/bestselling:
+  /book/similar/{isbn}:
+    get:
+      tags:
+      - book
+      summary: Finds similar books to a book identified by isbn
+      operationId: findSimilarBooksByISBN
+      produces:
+      - application/json
+      - application/xml
+      parameters:
+      - name: isbn
+        in: path
+        description: ISBN of the book
+        required: true
+        type: string
+        default: "9788447394567"
+      - name: page
+        in: query
+        description: The page of the search (starting from 1)
+        required: false
+        type: integer
+        default: 1
+      - name: pageSize
+        in: query
+        description: The page-size of the search
+        required: false
+        type: integer
+        default: 5
+      responses:
+        200:
+          description: successful operation
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Book'
+        400:
+          description: Invalid status value
+  /book/favourite:
     get:
       tags:
       - book
@@ -108,24 +152,26 @@ paths:
       parameters:
       - name: page
         in: query
-        description: The page of the search
+        description: The page of the search (starting from 1)
         required: false
         type: integer
+        default: 1
       - name: pageSize
         in: query
         description: The page-size of the search
         required: false
         type: integer
+        default: 5
       responses:
         200:
           description: successful operation
           schema:
             type: array
             items:
-              $ref: '#/definitions/BookResponse'
+              $ref: '#/definitions/Book'
         400:
           description: Invalid status value
-  /book/favourite:
+  /book/bestseller:
     get:
       tags:
       - book
@@ -137,21 +183,23 @@ paths:
       parameters:
       - name: page
         in: query
-        description: The page of the search
+        description: The page of the search (starting from 1)
         required: false
         type: integer
+        default: 1
       - name: pageSize
         in: query
         description: The page-size of the search
         required: false
         type: integer
+        default: 5
       responses:
         200:
           description: successful operation
           schema:
             type: array
             items:
-              $ref: '#/definitions/BookResponse'
+              $ref: '#/definitions/Book'
         400:
           description: Invalid status value
   /author:
@@ -159,28 +207,30 @@ paths:
       tags:
       - author
       summary: Finds all author
-      operationId: findAllBooks
+      operationId: findAllAuthors
       produces:
       - application/json
       - application/xml
       parameters:
       - name: page
         in: query
-        description: The page of the search
+        description: The page of the search (starting from 1)
         required: false
         type: integer
+        default: 1
       - name: pageSize
         in: query
         description: The page-size of the search
         required: false
         type: integer
+        default: 5
       responses:
         200:
           description: successful operation
           schema:
             type: array
             items:
-              $ref: '#/definitions/AuthorResponse'
+              $ref: '#/definitions/Author'
         400:
           description: Invalid status value
   /author/{id}:
@@ -198,13 +248,14 @@ paths:
         description: ID of the author
         required: true
         type: string
+        default: PaoloGiordano
       responses:
         200:
           description: successful operation
           schema:
             type: array
             items:
-              $ref: '#/definitions/AuthorResponse'
+              $ref: '#/definitions/Author'
         400:
           description: Invalid status value
   /theme:
@@ -219,21 +270,23 @@ paths:
       parameters:
       - name: page
         in: query
-        description: The page of the search
+        description: The page of the search (starting from 1)
         required: false
         type: integer
+        default: 1
       - name: pageSize
         in: query
         description: The page-size of the search
         required: false
         type: integer
+        default: 5
       responses:
         200:
           description: successful operation
           schema:
             type: array
             items:
-              $ref: '#/definitions/ThemeResponse'
+              $ref: '#/definitions/Theme'
         400:
           description: Invalid status value
   /genre:
@@ -248,24 +301,26 @@ paths:
       parameters:
       - name: page
         in: query
-        description: The page of the search
+        description: The page of the search (starting from 1)
         required: false
         type: integer
+        default: 1
       - name: pageSize
         in: query
         description: The page-size of the search
         required: false
         type: integer
+        default: 5
       responses:
         200:
           description: successful operation
           schema:
             type: array
             items:
-              $ref: '#/definitions/GenreResponse'
+              $ref: '#/definitions/Genre'
         400:
           description: Invalid status value
-  /user/login:
+  /login:
     post:
       tags:
       - user
@@ -280,16 +335,18 @@ paths:
         in: query
         required: true
         type: string
+        default: Giacomo
       - name: password
         in: query
         required: true
         type: string
+        default: Password
       responses:
         200:
           description: successful login
         404:
           description: unauthorized
-  /user/register:
+  /register:
     post:
       tags:
       - user
@@ -305,7 +362,7 @@ paths:
         name: body
         required: true
         schema:
-          $ref: "#/definitions/User"
+          $ref: '#/definitions/User'
       responses:
         200:
           description: succesfull registration
@@ -323,29 +380,62 @@ paths:
       parameters:
       - name: page
         in: query
-        description: The page of the search
+        description: The page of the search (starting from 1)
         required: false
         type: integer
+        default: 1
       - name: pageSize
         in: query
         description: The page-size of the search
         required: false
         type: integer
+        default: 5
       - name: isbn
         in: query
-        description: The isbn of the book
+        description: The isbn of the book, if used filter the event by the book ISBN
         required: false
         type: string
+        default: "9788498127547"
       responses:
         200:
           description: successful operation
           schema:
             type: array
             items:
-              $ref: '#/definitions/EventResponse'
+              $ref: '#/definitions/Event'
         400:
           description: Invalid status value
-          
+  /event/month/current:
+    get:
+      tags:
+      - event
+      summary: Finds all events this month
+      operationId: findAllEventsInThisMonth
+      produces:
+      - application/json
+      - application/xml
+      parameters:
+      - name: page
+        in: query
+        description: The page of the search (starting from 1)
+        required: false
+        type: integer
+        default: 1
+      - name: pageSize
+        in: query
+        description: The page-size of the search
+        required: false
+        type: integer
+        default: 5
+      responses:
+        200:
+          description: successful operation
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Event'
+        400:
+          description: Invalid status value
   /event/{id}:
     get:
       tags:
@@ -361,13 +451,14 @@ paths:
         description: Id of the event
         required: true
         type: string
+        default: americanbookfest
       responses:
         200:
           description: successful operation
           schema:
             type: array
             items:
-              $ref: '#/definitions/EventResponse'
+              $ref: '#/definitions/Event'
         400:
           description: Invalid status value
   /cart:
@@ -384,14 +475,10 @@ paths:
         name: body
         required: true
         schema:
-          $ref: "#/definitions/Cart"
+          $ref: '#/definitions/Cart'
       responses:
         200:
           description: successful operation
-          schema:
-            type: array
-            items:
-              $ref: '#/definitions/CartResponse'
         400:
           description: Invalid status value
     put:
@@ -407,14 +494,10 @@ paths:
         name: body
         required: true
         schema:
-          $ref: "#/definitions/Cart"
+          $ref: '#/definitions/Cart'
       responses:
         200:
           description: successful operation
-          schema:
-            type: array
-            items:
-              $ref: '#/definitions/CartResponse'
         400:
           description: Invalid status value
   /cart/{username}:
@@ -432,19 +515,16 @@ paths:
         description: User's cart
         required: true
         type: string
+        default: Giacomo
       responses:
         200:
           description: successful operation
-          schema:
-            type: array
-            items:
-              $ref: '#/definitions/CartResponse'
         400:
           description: Invalid status value
     delete:
       tags:
       - cart
-      summary: Delete a book from user's cart
+      summary: Delete a book from user's cart, it is idempotent (if there is or there is not an object, after this API has been used, the cart item disappear)
       operationId: deleteBookFromCart
       produces:
       - application/json
@@ -455,17 +535,15 @@ paths:
         description: User's cart
         required: true
         type: string
+        default: Giacomo
       - name: isbn
         in: query
         required: true
         type: string
+        default: "9788447394567"
       responses:
         200:
           description: successful operation
-          schema:
-            type: array
-            items:
-              $ref: '#/definitions/Cart'
         400:
           description: Invalid status value
 definitions:
@@ -474,19 +552,24 @@ definitions:
     properties:
       isbn:
         type: string
+        example: "9788447394567"
       title:
         type: string
+        example: The Solitude of Prime Numbers
       description:
         type: string
+        example: description
       authorId:
         type: string
       themeId:
         type: string
+        example: solitude
       genreId:
         type: string
+        example: narrative
       price:
         type: number
-        format: double
+        example: 14.77
   Author:
     type: object
     properties:
@@ -495,6 +578,8 @@ definitions:
       name:
         type: string
       surname:
+        type: string
+      bio:
         type: string
   Event:
     type: object
@@ -529,88 +614,28 @@ definitions:
     properties:
       username:
         type: string
+        example: Giacomo
       name:
         type: string
+        example: Giacomo
       surname:
         type: string
+        example: Rossi
       password:
         type: string
+        example: Password
   Cart:
     type: object
     properties:
       username:
         type: string
+        example: Giacomo
       isbn:
         type: string
+        example: "9788447394567"
       quantity:
-        type: number
+        type: integer
+        example: 1
       price:
-        type: number
-  BookResponse:
-    type: object
-    properties:
-      elements:
-        type: number
-      count:
-        type: number
-      items:
-        type: array
-        items:
-          $ref: '#/definitions/Book'
-  AuthorResponse:
-    type: object
-    properties:
-      elements:
-        type: number
-      count:
-        type: number
-      items:
-        type: array
-        items:
-          $ref: '#/definitions/Author'
-  EventResponse:
-    type: object
-    properties:
-      elements:
-        type: number
-      count:
-        type: number
-      items:
-        type: array
-        items:
-          $ref: '#/definitions/Event'
-  ThemeResponse:
-    type: object
-    properties:
-      elements:
-        type: number
-      count:
-        type: number
-      items:
-        type: array
-        items:
-          $ref: '#/definitions/Theme'
-  GenreResponse:
-    type: object
-    properties:
-      elements:
-        type: number
-      count:
-        type: number
-      items:
-        type: array
-        items:
-          $ref: '#/definitions/Genre'
-  CartResponse:
-    type: object
-    properties:
-      elements:
-        type: number
-      count:
-        type: number
-      items:
-        type: array
-        items:
-          $ref: '#/definitions/Cart'
-basePath: /Prod/api
-host: i2lfy3dum9.execute-api.eu-west-1.amazonaws.com
+        type: integer
+        example: "14.77"

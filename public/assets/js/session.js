@@ -18,4 +18,5 @@ function logout() {
     $.removeCookie("session", { path: "/pages" });
     checkSessionStatus();
     showSuccess("Logout successful")
+    location.reload();
 }
